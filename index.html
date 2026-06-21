@@ -91,6 +91,7 @@ section{position:relative}
 .partner-badge span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--chalk-dim)}
 .hero h1{font-size:clamp(34px,4.3vw,54px);margin:18px 0 0}
 .hero h1 .em{color:var(--blue-soft)}
+.hl{background:var(--canopy);color:#0A0A0C;padding:.02em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .hero-lede{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2vw,23px);line-height:1.4;color:var(--chalk);max-width:34ch;margin:20px 0 0;font-weight:400}
 .hero-sub{font-size:16px;color:var(--chalk);max-width:50ch;margin:18px 0 28px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
@@ -381,6 +382,7 @@ section{position:relative}
 .gnav-item{position:relative}
 .gnav-trigger{background:none;border:none;color:#A7A39A;font-family:'Inter',sans-serif;font-size:14.5px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;transition:color .2s}
 .gnav-link{color:#A7A39A;font-size:14.5px;padding:10px 13px;transition:color .2s}
+.gnav a{text-decoration:none}
 .gnav-trigger:hover,.gnav-link:hover,.gnav-item:hover .gnav-trigger,.gnav-item:focus-within .gnav-trigger{color:#F4F1EA}
 .gnav-caret{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;display:inline-block}
 .gnav-item:hover .gnav-caret,.gnav-item.open .gnav-caret{transform:rotate(-135deg) translateY(1px)}
@@ -395,7 +397,7 @@ section{position:relative}
 .gnav-h{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6F6C64;display:block;margin-bottom:12px}
 .gnav-col a{display:block;color:#F4F1EA;font-size:14.5px;font-weight:500;padding:6px 0;transition:color .2s}
 .gnav-col a:hover{color:#5BB8E0}
-.gnav-col a small{display:block;font-size:12px;color:#6F6C64;font-weight:400;margin-top:2px;font-family:'Inter',sans-serif;letter-spacing:0}
+.gnav-col a small{display:block;font-size:12px;color:#8E8B82;font-weight:400;margin-top:3px;font-family:'Inter',sans-serif;letter-spacing:0}
 .gnav-feature{color:#D4FF3D!important}
 .gnav-feature:hover{color:#E7FF86!important}
 .gnav-stack{display:block;font-family:'JetBrains Mono',monospace;font-size:13px;color:#A7A39A;line-height:1.95}
@@ -549,7 +551,7 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
       <span class="eyebrow">Built by LinkedIn insiders · Scaled by data</span>
       <h1 class="display">We tell you <span class="em">who your buyers actually are.</span></h1>
       <p class="hero-lede serif">Not who you guessed they were. Not who filled out a form. The companies and people genuinely moving toward a decision.</p>
-      <p class="hero-sub">Impactable runs a continuous diagnostic system across eight signal sources, connecting ad behavior, website visitors, and CRM pipeline into one intelligence layer. We diagnose where you are, prescribe the play, and prove what worked. Every month. Every quarter.</p>
+      <p class="hero-sub">Eight signal sources blended into one intelligence layer: ad behavior, website visitors, CRM pipeline. We diagnose where you are, prescribe the play, and prove what worked. Every month. Every quarter.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a strategy call →</a>
         <a class="btn btn-ghost" href="#system">See how the system works</a>
@@ -581,7 +583,7 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">The difference</span>
-      <h2 class="sec-title display" style="text-transform:none">LinkedIn isn't broken. The system around it is.</h2>
+      <h2 class="sec-title display" style="text-transform:none">LinkedIn isn't broken. The <span class="hl">system around it</span> is.</h2>
       <p class="sec-desc">Most agencies hand you channel metrics and call it reporting. We built something different: an intelligence layer that blends real buying behavior into named-account truth. It's the wedge no competitor is connecting.</p>
     </div>
 
@@ -621,7 +623,7 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">The operating system</span>
-      <h2 class="sec-title display" style="text-transform:none">Three capabilities. One continuous cadence.</h2>
+      <h2 class="sec-title display" style="text-transform:none">Three capabilities. <span class="hl">One continuous cadence.</span></h2>
       <p class="sec-desc">Strategic onboarding, the diagnostic Impact Report, and the quarterly EBR aren't separate services. They're one system that gets sharper every cycle, and it's why our clients stay.</p>
     </div>
 
@@ -662,7 +664,7 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Phase 1 · The onboarding sequence</span>
-      <h2 class="sec-title display" style="text-transform:none">We earn the strategy before we spend a dollar.</h2>
+      <h2 class="sec-title display" style="text-transform:none">We earn the strategy <span class="hl">before we spend a dollar.</span></h2>
       <p class="sec-desc">Each diagnostic sharpens the one that follows. You sign off at every step, so the strategy we launch is one you've already validated, not one we hope lands.</p>
     </div>
 
@@ -922,7 +924,7 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Phase 3 · The EBR cadence</span>
-      <h2 class="sec-title display" style="text-transform:none">Every quarter, the system gets smarter.</h2>
+      <h2 class="sec-title display" style="text-transform:none">Every quarter, the system <span class="hl">gets smarter.</span></h2>
       <p class="sec-desc">The Impact Report isn't the end of a cycle. It's the input to the next one. The quarterly business review is where findings convert into a re-set strategy, and the intelligence compounds.</p>
     </div>
 
