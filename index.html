@@ -92,6 +92,28 @@ section{position:relative}
 .hero h1{font-size:clamp(32px,4.3vw,54px);margin:18px 0 0;line-height:1.04;padding-bottom:.04em}
 .hero h1 .em{color:var(--blue-soft)}
 .hl{background:var(--canopy);color:#0A0A0C;padding:.02em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+/* offer ladder */
+.ladder-sec{background:var(--concrete)}
+.cro-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px;align-items:end}
+.rung{border:1px solid var(--line);border-radius:10px;padding:22px 20px;background:var(--asphalt);position:relative;transition:transform .25s,border-color .25s}
+.cro-ladder .rung:nth-child(1){margin-top:72px}
+.cro-ladder .rung:nth-child(2){margin-top:54px}
+.cro-ladder .rung:nth-child(3){margin-top:30px}
+.cro-ladder .rung:nth-child(4){margin-top:14px}
+.rung:hover{transform:translateY(-4px);border-color:var(--blue)}
+.rung.feat{border-color:var(--canopy);box-shadow:inset 0 0 0 1px var(--canopy)}
+.rung-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.rung-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);letter-spacing:.12em}
+.rung-price{font-family:'Archivo Black',sans-serif;font-size:15px;letter-spacing:-.02em;color:var(--blue)}
+.rung-price.free{background:var(--canopy);color:#0A0A0C;padding:3px 9px;border-radius:5px;font-size:13px}
+.rung h4{font-size:15.5px;font-weight:700;color:var(--bone);margin-bottom:8px;line-height:1.2}
+.rung p{font-size:13px;color:var(--chalk);line-height:1.5;margin-bottom:14px}
+.rung-cta{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.02em;color:var(--blue-soft);font-weight:500;display:inline-block}
+.rung-cta:hover{color:var(--bone)}
+.ladder-reassure{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--chalk-dim)}
+.ladder-reassure b{color:var(--canopy);font-weight:500}
+@media(max-width:920px){.cro-ladder{grid-template-columns:1fr 1fr;gap:12px}.cro-ladder .rung{margin-top:0!important}}
+@media(max-width:560px){.cro-ladder{grid-template-columns:1fr}}
 .hero-lede{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2vw,23px);line-height:1.4;color:var(--chalk);max-width:34ch;margin:20px 0 0;font-weight:400}
 .hero-sub{font-size:16px;color:var(--chalk);max-width:50ch;margin:18px 0 28px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
@@ -551,15 +573,15 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
       <span class="eyebrow">Built by LinkedIn insiders · Scaled by data</span>
       <h1 class="display">We tell you <span class="em">who your buyers actually are.</span></h1>
       <p class="hero-lede serif">Not who you guessed they were. Not who filled out a form. The companies and people genuinely moving toward a decision.</p>
-      <p class="hero-sub">Eight signal sources blended into one intelligence layer: ad behavior, website visitors, CRM pipeline. We diagnose where you are, prescribe the play, and prove what worked. Every month. Every quarter.</p>
+      <p class="hero-sub">The only LinkedIn ads agency that engineers your account list <em>before</em> we spend a dollar, writes in your executive voice at scale, and proves revenue — not clicks.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a strategy call →</a>
-        <a class="btn btn-ghost" href="#system">See how the system works</a>
+        <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free Signal Teardown →</a>
+        <a class="btn btn-ghost" href="#start">See where to start</a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><div class="n">$50M+</div><div class="l">Ad spend managed</div></div>
-        <div class="hstat"><div class="n">200+</div><div class="l">Active campaigns</div></div>
-        <div class="hstat"><div class="n">8</div><div class="l">Signal sources, one layer</div></div>
+        <div class="hstat"><div class="n">6.7×</div><div class="l">return on our own LinkedIn spend</div></div>
+        <div class="hstat"><div class="n">5×</div><div class="l">close rate on multi-signal accounts</div></div>
+        <div class="hstat"><div class="n">$50M+</div><div class="l">B2B ad spend managed</div></div>
       </div>
     </div>
 
@@ -1006,13 +1028,57 @@ html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
   </div>
 </section>
 
+<!-- ════ OFFER LADDER ════ -->
+<section class="sec ladder-sec" id="start">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where to start</span>
+      <h2 class="sec-title display" style="text-transform:none">Start light. <span class="hl">Climb when it's proven.</span></h2>
+      <p class="sec-desc">No retainer to begin. Every rung is a fixed-scope, no-brainer next step — and each one graduates into the next. Most clients start with a teardown and climb.</p>
+    </div>
+    <div class="cro-ladder reveal">
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 00</span><span class="rung-price free">Free</span></div>
+        <h4>Signal Teardown</h4>
+        <p>We scan your account and site and show you the named accounts we'd target — and the signal you're missing. 30 minutes, no pitch.</p>
+        <a class="rung-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free teardown →</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 01</span><span class="rung-price">$499</span></div>
+        <h4>Single-Channel Audit</h4>
+        <p>One channel pressure-tested, delivered as an expert video walkthrough plus a 30-minute consult.</p>
+        <a class="rung-cta" href="/intelligence-room.html#audit">Get a channel audit →</a>
+      </div>
+      <div class="rung feat">
+        <div class="rung-top"><span class="rung-n">RUNG 02</span><span class="rung-price">$1,500</span></div>
+        <h4>Foundational Strategy or Impact Report</h4>
+        <p>A custom intelligence room: where to grow, or what to scale, test, and cut. Fixed scope. You own it.</p>
+        <a class="rung-cta" href="/intelligence-room.html">Build your room →</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 03</span><span class="rung-price">Managed</span></div>
+        <h4>Run it with us</h4>
+        <p>LinkedIn, paid search, and the $749/mo Thought Leadership Engine — signal-engineered, run as one system.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">See managed options →</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 04</span><span class="rung-price">Ecosystem</span></div>
+        <h4>Full Ecosystem Management</h4>
+        <p>Every channel compounding, with a quarterly Impact Report that proves revenue — not clicks.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">Full ecosystem →</a>
+      </div>
+    </div>
+    <p class="ladder-reassure">Fixed scope. Fixed price. No retainer to start. <b>Your $499 audit credits to your first month.</b></p>
+  </div>
+</section>
+
 <!-- ════ FINAL CTA ════ -->
 <section class="final">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">Let's grow together</span>
     <h2 class="display" style="text-transform:none;margin-top:16px">Ready to see who your buyers really are?</h2>
-    <p>Book a strategy call and we'll walk you through the system, and where you sit on the maturity curve today.</p>
-    <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to our experts →</a>
+    <p>Start with a free Signal Teardown. We'll show you the named accounts we'd target and where you sit on the maturity curve — no retainer, no pitch.</p>
+    <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free Signal Teardown →</a>
   </div>
 </section>
 
