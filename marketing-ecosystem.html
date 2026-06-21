@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('imp-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <title>The Marketing Ecosystem | How Every Channel Fits Together, Impactable</title>
 <meta name="description" content="Impactable's full marketing ecosystem: how founder-led thought leadership, paid search, LinkedIn, website visitor ID, enrichment, Meta, programmatic, email, creative, and landing pages fit into one compounding demand system, with the data and account journeys behind it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -730,76 +731,128 @@ section{position:relative}
   .sphase-head,.sphase-foot{padding-left:18px;padding-right:18px}
 }
 
+/* ════ GLOBAL NAV (gnav) — shared component, literal colors ════ */
+.gnav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,241,234,0.06)}
+.gnav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.gnav-logo img{height:26px;width:auto;display:block}
+.gnav-menu{display:flex;align-items:center;gap:2px}
+.gnav-item{position:relative}
+.gnav-trigger{background:none;border:none;color:#A7A39A;font-family:'Inter',sans-serif;font-size:14.5px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;transition:color .2s}
+.gnav-link{color:#A7A39A;font-size:14.5px;padding:10px 13px;transition:color .2s}
+.gnav-trigger:hover,.gnav-link:hover,.gnav-item:hover .gnav-trigger,.gnav-item:focus-within .gnav-trigger{color:#F4F1EA}
+.gnav-caret{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;display:inline-block}
+.gnav-item:hover .gnav-caret,.gnav-item.open .gnav-caret{transform:rotate(-135deg) translateY(1px)}
+.gnav-cta{margin-left:10px;font-size:13px;padding:11px 20px}
+.gnav-mega{position:absolute;top:calc(100% + 12px);right:0;background:#121217;border:1px solid rgba(244,241,234,0.10);border-radius:10px;padding:24px 26px;box-shadow:0 30px 70px rgba(0,0,0,0.55);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;z-index:120}
+.gnav-mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.gnav-item:hover .gnav-mega,.gnav-item:focus-within .gnav-mega,.gnav-item.open .gnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.gnav-grid{display:grid;gap:22px 36px}
+.gnav-grid.svc{grid-template-columns:repeat(3,minmax(184px,1fr))}
+.gnav-h{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6F6C64;display:block;margin-bottom:12px}
+.gnav-col a{display:block;color:#F4F1EA;font-size:14.5px;font-weight:500;padding:6px 0;transition:color .2s}
+.gnav-col a:hover{color:#5BB8E0}
+.gnav-col a small{display:block;font-size:12px;color:#6F6C64;font-weight:400;margin-top:2px;font-family:'Inter',sans-serif;letter-spacing:0}
+.gnav-feature{color:#D4FF3D!important}
+.gnav-feature:hover{color:#E7FF86!important}
+.gnav-toggle{display:none;background:none;border:none;color:#F4F1EA;font-size:22px;cursor:pointer;line-height:1}
+@media(max-width:860px){
+  .gnav-menu{display:none}
+  .gnav-toggle{display:block}
+  .gnav-menu.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#121217;border-bottom:1px solid rgba(244,241,234,0.10);padding:12px 22px 22px;max-height:calc(100vh - 72px);overflow-y:auto}
+  .gnav-item{width:100%}
+  .gnav-trigger{width:100%;justify-content:space-between;font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(244,241,234,0.06)}
+  .gnav-link{font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(244,241,234,0.06)}
+  .gnav-mega{position:static;opacity:1;visibility:hidden;pointer-events:none;transform:none;box-shadow:none;border:none;background:transparent;padding:0;max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .gnav-item.open .gnav-mega{visibility:visible;pointer-events:auto;max-height:1400px;padding:8px 0 16px 10px}
+  .gnav-mega::before{display:none}
+  .gnav-grid.svc{grid-template-columns:1fr;gap:18px}
+  .gnav-cta{margin:16px 0 0;width:100%;justify-content:center;font-size:14px;padding:14px}
+}
+
+/* ════ THEME TOGGLE + LIGHT MODE ════ */
+.gnav-theme{background:none;border:1px solid rgba(244,241,234,0.18);color:#F4F1EA;width:34px;height:34px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:15px;margin-left:8px;transition:border-color .2s,color .2s}
+.gnav-theme:hover{border-color:#5BB8E0;color:#5BB8E0}
+.gnav-theme-lb{display:none}
+@media(max-width:860px){.gnav-theme{width:100%;justify-content:flex-start;gap:10px;border:none;border-top:1px solid rgba(244,241,234,0.06);border-radius:0;padding:15px 2px;margin:0;font-size:16px}.gnav-theme-lb{display:inline}}
+
+/* ---- LIGHT THEME ---- */
+html[data-theme="light"]{
+  --asphalt:#F4F1EA;--concrete:#FFFFFF;--court:#F1ECE1;
+  --line:rgba(12,12,16,0.14);--line-soft:rgba(12,12,16,0.07);
+  --bone:#16161B;--chalk:#4D4A44;--chalk-dim:#726F67;--blue-soft:#1580AE;--canopy:#2C8A0C;
+}
+html[data-theme="light"] body{background:var(--asphalt);color:var(--bone)}
+html[data-theme="light"] .gnav{background:rgba(244,241,234,0.88);border-bottom:1px solid rgba(12,12,16,0.10)}
+html[data-theme="light"] .gnav-logo img,html[data-theme="light"] .foot-logo img{filter:brightness(0)}
+html[data-theme="light"] .gnav-trigger,html[data-theme="light"] .gnav-link,html[data-theme="light"] .gnav-toggle{color:#4D4A44}
+html[data-theme="light"] .gnav-trigger:hover,html[data-theme="light"] .gnav-link:hover,html[data-theme="light"] .gnav-item:hover .gnav-trigger{color:#16161B}
+html[data-theme="light"] .gnav-mega{background:#FFFFFF;border-color:rgba(12,12,16,0.12);box-shadow:0 30px 70px rgba(20,20,30,0.18)}
+html[data-theme="light"] .gnav-h{color:#8A877F}
+html[data-theme="light"] .gnav-col a{color:#16161B}
+html[data-theme="light"] .gnav-col a:hover{color:#1580AE}
+html[data-theme="light"] .gnav-col a small{color:#8A877F}
+html[data-theme="light"] .gnav-feature{color:#2C8A0C!important}
+html[data-theme="light"] .gnav-theme{border-color:rgba(12,12,16,0.18);color:#16161B}
+html[data-theme="light"] .gnav-theme:hover{border-color:#1580AE;color:#1580AE}
+html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:rgba(12,12,16,0.12)}
+html[data-theme="light"] .btn-ghost{color:#16161B}
+/* eyebrow pop */
+html[data-theme="light"] .eyebrow{color:#1B9BD1}
+html[data-theme="light"] .eyebrow::before{background:#1B9BD1}
+/* vivid color-blocked closing CTA (core colors) */
+html[data-theme="light"] .final{background:linear-gradient(120deg,#D4FF3D 0%,#6FE0EC 52%,#1B9BD1 100%)}
+html[data-theme="light"] .final h2,html[data-theme="light"] .final p{color:#0A1216}
+html[data-theme="light"] .final .eyebrow{color:#0A1216}
+html[data-theme="light"] .final .eyebrow::before{background:#0A1216}
+html[data-theme="light"] .final .btn-primary{background:#0A0A0C;color:#FFFFFF}
+/* rotate visual/diagram blocks to DARK for dynamic contrast (neon restored within) */
+html[data-theme="light"] .spec,
+html[data-theme="light"] .omap,
+html[data-theme="light"] .jgrid,
+html[data-theme="light"] .stack-mini{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;--canopy:#D4FF3D;color:#F4F1EA}
+
 </style>
 
 </head>
 <body>
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a class="nav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
-    <div class="nav-links" id="navLinks">
-      <div class="nav-item">
-        <button class="nav-trigger" type="button">LinkedIn Ads <span class="caret">&#9662;</span></button>
-        <div class="nav-panel simple">
-          <a class="ddlink" href="/linkedin-launch"><span class="dt">Getting Started</span><span class="ds">New LinkedIn advertisers</span></a>
-          <a class="ddlink" href="/linkedin-scale"><span class="dt">Scale &amp; Improve</span><span class="ds">Existing LinkedIn advertisers</span></a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-trigger" type="button">Services <span class="caret">&#9662;</span></button>
-        <div class="nav-panel simple">
-          <a class="ddlink" href="/linkedin-scale"><span class="dt">LinkedIn Ads Management</span><span class="ds">Full-funnel LinkedIn campaigns</span></a>
-          <a class="ddlink" href="https://impactable.com/google-ads/"><span class="dt">B2B Paid Search</span><span class="ds">Google Ads for B2B</span></a>
-          <a class="ddlink" href="https://impactable.com/facebook-ads/"><span class="dt">Meta Ads</span><span class="ds">Facebook &amp; Instagram, B2B</span></a>
-          <a class="ddlink" href="https://impactable.com/programmatic-retargeting/"><span class="dt">Programmatic</span><span class="ds">Display, native, CTV</span></a>
-          <a class="ddlink" href="https://impactable.com/b2b-creative-services"><span class="dt">Creative &amp; Landing Pages</span><span class="ds">B2B ad creative that converts</span></a>
-          <a class="ddlink" href="https://impactable.com/automated-messaging/"><span class="dt">Lead Gen &amp; Nurture</span><span class="ds">LinkedIn outreach + nurture</span></a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-trigger" type="button">Tools &amp; Expertise <span class="caret">&#9662;</span></button>
-        <div class="nav-panel mega">
-          <div class="mega-col">
-            <div class="mega-cat"><span>Signal, attribution &amp; controls</span><span class="ci">01</span></div>
-            <a class="tool" href="https://impactable.com/dgp-linkedin-ads-tools/"><span class="tinfo"><span class="tnm">DemandSense</span><span class="tds">LinkedIn attribution, scheduling, audience controls</span></span><span class="own">Ours</span></a>
-            <a class="tool" href="https://impactable.com/identify-website-visitors-activation/"><span class="tinfo"><span class="tnm">Website Visitor ID</span><span class="tds">De-anonymize site traffic into named accounts</span></span></a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-cat"><span>Account &amp; list building</span><span class="ci">02</span></div>
-            <a class="tool" href="/tools#building"><span class="tinfo"><span class="tnm">Clay</span><span class="tds">Orchestrated, waterfall enrichment</span></span></a>
-            <a class="tool" href="/tools#building"><span class="tinfo"><span class="tnm">Apollo &middot; ZoomInfo</span><span class="tds">Contact discovery &amp; firmographics</span></span></a>
-            <a class="tool" href="/tools#building"><span class="tinfo"><span class="tnm">BuiltWith &middot; Wappalyzer</span><span class="tds">Technographic targeting</span></span></a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-cat"><span>Outreach &amp; nurture</span><span class="ci">03</span></div>
-            <a class="tool" href="/tools#outreach"><span class="tinfo"><span class="tnm">HeyReach &middot; Instantly</span><span class="tds">LinkedIn outreach &amp; cold email at scale</span></span></a>
-            <a class="tool" href="/tools#outreach"><span class="tinfo"><span class="tnm">Klaviyo</span><span class="tds">Lifecycle email automation</span></span></a>
-            <a class="tool" href="/tools#outreach"><span class="tinfo"><span class="tnm">HubSpot</span><span class="tds">CRM, pipeline &amp; nurture</span></span></a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-cat"><span>Automation &amp; AI</span><span class="ci">04</span></div>
-            <a class="tool" href="/tools#ai"><span class="tinfo"><span class="tnm">Zapier &middot; Make &middot; n8n</span><span class="tds">Workflow automation across the stack</span></span></a>
-            <a class="tool" href="/tools#ai"><span class="tinfo"><span class="tnm">Claude &middot; OpenAI</span><span class="tds">AI insights &amp; data analysis</span></span></a>
-          </div>
-          <div class="mega-foot">
-            <span class="mfn">The connected stack behind the intelligence system.</span>
-            <a href="/tools">See the full stack &rarr;</a>
+<!-- ════ GLOBAL NAV ════ -->
+<nav class="gnav">
+  <div class="gnav-inner">
+    <a class="gnav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <button class="gnav-toggle" id="gnavToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <div class="gnav-menu" id="gnavMenu">
+
+      <div class="gnav-item">
+        <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="gnav-caret"></span></button>
+        <div class="gnav-mega">
+          <div class="gnav-grid svc">
+            <div class="gnav-col">
+              <span class="gnav-h">Paid Media</span>
+              <a href="https://impactable.com/paid-ads/">LinkedIn Ads<small>Our core channel</small></a>
+              <a href="https://impactable.com/google-ads/">Paid Search<small>B2B Google &amp; Microsoft Ads</small></a>
+              <a href="https://impactable.com/programmatic-retargeting/">Programmatic<small>Display &amp; retargeting</small></a>
+              <a href="https://impactable.com/paid-ads/">Meta<small>Paid social beyond LinkedIn</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Signature</span>
+              <a class="gnav-feature" href="https://impactable.com/paid-ads/">★ LinkedIn + Paid Search<small>Our highest-leverage combo</small></a>
+              <a href="https://impactable.com/identify-website-visitors-activation/">Audience Engineering + Activation<small>Visitor ID, list building, activation</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">By where you are</span>
+              <a href="/linkedin-launch.html">New to LinkedIn Ads<small>Launch on a validated system</small></a>
+              <a href="/linkedin-scale.html">Scaling LinkedIn Ads<small>Already live, ready to grow</small></a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="nav-item">
-        <button class="nav-trigger" type="button">Resources <span class="caret">&#9662;</span></button>
-        <div class="nav-panel simple">
-          <a class="ddlink" href="https://impactable.com/blog/"><span class="dt">Growth Lab</span><span class="ds">Blog &amp; insights</span></a>
-          <a class="ddlink" href="https://impactable.com/b2b-marketing-resources/"><span class="dt">Free Guides</span><span class="ds">B2B strategies &amp; playbooks</span></a>
-          <a class="ddlink" href="https://impactable.com/category/case-studies/"><span class="dt">Case Studies</span><span class="ds">Proof &amp; results</span></a>
-          <a class="ddlink" href="https://impactable.com/events/"><span class="dt">Events</span><span class="ds">Webinars &amp; live sessions</span></a>
-        </div>
-      </div>
-      <div class="nav-item"><a href="https://impactable.com/impactable-about-us/">About</a></div>
-      <a class="btn btn-primary nav-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+
+      <a class="gnav-link" href="/marketing-ecosystem.html">Marketing Ecosystem</a>
+      <a class="gnav-link" href="/intelligence-room.html">Strategy + Diagnostics</a>
+      <a class="gnav-link" href="https://impactable.com/category/case-studies/">Results</a>
+      <button class="gnav-theme" id="gnavTheme" aria-label="Switch theme"><span class="gnav-theme-ic">🌙</span><span class="gnav-theme-lb">Dark mode</span></button>
+      <a class="btn btn-primary gnav-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
   </div>
 </nav>
 
@@ -1272,17 +1325,27 @@ section{position:relative}
   </div>
 </footer>
 <script>
-document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');});
-document.querySelectorAll('.nav-item .nav-trigger').forEach(function(t){
-  t.addEventListener('click',function(e){
-    if(window.innerWidth<=1000){
+// global nav + theme
+(function(){
+  var t=document.getElementById('gnavToggle'),m=document.getElementById('gnavMenu');
+  if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
+  document.querySelectorAll('.gnav-item .gnav-trigger').forEach(function(btn){
+    btn.addEventListener('click',function(e){
       e.preventDefault();
-      var item=t.parentElement;var open=item.classList.contains('expanded');
-      document.querySelectorAll('.nav-item.expanded').forEach(function(i){if(i!==item)i.classList.remove('expanded');});
-      item.classList.toggle('expanded',!open);
-    }
+      var item=btn.parentElement,willOpen=!item.classList.contains('open');
+      document.querySelectorAll('.gnav-item.open').forEach(function(i){if(i!==item)i.classList.remove('open');});
+      item.classList.toggle('open',willOpen);
+      btn.setAttribute('aria-expanded',willOpen);
+    });
   });
-});
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.gnav-item')){document.querySelectorAll('.gnav-item.open').forEach(function(i){i.classList.remove('open');});}
+  });
+  var themeBtn=document.getElementById('gnavTheme');
+  function syncTheme(){var dark=document.documentElement.getAttribute('data-theme')==='dark';if(themeBtn){var ic=themeBtn.querySelector('.gnav-theme-ic'),lb=themeBtn.querySelector('.gnav-theme-lb');if(ic)ic.textContent=dark?'☀':'🌙';if(lb)lb.textContent=dark?'Light mode':'Dark mode';}}
+  syncTheme();
+  if(themeBtn){themeBtn.addEventListener('click',function(){var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',next);try{localStorage.setItem('imp-theme',next);}catch(e){}syncTheme();});}
+})();
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
