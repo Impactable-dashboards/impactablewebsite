@@ -116,6 +116,51 @@ section{position:relative}
 .sys-node .sn-d{font-size:14px;color:var(--chalk-dim);font-family:'JetBrains Mono',monospace;letter-spacing:0.02em}
 .sys-node.loop::before{border-color:var(--canopy)}
 
+/* ── hero channel showcase ── */
+.hero-center{max-width:1180px;margin:0 auto;text-align:center}
+.hero-center .eyebrow{justify-content:center}
+.hero h1.chan-h1{font-size:clamp(40px,5vw,68px);margin:20px auto 0;max-width:18ch;line-height:1.0}
+.hero-promise{font-size:20px;color:var(--chalk);max-width:60ch;margin:20px auto 0}
+.hero-center .hero-cta{justify-content:center;margin-top:30px}
+.chan-rail{
+  margin:48px auto 0;max-width:1120px;position:relative;
+  display:grid;grid-template-columns:repeat(4,1fr) 1.18fr;gap:16px;align-items:stretch;
+}
+/* connecting line tying the channels into one system */
+.chan-rail::before{
+  content:"";position:absolute;left:4%;right:4%;top:38px;height:2px;z-index:0;
+  background:linear-gradient(90deg,var(--blue),var(--canopy));opacity:.55;
+}
+.chan-tile{
+  position:relative;z-index:1;text-align:left;
+  border:1px solid var(--line);border-radius:10px;padding:24px 22px 22px;
+  background:linear-gradient(165deg,#15151b,#0c0c10);
+  transition:border-color .25s,transform .25s;display:flex;flex-direction:column;
+}
+.chan-tile:hover{border-color:var(--blue);transform:translateY(-4px)}
+.chan-node{
+  width:14px;height:14px;border-radius:50%;background:var(--asphalt);
+  border:3px solid var(--blue);margin-bottom:18px;
+}
+.chan-tile .chan-role{
+  font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--blue-soft);margin-bottom:9px;
+}
+.chan-tile .chan-name{
+  font-family:'Archivo Black',sans-serif;font-size:clamp(20px,1.9vw,26px);
+  letter-spacing:-0.02em;line-height:1.02;color:var(--bone);text-transform:none;
+}
+.chan-tile .chan-d{font-size:14px;color:var(--chalk-dim);line-height:1.45;margin-top:10px}
+/* the orchestration node, accented lime */
+.chan-tile.hub{
+  border-color:rgba(212,255,61,0.45);
+  background:linear-gradient(160deg,rgba(212,255,61,0.10),#0c0c10);
+}
+.chan-tile.hub .chan-node{border-color:var(--canopy);background:var(--canopy)}
+.chan-tile.hub .chan-role{color:var(--canopy)}
+.chan-tile.hub .chan-name{color:var(--canopy)}
+.chan-tile.hub .chan-d{color:var(--chalk)}
+
 /* ── generic section header ── */
 .sec{padding:92px 0;border-bottom:1px solid var(--line-soft)}
 .sec-head{max-width:760px;margin-bottom:52px}
@@ -548,6 +593,9 @@ section{position:relative}
 .nav-panel.mega{left:50%;right:auto;margin-left:-390px}
 @media(max-width:1000px){.nav-item:has(.nav-panel.mega){position:relative}.nav-panel.mega{left:auto;right:auto;margin-left:0}}
 @media(max-width:980px){
+  .chan-rail{grid-template-columns:1fr 1fr;gap:14px}
+  .chan-rail::before{display:none}
+  .chan-tile.hub{grid-column:1/-1}
   .premise-grid{grid-template-columns:1fr}
   .cascade{grid-template-columns:1fr}
   .casc-col{border-right:none;border-bottom:1px solid var(--line)}
@@ -565,6 +613,7 @@ section{position:relative}
   .tstat:nth-child(2){border-right:none}
 }
 @media(max-width:560px){
+  .chan-rail{grid-template-columns:1fr}
   .chanscore,.eco-grid,.exp,.team-grid{grid-template-columns:1fr}
   .layer{grid-template-columns:60px 1fr}
   .layer-num{width:38px;height:38px;font-size:15px}
@@ -813,6 +862,7 @@ html[data-theme="light"] .final .btn-primary{background:#0A0A0C;color:#FFFFFF}
 html[data-theme="light"] .spec,
 html[data-theme="light"] .omap,
 html[data-theme="light"] .jgrid,
+html[data-theme="light"] .chan-rail,
 html[data-theme="light"] .stack-mini{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;--canopy:#D4FF3D;color:#F4F1EA}
 
 /* ── offer ladder (where to start) ── */
@@ -915,26 +965,46 @@ html[data-theme="light"] .stack-mini{--asphalt:#0A0A0C;--concrete:#121217;--cour
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="partner-badge"><img src="https://impactable.com/wp-content/uploads/2026/04/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner"><span>LinkedIn Marketing Partner &middot; The Ecosystem</span></div>
-      <span class="eyebrow">How it all fits together</span>
-      <h1 class="display">One <span class="em">ecosystem.</span> Not a pile of channels.</h1>
-      <p class="hero-lede serif">Thought leadership, search, LinkedIn, visitor ID, enrichment, Meta, programmatic, email, creative, and landing pages are not separate campaigns. They are one compounding system where each layer makes the next more efficient.</p>
-      <p class="hero-sub">The blueprint we build for clients: where to start, how the channels feed each other, and how it expands as you grow. Part strategy, part proof.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a free Ecosystem Audit &rarr;</a>
-        <a class="btn btn-ghost" href="#build">Walk the blueprint</a>
+  <div class="wrap hero-center">
+    <div class="partner-badge" style="justify-content:center"><img src="https://impactable.com/wp-content/uploads/2026/04/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner"><span>LinkedIn Marketing Partner &middot; The Ecosystem</span></div>
+    <span class="eyebrow">The channels we run</span>
+    <h1 class="display chan-h1">The channels that grow B2B pipeline, run as <span class="hl">one connected system.</span></h1>
+    <p class="hero-promise">LinkedIn Ads, paid search, founder-led thought leadership, and email. Orchestrated together, so each channel makes the next one cheaper.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a free Ecosystem Audit &rarr;</a>
+    </div>
+    <div class="chan-rail" aria-label="The channels Impactable runs, as one ecosystem">
+      <div class="chan-tile">
+        <span class="chan-node" aria-hidden="true"></span>
+        <div class="chan-role">Demand</div>
+        <div class="chan-name">LinkedIn Ads</div>
+        <p class="chan-d">Reach and warm the exact accounts and buying committees that matter.</p>
+      </div>
+      <div class="chan-tile">
+        <span class="chan-node" aria-hidden="true"></span>
+        <div class="chan-role">Intent</div>
+        <div class="chan-name">B2B Paid Search</div>
+        <p class="chan-d">Capture the buyers actively searching on Google, qualified by LinkedIn.</p>
+      </div>
+      <div class="chan-tile">
+        <span class="chan-node" aria-hidden="true"></span>
+        <div class="chan-role">Authority</div>
+        <div class="chan-name">Thought Leadership</div>
+        <p class="chan-d">The founder-led Brand Engine that earns trust before the first click.</p>
+      </div>
+      <div class="chan-tile">
+        <span class="chan-node" aria-hidden="true"></span>
+        <div class="chan-role">Nurture</div>
+        <div class="chan-name">Email &amp; Nurture</div>
+        <p class="chan-d">Owned audiences that stay warm until they are ready to buy.</p>
+      </div>
+      <div class="chan-tile hub">
+        <span class="chan-node" aria-hidden="true"></span>
+        <div class="chan-role">Orchestration</div>
+        <div class="chan-name">Full Ecosystem Management</div>
+        <p class="chan-d">Every channel run as one system, sharing signal and compounding results.</p>
       </div>
     </div>
-    <aside class="stack-mini" aria-label="The ecosystem in one line">
-      <div class="smh">The ecosystem, end to end</div>
-      <div class="smrow"><span class="smn">A</span><div><div class="smc">Strategy first</div><div class="smt">Competitor white space, audience, messaging architecture</div></div></div>
-      <div class="smrow"><span class="smn">B</span><div><div class="smc">Foundations</div><div class="smt">Founder and expert-led thought leadership</div></div></div>
-      <div class="smrow"><span class="smn">C</span><div><div class="smc">Capture &amp; qualify</div><div class="smt">Google intent, qualified by LinkedIn</div></div></div>
-      <div class="smrow"><span class="smn">D</span><div><div class="smc">Signal &amp; own</div><div class="smt">Visitor ID, enrichment, owned audiences</div></div></div>
-      <div class="smrow"><span class="smn">E</span><div><div class="smc">Scale &amp; compound</div><div class="smt">Everywhere swarm, quarterly diagnostics</div></div></div>
-    </aside>
   </div>
 </header>
 

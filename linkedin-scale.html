@@ -311,6 +311,18 @@ section{position:relative}
 .fun-delta{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.01em}
 .fun-delta.down{color:var(--rust);background:rgba(196,82,31,0.13)}
 .fun-delta.up{color:var(--moss);background:rgba(123,170,62,0.15)}
+.fun-accts{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.fun-accts .fa-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
+.fa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.facard{border:1px solid var(--line);border-radius:9px;padding:14px 15px;background:var(--asphalt)}
+.facard .fa-nm{font-size:15px;font-weight:700;color:var(--bone)}
+.facard .fa-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);margin-top:5px;line-height:1.45}
+.facard .fa-stage{display:inline-block;margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:20px}
+.fa-stage.aware{background:rgba(47,143,214,.18);color:#7cc4ec}
+.fa-stage.engaged{background:rgba(217,138,43,.2);color:#e8a64a}
+.fa-stage.pipeline{background:rgba(125,79,176,.26);color:#c39de0}
+.fa-stage.won{background:rgba(90,161,95,.2);color:#86c98b}
+@media(max-width:680px){.fa-grid{grid-template-columns:1fr 1fr}}
 
 /* generic spec table */
 .stab{width:100%;border-collapse:collapse;font-size:16px}
@@ -994,6 +1006,15 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
             <div class="fun-label"><div class="fl-n">Closed-Won</div><div class="fl-s">Revenue realized</div></div>
             <div class="fun-track" style="background:linear-gradient(90deg,#5aa15f,#3c7a40);width:26%"><span class="fb-n">8</span></div>
             <div class="fun-stat"><div class="fs-p">0.1%<small>of universe</small></div><span class="fun-delta down">&minus;88.7%</span></div>
+          </div>
+        </div>
+        <div class="fun-accts">
+          <div class="fa-h">Top accounts in motion · firmographic + stage</div>
+          <div class="fa-grid">
+            <div class="facard"><div class="fa-nm">Northwind Software</div><div class="fa-meta">SaaS · 500-1k empl · ICP fit 94</div><span class="fa-stage aware">Aware</span></div>
+            <div class="facard"><div class="fa-nm">Halcyon Cloud</div><div class="fa-meta">Cloud security · 1k-5k · ICP fit 91</div><span class="fa-stage engaged">Engaged</span></div>
+            <div class="facard"><div class="fa-nm">Sterling Capital</div><div class="fa-meta">FinServ · 1k-5k · ICP fit 96</div><span class="fa-stage pipeline">Active Pipeline</span></div>
+            <div class="facard"><div class="fa-nm">Cedar Security</div><div class="fa-meta">Security · 200-500 · ICP fit 98</div><span class="fa-stage won">Closed-Won</span></div>
           </div>
         </div>
       </div>
