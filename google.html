@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('imp-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <title>B2B Paid Search | Google Ads Run as Part of a System | Impactable</title>
 <meta name="description" content="Google captures the buyers already searching. LinkedIn creates and qualifies the demand around it. Impactable runs B2B paid search as one layer of a connected ecosystem, so every click compounds instead of leaking. Plus a free Google Ads audit, Foundational Strategy, and a combined Google + LinkedIn option.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,19 +171,107 @@ a{color:inherit;text-decoration:none}
   .loop-feeds,.steps,.statband,.vprops,.ptracks,.offers,.inc-grid{grid-template-columns:1fr}
   .feed:nth-child(odd){border-right:none}
 }
+
+/* ════ GLOBAL NAV (gnav) — shared component, literal colors ════ */
+.gnav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,241,234,0.06)}
+.gnav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.gnav-logo img{height:26px;width:auto;display:block}
+.gnav-menu{display:flex;align-items:center;gap:2px}
+.gnav-item{position:relative}
+.gnav-trigger{background:none;border:none;color:#A7A39A;font-family:'Inter',sans-serif;font-size:14.5px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;transition:color .2s}
+.gnav-link{color:#A7A39A;font-size:14.5px;padding:10px 13px;transition:color .2s}
+.gnav-trigger:hover,.gnav-link:hover,.gnav-item:hover .gnav-trigger,.gnav-item:focus-within .gnav-trigger{color:#F4F1EA}
+.gnav-caret{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;display:inline-block}
+.gnav-item:hover .gnav-caret,.gnav-item.open .gnav-caret{transform:rotate(-135deg) translateY(1px)}
+.gnav-cta{margin-left:10px;font-size:13px;padding:11px 20px}
+.gnav-mega{position:absolute;top:calc(100% + 12px);right:0;background:#121217;border:1px solid rgba(244,241,234,0.10);border-radius:10px;padding:24px 26px;box-shadow:0 30px 70px rgba(0,0,0,0.55);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;z-index:120}
+.gnav-mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.gnav-item:hover .gnav-mega,.gnav-item:focus-within .gnav-mega,.gnav-item.open .gnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.gnav-grid{display:grid;gap:22px 36px}
+.gnav-grid.svc{grid-template-columns:repeat(3,minmax(184px,1fr))}
+.gnav-h{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6F6C64;display:block;margin-bottom:12px}
+.gnav-col a{display:block;color:#F4F1EA;font-size:14.5px;font-weight:500;padding:6px 0;transition:color .2s}
+.gnav-col a:hover{color:#5BB8E0}
+.gnav-col a small{display:block;font-size:12px;color:#6F6C64;font-weight:400;margin-top:2px;font-family:'Inter',sans-serif;letter-spacing:0}
+.gnav-toggle{display:none;background:none;border:none;color:#F4F1EA;font-size:22px;cursor:pointer;line-height:1}
+@media(max-width:860px){
+  .gnav-menu{display:none}
+  .gnav-toggle{display:block}
+  .gnav-menu.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#121217;border-bottom:1px solid rgba(244,241,234,0.10);padding:12px 22px 22px;max-height:calc(100vh - 72px);overflow-y:auto}
+  .gnav-item{width:100%}
+  .gnav-trigger{width:100%;justify-content:space-between;font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(244,241,234,0.06)}
+  .gnav-link{font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(244,241,234,0.06)}
+  .gnav-mega{position:static;opacity:1;visibility:hidden;pointer-events:none;transform:none;box-shadow:none;border:none;background:transparent;padding:0;max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .gnav-item.open .gnav-mega{visibility:visible;pointer-events:auto;max-height:1400px;padding:8px 0 16px 10px}
+  .gnav-mega::before{display:none}
+  .gnav-grid.svc{grid-template-columns:1fr;gap:18px}
+  .gnav-cta{margin:16px 0 0;width:100%;justify-content:center;font-size:14px;padding:14px}
+}
+.gnav-theme{background:none;border:1px solid rgba(244,241,234,0.18);color:#F4F1EA;width:34px;height:34px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:15px;margin-left:8px;transition:border-color .2s,color .2s}
+.gnav-theme:hover{border-color:#5BB8E0;color:#5BB8E0}
+.gnav-theme-lb{display:none}
+@media(max-width:860px){.gnav-theme{width:100%;justify-content:flex-start;gap:10px;border:none;border-top:1px solid rgba(244,241,234,0.06);border-radius:0;padding:15px 2px;margin:0;font-size:16px}.gnav-theme-lb{display:inline}}
+
+/* ---- LIGHT THEME ---- */
+html[data-theme="light"]{
+  --asphalt:#F4F1EA;--concrete:#FFFFFF;--court:#F1ECE1;
+  --line:rgba(12,12,16,0.14);--line-soft:rgba(12,12,16,0.07);
+  --bone:#16161B;--chalk:#4D4A44;--chalk-dim:#726F67;--blue-soft:#1580AE;--canopy:#2C8A0C;--plum:#8E4FB0;
+}
+html[data-theme="light"] body{background:var(--asphalt);color:var(--bone)}
+html[data-theme="light"] .gnav{background:rgba(244,241,234,0.88);border-bottom:1px solid rgba(12,12,16,0.10)}
+html[data-theme="light"] .gnav-logo img,html[data-theme="light"] .foot-logo img{filter:brightness(0)}
+html[data-theme="light"] .gnav-trigger,html[data-theme="light"] .gnav-link,html[data-theme="light"] .gnav-toggle{color:#4D4A44}
+html[data-theme="light"] .gnav-trigger:hover,html[data-theme="light"] .gnav-link:hover,html[data-theme="light"] .gnav-item:hover .gnav-trigger{color:#16161B}
+html[data-theme="light"] .gnav-mega{background:#FFFFFF;border-color:rgba(12,12,16,0.12);box-shadow:0 30px 70px rgba(20,20,30,0.18)}
+html[data-theme="light"] .gnav-h{color:#8A877F}
+html[data-theme="light"] .gnav-col a{color:#16161B}
+html[data-theme="light"] .gnav-col a:hover{color:#1580AE}
+html[data-theme="light"] .gnav-col a small{color:#8A877F}
+html[data-theme="light"] .gnav-theme{border-color:rgba(12,12,16,0.18);color:#16161B}
+html[data-theme="light"] .gnav-theme:hover{border-color:#1580AE;color:#1580AE}
+html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:rgba(12,12,16,0.12)}
+html[data-theme="light"] .btn-ghost{color:#16161B}
+html[data-theme="light"] .eyebrow{color:#1B9BD1}
+html[data-theme="light"] .eyebrow::before{background:#1B9BD1}
+html[data-theme="light"] .final{background:linear-gradient(120deg,#D4FF3D 0%,#6FE0EC 52%,#1B9BD1 100%)}
+html[data-theme="light"] .final h2,html[data-theme="light"] .final p{color:#0A1216}
+html[data-theme="light"] .final .eyebrow{color:#0A1216}
+html[data-theme="light"] .final .eyebrow::before{background:#0A1216}
+html[data-theme="light"] .final .btn-primary{background:#0A0A0C;color:#FFFFFF}
+/* rotate the Google+LinkedIn loop visual to DARK for dynamic contrast */
+html[data-theme="light"] .loop{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;--canopy:#D4FF3D;--plum:#b07bc4;color:#F4F1EA;background:linear-gradient(160deg,#0d0d12,#0A0A0C)}
+
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-in">
-    <a class="nav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
-    <div class="nav-links">
-      <a href="#loop">Google + LinkedIn</a>
-      <a href="#method">How We Run It</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#start">Start</a>
-      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+<!-- ════ GLOBAL NAV ════ -->
+<nav class="gnav">
+  <div class="gnav-inner">
+    <a class="gnav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <button class="gnav-toggle" id="gnavToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <div class="gnav-menu" id="gnavMenu">
+
+      <div class="gnav-item">
+        <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="gnav-caret"></span></button>
+        <div class="gnav-mega">
+          <div class="gnav-grid" style="grid-template-columns:1fr;min-width:248px">
+            <div class="gnav-col">
+              <span class="gnav-h">What we run</span>
+              <a href="/linkedin-launch.html">New to LinkedIn Ads<small>Launch on a validated system</small></a>
+              <a href="/linkedin-scale.html">Scaling LinkedIn Ads<small>Already live, ready to grow</small></a>
+              <a href="/google.html">B2B Paid Search<small>Google + LinkedIn, run as a system</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="gnav-link" href="/marketing-ecosystem.html">Marketing Ecosystem</a>
+      <a class="gnav-link" href="/thought-leadership.html">Thought Leadership</a>
+      <a class="gnav-link" href="/intelligence-room.html">Strategy + Diagnostics</a>
+      <button class="gnav-theme" id="gnavTheme" aria-label="Switch theme"><span class="gnav-theme-ic">🌙</span><span class="gnav-theme-lb">Dark mode</span></button>
+      <a class="btn btn-primary gnav-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
   </div>
 </nav>
@@ -409,8 +498,8 @@ a{color:inherit;text-decoration:none}
         <div class="foot-tag">Built by LinkedIn insiders. Scaled by data. Paid search run as part of a system, never in a silo.</div>
       </div>
       <div class="foot-cols">
-        <div class="foot-col"><h5>Services</h5><a href="https://impactable.com/linkedin-ads/">LinkedIn Ads</a><a href="https://impactable.com/google-ads/">B2B Paid Search</a><a href="https://impactable.com/automated-messaging/">Lead Gen &amp; Nurture</a><a href="/demand-gen">Brand Engine</a></div>
-        <div class="foot-col"><h5>Company</h5><a href="https://impactable.com/impactable-about-us/">About Us</a><a href="https://impactable.com/blog/">Growth Lab</a><a href="https://impactable.com/events/">Events</a><a href="https://impactable.com/careers/">Careers</a></div>
+        <div class="foot-col"><h5>Services</h5><a href="/linkedin-scale.html">LinkedIn Ads</a><a href="/google.html">B2B Paid Search</a><a href="/marketing-ecosystem.html">Lead Gen &amp; Nurture</a><a href="/thought-leadership.html">Brand Engine</a></div>
+        <div class="foot-col"><h5>Company</h5><a href="/">About Us</a><a href="/">Growth Lab</a><a href="/">Events</a><a href="/">Careers</a></div>
         <div class="foot-col"><h5>Contact</h5><span>Call (212) 660-6600</span><span>support@impactable.com</span><span>9:00am to 5:00pm CST, Mon to Fri</span></div>
       </div>
     </div>
@@ -421,5 +510,28 @@ a{color:inherit;text-decoration:none}
   </div>
 </footer>
 
+<script>
+// global nav + theme
+(function(){
+  var t=document.getElementById('gnavToggle'),m=document.getElementById('gnavMenu');
+  if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
+  document.querySelectorAll('.gnav-item .gnav-trigger').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      var item=btn.parentElement,willOpen=!item.classList.contains('open');
+      document.querySelectorAll('.gnav-item.open').forEach(function(i){if(i!==item)i.classList.remove('open');});
+      item.classList.toggle('open',willOpen);
+      btn.setAttribute('aria-expanded',willOpen);
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.gnav-item')){document.querySelectorAll('.gnav-item.open').forEach(function(i){i.classList.remove('open');});}
+  });
+  var themeBtn=document.getElementById('gnavTheme');
+  function syncTheme(){var dark=document.documentElement.getAttribute('data-theme')==='dark';if(themeBtn){var ic=themeBtn.querySelector('.gnav-theme-ic'),lb=themeBtn.querySelector('.gnav-theme-lb');if(ic)ic.textContent=dark?'☀':'🌙';if(lb)lb.textContent=dark?'Light mode':'Dark mode';}}
+  syncTheme();
+  if(themeBtn){themeBtn.addEventListener('click',function(){var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',next);try{localStorage.setItem('imp-theme',next);}catch(e){}syncTheme();});}
+})();
+</script>
 </body>
 </html>
