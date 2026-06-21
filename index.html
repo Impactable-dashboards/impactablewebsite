@@ -446,42 +446,38 @@ html[data-theme="light"] .gnav-feature{color:#3E8E1F!important}
 html[data-theme="light"] .gnav-theme{border-color:rgba(12,12,16,0.18);color:#16161B}
 html[data-theme="light"] .gnav-theme:hover{border-color:#1580AE;color:#1580AE}
 html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:rgba(12,12,16,0.12)}
-/* hardcoded dark surfaces → light */
-html[data-theme="light"] .sys-card{background:linear-gradient(160deg,#FFFFFF,#F4F1EA)}
-html[data-theme="light"] .sys-node::before{background:#FFFFFF}
-html[data-theme="light"] .spec{background:linear-gradient(180deg,#FFFFFF,#F7F3EB)}
-html[data-theme="light"] .final{background:linear-gradient(160deg,#DCEBF2,#F4F1EA 70%)}
-/* readability: crossed-out list + lime-as-text → readable on light */
-html[data-theme="light"] .wedge-col.old li{color:#3A382F}
-html[data-theme="light"] .proof-card .pn{color:#3E8E1F}
-html[data-theme="light"] .validated em,
-html[data-theme="light"] .fly-loopback em,
-html[data-theme="light"] .chip.hot,
-html[data-theme="light"] .sys-node.loop .sn-t{color:#3E8E1F!important}
-html[data-theme="light"] .chip.hot{border-color:rgba(62,142,31,0.45)}
-html[data-theme="light"] .btn-ghost{color:#16161B}
-
-/* ---- GOAT-energy light: bold pops + hot magenta accent ---- */
-html[data-theme="light"]{--hot:#FF2D87}
-/* colorful hero wash (lime + cyan + magenta) */
-html[data-theme="light"] .hero{background:linear-gradient(135deg,rgba(212,255,61,0.22) 0%,rgba(244,241,234,0) 34%),radial-gradient(130% 120% at 90% 4%,rgba(27,155,209,0.22) 0%,rgba(255,45,135,0.13) 38%,rgba(244,241,234,0) 72%)}
-/* magenta eyebrows everywhere for a consistent pop */
-html[data-theme="light"] .eyebrow{color:#E11D74}
-html[data-theme="light"] .eyebrow::before{background:#E11D74}
-/* subtle color-blocked feature sections */
-html[data-theme="light"] .os{background:linear-gradient(180deg,#FFFFFF,#F2F8E4)}
-html[data-theme="light"] .testi{background:linear-gradient(180deg,#FFFFFF,#ECF6FB)}
-html[data-theme="light"] .wedge{background:linear-gradient(180deg,#FFFFFF,#FCEFF5)}
-/* vivid color-blocked closing CTA */
+/* vivid color-blocked closing CTA (core colors) */
 html[data-theme="light"] .final{background:linear-gradient(120deg,#D4FF3D 0%,#6FE0EC 52%,#1B9BD1 100%)}
 html[data-theme="light"] .final h2,html[data-theme="light"] .final p{color:#0A1216}
 html[data-theme="light"] .final .eyebrow{color:#0A1216}
 html[data-theme="light"] .final .eyebrow::before{background:#0A1216}
 html[data-theme="light"] .final .btn-primary{background:#0A0A0C;color:#FFFFFF}
-/* accent the headline em with the hot magenta? keep brand blue but vivid */
-html[data-theme="light"] .hero h1 .em{color:#1B9BD1}
-/* proof big-number variety: lime→green, keep blue + add magenta pop */
+/* readability: crossed-out list + lime-as-text → readable on light */
+html[data-theme="light"] .wedge-col.old li{color:#3A382F}
+html[data-theme="light"] .proof-card .pn{color:#3E8E1F}
+html[data-theme="light"] .validated em,
+html[data-theme="light"] .fly-loopback em,
+html[data-theme="light"] .chip.hot{color:#3E8E1F!important}
+html[data-theme="light"] .chip.hot{border-color:rgba(62,142,31,0.45)}
+html[data-theme="light"] .btn-ghost{color:#16161B}
 html[data-theme="light"] .proof-card .pn.clay{color:#E8820A}
+
+/* ---- bold via CORE colors: text pops + dark rotated visual sections ---- */
+/* hero stays clean light; pops come from text + dark cards */
+html[data-theme="light"] .hero h1 .em{color:#1B9BD1}
+/* rotate eyebrow accent across sections with core colors (blue / rust / moss) */
+html[data-theme="light"] .eyebrow{color:#1B9BD1}
+html[data-theme="light"] .eyebrow::before{background:#1B9BD1}
+html[data-theme="light"] .steps .eyebrow,html[data-theme="light"] .diff .eyebrow{color:#C4521F}
+html[data-theme="light"] .steps .eyebrow::before,html[data-theme="light"] .diff .eyebrow::before{background:#C4521F}
+html[data-theme="light"] .fly .eyebrow,html[data-theme="light"] .mtn .eyebrow{color:#5E8A2A}
+html[data-theme="light"] .fly .eyebrow::before,html[data-theme="light"] .mtn .eyebrow::before{background:#5E8A2A}
+/* rotate visual-heavy blocks to DARK for dynamic contrast */
+html[data-theme="light"] .gal,
+html[data-theme="light"] .sys-card{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;color:#F4F1EA}
+html[data-theme="light"] .gal{background:var(--concrete)}
+html[data-theme="light"] .sys-card{background:linear-gradient(160deg,#14141a,#0c0c10)}
+html[data-theme="light"] .sys-card .sys-node.loop .sn-t{color:#D4FF3D!important}
 </style>
 </head>
 <body>
