@@ -312,6 +312,23 @@
   }
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
 
+  /* VIVID HIGHLIGHT MARKER */
+  .mk{background:#D4FF3D;color:#0A0A0C;padding:.06em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:inherit}
+
+  /* DARK BAND — forces dark tokens even while page is in light theme */
+  .dark{
+    --bg:#0A0A0C; --bg-2:#15151A; --panel:#15151A;
+    --surface:rgba(255,255,255,0.035); --surface-2:rgba(255,255,255,0.06);
+    --border:rgba(255,255,255,0.10); --border-2:rgba(120,180,235,0.30);
+    --text:#F4F1EA; --text-muted:#D8D4C8; --text-faint:rgba(216,212,200,0.42);
+    --accent:#0099D1; --accent-2:#0077A8; --accent-glow:rgba(0,153,209,0.22);
+    --canopy:#D4FF3D; --canopy-soft:rgba(46,163,124,0.14);
+    --rust:#C76B43; --rust-soft:rgba(199,107,67,0.16);
+    --good:#5EEAD4;
+    background:var(--bg); color:var(--text);
+  }
+  .dark .text-canopy{color:var(--canopy);}
+
   /* ════ GLOBAL NAV (token-based, themes with the page) ════ */
   .gnav{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--border)}
   .gnav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:70px}
@@ -470,8 +487,13 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow rust"><span class="dot"></span>The problem with paid search in isolation</span>
-      <h2>Google alone is a <span class="text-rust">leaky bucket.</span></h2>
-      <p>Search captures intent, and that intent is valuable. But run in a silo, the click is expensive, your prospect is comparing three or four competitors in the same session, and everything rides on a single landing-page visit. Most never come back.</p>
+      <h2>Google alone is a <span class="mk">leaky bucket.</span></h2>
+      <p>Search captures intent, and that intent is valuable. But run in a silo, it leaks three ways:</p>
+      <ul class="loop-list" style="margin-top:16px;">
+        <li><span class="tick" style="color:var(--rust)">→</span> The click is <strong style="color:var(--text)">expensive</strong>.</li>
+        <li><span class="tick" style="color:var(--rust)">→</span> Your prospect is comparing <strong style="color:var(--text)">three or four competitors</strong> in the same session.</li>
+        <li><span class="tick" style="color:var(--rust)">→</span> Everything rides on a <strong style="color:var(--text)">single landing-page visit</strong> — and most never come back.</li>
+      </ul>
     </div>
     <div class="two">
       <div class="viz reveal" style="display:grid;place-items:center;">
@@ -502,7 +524,8 @@
       </div>
       <div class="reveal">
         <h3 style="margin-bottom:14px;">You pay premium prices for traffic that <span class="text-rust">bounces.</span></h3>
-        <p style="margin-bottom:18px;">Most visitors don't convert on the first visit. Many bounce after a glance. Without a follow-up strategy, that hard-won intent evaporates — and standalone ROI gets impossible to prove because Google takes credit for everything.</p>
+        <p style="margin-bottom:14px;">Most visitors don't convert on the first visit. Many bounce after a glance.</p>
+        <p style="margin-bottom:18px;">Without a follow-up strategy, that hard-won intent evaporates — and standalone ROI gets impossible to prove because Google takes credit for everything.</p>
         <p><strong style="color:var(--text)">The fix isn't more budget.</strong> It's a system that catches what search brings in, qualifies it, and keeps working it across channels until it converts.</p>
       </div>
     </div>
@@ -514,7 +537,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>Why Google + LinkedIn</span>
-      <h2>Each channel's weakness is <span class="text-canopy">the other's strength.</span></h2>
+      <h2>Each channel's weakness is <span class="mk">the other's strength.</span></h2>
       <p>Neither channel proves ROI alone. Together, the attribution loop closes. This is how we run paid search — not as a standalone line item, but as the capture layer of a system LinkedIn qualifies and nurtures.</p>
     </div>
     <div class="vs">
@@ -540,11 +563,11 @@
 </section>
 
 <!-- MECHANISM + INSIGHT TAG FUNNEL + STATS -->
-<section class="band alt" id="loop">
+<section class="band alt dark" id="loop">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>The mechanism</span>
-      <h2>Capture, qualify, <span class="text-canopy">compound.</span></h2>
+      <h2>Capture, qualify, <span class="mk">compound.</span></h2>
       <p>A month of Google Ads driving in-market traffic. On its own, most of it bounces. Inside the system, it becomes a qualified, retargetable, compounding asset.</p>
     </div>
     <div class="mech">
@@ -602,7 +625,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>The expensive click</span>
-      <h2>Core high-intent search runs <span class="text-rust">$30–70 a click.</span></h2>
+      <h2>Core high-intent search runs <span class="mk">$30–70 a click.</span></h2>
       <p>That's the warmest traffic you can buy — and the most competitive. Run alone, you pay it once and pray they convert. Inside the loop, every one of those clicks becomes a retargetable asset you keep working for cents on the dollar.</p>
     </div>
     <div class="viz reveal">
@@ -748,11 +771,11 @@
 </section>
 
 <!-- ACCOUNT JOURNEY -->
-<section class="band alt" id="journey">
+<section class="band alt dark" id="journey">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>The buyer journey</span>
-      <h2>One search becomes a <span class="text-canopy">multi-touch, retargetable</span> asset.</h2>
+      <h2>One search becomes a <span class="mk">multi-touch, retargetable</span> asset.</h2>
       <p>A single click means little. Inside the system it stacks signals across channels — and the more signals an account shows, the sooner sales gets it.</p>
     </div>
     <div class="viz reveal" style="padding:8px;">
@@ -772,7 +795,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>How we run it</span>
-      <h2>Cheaper and sharper <span class="text-canopy">every quarter.</span></h2>
+      <h2>Cheaper and sharper <span class="mk">every quarter.</span></h2>
       <p>Mature management isn't set-and-forget. It's what happens every week after launch — and how search connects to everything else you run.</p>
     </div>
     <div class="loop2">
@@ -818,7 +841,8 @@
     <div class="section-head center reveal">
       <span class="eyebrow canopy" style="justify-content:center;"><span class="dot"></span>The bigger picture</span>
       <h2>Paid search is one layer of <span class="text-canopy">a connected system.</span></h2>
-      <p class="lead">Google captures, LinkedIn qualifies, Meta and programmatic reinforce, Visitor ID names the accounts, and email owns them. Run together, the trifecta lowers CAC and lifts conversion — because every touchpoint a buyer has reinforces the same story.</p>
+      <p class="lead" style="margin:0 auto;">Google captures, LinkedIn qualifies, Meta and programmatic reinforce, Visitor ID names the accounts, and email owns them.</p>
+      <p class="lead" style="margin:14px auto 0;">Run together, the trifecta lowers CAC and lifts conversion — because every touchpoint a buyer has reinforces the same story.</p>
     </div>
     <div class="plays" style="grid-template-columns:repeat(4,1fr);">
       <div class="play reveal" style="text-align:center;"><div class="pk">Capture</div><h4 class="text-accent">Google</h4><p>In-market intent.</p></div>

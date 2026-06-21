@@ -321,6 +321,26 @@
   }
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
 
+  /* VIVID HIGHLIGHT MARKER */
+  .mk{background:#D4FF3D;color:#0A0A0C;padding:.06em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:inherit}
+
+  /* DARK BAND UTILITY — renders a section dark even while page is light (tokens copied from dark :root) */
+  .dark{
+    --bg:#0A0A0C; --bg-2:#15151A; --panel:#15151A;
+    --surface:rgba(255,255,255,0.035); --surface-2:rgba(255,255,255,0.06);
+    --border:rgba(255,255,255,0.10); --border-2:rgba(120,180,235,0.30);
+    --text:#F4F1EA; --text-muted:#D8D4C8; --text-faint:rgba(216,212,200,0.42);
+    --accent:#0099D1; --accent-2:#0077A8; --accent-glow:rgba(0,153,209,0.22);
+    --canopy:#D4FF3D; --canopy-soft:rgba(46,163,124,0.14); --good:#5EEAD4; --rust:#C76B43; --rust-soft:rgba(199,107,67,0.16);
+    background:var(--bg); color:var(--text);
+  }
+  .dark.alt{background:var(--bg-2);}
+
+  /* STAT CALLOUT (scannable pull-number) */
+  .stat-callout{display:flex;align-items:baseline;gap:14px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--canopy);border-radius:var(--radius-sm);padding:16px 20px;margin:14px 0;}
+  .stat-callout .scn{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1;flex:none;}
+  .stat-callout .scl{font-size:.92rem;color:var(--text-muted);}
+
   /* ════ GLOBAL NAV (token-based, themes with the page) ════ */
   .gnav{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--border)}
   .gnav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:70px}
@@ -487,7 +507,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>The shift</span>
-      <h2>AI made content cheap. It made <span class="text-accent">trust expensive.</span></h2>
+      <h2>AI made content cheap. It made <span class="mk">trust expensive.</span></h2>
       <p>Volume is up, value is down. The brands winning B2B aren't posting more — they're posting with a consistent, human point of view everywhere buyers look.</p>
     </div>
     <div class="viz reveal">
@@ -513,11 +533,11 @@
 </section>
 
 <!-- WHAT WE BUILD -->
-<section class="band" id="build">
+<section class="band dark" id="build">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>What we actually build</span>
-      <h2>Not a content service. <span class="text-accent">A Brand Engine.</span></h2>
+      <h2>Not a content service. <span class="mk">A Brand Engine.</span></h2>
       <p>Real human inputs go in. One source of truth holds your voice, positioning and proof. On-brand assets come out — everywhere.</p>
     </div>
     <div class="build-grid">
@@ -577,13 +597,18 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow canopy"><span class="dot"></span>The function nobody else offers</span>
-      <h2>Ask your brand <span class="text-accent">anything.</span></h2>
+      <h2>Ask your brand <span class="mk">anything.</span></h2>
       <p>Not a folder of deliverables — an environment you can talk to. One source of truth your whole team works from, available any time.</p>
     </div>
     <div class="talk-panel reveal">
       <div>
         <h3 style="margin-bottom:14px;">New hire. New campaign. New channel. <span class="text-accent">Same voice.</span></h3>
-        <p style="font-size:1rem;">The engine doesn't guess at your brand — it knows it, because you built it from your own knowledge. Generate a post, pressure-test a message, or spin up ad copy on demand, all grounded in the same foundation.</p>
+        <p style="font-size:1.05rem;font-weight:600;color:var(--text);">The engine doesn't guess at your brand — it knows it. You built it from your own knowledge.</p>
+        <ul class="loop-list" style="margin-top:16px;">
+          <li><span class="tick">→</span> Generate a post on demand</li>
+          <li><span class="tick">→</span> Pressure-test a message</li>
+          <li><span class="tick">→</span> Spin up ad copy — all grounded in the same foundation</li>
+        </ul>
       </div>
       <div class="chat" aria-hidden="true">
         <div class="bubble you"><span class="who">You</span>Post on why most ABM lists are built backwards.</div>
@@ -641,7 +666,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>The ongoing value</span>
-      <h2>An engine that <span class="text-accent">compounds.</span></h2>
+      <h2>An engine that <span class="mk">compounds.</span></h2>
       <p>Once live, every month feeds the next. Inputs get lighter, the voice gets sharper, the asset library grows.</p>
     </div>
     <div class="loop-grid">
@@ -707,11 +732,11 @@
 </section>
 
 <!-- ECOSYSTEM ORBITAL + MOUNTAIN -->
-<section class="band" id="ecosystem">
+<section class="band dark" id="ecosystem">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow canopy"><span class="dot"></span>The bigger picture</span>
-      <h2>The heart of the <span class="text-accent">ecosystem.</span></h2>
+      <h2>The heart of the <span class="mk">ecosystem.</span></h2>
       <p>Thought leadership is the trust engine the rest of your marketing runs on — tested on organic, amplified by ads, feeding every paid layer downstream.</p>
     </div>
 
@@ -794,7 +819,11 @@
     <!-- in-market split -->
     <div class="viz reveal" style="margin-top:22px;">
       <div class="io-k" style="color:var(--canopy);">At any moment, almost no one is ready to buy</div>
-      <p style="font-size:.86rem;margin:6px 0 16px;">Paid search captures the ~5% in-market today. Thought leadership creates demand with the ~95% forming opinions for six months out. The engine does both.</p>
+      <div class="stat-callout">
+        <span class="scn">~95%</span>
+        <span class="scl">of your future buyers aren't searching yet — they're forming opinions for six months out.</span>
+      </div>
+      <p style="font-size:.86rem;margin:6px 0 16px;">Paid search captures the ~5% in-market today. Thought leadership creates demand with the rest. The engine does both.</p>
       <div class="split"><div class="s1"><b>~5%</b></div><div class="s2"><b>~95% — future buyers, not searching yet</b></div></div>
       <div class="split-cap"><span><strong style="color:var(--text)">Demand capture</strong> · Google, branded defense</span><span><strong style="color:var(--text)">Demand creation</strong> · TL, LinkedIn, warm-pool engine</span></div>
     </div>
@@ -841,7 +870,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>Pricing</span>
-      <h2>Start with posts. <span class="text-accent">Grow into an engine.</span></h2>
+      <h2>Start with posts. <span class="mk">Grow into an engine.</span></h2>
     </div>
     <div class="price-grid">
       <div class="tier reveal">
@@ -935,7 +964,7 @@
       <h2>Questions, answered.</h2>
     </div>
     <div class="faq reveal">
-      <details><summary>How is this different from other content offerings?<span class="pm">+</span></summary><p>Most services generate from nothing, which is why it reads as generic AI. We build a context environment fed by your real interviews, sales language and positioning first, then guard every output with human review. You're building a source of truth your team can interact with — not buying posts.</p></details>
+      <details><summary>How is this different from other content offerings?<span class="pm">+</span></summary><p><strong style="color:var(--text)">Most services generate from nothing — which is why it reads as generic AI.</strong> We do the opposite:</p><ul class="loop-list" style="margin:4px 0 18px;"><li><span class="tick">→</span> A context environment fed by your real interviews, sales language and positioning first</li><li><span class="tick">→</span> Every output guarded with human review</li><li><span class="tick">→</span> A source of truth your team can interact with — not posts you buy</li></ul></details>
       <details><summary>What exactly is a "Brand Engine"?<span class="pm">+</span></summary><p>A living AI context environment loaded with your voice, positioning, proof, frameworks and ICP. It's the single source of truth for everything you publish, stays current, and can be queried by your team on demand.</p></details>
       <details><summary>How long until it's live?<span class="pm">+</span></summary><p>Typically 4–6 weeks across three phases — voice calibration, first batch, approve & launch. The timeline depends on your turnaround on the intake form, calibration feedback and Month 1 inputs.</p></details>
       <details><summary>Can I post on a Personal Page instead of a Company Page?<span class="pm">+</span></summary><p>Yes — founder and expert profiles are usually the strongest trust signal, which is why the engine is built around individual voices. We support company-page publishing too.</p></details>
