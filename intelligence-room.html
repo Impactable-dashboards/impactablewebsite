@@ -88,13 +88,13 @@
   .theme-toggle:hover{border-color:var(--teal);color:var(--text)}
   @media(max-width:960px){.nav-links a:not(.nav-cta){display:none}}
 
-  .hero{position:relative;padding:96px 0 70px;overflow:hidden}
+  .hero{position:relative;padding:60px 0 56px;overflow:hidden}
   .hero::before{content:"";position:absolute;top:-280px;right:-180px;width:760px;height:760px;background:var(--hero-glow);pointer-events:none}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
   @media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:44px}}
-  h1.hero-h{font-size:clamp(38px,5.2vw,62px);margin:22px 0 0}
+  h1.hero-h{font-size:clamp(32px,4.3vw,52px);margin:18px 0 0;line-height:1.12}
   h1.hero-h .em{color:var(--blue)}
-  .hero-sub{font-size:20px;color:var(--text-muted);margin:26px 0 32px;max-width:560px}
+  .hero-sub{font-size:17px;color:var(--text-muted);margin:20px 0 28px;max-width:560px}
   .hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .hero-note{margin-top:18px;font-size:14px;color:var(--text-dim);display:flex;align-items:center;gap:8px}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--canopy);box-shadow:0 0 10px var(--canopy)}
@@ -346,9 +346,9 @@
   html[data-theme="light"] .dark .statcard.hot{background:rgba(212,255,61,.08);border-color:rgba(212,255,61,.5)}
   html[data-theme="light"] .dark .statcard.hot .big{color:var(--canopy)}
   /* ===== bolder headers + solid canopy marker ===== */
-  h1.hero-h{font-size:clamp(40px,5.9vw,70px);letter-spacing:-.025em}
+  h1.hero-h{font-size:clamp(32px,4.3vw,52px);letter-spacing:-.025em;line-height:1.12}
   h2.sec-h{font-size:clamp(34px,4.6vw,56px);letter-spacing:-.022em}
-  .mk{background:var(--canopy);color:#0A0A0C;padding:0 .14em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .mk{background:var(--canopy);color:#0A0A0C;padding:.06em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 
 /* ════ GLOBAL NAV (gnav) — shared component, literal colors ════ */
 .gnav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,241,234,0.06)}
