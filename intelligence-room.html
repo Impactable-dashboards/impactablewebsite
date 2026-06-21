@@ -398,7 +398,7 @@
 @media(max-width:860px){.gnav-theme{width:100%;justify-content:flex-start;gap:10px;border:none;border-top:1px solid rgba(244,241,234,0.06);border-radius:0;padding:15px 2px;margin:0;font-size:16px}.gnav-theme-lb{display:inline}}
 /* light-mode nav (page already themes its own body via data-theme) */
 html[data-theme="light"] .gnav{background:rgba(244,241,234,0.88);border-bottom:1px solid rgba(12,12,16,0.10)}
-html[data-theme="light"] .gnav-logo img{filter:brightness(0)}
+html[data-theme="light"] .gnav-logo{background:#0A0A0C;border-radius:8px;padding:6px 11px;display:inline-flex;align-items:center}
 html[data-theme="light"] .gnav-trigger,html[data-theme="light"] .gnav-link,html[data-theme="light"] .gnav-toggle{color:#4D4A44}
 html[data-theme="light"] .gnav-trigger:hover,html[data-theme="light"] .gnav-link:hover,html[data-theme="light"] .gnav-item:hover .gnav-trigger{color:#16161B}
 html[data-theme="light"] .gnav-theme{border-color:rgba(12,12,16,0.18);color:#16161B}
@@ -418,20 +418,44 @@ html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:
       <div class="gnav-item">
         <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="gnav-caret"></span></button>
         <div class="gnav-mega">
-          <div class="gnav-grid" style="grid-template-columns:1fr;min-width:248px">
+          <div class="gnav-grid svc">
             <div class="gnav-col">
-              <span class="gnav-h">What we run</span>
+              <span class="gnav-h">Paid Media</span>
               <a href="/linkedin-launch.html">New to LinkedIn Ads<small>Launch on a validated system</small></a>
               <a href="/linkedin-scale.html">Scaling LinkedIn Ads<small>Already live, ready to grow</small></a>
-              <a href="/google.html">B2B Paid Search<small>Google + LinkedIn, run as a system</small></a>
+              <a href="/google.html">B2B Paid Search<small>Google + LinkedIn, as one system</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Brand &amp; Ecosystem</span>
+              <a href="/thought-leadership.html">Thought Leadership<small>Founder-led Brand Engine</small></a>
+              <a href="/marketing-ecosystem.html">Full Ecosystem Management<small>Every channel, one system</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Strategy &amp; Diagnostics</span>
+              <a href="/intelligence-room.html">Foundations Strategy<small>Positioning, targeting, messaging</small></a>
+              <a href="/intelligence-room.html">Diagnostic Reporting<small>What to scale, test, and cut</small></a>
+              <a href="/intelligence-room.html">Channel Audits<small>Where budget leaks</small></a>
             </div>
           </div>
         </div>
       </div>
 
       <a class="gnav-link" href="/marketing-ecosystem.html">Marketing Ecosystem</a>
-      <a class="gnav-link" href="/thought-leadership.html">Thought Leadership</a>
       <a class="gnav-link" href="/intelligence-room.html">Strategy + Diagnostics</a>
+      <div class="gnav-item">
+        <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Resources <span class="gnav-caret"></span></button>
+        <div class="gnav-mega">
+          <div class="gnav-grid" style="grid-template-columns:1fr;min-width:240px">
+            <div class="gnav-col">
+              <span class="gnav-h">Learn</span>
+              <a href="https://impactable.com/blog/">Growth Lab<small>Blog &amp; insights</small></a>
+              <a href="https://impactable.com/category/case-studies/">Case Studies<small>Proof &amp; results</small></a>
+              <a href="https://impactable.com/events/">Events<small>Webinars &amp; live sessions</small></a>
+              <a href="https://impactable.com/b2b-marketing-resources/">Free Guides<small>Playbooks &amp; frameworks</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
       <button class="gnav-theme" id="gnavTheme" aria-label="Switch theme"><span class="gnav-theme-ic">🌙</span><span class="gnav-theme-lb">Dark mode</span></button>
       <a class="btn btn-primary gnav-cta" href="#book">Book a call</a>
     </div>
