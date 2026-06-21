@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B2B Paid Search | Google Ads Run as Part of a System | Impactable</title>
+<meta name="description" content="Google captures the buyers already searching. LinkedIn creates and qualifies the demand around it. Impactable runs B2B paid search as one layer of a connected ecosystem, so every click compounds instead of leaking. Plus a free Google Ads audit, Foundational Strategy, and a combined Google + LinkedIn option.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--bone:#F4F1EA;--chalk:#A7A39A;--chalk-dim:#6F6C64;
+  --blue:#1B9BD1;--blue-soft:#5BB8E0;--canopy:#D4FF3D;--clay:#FFB627;--plum:#b07bc4;--moss:#7BAA3E;--rust:#C4521F;
+  --line:rgba(244,241,234,.10);--line-soft:rgba(244,241,234,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--asphalt);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.03em;line-height:0.98}
+.serif{font-family:'Fraunces',serif}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--blue-soft)}
+.eyebrow.lime{color:var(--canopy)}.eyebrow.lime::before{background:var(--canopy)}
+.em{color:var(--blue-soft)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo img{height:26px;display:block}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;color:var(--chalk);transition:color .2s}
+.nav-links a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 22px;border-radius:7px;border:1px solid var(--line);transition:all .2s;cursor:pointer}
+.btn-primary{background:var(--blue);border-color:var(--blue);color:#04121a;font-weight:700}
+.btn-primary:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+.btn-ghost{background:transparent;color:var(--bone)}
+.btn-ghost:hover{border-color:var(--bone)}
+.btn-lime{background:var(--canopy);border-color:var(--canopy);color:#0e1400;font-weight:700}
+.btn-lime:hover{filter:brightness(1.08)}
+@media(max-width:860px){.nav-links a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:90px 0 70px;border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-120px;right:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(27,155,209,.14),transparent 65%);pointer-events:none}
+.partner{display:inline-flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:40px;padding:7px 14px 7px 8px;margin-bottom:24px}
+.partner img{height:26px}
+.partner span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk);letter-spacing:.04em}
+.hero h1{font-size:clamp(36px,5.6vw,64px);max-width:17ch;margin-bottom:24px}
+.hero-lede{font-size:clamp(18px,2.3vw,23px);color:var(--bone);font-style:italic;max-width:44ch;margin-bottom:18px;line-height:1.4}
+.hero-sub{font-size:16px;color:var(--chalk);max-width:58ch;margin-bottom:32px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* sections */
+.sec{padding:78px 0;border-top:1px solid var(--line-soft)}
+.sec-head{margin-bottom:42px;max-width:64ch}
+.sec-title{font-size:clamp(28px,4vw,44px);text-transform:none;margin-bottom:18px}
+.sec-desc{font-size:17px;color:var(--chalk);line-height:1.6}
+
+/* the loop */
+.loop{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#0d0d12,var(--asphalt))}
+.loop-pair{display:grid;grid-template-columns:1fr 70px 1fr}
+.lpcard{padding:30px 28px}
+.lp-name{font-family:'Archivo Black',sans-serif;font-size:19px;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.lp-name .ld{width:11px;height:11px;border-radius:3px}
+.lp-name .ld.li{background:var(--blue)}.lp-name .ld.g{background:var(--clay)}
+.lp-row{font-size:13.5px;color:var(--chalk);line-height:1.5;padding:10px 0;border-top:1px solid var(--line-soft)}
+.lp-row .lab{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.lp-row .lab.str{color:var(--moss)}.lp-row .lab.weak{color:var(--clay)}
+.loop-mid{display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--blue-soft);background:rgba(27,155,209,.05);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.loop-feeds{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}
+.feed{padding:18px 26px;font-size:13.5px;color:var(--bone);display:flex;gap:11px;align-items:flex-start;border-top:1px solid var(--line-soft)}
+.feed:nth-child(odd){border-right:1px solid var(--line-soft)}
+.feed .fa{color:var(--canopy);flex-shrink:0}
+.loop-foot{border-top:1px solid var(--line);padding:18px 26px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--bone)}
+.loop-foot b{color:var(--canopy);font-style:normal;font-weight:600}
+
+/* trifecta steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{border:1px solid var(--line);border-radius:11px;padding:26px 24px;background:var(--concrete);position:relative}
+.step .snum{font-family:'Archivo Black',sans-serif;font-size:15px;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--blue);color:#04121a;margin-bottom:16px}
+.step:nth-child(2) .snum{background:var(--canopy);color:#0e1400}
+.step:nth-child(3) .snum{background:var(--moss);color:#0a1400}
+.step h4{font-size:17px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--chalk)}
+
+/* stat band */
+.statband{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;border:1px solid var(--line);border-radius:12px;padding:30px 20px;background:var(--concrete)}
+.stat{text-align:center}
+.stat .sv{font-family:'Archivo Black',sans-serif;font-size:clamp(26px,3.4vw,38px);letter-spacing:-0.02em;color:var(--canopy)}
+.stat .sl{font-size:13px;color:var(--chalk);margin-top:6px}
+.statband-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-top:14px;text-align:center}
+
+/* value props */
+.vprops{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.vp{border:1px solid var(--line);border-radius:10px;padding:24px;background:var(--concrete)}
+.vp .vn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:9px}
+.vp h4{font-size:16px;margin-bottom:7px}
+.vp p{font-size:13px;color:var(--chalk)}
+
+/* pricing tracks */
+.ptracks{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ptrack{border:1px solid var(--line);border-radius:13px;padding:30px 28px;background:var(--concrete)}
+.ptrack.str{border-color:rgba(27,155,209,.4)}
+.ptrack .pt-name{font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.01em;margin-bottom:6px}
+.ptrack .pt-desc{font-size:13.5px;color:var(--chalk);margin-bottom:22px;min-height:42px}
+.ptier{border-top:1px solid var(--line-soft);padding:16px 0}
+.ptier .pt-tier{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:6px}
+.ptier .pt-price{font-size:15px;color:var(--bone)}
+.ptier .pt-price b{font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.01em}
+.ptier .pt-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--chalk);margin-top:5px}
+.includes{margin-top:18px;border:1px solid var(--line);border-radius:12px;padding:24px 26px;background:var(--asphalt)}
+.includes h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:16px}
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 24px}
+.inc-grid div{font-size:13px;color:var(--chalk);padding-left:18px;position:relative}
+.inc-grid div::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--blue-soft)}
+
+/* offers */
+.offers{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:16px;align-items:stretch}
+.offer{border:1px solid var(--line);border-radius:14px;padding:30px 28px;background:var(--concrete);display:flex;flex-direction:column}
+.offer.feat{border-color:rgba(212,255,61,.45);background:linear-gradient(165deg,rgba(212,255,61,.07),var(--concrete));position:relative}
+.offer .oflag{position:absolute;top:-11px;left:28px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--canopy);color:#0e1400;font-weight:700;padding:5px 11px;border-radius:5px}
+.offer .opill{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:4px;align-self:flex-start;margin-bottom:16px}
+.offer .opill.free{color:#0e1400;background:var(--canopy);font-weight:700}
+.offer .opill.paid{color:var(--blue-soft);background:rgba(27,155,209,.14)}
+.offer .opill.eco{color:#0e1400;background:var(--canopy);font-weight:700}
+.offer h3{font-family:'Archivo Black',sans-serif;font-size:21px;text-transform:none;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.05}
+.offer .oprice{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk);margin-bottom:14px}
+.offer .oprice b{color:var(--bone)}
+.offer .odesc{font-size:13.5px;color:var(--chalk);line-height:1.55;margin-bottom:16px}
+.offer ul{list-style:none;margin:0 0 22px;flex:1}
+.offer li{font-size:12.5px;color:var(--chalk);padding:6px 0 6px 19px;position:relative;line-height:1.4}
+.offer li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue-soft)}
+.offer.feat li::before{background:var(--canopy)}
+.offer li b{color:var(--bone)}
+.offer .obtns{display:flex;flex-direction:column;gap:9px;margin-top:auto}
+.offer .obtns .btn{width:100%;justify-content:center}
+
+/* faq */
+.faq{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.faq details{border-bottom:1px solid var(--line-soft)}
+.faq details:last-child{border-bottom:none}
+.faq summary{padding:20px 26px;font-size:15.5px;color:var(--bone);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:var(--blue-soft);font-size:20px}
+.faq details[open] summary::after{content:"\2013"}
+.faq .fa-body{padding:0 26px 22px;font-size:14px;color:var(--chalk);line-height:1.6;max-width:80ch}
+
+/* final */
+.final{padding:90px 0;text-align:center;border-top:1px solid var(--line-soft);background:radial-gradient(circle at 50% 0%,rgba(27,155,209,.10),transparent 60%)}
+.final h2{font-size:clamp(30px,4.5vw,48px);text-transform:none;margin:16px 0}
+.final p{font-size:17px;color:var(--chalk);max-width:54ch;margin:0 auto 28px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:50px 0 34px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:34px}
+.foot-logo img{height:28px}
+.foot-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);margin-top:14px;max-width:34ch;line-height:1.6}
+.foot-cols{display:flex;gap:54px;flex-wrap:wrap}
+.foot-col h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
+.foot-col a,.foot-col span{display:block;font-size:13.5px;color:var(--chalk);margin-bottom:9px;line-height:1.5}
+.foot-col a:hover{color:var(--bone)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--chalk-dim)}
+
+@media(max-width:900px){
+  .loop-pair{grid-template-columns:1fr}
+  .loop-mid{border:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px;transform:rotate(90deg)}
+  .loop-feeds,.steps,.statband,.vprops,.ptracks,.offers,.inc-grid{grid-template-columns:1fr}
+  .feed:nth-child(odd){border-right:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <div class="nav-links">
+      <a href="#loop">Google + LinkedIn</a>
+      <a href="#method">How We Run It</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#start">Start</a>
+      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="partner">
+      <img src="https://impactable.com/wp-content/uploads/2026/04/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner">
+      <span>LinkedIn Marketing Partner &middot; B2B Paid Search</span>
+    </div>
+    <h1 class="display">Paid search shouldn't work <span class="em">alone.</span> Neither should your agency.</h1>
+    <p class="hero-lede serif">Google captures the buyers already looking. LinkedIn creates and qualifies the demand around it.</p>
+    <p class="hero-sub">We run B2B paid search as one layer of a connected system, not a standalone campaign hoping to claw its way to a positive ROI. Every click feeds your retargeting, every search term sharpens the next, and Google and LinkedIn close the attribution loop together. This is mature, ongoing management built to compound.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a free Google Ads audit &rarr;</a>
+      <a class="btn btn-ghost" href="#loop">See how the loop works</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The problem with paid search in isolation</span>
+      <h2 class="sec-title display">Google alone is a leaky bucket.</h2>
+      <p class="sec-desc">Search captures intent, and that intent is valuable. But run in a silo, the click is expensive and competitive, your prospect is comparing three or four competitors in the same session, and everything rides on a single landing page visit. Most never come back. You end up paying premium prices for traffic that bounces, and standalone ROI gets hard to prove. The fix is not more budget. It is a system that catches what search brings in.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="loop">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow lime">Why Google + LinkedIn</span>
+      <h2 class="sec-title display">Each channel's weakness is the other's strength.</h2>
+      <p class="sec-desc">Neither channel proves ROI alone. Together, the attribution loop closes. This is the core of how we run paid search: not as a standalone line item, but as the capture layer of a system LinkedIn qualifies and nurtures.</p>
+    </div>
+    <div class="loop">
+      <div class="loop-pair">
+        <div class="lpcard">
+          <div class="lp-name"><span class="ld g"></span>Google Ads</div>
+          <div class="lp-row"><span class="lab str">Strength</span>Captures in-market intent. When someone searches for your solution, they are already evaluating. Brand search captures the demand other channels create.</div>
+          <div class="lp-row"><span class="lab weak">Weakness</span>Cannot qualify the click. It is expensive and competitive, the searcher visits three or four competitors, and all the pressure lands on your page.</div>
+        </div>
+        <div class="loop-mid">&#8646;</div>
+        <div class="lpcard">
+          <div class="lp-name"><span class="ld li"></span>LinkedIn Ads</div>
+          <div class="lp-row"><span class="lab str">Strength</span>Reaches the exact ICP by title, seniority, size, and industry. Builds familiarity at the accounts that close, and qualifies the audience before they ever click.</div>
+          <div class="lp-row"><span class="lab weak">Weakness</span>No in-market intent signal. You reach people who might need you someday, not the ones searching today, so cycles run longer.</div>
+        </div>
+      </div>
+      <div class="loop-feeds">
+        <div class="feed"><span class="fa">&rarr;</span><div>LinkedIn creates demand and qualifies the audience, so Google captures it when they search.</div></div>
+        <div class="feed"><span class="fa">&rarr;</span><div>Google brings in-market traffic, so LinkedIn can retarget those visitors with trust-building content.</div></div>
+        <div class="feed"><span class="fa">&rarr;</span><div>LinkedIn familiarity feeds Google's branded search volume.</div></div>
+        <div class="feed"><span class="fa">&rarr;</span><div>Google's qualified traffic feeds LinkedIn's mid-funnel retargeting pools.</div></div>
+      </div>
+      <div class="loop-foot">Run apart, both leak. Run together, <b>the loop closes.</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The mechanism</span>
+      <h2 class="sec-title display">Capture, qualify, compound.</h2>
+      <p class="sec-desc">Here is how it works in practice. Imagine a month of Google Ads driving in-market traffic to your site. On its own, most of it bounces. Inside the system, it becomes a qualified, retargetable, compounding asset.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="snum">1</div><h4>Capture the intent</h4><p>Google brings the buyers actively searching: your branded terms, competitor terms, and bottom-of-funnel solution phrases. The warmest traffic you can buy.</p></div>
+      <div class="step"><div class="snum">2</div><h4>Qualify the click</h4><p>The LinkedIn Insight Tag sees all of that traffic, then filters it by company size, industry, title, seniority, and ABM lists, so spend focuses only on good-fit accounts instead of every random visitor.</p></div>
+      <div class="step"><div class="snum">3</div><h4>Compound the demand</h4><p>Qualified visitors feed retargeting pools, Meta and programmatic reinforce the message, and accounts exposed on both Google and LinkedIn accelerate through the pipeline.</p></div>
+    </div>
+    <div class="statband">
+      <div class="stat"><div class="sv">20 to 40%</div><div class="sl">lower customer acquisition cost</div></div>
+      <div class="stat"><div class="sv">2 to 3x</div><div class="sl">improvement in conversion rate</div></div>
+      <div class="stat"><div class="sv">1 system</div><div class="sl">clear attribution across channels</div></div>
+    </div>
+    <p class="statband-note">// Typically observed when Google and LinkedIn are run as one integrated system rather than separate campaigns.</p>
+  </div>
+</section>
+
+<section class="sec" id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How we run it</span>
+      <h2 class="sec-title display">Paid search, run like it matters.</h2>
+      <p class="sec-desc">Anyone can do quick keyword research and hand you a campaign. Mature management is about what happens every week after launch, and how search connects to everything else you run.</p>
+    </div>
+    <div class="vprops">
+      <div class="vp"><div class="vn">Intent first</div><h4>Start at the bottom</h4><p>We begin with high-converting, bottom-of-funnel core phrases, not a wide net for search volume. We aim for the searches ready to convert, then expand from proof.</p></div>
+      <div class="vp"><div class="vn">Defense</div><h4>Own your name and theirs</h4><p>Protect your branded terms so competitors cannot rank ahead of you, and bid on competitor terms to win prospects in the awareness and consideration stages.</p></div>
+      <div class="vp"><div class="vn">Fuel</div><h4>Build pools, not just clicks</h4><p>Every qualified visit becomes retargeting fuel for LinkedIn, Meta, and programmatic. Search is the top of the conversion path, not the end of it.</p></div>
+      <div class="vp"><div class="vn">Conversion</div><h4>Pages and Quality Score</h4><p>A weak landing page drops your Quality Score, which means more cost for fewer placements. We test pages to lift conversion and lower what you pay per click.</p></div>
+      <div class="vp"><div class="vn">Visibility</div><h4>One source of truth</h4><p>Weekly reporting that hooks into Google, LinkedIn, Meta, and the rest, so you see how every channel stacks up and where the budget should move.</p></div>
+      <div class="vp"><div class="vn">Compounding</div><h4>Always optimizing</h4><p>Search terms refined continuously, irrelevant queries cut, winners scaled. Ongoing management that gets cheaper and sharper each quarter, not set and forget.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2 class="sec-title display">Two ways to work with us.</h2>
+      <p class="sec-desc">Choose execution when you want expert hands on the account and strategy as needed. Choose strategic oversight when you want ongoing guidance built to scale across channels. Both tracks include the full team and unlimited revisions.</p>
+    </div>
+    <div class="ptracks">
+      <div class="ptrack">
+        <div class="pt-name">Execution</div>
+        <div class="pt-desc">Expert execution focused, with the option to add strategic guidance as needed.</div>
+        <div class="ptier"><div class="pt-tier">Standard &middot; up to $25k ad spend</div><div class="pt-price"><b>$500</b> + 15% of ad spend</div><div class="pt-meta">$1,500/mo minimum &middot; weekly metrics</div></div>
+        <div class="ptier"><div class="pt-tier">Custom &middot; $25k+ ad spend</div><div class="pt-price"><b>+15 to 7%</b> of ad spend</div><div class="pt-meta">Custom reporting &middot; let's talk</div></div>
+      </div>
+      <div class="ptrack str">
+        <div class="pt-name">Strategic Oversight</div>
+        <div class="pt-desc">Ongoing strategic guidance, built to scale and aligned with your growth goals across channels.</div>
+        <div class="ptier"><div class="pt-tier">Standard &middot; up to $25k ad spend</div><div class="pt-price"><b>$1,500</b> + 15% of ad spend</div><div class="pt-meta">$2,250/mo minimum &middot; weekly metrics + multi-channel insights</div></div>
+        <div class="ptier"><div class="pt-tier">Custom &middot; $25k+ ad spend</div><div class="pt-price"><b>+15 to 7%</b> of ad spend</div><div class="pt-meta">Customized + ad hoc reporting &middot; let's talk</div></div>
+      </div>
+    </div>
+    <div class="includes">
+      <h5>Every engagement includes</h5>
+      <div class="inc-grid">
+        <div>Full-Funnel B2B Strategist</div>
+        <div>Paid Search Specialist</div>
+        <div>Digital Marketing Coordinator</div>
+        <div>Keyword research</div>
+        <div>Ad copy creation</div>
+        <div>Customized strategy &amp; growth plan</div>
+        <div>Quarterly multi-channel audit</div>
+        <div>Competitor research &amp; monitoring</div>
+        <div>Unlimited revisions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="start">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow lime">Start here</span>
+      <h2 class="sec-title display">Three ways to begin.</h2>
+      <p class="sec-desc">Start free with an audit, lock in the strategy, or run Google and LinkedIn together as one system from day one.</p>
+    </div>
+    <div class="offers">
+
+      <div class="offer">
+        <span class="opill free">Free &middot; Start here</span>
+        <h3>Google Ads Audit</h3>
+        <div class="oprice"><b>No cost</b> &middot; single channel</div>
+        <p class="odesc">A senior read on your existing paid search: where the spend leaks, what the search terms reveal, and the highest-leverage fixes.</p>
+        <ul>
+          <li>Account structure &amp; keyword review</li>
+          <li>Search term &amp; wasted-spend analysis</li>
+          <li>Landing page &amp; Quality Score check</li>
+          <li>The first moves we would make</li>
+        </ul>
+        <div class="obtns"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get the free audit &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
+      </div>
+
+      <div class="offer">
+        <span class="opill paid">Paid &middot; New programs</span>
+        <h3>Foundational Strategy</h3>
+        <div class="oprice"><b>$1,500</b> &middot; one-time</div>
+        <p class="odesc">The front end of the system: competitive white space, audience and keyword architecture, and the channel sequence built for where you are.</p>
+        <ul>
+          <li>Competitive white-space analysis</li>
+          <li>Keyword &amp; search-term architecture</li>
+          <li>Messaging &amp; offer by funnel stage</li>
+          <li>The 90-day build plan</li>
+        </ul>
+        <div class="obtns"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Start the strategy &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
+      </div>
+
+      <div class="offer feat">
+        <span class="oflag">The system</span>
+        <span class="opill eco">Managed &middot; Ecosystem</span>
+        <h3>Google + LinkedIn</h3>
+        <div class="oprice">from <b>$3,000/mo</b> combined ad spend</div>
+        <p class="odesc">Run both channels as one closed loop from day one. Google captures the intent, LinkedIn qualifies and nurtures it, and the reporting lives in one place.</p>
+        <ul>
+          <li>Paid search + LinkedIn run as one system</li>
+          <li>Insight Tag qualification on all search traffic</li>
+          <li>Shared retargeting pools across channels</li>
+          <li>Unified multi-channel reporting &amp; attribution</li>
+          <li>Management structured like our other plans: base fee + % of spend</li>
+        </ul>
+        <div class="obtns"><a class="btn btn-lime" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Run them together &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
+      </div>
+
+    </div>
+    <p class="statband-note">// Combined ad spend starts at $3,000/mo. Management fees follow our standard structure and are confirmed on a quick call.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Common questions</span><h2 class="sec-title display">Before you book.</h2></div>
+    <div class="faq">
+      <details><summary>Can you run Google and LinkedIn together?</summary><div class="fa-body">Yes, and it is how we recommend running paid search whenever it fits. The two channels close each other's gaps: Google captures in-market intent while LinkedIn qualifies and nurtures it. Our combined option starts at $3,000/mo in combined ad spend, with one team and one reporting view across both.</div></details>
+      <details><summary>Do I need a Google Ads account to get started?</summary><div class="fa-body">No. If you already have an account we will audit and build on it. If you do not, we set one up correctly from the start, including conversion tracking and the structure the rest of the system depends on.</div></details>
+      <details><summary>How long does it typically take to launch?</summary><div class="fa-body">Most accounts go live within one to two weeks, depending on access, tracking setup, and how much keyword and landing-page work is needed up front. We prioritize getting clean conversion tracking in place before scaling spend.</div></details>
+      <details><summary>Do you offer white-label Google Ads services?</summary><div class="fa-body">Yes. We support agencies and partners with white-label paid search management. Reach out and we will walk through how the partnership works.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow lime" style="justify-content:center">Stop the leak</span>
+    <h2 class="display">Tired of paying too much and getting too little from Google?</h2>
+    <p>We will audit your account for free, show you where the spend leaks, and map how Google and LinkedIn close the loop together.</p>
+    <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call &rarr;</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></div>
+        <div class="foot-tag">Built by LinkedIn insiders. Scaled by data. Paid search run as part of a system, never in a silo.</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>Services</h5><a href="https://impactable.com/linkedin-ads/">LinkedIn Ads</a><a href="https://impactable.com/google-ads/">B2B Paid Search</a><a href="https://impactable.com/automated-messaging/">Lead Gen &amp; Nurture</a><a href="/demand-gen">Brand Engine</a></div>
+        <div class="foot-col"><h5>Company</h5><a href="https://impactable.com/impactable-about-us/">About Us</a><a href="https://impactable.com/blog/">Growth Lab</a><a href="https://impactable.com/events/">Events</a><a href="https://impactable.com/careers/">Careers</a></div>
+        <div class="foot-col"><h5>Contact</h5><span>Call (212) 660-6600</span><span>support@impactable.com</span><span>9:00am to 5:00pm CST, Mon to Fri</span></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Impactable LLC &middot; San Antonio, TX &middot; Cape Coral, FL</span>
+      <img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner" style="height:32px">
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
