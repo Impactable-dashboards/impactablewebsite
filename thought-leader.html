@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Brand Engine | Founder-Led Thought Leadership, Powered by AI | Impactable</title>
+<meta name="description" content="Most agencies sell you posts. Impactable builds you a Brand Engine: an AI context environment trained on your expertise, positioning, and voice that powers branded assets across LinkedIn, YouTube, newsletters, landing pages, and ads, and that your team can talk to.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--bone:#F4F1EA;--chalk:#A7A39A;--chalk-dim:#6F6C64;
+  --blue:#1B9BD1;--blue-soft:#5BB8E0;--canopy:#D4FF3D;--clay:#FFB627;--plum:#b07bc4;--moss:#7BAA3E;
+  --line:rgba(244,241,234,.10);--line-soft:rgba(244,241,234,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--asphalt);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.03em;line-height:0.98}
+.serif{font-family:'Fraunces',serif}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--blue-soft)}
+.eyebrow.lime{color:var(--canopy)}.eyebrow.lime::before{background:var(--canopy)}
+.em{color:var(--blue-soft)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo img{height:26px;display:block}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;color:var(--chalk);transition:color .2s}
+.nav-links a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 22px;border-radius:7px;border:1px solid var(--line);transition:all .2s;cursor:pointer}
+.btn-primary{background:var(--blue);border-color:var(--blue);color:#04121a;font-weight:700}
+.btn-primary:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+.btn-ghost{background:transparent;color:var(--bone)}
+.btn-ghost:hover{border-color:var(--bone)}
+.btn-lime{background:var(--canopy);border-color:var(--canopy);color:#0e1400;font-weight:700}
+.btn-lime:hover{filter:brightness(1.08)}
+@media(max-width:860px){.nav-links a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:90px 0 70px;border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-120px;right:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(27,155,209,.14),transparent 65%);pointer-events:none}
+.partner{display:inline-flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:40px;padding:7px 14px 7px 8px;margin-bottom:24px}
+.partner img{height:26px}
+.partner span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk);letter-spacing:.04em}
+.hero h1{font-size:clamp(38px,6vw,68px);max-width:16ch;margin-bottom:24px}
+.hero-lede{font-size:clamp(18px,2.3vw,23px);color:var(--bone);font-style:italic;max-width:40ch;margin-bottom:18px;line-height:1.4}
+.hero-sub{font-size:16px;color:var(--chalk);max-width:56ch;margin-bottom:32px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* sections */
+.sec{padding:78px 0;border-top:1px solid var(--line-soft)}
+.sec-head{margin-bottom:42px;max-width:62ch}
+.sec-title{font-size:clamp(28px,4vw,44px);text-transform:none;margin-bottom:18px}
+.sec-desc{font-size:17px;color:var(--chalk);line-height:1.6}
+
+/* the shift */
+.shift{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.scard{border:1px solid var(--line);border-radius:10px;padding:28px 26px;background:var(--concrete)}
+.scard .sn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-bottom:14px}
+.scard h4{font-size:18px;margin-bottom:9px}
+.scard p{font-size:14px;color:var(--chalk)}
+
+/* engine diagram */
+.engine{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#0d0d12,var(--asphalt))}
+.engine-zones{display:grid;grid-template-columns:1fr 1.15fr 1fr}
+.ez{padding:30px 26px;border-right:1px solid var(--line);position:relative}
+.ez:last-child{border-right:none}
+.ez.core{background:rgba(27,155,209,.07)}
+.ez .ezl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:8px}
+.ez.core .ezl{color:var(--blue-soft)}
+.ez h4{font-family:'Archivo Black',sans-serif;font-size:17px;letter-spacing:-0.01em;margin-bottom:18px;line-height:1.1}
+.enode{border:1px solid var(--line);border-radius:8px;padding:11px 13px;margin-bottom:9px;background:var(--asphalt);font-size:13.5px;color:var(--bone)}
+.enode small{display:block;font-size:11px;color:var(--chalk-dim);margin-top:2px}
+.ez.core .enode{border-color:rgba(27,155,209,.3);background:rgba(27,155,209,.05)}
+.ezarrow{position:absolute;right:-13px;top:46px;width:26px;height:26px;background:var(--court);border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue-soft);font-size:13px;z-index:4}
+.ez:last-child .ezarrow{display:none}
+.engine-talk{border-top:1px dashed var(--line);padding:20px 26px;display:flex;gap:16px;align-items:center;background:rgba(212,255,61,.04)}
+.engine-talk .tk{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--canopy);white-space:nowrap}
+.engine-talk p{font-size:14px;color:var(--chalk);margin:0}
+.engine-foot{border-top:1px solid var(--line);padding:16px 26px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--bone)}
+.engine-foot b{color:var(--canopy);font-style:normal;font-weight:600}
+
+/* method */
+.method{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mcard{border:1px solid var(--line);border-radius:10px;padding:26px;background:var(--concrete)}
+.mcard h4{font-size:17px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.mcard h4 .dot{width:8px;height:8px;border-radius:50%;background:var(--canopy)}
+.mcard p{font-size:14px;color:var(--chalk)}
+
+/* talk band */
+.talkband{border:1px solid rgba(212,255,61,.35);border-radius:14px;padding:40px 36px;background:linear-gradient(160deg,rgba(212,255,61,.06),var(--asphalt))}
+.talkband .tbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--canopy);margin-bottom:14px}
+.talkband h3{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,30px);line-height:1.25;max-width:30ch;margin-bottom:16px}
+.talkband p{font-size:15.5px;color:var(--chalk);max-width:60ch;line-height:1.6}
+
+/* channel grid */
+.channels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.chan{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--concrete);transition:border-color .2s}
+.chan:hover{border-color:var(--blue)}
+.chan .cn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:8px}
+.chan h4{font-size:16px;margin-bottom:6px}
+.chan p{font-size:13px;color:var(--chalk)}
+
+/* pricing */
+.pricing{display:grid;grid-template-columns:1fr 1.1fr 1.25fr;gap:18px;align-items:stretch}
+.tier{border:1px solid var(--line);border-radius:14px;padding:32px 28px;background:var(--concrete);display:flex;flex-direction:column}
+.tier.feat{border-color:rgba(212,255,61,.45);background:linear-gradient(165deg,rgba(212,255,61,.07),var(--concrete));position:relative}
+.tier .tflag{position:absolute;top:-11px;left:28px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--canopy);color:#0e1400;font-weight:700;padding:5px 11px;border-radius:5px}
+.tier .tname{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:12px}
+.tier.feat .tname{color:var(--canopy)}
+.tier .tprice{font-family:'Archivo Black',sans-serif;font-size:38px;letter-spacing:-0.03em;line-height:1}
+.tier .tprice small{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);letter-spacing:0;margin-left:6px}
+.tier .ttag{font-size:14px;color:var(--bone);margin:14px 0 20px;line-height:1.45}
+.tier ul{list-style:none;margin:0 0 24px;flex:1}
+.tier li{font-size:13.5px;color:var(--chalk);padding:8px 0 8px 22px;position:relative;line-height:1.45;border-bottom:1px solid var(--line-soft)}
+.tier li:last-child{border-bottom:none}
+.tier li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--blue-soft)}
+.tier.feat li::before{background:var(--canopy)}
+.tier li b{color:var(--bone);font-weight:600}
+.tier .tbtns{display:flex;flex-direction:column;gap:9px}
+.tier .tbtns .btn{width:100%;justify-content:center}
+.pricing-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--chalk-dim);margin-top:18px;text-align:center}
+
+/* final */
+.final{padding:90px 0;text-align:center;border-top:1px solid var(--line-soft);background:radial-gradient(circle at 50% 0%,rgba(27,155,209,.10),transparent 60%)}
+.final h2{font-size:clamp(30px,4.5vw,48px);text-transform:none;margin:16px 0}
+.final p{font-size:17px;color:var(--chalk);max-width:54ch;margin:0 auto 28px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:50px 0 34px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:34px}
+.foot-logo img{height:28px}
+.foot-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);margin-top:14px}
+.foot-cols{display:flex;gap:54px;flex-wrap:wrap}
+.foot-col h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
+.foot-col a{display:block;font-size:14px;color:var(--chalk);margin-bottom:9px;transition:color .2s}
+.foot-col a:hover{color:var(--bone)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--chalk-dim)}
+
+@media(max-width:900px){
+  .shift,.method,.channels,.engine-zones,.pricing{grid-template-columns:1fr}
+  .ez{border-right:none;border-bottom:1px solid var(--line)}
+  .ezarrow{display:none}
+  .channels{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.channels{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <div class="nav-links">
+      <a href="#engine">The Engine</a>
+      <a href="#talk">Talk With Your Brand</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="partner">
+      <img src="https://impactable.com/wp-content/uploads/2026/04/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner">
+      <span>LinkedIn Marketing Partner &middot; Thought Leadership</span>
+    </div>
+    <h1 class="display">Stop buying posts. Build a <span class="em">Brand Engine.</span></h1>
+    <p class="hero-lede serif">Most agencies sell you content. We build you an engine that powers your brand across every channel.</p>
+    <p class="hero-sub">A Brand Engine is a living AI context environment, trained on your real expertise, positioning, and voice. It becomes the single source of truth that produces on-brand assets for LinkedIn, YouTube, newsletters, landing pages, and ads, and that you and your team can actually talk to.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Build your Brand Engine &rarr;</a>
+      <a class="btn btn-ghost" href="#engine">See how it works</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The shift</span>
+      <h2 class="sec-title display">AI made content cheap. It made trust expensive.</h2>
+      <p class="sec-desc">The feed is flooded. Volume is up, value is down, and most AI content is instantly recognizable: generic, robotic, no point of view. The brands winning B2B right now are not posting more. They are posting with a consistent, human, unique perspective, everywhere their buyers look.</p>
+    </div>
+    <div class="shift">
+      <div class="scard"><div class="sn">The flood</div><h4>More content, less signal</h4><p>AI tools made publishing effortless, so everyone publishes. The result is a sea of sameness that buyers have learned to scroll past.</p></div>
+      <div class="scard"><div class="sn">The scarcity</div><h4>Human POV is the moat</h4><p>As content gets automated, real expertise and a bold point of view become more valuable, not less. That cannot be outsourced or faked.</p></div>
+      <div class="scard"><div class="sn">The unlock</div><h4>Expertise, at scale</h4><p>The opportunity is to capture your expertise once, then express it consistently across every channel without diluting the voice. That is an engine, not a post.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="engine">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow lime">What we actually build</span>
+      <h2 class="sec-title display">Not a content service. A Brand Engine.</h2>
+      <p class="sec-desc">We build you an AI context environment loaded with your foundational knowledge, fed by real human inputs, that becomes the source of truth for everything you publish. One brain. Many channels. Always on-voice.</p>
+    </div>
+    <div class="engine">
+      <div class="engine-zones">
+        <div class="ez">
+          <div class="ezl">Inputs</div>
+          <h4>Your real expertise</h4>
+          <div class="enode">Founder &amp; expert interviews<small>The unique POV, captured</small></div>
+          <div class="enode">Sales-call language<small>How buyers actually talk</small></div>
+          <div class="enode">Positioning &amp; white space<small>What only you can claim</small></div>
+          <div class="enode">Proof, frameworks &amp; ICP<small>The evidence and the audience</small></div>
+          <div class="ezarrow">&rarr;</div>
+        </div>
+        <div class="ez core">
+          <div class="ezl">The Brand Engine</div>
+          <h4>A living context environment</h4>
+          <div class="enode">Single source of truth<small>Every asset traces to your real knowledge</small></div>
+          <div class="enode">Trained on your voice<small>On-brand, not robotic AI slop</small></div>
+          <div class="enode">Always current<small>Updated as your positioning evolves</small></div>
+          <div class="enode">Human-guarded<small>Editorial guardrails and review on everything</small></div>
+          <div class="ezarrow">&rarr;</div>
+        </div>
+        <div class="ez">
+          <div class="ezl">Outputs</div>
+          <h4>On-brand, everywhere</h4>
+          <div class="enode">LinkedIn posts &amp; thought-leader ads</div>
+          <div class="enode">Newsletters</div>
+          <div class="enode">YouTube scripts &amp; descriptions</div>
+          <div class="enode">Landing page &amp; ad copy</div>
+          <div class="enode">Blogs &amp; long-form</div>
+        </div>
+      </div>
+      <div class="engine-talk">
+        <span class="tk">&#9679; Talk with your brand</span>
+        <p>You and your team can ask the engine questions, clarify messaging, and generate on-brand assets on demand, all grounded in the same foundational knowledge.</p>
+      </div>
+      <div class="engine-foot">Most agencies hand you content. We hand you <b>an engine that compounds.</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why it is not AI slop</span>
+      <h2 class="sec-title display">AI amplifies your expertise. It does not replace it.</h2>
+      <p class="sec-desc">The reason most AI content fails is that it is generated from nothing. We do the opposite: we feed the engine high-quality human inputs, then guard the output with real editorial standards.</p>
+    </div>
+    <div class="method">
+      <div class="mcard"><h4><span class="dot"></span>We start with real inputs</h4><p>Founder interviews, sales-call transcripts, and your actual point of view go in first. The engine expresses your thinking, it does not invent a personality.</p></div>
+      <div class="mcard"><h4><span class="dot"></span>We encode the positioning</h4><p>Your competitive white space, proof, and messaging architecture live in the engine, so every asset reinforces what only you can claim.</p></div>
+      <div class="mcard"><h4><span class="dot"></span>We keep humans in the loop</h4><p>Brand voice checklists, editorial guardrails, and a review pass on every asset. Nothing ships that does not sound like you.</p></div>
+      <div class="mcard"><h4><span class="dot"></span>We tie it to pipeline</h4><p>Thought leadership is a trust engine, not a vanity exercise. It warms buyers, shortens the sales cycle, and gets amplified by ads to the right accounts.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="talk">
+  <div class="wrap">
+    <div class="talkband">
+      <div class="tbl">&#9679; The function nobody else offers</div>
+      <h3>Ask your brand anything.</h3>
+      <p>Your Brand Engine is not a folder of deliverables. It is an environment you can interact with. Need a post in your voice, a newsletter angle, ad copy for a new campaign, or a quick gut check on whether a message is on-brand? Ask it. Your whole team works from one source of truth, grounded in your real positioning and expertise, available any time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What it powers</span>
+      <h2 class="sec-title display">One engine. Every channel.</h2>
+      <p class="sec-desc">The same foundational knowledge produces a coordinated, on-brand stream of assets, so your message is consistent everywhere a buyer encounters you.</p>
+    </div>
+    <div class="channels">
+      <div class="chan"><div class="cn">Social</div><h4>LinkedIn</h4><p>Founder and expert posts plus thought-leader ads, the trust layer of the whole motion.</p></div>
+      <div class="chan"><div class="cn">Video</div><h4>YouTube</h4><p>Scripts, descriptions, and supporting copy that turn long-form into a discoverable asset.</p></div>
+      <div class="chan"><div class="cn">Owned</div><h4>Newsletters</h4><p>Recurring editions in your voice that nurture your list and deepen authority over time.</p></div>
+      <div class="chan"><div class="cn">Convert</div><h4>Landing pages</h4><p>On-brand page copy that continues the story your ads and content started, so clicks convert.</p></div>
+      <div class="chan"><div class="cn">Paid</div><h4>Ad copy</h4><p>Headlines and variations by funnel stage, drawn from the same positioning and proof.</p></div>
+      <div class="chan"><div class="cn">Search</div><h4>Blogs &amp; long-form</h4><p>Depth pieces that establish expertise and feed the rest of the engine with fresh angles.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow lime">Pricing</span>
+      <h2 class="sec-title display">Start with posts. Grow into an engine.</h2>
+      <p class="sec-desc">Three ways in, depending on how much of your brand you want to put to work. Every tier is built on your real voice and reviewed by humans.</p>
+    </div>
+    <div class="pricing">
+
+      <div class="tier">
+        <div class="tname">Thought Leader</div>
+        <div class="tprice">$749<small>/mo</small></div>
+        <div class="ttag">A consistent founder or expert voice on LinkedIn, written from your real point of view.</div>
+        <ul>
+          <li><b>Text posts only</b>, in your voice</li>
+          <li>Built from short inputs: calls, notes, ideas</li>
+          <li>Unique POV, not generic AI filler</li>
+          <li>Consistent weekly cadence</li>
+          <li>Human-reviewed before every post</li>
+        </ul>
+        <div class="tbtns">
+          <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Start the motion</a>
+          <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tname">Content Engine</div>
+        <div class="tprice">$2,949<small>/mo</small></div>
+        <div class="ttag">The full thought-leadership engine: strategy, inputs, and multi-format content, ready to amplify.</div>
+        <ul>
+          <li>Everything in <b>Thought Leader</b></li>
+          <li>Content strategy &amp; topic map by funnel stage</li>
+          <li>Monthly expert interview / input sessions</li>
+          <li>Multi-format LinkedIn assets: text, image, video</li>
+          <li>Amplification-ready thought-leader ads</li>
+          <li>Signal monitoring &amp; organized asset library</li>
+          <li>Monthly analytics &amp; strategy sync</li>
+        </ul>
+        <div class="tbtns">
+          <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Run the engine</a>
+          <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a>
+        </div>
+      </div>
+
+      <div class="tier feat">
+        <div class="tflag">The full system</div>
+        <div class="tname">Brand Engine</div>
+        <div class="tprice">$5,000<small>/mo</small></div>
+        <div class="ttag">Your whole brand, built as an AI context environment that powers assets across every channel and that your team can talk to.</div>
+        <ul>
+          <li>Everything in <b>Content Engine</b></li>
+          <li>We build &amp; maintain your <b>Brand Engine</b>: positioning, voice, proof, frameworks, ICP, messaging</li>
+          <li><b>Talk with your brand</b>: your team asks questions and generates on-brand assets any time</li>
+          <li>Representative monthly output, beyond LinkedIn:</li>
+          <li>2 to 3 newsletters</li>
+          <li>YouTube descriptions &amp; script support</li>
+          <li>1 to 2 landing page updates</li>
+          <li>1 to 2 blogs</li>
+          <li>Ad copy on demand</li>
+        </ul>
+        <div class="tbtns">
+          <a class="btn btn-lime" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Build your Brand Engine</a>
+          <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="pricing-note">// Brand Engine output volumes are a representative monthly scope and flex to your priorities.</p>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow lime" style="justify-content:center">Build the engine</span>
+    <h2 class="display">Your expertise is the asset. Let's make it work.</h2>
+    <p>We will show you what your Brand Engine looks like, what it produces, and how it powers trust across every channel your buyers touch.</p>
+    <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call &rarr;</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></div>
+        <div class="foot-tag">Built by LinkedIn insiders. Scaled by data.</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>Brand Engine</h5><a href="#engine">The Engine</a><a href="#talk">Talk With Your Brand</a><a href="#pricing">Pricing</a></div>
+        <div class="foot-col"><h5>Services</h5><a href="https://impactable.com/linkedin-ads/">LinkedIn Ads</a><a href="https://impactable.com/google-ads/">Google Ads</a><a href="https://impactable.com/automated-messaging/">Lead Gen &amp; Nurture</a></div>
+        <div class="foot-col"><h5>Company</h5><a href="https://impactable.com/impactable-about-us/">About Us</a><a href="https://impactable.com/blog/">Growth Lab</a><a href="https://impactable.com/events/">Events</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Impactable LLC &middot; LinkedIn Marketing Partner</span>
+      <img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner" style="height:32px">
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
