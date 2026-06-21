@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Marketing Ecosystem | How Every Channel Fits Together, Impactable</title>
+<meta name="description" content="Impactable's full marketing ecosystem: how founder-led thought leadership, paid search, LinkedIn, website visitor ID, enrichment, Meta, programmatic, email, creative, and landing pages fit into one compounding demand system, with the data and account journeys behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#0A0A0C;
+  --concrete:#121217;
+  --court:#1B1B22;
+  --line:rgba(244,241,234,0.10);
+  --line-soft:rgba(244,241,234,0.06);
+  --bone:#F4F1EA;
+  --chalk:#A7A39A;
+  --chalk-dim:#6F6C64;
+  --blue:#1B9BD1;
+  --blue-soft:#5BB8E0;
+  --canopy:#D4FF3D;
+  --clay:#FFB627;
+  --rust:#C4521F;
+  --moss:#7BAA3E;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--asphalt);
+  color:var(--bone);
+  font-family:'Inter',sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── type system ── */
+.display{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.95}
+.serif{font-family:'Fraunces',serif}
+.mono{font-family:'JetBrains Mono',monospace}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--blue-soft);
+  display:inline-flex;align-items:center;gap:9px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--blue);display:inline-block}
+
+/* ── layout shell ── */
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{position:relative}
+
+/* ── nav ── */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,12,0.78);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo img{height:26px;width:auto}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:14.5px;color:var(--chalk);transition:color .2s}
+.nav-links a:hover{color:var(--bone)}
+.btn{
+  font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.04em;
+  text-transform:uppercase;padding:12px 22px;border-radius:2px;
+  display:inline-flex;align-items:center;gap:8px;transition:all .22s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--blue);color:#03121b}
+.btn-primary:hover{background:var(--blue-soft);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue-soft)}
+.nav-cta{font-size:13px;padding:10px 18px}
+.nav-toggle{display:none;background:none;border:none;color:var(--bone);font-size:22px;cursor:pointer}
+
+/* ── hero ── */
+.hero{padding:96px 0 84px;border-bottom:1px solid var(--line-soft);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center}
+.partner-badge{display:flex;align-items:center;gap:12px;margin-bottom:30px}
+.partner-badge img{height:42px;width:auto}
+.partner-badge span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--chalk-dim)}
+.hero h1{font-size:clamp(38px,5.4vw,68px);margin:22px 0 0}
+.hero h1 .em{color:var(--blue-soft)}
+.hero-lede{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.4vw,27px);line-height:1.4;color:var(--chalk);max-width:34ch;margin:26px 0 0;font-weight:400}
+.hero-sub{font-size:17px;color:var(--chalk);max-width:50ch;margin:22px 0 34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:34px;margin-top:46px;padding-top:30px;border-top:1px solid var(--line-soft)}
+.hstat .n{font-family:'Archivo Black',sans-serif;font-size:30px;letter-spacing:-0.03em;line-height:1}
+.hstat .l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-dim);margin-top:8px}
+
+/* hero system card */
+.sys-card{
+  background:linear-gradient(160deg,#14141a 0%,#0c0c10 100%);
+  border:1px solid var(--line);border-radius:6px;padding:26px 24px;
+  position:relative;
+}
+.sys-card::before{content:"";position:absolute;inset:0;border-radius:6px;padding:1px;
+  background:linear-gradient(180deg,rgba(27,155,209,0.4),transparent 60%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.sys-head{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--canopy);box-shadow:0 0 0 0 rgba(212,255,61,0.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,255,61,0.5)}70%{box-shadow:0 0 0 8px rgba(212,255,61,0)}100%{box-shadow:0 0 0 0 rgba(212,255,61,0)}}
+.sys-head .t{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--chalk)}
+.sys-rail{position:relative;padding-left:26px}
+.sys-rail::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--blue),var(--canopy))}
+.sys-node{position:relative;padding:9px 0}
+.sys-node::before{content:"";position:absolute;left:-23px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--asphalt);border:2px solid var(--blue)}
+.sys-node .sn-t{font-size:14.5px;font-weight:600;color:var(--bone)}
+.sys-node .sn-d{font-size:12.5px;color:var(--chalk-dim);font-family:'JetBrains Mono',monospace;letter-spacing:0.02em}
+.sys-node.loop::before{border-color:var(--canopy)}
+
+/* ── generic section header ── */
+.sec{padding:92px 0;border-bottom:1px solid var(--line-soft)}
+.sec-head{max-width:760px;margin-bottom:52px}
+.sec-title{font-size:clamp(28px,3.6vw,46px);margin:18px 0 16px}
+.sec-desc{font-size:18px;color:var(--chalk);max-width:60ch}
+
+/* ── wedge / UVP ── */
+.wedge{background:var(--concrete)}
+.wedge-flip{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:8px}
+.wedge-col{padding:38px 34px}
+.wedge-col.old{background:transparent}
+.wedge-col.new{background:linear-gradient(160deg,rgba(27,155,209,0.10),transparent);border-left:1px solid var(--line)}
+.wedge-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px}
+.wedge-col.old .wedge-tag{color:var(--chalk-dim)}
+.wedge-col.new .wedge-tag{color:var(--blue-soft)}
+.wedge-list{list-style:none}
+.wedge-list li{font-size:15.5px;padding:11px 0;border-bottom:1px solid var(--line-soft);color:var(--chalk);display:flex;gap:11px;align-items:flex-start}
+.wedge-list li:last-child{border-bottom:none}
+.wedge-col.old li{text-decoration:line-through;text-decoration-color:var(--rust);opacity:0.65}
+.wedge-col.new li{color:var(--bone)}
+.wedge-list li .mk{font-family:'JetBrains Mono',monospace;flex-shrink:0;font-size:13px;line-height:1.5}
+.wedge-col.old .mk{color:var(--rust)}
+.wedge-col.new .mk{color:var(--blue)}
+.proof-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.proof-card{border:1px solid var(--line);border-radius:6px;padding:28px 26px;background:var(--asphalt)}
+.proof-card .pn{font-family:'Archivo Black',sans-serif;font-size:42px;letter-spacing:-0.03em;line-height:1;color:var(--canopy)}
+.proof-card .pn.blue{color:var(--blue-soft)}
+.proof-card .pn.clay{color:var(--clay)}
+.proof-card .pt{font-size:15px;color:var(--bone);font-weight:600;margin:14px 0 6px}
+.proof-card .pd{font-size:13.5px;color:var(--chalk-dim);line-height:1.5}
+
+/* ── operating system overview ── */
+.os{background:var(--asphalt)}
+.os-spine{position:relative;margin-top:14px}
+.os-pillar{display:grid;grid-template-columns:64px 1fr;gap:0;position:relative}
+.os-rail{position:relative}
+.os-rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,var(--blue),rgba(27,155,209,0.2))}
+.os-pillar:last-child .os-rail::before{background:linear-gradient(180deg,var(--blue),transparent)}
+.os-marker{position:absolute;left:50%;top:30px;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--asphalt);border:3px solid var(--blue);z-index:2}
+.os-body{padding:22px 0 40px 28px}
+.os-phase{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:8px}
+.os-body h3{font-family:'Archivo Black',sans-serif;font-size:clamp(22px,2.6vw,30px);letter-spacing:-0.02em;text-transform:none;margin-bottom:12px}
+.os-body p{font-size:16px;color:var(--chalk);max-width:62ch}
+.os-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--chalk);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+.chip.hot{border-color:rgba(212,255,61,0.4);color:var(--canopy)}
+
+/* ── onboarding steps ── */
+.steps{background:var(--concrete)}
+.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.step{border:1px solid var(--line);border-radius:6px;padding:26px 24px;background:var(--asphalt);position:relative;transition:border-color .25s,transform .25s}
+.step:hover{border-color:var(--blue);transform:translateY(-3px)}
+.step-n{font-family:'Archivo Black',sans-serif;font-size:13px;letter-spacing:0.02em;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.step-n::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+.step h4{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--bone)}
+.step p{font-size:14px;color:var(--chalk);line-height:1.55}
+.step .step-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-dim);margin-top:14px;display:block}
+.validated{margin-top:30px;font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:var(--bone);text-align:center;max-width:48ch;margin-left:auto;margin-right:auto}
+.validated em{color:var(--canopy);font-style:italic}
+
+/* ── impact report ── */
+.ir{background:var(--asphalt)}
+.ir-statement{font-family:'Fraunces',serif;font-size:clamp(22px,2.8vw,32px);line-height:1.35;max-width:24ch;margin-bottom:14px}
+.ir-statement .strike{color:var(--chalk-dim);text-decoration:line-through;text-decoration-color:var(--rust)}
+.ir-statement .lift{color:var(--blue-soft);font-style:italic}
+.ir-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.act{border:1px solid var(--line);border-radius:6px;padding:24px 22px;background:linear-gradient(165deg,var(--court),var(--asphalt))}
+.act-n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;color:var(--blue-soft);margin-bottom:12px}
+.act h4{font-size:17px;font-weight:700;margin-bottom:9px;color:var(--bone)}
+.act p{font-size:13.5px;color:var(--chalk);line-height:1.55}
+
+/* ── flywheel / EBR ── */
+.fly{background:var(--concrete)}
+.fly-loop{display:flex;align-items:stretch;gap:0;margin-top:14px;flex-wrap:wrap;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.fly-node{flex:1;min-width:160px;padding:28px 22px;border-right:1px solid var(--line);position:relative}
+.fly-node:last-child{border-right:none}
+.fly-node .fn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--chalk-dim);margin-bottom:10px}
+.fly-node h4{font-size:16px;font-weight:700;color:var(--bone);margin-bottom:8px}
+.fly-node p{font-size:13px;color:var(--chalk)}
+.fly-node .fbar{position:absolute;left:0;top:0;height:3px;width:100%}
+.fly-loopback{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--chalk);text-align:center;margin-top:26px}
+.fly-loopback em{color:var(--canopy)}
+
+/* ── maturity mountain ── */
+.mtn{background:var(--asphalt)}
+.ridge-wrap{margin-top:24px;border:1px solid var(--line);border-radius:6px;background:linear-gradient(180deg,var(--concrete),var(--asphalt));padding:34px 30px 26px}
+.ridge-svg{width:100%;height:auto;display:block}
+.ridge-stages{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:6px}
+.rstage{padding-top:18px;border-top:1px solid var(--line-soft)}
+.rstage .rn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-dim)}
+.rstage .rname{font-family:'Archivo Black',sans-serif;font-size:16px;letter-spacing:-0.01em;text-transform:none;margin:7px 0 6px}
+.rstage .rd{font-size:12.5px;color:var(--chalk);line-height:1.5}
+.rstage.active .rname{color:var(--canopy)}
+
+/* ── differentiators ── */
+.diff{background:var(--concrete)}
+.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.diff-card{border:1px solid var(--line);border-radius:6px;padding:30px 28px;background:var(--asphalt);transition:border-color .25s}
+.diff-card:hover{border-color:var(--moss)}
+.diff-card h3{font-family:'Archivo Black',sans-serif;font-size:19px;letter-spacing:-0.01em;text-transform:none;margin-bottom:12px;color:var(--bone)}
+.diff-card h3 span{color:var(--moss)}
+.diff-card p{font-size:15px;color:var(--chalk);line-height:1.6}
+
+/* ── proof / testimonials ── */
+.testi{background:var(--asphalt)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.quote{border:1px solid var(--line);border-radius:6px;padding:28px 26px;background:var(--concrete)}
+.quote p{font-size:15px;color:var(--bone);line-height:1.6;margin-bottom:18px}
+.quote .qmark{font-family:'Fraunces',serif;font-size:40px;line-height:0.5;color:var(--blue);display:block;margin-bottom:8px;height:22px}
+.quote .who{font-size:13.5px;color:var(--chalk-dim)}
+.quote .who b{color:var(--bone);font-weight:600;display:block;font-size:14.5px}
+
+/* ── final cta ── */
+.final{background:linear-gradient(160deg,#0d2030 0%,var(--asphalt) 70%);text-align:center;padding:104px 0}
+.final h2{font-size:clamp(32px,4.4vw,54px);margin-bottom:20px}
+.final p{font-size:19px;color:var(--chalk);max-width:46ch;margin:0 auto 36px}
+.final .btn{font-size:14px;padding:15px 30px}
+
+/* ── footer ── */
+.foot{background:var(--asphalt);border-top:1px solid var(--line-soft);padding:56px 0 40px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px}
+.foot-logo img{height:24px;margin-bottom:14px}
+.foot-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);letter-spacing:0.04em}
+.foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+.foot-col h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
+.foot-col a{display:block;font-size:14px;color:var(--chalk);padding:5px 0;transition:color .2s}
+.foot-col a:hover{color:var(--bone)}
+.foot-bottom{margin-top:44px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.foot-bottom span{font-size:12.5px;color:var(--chalk-dim)}
+
+/* ════ DIAGNOSTICS GALLERY ════ */
+.gal{background:var(--concrete)}
+.gal-note{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.05em;color:var(--chalk-dim);border:1px dashed var(--line);border-radius:3px;padding:8px 14px;display:inline-block;margin-top:18px}
+.spec{margin-top:30px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,#0c0f16,var(--asphalt));overflow:hidden}
+.spec-head{padding:24px 28px 18px;border-bottom:1px solid var(--line-soft)}
+.spec-q{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-soft);display:flex;align-items:center;gap:8px}
+.spec-q::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.spec-title{font-size:23px;font-weight:700;margin:10px 0 6px;color:var(--bone)}
+.spec-ask{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--clay)}
+.spec-body{padding:26px 28px 30px}
+
+/* funnel */
+.fun{display:flex;flex-direction:column;align-items:center;gap:10px}
+.fun-row{display:grid;grid-template-columns:150px minmax(0,520px) 1fr;gap:22px;align-items:center;width:100%}
+.fun-label .fl-n{font-size:15px;font-weight:700;color:var(--bone)}
+.fun-label .fl-s{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-top:2px}
+.fun-label .fl-d{font-family:'JetBrains Mono',monospace;font-size:11px;margin-top:5px;font-weight:500}
+.fun-bar{height:62px;display:flex;align-items:center;justify-content:center;color:#fff;clip-path:polygon(4% 0,96% 0,86% 100%,14% 100%);position:relative}
+.fun-bar .fb-n{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;letter-spacing:-0.01em}
+.fun-bar .fb-p{position:absolute;bottom:7px;font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0.85}
+.fun-chips{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{font-family:'JetBrains Mono',monospace;font-size:11px;border:1px solid var(--line);border-radius:20px;padding:4px 11px;color:var(--chalk)}
+.fchip.more{color:var(--chalk-dim);border-color:transparent}
+
+/* generic spec table */
+.stab{width:100%;border-collapse:collapse;font-size:14px}
+.stab th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+.stab th.r,.stab td.r{text-align:right}
+.stab td{padding:13px 14px;border-bottom:1px solid var(--line-soft);color:var(--chalk)}
+.stab tr:last-child td{border-bottom:none}
+.stab .acct{color:var(--bone);font-weight:600}
+.stab .mono{font-family:'JetBrains Mono',monospace}
+.stab .num{font-family:'JetBrains Mono',monospace;color:var(--bone)}
+.cpc-g{color:var(--moss);font-family:'JetBrains Mono',monospace}
+.cpc-t{color:var(--blue-soft);font-family:'JetBrains Mono',monospace}
+.cpc-r{color:var(--rust);font-family:'JetBrains Mono',monospace}
+.verdict{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.06em;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid;text-transform:uppercase}
+.v-invest{color:var(--moss);border-color:rgba(123,170,62,0.5);background:rgba(123,170,62,0.08)}
+.v-hold{color:var(--blue-soft);border-color:rgba(91,184,224,0.4);background:rgba(91,184,224,0.07)}
+.v-reduce{color:var(--clay);border-color:rgba(255,182,39,0.4);background:rgba(255,182,39,0.07)}
+.v-exclude{color:var(--rust);border-color:rgba(196,82,31,0.5);background:rgba(196,82,31,0.08)}
+.v-hot{color:var(--clay);border-color:rgba(255,182,39,0.45)}
+.v-won{color:var(--moss);border-color:rgba(123,170,62,0.5)}
+.v-suppress{color:#FF5A6E;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.04em}
+.dimbar{display:inline-block;height:7px;background:linear-gradient(90deg,var(--blue),var(--blue-soft));border-radius:4px;vertical-align:middle;margin-right:8px}
+
+/* pool chips + sparkline (multi-signal board) */
+.pools{display:flex;gap:5px}
+.pool{width:30px;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500}
+.pool.on{background:rgba(27,155,209,0.18);border:1px solid rgba(27,155,209,0.55);color:var(--blue-soft)}
+.pool.off{background:rgba(255,255,255,0.02);border:1px solid var(--line-soft);color:var(--chalk-dim)}
+.spark{display:flex;align-items:flex-end;gap:3px;height:30px}
+.spark i{width:6px;background:var(--blue);border-radius:1px;opacity:0.55;display:block}
+.spark i.peak{background:var(--canopy);opacity:1}
+.depth{display:flex;align-items:center;gap:8px}
+.depth .dot5{display:flex;gap:3px}
+.depth .dd{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.depth .dd.on{background:var(--blue)}
+.act-pill{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:0.04em;padding:5px 11px;border-radius:3px}
+.act-now{background:rgba(196,82,31,0.15);color:var(--rust);border:1px solid rgba(196,82,31,0.5)}
+.act-week{background:rgba(255,182,39,0.13);color:var(--clay);border:1px solid rgba(255,182,39,0.45)}
+.act-mon{background:transparent;color:var(--chalk-dim);border:1px solid var(--line)}
+.act-keep{background:rgba(123,170,62,0.1);color:var(--moss);border:1px solid rgba(123,170,62,0.4)}
+.score-n{font-family:'Archivo Black',sans-serif;font-size:17px;letter-spacing:-0.02em;color:var(--bone)}
+
+/* waste two-col */
+.waste-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.waste-col h5{font-size:14px;font-weight:700;color:var(--bone);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.waste-col h5 .zc{font-family:'JetBrains Mono',monospace;font-size:11px;color:#FF5A6E}
+
+/* persona cards */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pcard{border:1px solid var(--line);border-radius:8px;padding:24px 24px;background:var(--asphalt);position:relative;overflow:hidden}
+.pcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px}
+.pcard.inv::before{background:linear-gradient(90deg,var(--moss),var(--canopy))}
+.pcard.hold::before{background:linear-gradient(90deg,var(--blue),var(--blue-soft))}
+.pcard h4{font-size:18px;font-weight:700;color:var(--bone);margin-bottom:5px}
+.pcard .prole{font-size:13.5px;color:var(--blue-soft);margin-bottom:16px}
+.pcard .pline{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--chalk);margin-bottom:11px;line-height:1.5}
+.pcard .pline b{color:var(--bone);font-weight:500}
+.pcard .pstats{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.pcard .pstats b{color:var(--bone)}
+.pcard .pstats .gv{color:var(--moss)}
+.pcard .pstats .bv{color:var(--blue-soft)}
+.pcard .paction{font-size:13.5px;color:var(--chalk);line-height:1.55}
+.pcard .paction b{color:var(--bone);font-weight:600}
+.spec-foot{padding:14px 28px;border-top:1px solid var(--line-soft);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);display:flex;align-items:center;gap:8px}
+.spec-foot .tk{color:var(--blue-soft)}
+
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── responsive ── */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .wedge-flip{grid-template-columns:1fr}
+  .wedge-col.new{border-left:none;border-top:1px solid var(--line)}
+  .ir-acts,.step-grid,.testi-grid{grid-template-columns:1fr 1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .ridge-stages{grid-template-columns:1fr 1fr;gap:18px}
+  .pgrid,.waste-grid{grid-template-columns:1fr}
+  .fun-row{grid-template-columns:96px 1fr;gap:14px}
+  .fun-chips{display:none}
+  .spec-scroll{overflow-x:auto}
+}
+@media(max-width:680px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--concrete);padding:20px 28px;border-bottom:1px solid var(--line);gap:16px}
+  .nav-toggle{display:block}
+  .proof-strip,.ir-acts,.step-grid,.testi-grid,.ridge-stages,.pgrid,.waste-grid{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:24px}
+  .fly-node{border-right:none;border-bottom:1px solid var(--line)}
+  .sec{padding:64px 0}
+  .spec-scroll{overflow-x:auto}
+  .stab{min-width:540px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ═══ GLOBAL NAV (mega dropdowns) ═══ */
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-item{position:relative}
+.nav-item>a,.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;color:var(--chalk);transition:color .2s;background:none;border:none;font-family:inherit;cursor:pointer;padding:9px 14px;line-height:1;text-decoration:none}
+.nav-item>a:hover,.nav-trigger:hover{color:var(--bone)}
+.nav-trigger .caret{font-size:9px;opacity:0.5;transition:transform .2s}
+.nav-item:hover .nav-trigger .caret{transform:rotate(180deg);opacity:0.85}
+.nav-panel{position:absolute;top:calc(100% + 9px);left:0;background:var(--concrete);border:1px solid var(--line);border-radius:12px;box-shadow:0 26px 70px rgba(0,0,0,0.55);padding:14px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .18s,transform .18s,visibility .18s;z-index:300}
+.nav-item:hover .nav-panel{opacity:1;visibility:visible;transform:none}
+.nav-item::after{content:"";position:absolute;left:0;right:0;top:100%;height:13px}
+.nav-panel.simple{min-width:262px}
+.ddlink{display:block;padding:11px 13px;border-radius:8px;text-decoration:none;transition:background .15s}
+.ddlink:hover{background:var(--court)}
+.ddlink .dt{display:block;font-size:14.5px;color:var(--bone);font-weight:600}
+.ddlink .ds{display:block;font-size:12.5px;color:var(--chalk-dim);margin-top:2px}
+.nav-panel.mega{width:min(780px,calc(100vw - 48px));display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;padding:22px}
+.mega-col{padding:4px}
+.mega-cat{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.11em;text-transform:uppercase;color:var(--blue-soft);padding-bottom:9px;border-bottom:1px solid var(--line-soft);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.mega-cat .ci{color:var(--chalk-dim)}
+.tool{display:flex;align-items:center;gap:10px;padding:8px 9px;border-radius:7px;text-decoration:none;transition:background .15s}
+.tool:hover{background:var(--court)}
+.tool .tinfo{min-width:0}
+.tool .tnm{display:block;font-size:13.5px;color:var(--bone);font-weight:600}
+.tool .tds{display:block;font-size:11.5px;color:var(--chalk-dim);line-height:1.35;margin-top:1px}
+.tool .own{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.06em;color:#03121b;background:var(--canopy);border-radius:3px;padding:3px 6px;margin-left:auto;flex-shrink:0}
+.mega-foot{grid-column:1/-1;margin-top:8px;padding-top:14px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.mega-foot a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-soft);text-decoration:none;white-space:nowrap}
+.mega-foot a:hover{color:var(--canopy)}
+.mega-foot .mfn{font-size:12px;color:var(--chalk-dim)}
+@media(max-width:1000px){
+  .nav-toggle{display:block}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--concrete);border-bottom:1px solid var(--line);padding:12px 22px 24px;gap:0;max-height:calc(100vh - 72px);overflow-y:auto;z-index:300}
+  .nav-item{width:100%}
+  .nav-item::after{display:none}
+  .nav-item>a,.nav-trigger{width:100%;justify-content:space-between;padding:15px 4px;border-bottom:1px solid var(--line-soft);font-size:16px}
+  .nav-panel{position:static;opacity:1;visibility:visible;transform:none;display:none;box-shadow:none;border:none;background:transparent;padding:4px 4px 14px 14px;width:auto;min-width:0}
+  .nav-item.expanded .nav-panel{display:block}
+  .nav-item.expanded .nav-trigger .caret{transform:rotate(180deg)}
+  .nav-panel.mega{grid-template-columns:1fr;width:auto;gap:2px;padding:4px 4px 14px 12px}
+  .mega-cat{margin-top:10px}
+  .mega-foot{flex-direction:column;align-items:flex-start;gap:8px}
+  .nav-cta{margin-top:16px;justify-content:center;width:100%}
+}
+
+/* ═══ MARKETING ECOSYSTEM PAGE ═══ */
+.eyebrow.tealnum{color:var(--canopy)}
+/* premise / wedge */
+.premise-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px}
+.pcardx{border:1px solid var(--line);border-radius:8px;padding:26px 24px;background:var(--asphalt)}
+.pcardx .pn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-bottom:12px}
+.pcardx h4{font-size:17px;color:var(--bone);font-weight:700;margin-bottom:8px}
+.pcardx p{font-size:14px;color:var(--chalk);line-height:1.6}
+/* foundational strategy cascade */
+.cascade{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
+.casc-col{padding:30px 28px;border-right:1px solid var(--line);position:relative}
+.casc-col:last-child{border-right:none}
+.casc-col .cstep{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--blue-soft);margin-bottom:14px}
+.casc-col h4{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:-0.01em;color:var(--bone);text-transform:none;margin-bottom:10px;line-height:1.1}
+.casc-col p{font-size:13.5px;color:var(--chalk);line-height:1.6;margin-bottom:14px}
+.casc-col .carrow{position:absolute;right:-11px;top:38px;width:22px;height:22px;background:var(--concrete);border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue-soft);font-size:11px;z-index:3}
+.casc-col:last-child .carrow{display:none}
+.casc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.cchip{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--chalk);border:1px solid var(--line);border-radius:3px;padding:4px 8px;background:rgba(255,255,255,0.02)}
+/* layer walkthrough */
+.layers{margin-top:10px;position:relative}
+.layer{display:grid;grid-template-columns:84px 1fr;gap:0;position:relative}
+.layer-rail{position:relative;display:flex;flex-direction:column;align-items:center}
+.layer-num{font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--asphalt);background:var(--blue-soft);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:2}
+.layer.heart .layer-num{background:var(--canopy)}
+.layer-line{width:2px;flex:1;background:var(--line);margin:6px 0}
+.layer:last-child .layer-line{display:none}
+.layer-body{padding:0 0 40px 24px}
+.layer-body h3{font-family:'Archivo Black',sans-serif;font-size:clamp(19px,2.2vw,24px);letter-spacing:-0.02em;text-transform:none;color:var(--bone);margin-bottom:10px;line-height:1.08}
+.layer-body .lmove{font-size:15px;color:var(--chalk);line-height:1.65;max-width:64ch;margin-bottom:12px}
+.layer-body .lflaw{font-size:13.5px;color:var(--clay);line-height:1.6;max-width:64ch;margin-bottom:12px;padding-left:14px;border-left:2px solid rgba(255,182,39,0.4)}
+.lchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.lchip{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--blue-soft);border:1px solid var(--line);border-radius:3px;padding:4px 9px}
+.lcompound{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--bone);line-height:1.5;max-width:62ch}
+.lcompound::before{content:"Compounds →  ";font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:0.08em;color:var(--canopy);text-transform:uppercase}
+/* orchestration map */
+.omap{margin-top:8px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#0d0d12,var(--asphalt))}
+.omap-zones{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:0}
+.ozone{padding:30px 26px;border-right:1px solid var(--line);position:relative}
+.ozone:last-child{border-right:none}
+.ozone.hub{background:rgba(27,155,209,0.06)}
+.ozone .zlabel{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:6px}
+.ozone.hub .zlabel{color:var(--blue-soft)}
+.ozone h4{font-family:'Archivo Black',sans-serif;font-size:16px;letter-spacing:-0.01em;text-transform:none;color:var(--bone);margin-bottom:18px;line-height:1.1}
+.onode{border:1px solid var(--line);border-radius:7px;padding:12px 14px;margin-bottom:10px;background:var(--asphalt)}
+.ozone.hub .onode{border-color:rgba(27,155,209,0.3);background:rgba(27,155,209,0.04)}
+.onode .ont{font-size:13.5px;color:var(--bone);font-weight:600}
+.onode .ond{font-size:11.5px;color:var(--chalk-dim);margin-top:2px;line-height:1.4}
+.ozarrow{position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--concrete);border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue-soft);font-size:12px;z-index:4}
+.ozone:last-child .ozarrow{display:none}
+.omap-loop{border-top:1px dashed var(--line);padding:18px 26px;display:flex;align-items:center;gap:14px;background:rgba(212,255,61,0.03)}
+.omap-loop .lpico{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--canopy);white-space:nowrap}
+.omap-loop p{font-size:13.5px;color:var(--chalk);line-height:1.5;margin:0}
+.omap-foot{border-top:1px solid var(--line);padding:16px 26px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--bone)}
+.omap-foot b{color:var(--canopy);font-style:normal;font-weight:600}
+/* heart callout */
+.heart-band{border:1px solid rgba(212,255,61,0.35);border-radius:12px;padding:36px 34px;background:linear-gradient(160deg,rgba(212,255,61,0.06),var(--asphalt));text-align:center}
+.heart-band .he{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--canopy);margin-bottom:14px}
+.heart-band h3{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,30px);line-height:1.3;max-width:30ch;margin:0 auto 14px;color:var(--bone)}
+.heart-band p{font-size:15px;color:var(--chalk);line-height:1.6;max-width:60ch;margin:0 auto}
+/* system at a glance (TOF/MOF/BOF) */
+.sysglance{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.sgcol{border:1px solid var(--line);border-radius:10px;padding:0 0 22px;background:var(--asphalt);overflow:hidden}
+.sgcol .sgtop{height:4px;background:var(--blue)}
+.sgcol.mof .sgtop{background:var(--canopy)}
+.sgcol.bof .sgtop{background:var(--clay)}
+.sgcol .sgpad{padding:24px 22px 0}
+.sgcol h4{font-family:'Archivo Black',sans-serif;font-size:18px;text-transform:none;letter-spacing:-0.01em;color:var(--bone);margin-bottom:4px}
+.sgcol .sgsub{font-size:13px;color:var(--chalk-dim);margin-bottom:16px}
+.sgcol .sgspend{font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--bone);margin-bottom:18px}
+.sgcol .sgspend small{font-size:12px;color:var(--chalk-dim);margin-left:8px}
+.sgitem{border:1px solid var(--line-soft);border-radius:7px;padding:12px 13px;margin:0 22px 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.sgitem .sgi-n{font-size:13.5px;color:var(--bone);font-weight:600}
+.sgitem .sgi-m{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-top:3px}
+.sgtag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.06em;padding:3px 7px;border-radius:3px;flex-shrink:0;white-space:nowrap}
+.sgtag.core{color:var(--canopy);background:rgba(212,255,61,0.12)}
+.sgtag.on{color:var(--moss);background:rgba(123,170,62,0.15)}
+.sgtag.audit{color:var(--clay);background:rgba(255,182,39,0.12)}
+.sgtag.gap{color:#ff6b5e;background:rgba(196,82,31,0.16)}
+.sgtag.next{color:var(--blue-soft);background:rgba(27,155,209,0.14)}
+/* channel scorecard */
+.chanscore{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.csc{border:1px solid var(--line);border-left:3px solid var(--moss);border-radius:8px;padding:22px 20px;background:var(--asphalt)}
+.csc.red{border-left-color:var(--rust)}
+.csc.amber{border-left-color:var(--clay)}
+.csc.teal{border-left-color:var(--canopy)}
+.csc.purple{border-left-color:var(--plum)}
+.csc h4{font-size:15.5px;color:var(--bone);font-weight:700;margin-bottom:3px}
+.csc .cjob{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
+.csc .crow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line-soft);font-size:12.5px}
+.csc .crow:last-of-type{border-bottom:none}
+.csc .crow .ck2{color:var(--chalk-dim);font-family:'JetBrains Mono',monospace;font-size:11px}
+.csc .crow .cv{color:var(--bone);font-family:'JetBrains Mono',monospace;font-size:12px}
+.csc .cverdict{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.06em;padding:6px 11px;border-radius:4px;display:inline-block;margin-top:14px}
+.cv-scale{color:var(--moss);background:rgba(123,170,62,0.15)}
+.cv-reduce{color:#ff6b5e;background:rgba(196,82,31,0.16)}
+.cv-audit{color:var(--clay);background:rgba(255,182,39,0.12)}
+.cv-maintain{color:var(--canopy);background:rgba(212,255,61,0.12)}
+.cv-next{color:var(--blue-soft);background:rgba(27,155,209,0.14)}
+/* channel ecosystem grid */
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.ecocard{border:1px solid var(--line);border-radius:8px;padding:20px 20px;background:var(--asphalt);transition:border-color .2s}
+.ecocard:hover{border-color:var(--blue)}
+.ecocard .ecn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:8px}
+.ecocard h4{font-size:16px;color:var(--bone);font-weight:700;margin-bottom:6px}
+.ecocard p{font-size:13px;color:var(--chalk);line-height:1.55}
+/* expansion blueprint */
+.exp{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
+.expstage{padding:24px 18px;border-right:1px solid var(--line);position:relative}
+.expstage:last-child{border-right:none}
+.expstage .est{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:var(--chalk-dim);margin-bottom:4px}
+.expstage h4{font-family:'Archivo Black',sans-serif;font-size:16px;text-transform:none;color:var(--bone);margin-bottom:12px}
+.expstage.s1 h4{color:var(--moss)}.expstage.s2 h4{color:var(--blue-soft)}.expstage.s3 h4{color:var(--canopy)}.expstage.s4 h4{color:var(--clay)}.expstage.s5 h4{color:var(--plum-soft,#b07bc4)}
+.expstage ul{list-style:none;padding:0;margin:0}
+.expstage li{font-size:12.5px;color:var(--chalk);line-height:1.4;padding:6px 0;border-bottom:1px dashed var(--line-soft)}
+.expstage li:last-child{border-bottom:none}
+/* team grid */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+.tmcard{border:1px solid var(--line);border-radius:8px;padding:20px 18px;background:var(--asphalt)}
+.tmcard .tmrole{font-size:14.5px;color:var(--bone);font-weight:700;margin-bottom:5px}
+.tmcard p{font-size:12.5px;color:var(--chalk-dim);line-height:1.5}
+.team-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:18px}
+.tstat{padding:24px 20px;border-right:1px solid var(--line);text-align:center}
+.tstat:last-child{border-right:none}
+.tstat .tn{font-family:'Archivo Black',sans-serif;font-size:30px;letter-spacing:-0.03em;color:var(--bone)}
+.tstat .tl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk);margin-top:8px}
+.gal-note{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-top:14px}
+/* mega centering fix (carry to this page) */
+.nav-inner{position:relative}
+.nav-item:has(.nav-panel.mega){position:static}
+.nav-panel.mega{left:50%;right:auto;margin-left:-390px}
+@media(max-width:1000px){.nav-item:has(.nav-panel.mega){position:relative}.nav-panel.mega{left:auto;right:auto;margin-left:0}}
+@media(max-width:980px){
+  .premise-grid{grid-template-columns:1fr}
+  .cascade{grid-template-columns:1fr}
+  .casc-col{border-right:none;border-bottom:1px solid var(--line)}
+  .casc-col .carrow{display:none}
+  .omap-zones{grid-template-columns:1fr}
+  .ozone{border-right:none;border-bottom:1px solid var(--line)}
+  .ozarrow{display:none}
+  .sysglance{grid-template-columns:1fr}
+  .chanscore{grid-template-columns:1fr 1fr}
+  .eco-grid{grid-template-columns:1fr 1fr}
+  .exp{grid-template-columns:1fr 1fr}
+  .expstage{border-bottom:1px solid var(--line)}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .team-stats{grid-template-columns:1fr 1fr}
+  .tstat:nth-child(2){border-right:none}
+}
+@media(max-width:560px){
+  .chanscore,.eco-grid,.exp,.team-grid{grid-template-columns:1fr}
+  .layer{grid-template-columns:60px 1fr}
+  .layer-num{width:38px;height:38px;font-size:15px}
+}
+
+.stack-mini{background:linear-gradient(160deg,#14141a,#0c0c10);border:1px solid var(--line);border-radius:8px;padding:24px}
+.stack-mini .smh{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:14px}
+.stack-mini .smrow{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid var(--line-soft)}
+.stack-mini .smrow:last-child{border-bottom:none}
+.stack-mini .smn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--canopy);width:18px;flex-shrink:0}
+.stack-mini .smc{font-size:13.5px;color:var(--bone);font-weight:600}
+.stack-mini .smt{font-size:12px;color:var(--chalk-dim);margin-top:1px}
+
+/* ── account journey (enlarged) ── */
+.journey{margin-top:8px}
+.jhead{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--concrete);flex-wrap:wrap}
+.jhead .jh-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:3px}
+.jhead .jh-acct{font-family:'Archivo Black',sans-serif;font-size:19px;color:var(--bone);letter-spacing:-0.01em}
+.jhead .jh-meta{font-size:12.5px;color:var(--chalk);font-family:'JetBrains Mono',monospace}
+.jgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#0d0d12,var(--asphalt))}
+.jstage{padding:24px 18px;border-right:1px solid var(--line);position:relative}
+.jstage:last-child{border-right:none}
+.jph-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.jnode{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--asphalt);flex-shrink:0}
+.jnode.n1{background:#4a6580;color:var(--bone)}.jnode.n2{background:var(--blue)}.jnode.n3{background:#3f9b78}.jnode.n4{background:var(--moss)}.jnode.n5{background:var(--canopy)}
+.jph{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--chalk-dim);text-transform:uppercase}
+.jstage h5{font-size:18px;color:var(--bone);font-weight:700;margin-top:2px;letter-spacing:-0.01em}
+.jtouch{border:1px solid var(--line-soft);border-radius:9px;padding:14px 15px;margin-bottom:11px;background:rgba(255,255,255,.018)}
+.jtouch .jch{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--bone);font-weight:600;line-height:1.2}
+.jdot{width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.jdot.g{background:var(--clay)}.jdot.meta{background:#b07bc4}.jdot.web{background:var(--canopy)}.jdot.mail{background:var(--moss)}.jdot.sales{background:var(--bone)}
+.jtouch .jact{font-size:12.5px;color:var(--chalk-dim);line-height:1.4;margin-top:6px;padding-left:17px}
+.jsig{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--canopy);border-top:1px dashed var(--line-soft);padding-top:14px}
+.jarrow{position:absolute;right:-13px;top:32px;width:26px;height:26px;background:var(--concrete);border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue-soft);font-size:13px;z-index:4}
+.jstage:last-child .jarrow{display:none}
+.jbar{margin-top:18px;height:14px;border-radius:7px;background:linear-gradient(90deg,#4a6580,#1B9BD1 30%,#3f9b78 55%,#7BAA3E 78%,#D4FF3D)}
+.jbar-labels{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--chalk-dim);margin-top:9px}
+/* ── horizontal bar chart ── */
+.barchart{margin-top:8px;display:flex;flex-direction:column;gap:13px}
+.barrow{display:grid;grid-template-columns:210px 1fr;gap:18px;align-items:center}
+.barrow .blab{font-size:13.5px;color:var(--bone)}
+.barrow .blab small{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--chalk-dim);margin-top:3px}
+.bartrack{height:34px;background:var(--court);border-radius:5px;position:relative;overflow:hidden}
+.barfill{height:100%;border-radius:5px;background:var(--blue-soft);display:flex;align-items:center;padding-left:12px;min-width:fit-content}
+.barfill.warm{background:var(--moss)}.barfill.mwarm{background:var(--canopy)}.barfill.cool{background:var(--blue)}.barfill.cold{background:var(--rust)}
+.barval{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--asphalt);font-weight:700;white-space:nowrap}
+.barfill.cold .barval,.barfill.cool .barval{color:var(--bone)}
+.chart-foot{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk-dim);margin-top:14px}
+/* ── account engagement leaderboard ── */
+.lead{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:8px}
+.lead-row{display:grid;grid-template-columns:34px 1fr 120px 96px 104px;gap:12px;align-items:center;padding:13px 18px;border-bottom:1px solid var(--line-soft)}
+.lead-row:last-child{border-bottom:none}
+.lead-row.head{background:var(--concrete);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-dim)}
+.lead-rank{font-family:'JetBrains Mono',monospace;color:var(--chalk-dim);font-size:12px}
+.lead-acct{color:var(--bone);font-weight:600;font-size:13.5px}
+.lead-acct .star{color:var(--canopy);margin-left:5px}
+.lead-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chalk)}
+.lead-sig{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--bone)}
+.tierpill{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;padding:4px 8px;border-radius:3px;text-align:center}
+.tierpill.hot{color:var(--clay);background:rgba(255,182,39,.14)}
+.tierpill.warm{color:var(--canopy);background:rgba(212,255,61,.12)}
+.tierpill.cool{color:var(--blue-soft);background:rgba(27,155,209,.14)}
+/* ── signal to action map ── */
+.sigmap{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:8px}
+.sigrow{display:grid;grid-template-columns:1fr 44px 1.25fr;gap:12px;align-items:center;padding:15px 20px;border-bottom:1px solid var(--line-soft)}
+.sigrow:last-child{border-bottom:none}
+.sigrow .sigsrc{font-size:13.5px;color:var(--bone);font-weight:600}
+.sigrow .sigsrc small{display:block;font-size:11px;color:var(--chalk-dim);font-weight:400;margin-top:2px;font-family:'JetBrains Mono',monospace}
+.sigrow .sigarr{text-align:center;color:var(--canopy);font-size:14px}
+.sigrow .sigact{font-size:13px;color:var(--chalk);line-height:1.45}
+/* ── creative to funnel matrix ── */
+.cmatrix{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.cmcard{border:1px solid var(--line);border-radius:10px;padding:22px 20px;background:var(--asphalt);border-top:3px solid var(--blue)}
+.cmcard.warm{border-top-color:var(--canopy)}.cmcard.ret{border-top-color:var(--clay)}
+.cmcard .cmstage{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:5px}
+.cmcard h4{font-size:16px;color:var(--bone);margin-bottom:13px;font-weight:700}
+.cmcard .cmfmt{font-size:13.5px;color:var(--bone);font-weight:600;margin-bottom:5px}
+.cmcard p{font-size:12.5px;color:var(--chalk);line-height:1.55;margin:0}
+.cmnote{margin-top:16px;border:1px solid var(--line);border-radius:8px;padding:16px 18px;background:rgba(212,255,61,.04);font-size:13px;color:var(--chalk);line-height:1.55}
+.cmnote b{color:var(--bone)}
+/* ── demand split 95/5 ── */
+.dsplit-bar{display:flex;height:60px;border-radius:8px;overflow:hidden;margin-top:8px;border:1px solid var(--line)}
+.dseg{display:flex;align-items:center;padding:0 18px;font-family:'JetBrains Mono',monospace;font-size:12px}
+.dseg.cap{background:var(--canopy);color:var(--asphalt);font-weight:700;justify-content:center;padding:0 8px;text-align:center;line-height:1.2}
+.dseg.cre{background:var(--court);color:var(--chalk);flex:1}
+.dsplit-cap2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.dcap{border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.dcap h5{font-size:14px;color:var(--bone);margin-bottom:6px}
+.dcap h5 .pct{font-family:'JetBrains Mono',monospace;color:var(--canopy);margin-right:8px}
+.dcap p{font-size:12.5px;color:var(--chalk);line-height:1.5;margin:0}
+/* ── expansion economics ── */
+.expecon{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.eecard{border:1px solid var(--line);border-radius:10px;padding:24px 22px;background:var(--asphalt);position:relative}
+.eecard.mid{border-color:rgba(27,155,209,.35)}
+.eecard.scalecard{border-color:rgba(212,255,61,.3)}
+.eecard .eephase{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:10px}
+.eecard .eespend{font-family:'Archivo Black',sans-serif;font-size:28px;color:var(--bone);letter-spacing:-0.02em}
+.eecard .eespend small{font-size:12px;color:var(--chalk-dim);font-family:'JetBrains Mono',monospace;margin-left:6px;letter-spacing:0}
+.eecard .eeout{font-size:13px;color:var(--chalk);margin-top:14px;line-height:1.5}
+.eecard .eedelta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--moss);margin-top:12px;background:rgba(123,170,62,.12);padding:5px 10px;border-radius:4px}
+/* ── glossary ── */
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;margin-top:8px;border:1px solid var(--line);border-radius:10px;padding:6px 26px}
+.gterm{padding:17px 0;border-bottom:1px solid var(--line-soft)}
+.gterm dt{font-size:13.5px;color:var(--bone);font-weight:700;font-family:'JetBrains Mono',monospace;margin-bottom:5px}
+.gterm dd{font-size:12.5px;color:var(--chalk);line-height:1.5;margin:0}
+/* ── offers ── */
+.offers{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px;margin-top:8px;align-items:stretch}
+.offer{border:1px solid var(--line);border-radius:12px;padding:28px 26px;background:var(--asphalt);display:flex;flex-direction:column}
+.offer.free{border-color:rgba(212,255,61,.4);background:linear-gradient(160deg,rgba(212,255,61,.07),var(--asphalt))}
+.offer .opill{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:4px;align-self:flex-start;margin-bottom:16px}
+.offer.free .opill{color:var(--asphalt);background:var(--canopy);font-weight:700}
+.offer .opill.paid{color:var(--blue-soft);background:rgba(27,155,209,.14)}
+.offer h3{font-family:'Archivo Black',sans-serif;font-size:21px;text-transform:none;letter-spacing:-0.01em;color:var(--bone);margin-bottom:8px;line-height:1.05}
+.offer .oprice{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk);margin-bottom:14px}
+.offer .oprice b{color:var(--bone)}
+.offer .oprice.f b{color:var(--canopy)}
+.offer .odesc{font-size:13.5px;color:var(--chalk);line-height:1.55;margin-bottom:16px}
+.offer ul{list-style:none;padding:0;margin:0 0 20px}
+.offer li{font-size:12.5px;color:var(--chalk);padding:6px 0 6px 19px;position:relative;line-height:1.4}
+.offer li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue-soft)}
+.offer.free li::before{background:var(--canopy)}
+.offer .obtns{display:flex;flex-direction:column;gap:9px;margin-top:auto}
+.offer .obtns .btn{width:100%;text-align:center;justify-content:center}
+@media(max-width:980px){
+  .jgrid{grid-template-columns:1fr}
+  .jstage{border-right:none;border-bottom:1px solid var(--line)}
+  .jarrow{display:none}
+  .barrow{grid-template-columns:1fr;gap:7px}
+  .cmatrix{grid-template-columns:1fr}
+  .dsplit-cap2{grid-template-columns:1fr}
+  .expecon{grid-template-columns:1fr}
+  .glossary{grid-template-columns:1fr;gap:0}
+  .offers{grid-template-columns:1fr}
+  .lead-row{grid-template-columns:26px 1fr 80px;font-size:12px}
+  .lead-row .lead-meta,.lead-row .head-meta{display:none}
+  .sigrow{grid-template-columns:1fr 30px 1.1fr;gap:8px;padding:13px 14px}
+}
+
+.stack{margin-top:8px;display:flex;flex-direction:column;gap:24px}
+.sphase{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--asphalt)}
+.sphase-head{display:flex;align-items:baseline;gap:18px;padding:22px 26px;border-bottom:1px solid var(--line);background:var(--concrete);flex-wrap:wrap}
+.sphase-head .sph-k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft)}
+.sphase.found .sph-k{color:var(--canopy)}
+.sphase.act .sph-k{color:var(--moss)}
+.sphase-head h3{font-family:'Archivo Black',sans-serif;font-size:clamp(19px,2.4vw,25px);text-transform:none;letter-spacing:-0.02em;color:var(--bone);margin:0;line-height:1.05}
+.sphase-head .sph-thesis{font-size:13.5px;color:var(--chalk);margin-left:auto;max-width:40ch;text-align:right;line-height:1.5}
+.srow{display:grid;grid-template-columns:58px 1fr 270px;gap:20px;align-items:center;padding:20px 26px;border-bottom:1px solid var(--line-soft)}
+.srow:last-of-type{border-bottom:none}
+.snum{font-family:'Archivo Black',sans-serif;font-size:18px;width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:var(--asphalt);background:var(--blue-soft)}
+.sphase.found .snum{background:var(--canopy)}
+.sphase.act .snum{background:var(--moss)}
+.srow .sbody h4{font-size:17px;color:var(--bone);font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.srow .sbody p{font-size:13.5px;color:var(--chalk);line-height:1.55;margin:0;max-width:74ch}
+.sheart{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--canopy);background:rgba(212,255,61,.12);padding:3px 8px;border-radius:4px;font-weight:400}
+.schips{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}
+.schip{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--blue-soft);border:1px solid var(--line);border-radius:4px;padding:5px 9px}
+.sphase-foot{padding:16px 26px;background:rgba(212,255,61,.03);border-top:1px solid var(--line);font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--bone);line-height:1.5}
+.sphase-foot::before{content:"Compounds → ";font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--canopy)}
+@media(max-width:860px){
+  .sphase-head{gap:6px}
+  .sphase-head .sph-thesis{margin-left:0;text-align:left;max-width:none}
+  .srow{grid-template-columns:46px 1fr;gap:14px;padding:18px 18px}
+  .snum{width:40px;height:40px;font-size:16px}
+  .schips{grid-column:1 / -1;justify-content:flex-start;margin-top:4px}
+  .sphase-head,.sphase-foot{padding-left:18px;padding-right:18px}
+}
+
+</style>
+
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <button class="nav-trigger" type="button">LinkedIn Ads <span class="caret">&#9662;</span></button>
+        <div class="nav-panel simple">
+          <a class="ddlink" href="/linkedin-launch"><span class="dt">Getting Started</span><span class="ds">New LinkedIn advertisers</span></a>
+          <a class="ddlink" href="/linkedin-scale"><span class="dt">Scale &amp; Improve</span><span class="ds">Existing LinkedIn advertisers</span></a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" type="button">Services <span class="caret">&#9662;</span></button>
+        <div class="nav-panel simple">
+          <a class="ddlink" href="/linkedin-scale"><span class="dt">LinkedIn Ads Management</span><span class="ds">Full-funnel LinkedIn campaigns</span></a>
+          <a class="ddlink" href="https://impactable.com/google-ads/"><span class="dt">B2B Paid Search</span><span class="ds">Google Ads for B2B</span></a>
+          <a class="ddlink" href="https://impactable.com/facebook-ads/"><span class="dt">Meta Ads</span><span class="ds">Facebook &amp; Instagram, B2B</span></a>
+          <a class="ddlink" href="https://impactable.com/programmatic-retargeting/"><span class="dt">Programmatic</span><span class="ds">Display, native, CTV</span></a>
+          <a class="ddlink" href="https://impactable.com/b2b-creative-services"><span class="dt">Creative &amp; Landing Pages</span><span class="ds">B2B ad creative that converts</span></a>
+          <a class="ddlink" href="https://impactable.com/automated-messaging/"><span class="dt">Lead Gen &amp; Nurture</span><span class="ds">LinkedIn outreach + nurture</span></a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" type="button">Tools &amp; Expertise <span class="caret">&#9662;</span></button>
+        <div class="nav-panel mega">
+          <div class="mega-col">
+            <div class="mega-cat"><span>Signal, attribution &amp; controls</span><span class="ci">01</span></div>
+            <a class="tool" href="https://impactable.com/dgp-linkedin-ads-tools/"><span class="tinfo"><span class="tnm">DemandSense</span><span class="tds">LinkedIn attribution, scheduling, audience controls</span></span><span class="own">Ours</span></a>
+            <a class="tool" href="https://impactable.com/identify-website-visitors-activation/"><span class="tinfo"><span class="tnm">Website Visitor ID</span><span class="tds">De-anonymize site traffic into named accounts</span></span></a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-cat"><span>Account &amp; list building</span><span class="ci">02</span></div>
+            <a class="tool" href="/tools#building"><span class="tinfo"><span class="tnm">Clay</span><span class="tds">Orchestrated, waterfall enrichment</span></span></a>
+            <a class="tool" href="/tools#building"><span class="tinfo"><span class="tnm">Apollo &middot; ZoomInfo</span><span class="tds">Contact discovery &amp; firmographics</span></span></a>
+            <a class="tool" href="/tools#building"><span class="tinfo"><span class="tnm">BuiltWith &middot; Wappalyzer</span><span class="tds">Technographic targeting</span></span></a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-cat"><span>Outreach &amp; nurture</span><span class="ci">03</span></div>
+            <a class="tool" href="/tools#outreach"><span class="tinfo"><span class="tnm">HeyReach &middot; Instantly</span><span class="tds">LinkedIn outreach &amp; cold email at scale</span></span></a>
+            <a class="tool" href="/tools#outreach"><span class="tinfo"><span class="tnm">Klaviyo</span><span class="tds">Lifecycle email automation</span></span></a>
+            <a class="tool" href="/tools#outreach"><span class="tinfo"><span class="tnm">HubSpot</span><span class="tds">CRM, pipeline &amp; nurture</span></span></a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-cat"><span>Automation &amp; AI</span><span class="ci">04</span></div>
+            <a class="tool" href="/tools#ai"><span class="tinfo"><span class="tnm">Zapier &middot; Make &middot; n8n</span><span class="tds">Workflow automation across the stack</span></span></a>
+            <a class="tool" href="/tools#ai"><span class="tinfo"><span class="tnm">Claude &middot; OpenAI</span><span class="tds">AI insights &amp; data analysis</span></span></a>
+          </div>
+          <div class="mega-foot">
+            <span class="mfn">The connected stack behind the intelligence system.</span>
+            <a href="/tools">See the full stack &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" type="button">Resources <span class="caret">&#9662;</span></button>
+        <div class="nav-panel simple">
+          <a class="ddlink" href="https://impactable.com/blog/"><span class="dt">Growth Lab</span><span class="ds">Blog &amp; insights</span></a>
+          <a class="ddlink" href="https://impactable.com/b2b-marketing-resources/"><span class="dt">Free Guides</span><span class="ds">B2B strategies &amp; playbooks</span></a>
+          <a class="ddlink" href="https://impactable.com/category/case-studies/"><span class="dt">Case Studies</span><span class="ds">Proof &amp; results</span></a>
+          <a class="ddlink" href="https://impactable.com/events/"><span class="dt">Events</span><span class="ds">Webinars &amp; live sessions</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="https://impactable.com/impactable-about-us/">About</a></div>
+      <a class="btn btn-primary nav-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="partner-badge"><img src="https://impactable.com/wp-content/uploads/2026/04/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner"><span>LinkedIn Marketing Partner &middot; The Ecosystem</span></div>
+      <span class="eyebrow">How it all fits together</span>
+      <h1 class="display">One <span class="em">ecosystem.</span> Not a pile of channels.</h1>
+      <p class="hero-lede serif">Thought leadership, search, LinkedIn, visitor ID, enrichment, Meta, programmatic, email, creative, and landing pages are not separate campaigns. They are one compounding system where each layer makes the next more efficient.</p>
+      <p class="hero-sub">This is the blueprint we build for clients: where to start, how the channels feed each other, how signal turns into owned audiences and pipeline, and how the whole thing expands as you grow. Part strategy, part education, part proof of what our team can run.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a free Ecosystem Audit &rarr;</a>
+        <a class="btn btn-ghost" href="#build">Walk the blueprint</a>
+      </div>
+    </div>
+    <aside class="stack-mini" aria-label="The ecosystem in one line">
+      <div class="smh">The ecosystem, end to end</div>
+      <div class="smrow"><span class="smn">A</span><div><div class="smc">Strategy first</div><div class="smt">Competitor white space, audience, messaging architecture</div></div></div>
+      <div class="smrow"><span class="smn">B</span><div><div class="smc">Foundations</div><div class="smt">Founder and expert-led thought leadership</div></div></div>
+      <div class="smrow"><span class="smn">C</span><div><div class="smc">Capture &amp; qualify</div><div class="smt">Google intent, qualified by LinkedIn</div></div></div>
+      <div class="smrow"><span class="smn">D</span><div><div class="smc">Signal &amp; own</div><div class="smt">Visitor ID, enrichment, owned audiences</div></div></div>
+      <div class="smrow"><span class="smn">E</span><div><div class="smc">Scale &amp; compound</div><div class="smt">Everywhere swarm, quarterly diagnostics</div></div></div>
+    </aside>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why an ecosystem</span>
+      <h2 class="sec-title display" style="text-transform:none">Channels in isolation leak. An ecosystem compounds.</h2>
+      <p class="sec-desc">The most common B2B mistake is running each platform as a separate line item. Paying to create attention on one channel, then letting it evaporate before another can act on it.</p>
+    </div>
+    <div class="premise-grid">
+      <div class="pcardx reveal"><div class="pn">The trap</div><h4>Siloed channels</h4><p>Google, LinkedIn, and Meta run as three disconnected budgets. Each is judged alone, none feeds the others, and demand created in one place is wasted everywhere else.</p></div>
+      <div class="pcardx reveal"><div class="pn">The shift</div><h4>One connected system</h4><p>Every motion shares signal. Search traffic gets qualified on LinkedIn, engagement names the accounts, gaps become owned audiences, and proven messages scale across every channel at once.</p></div>
+      <div class="pcardx reveal"><div class="pn">The payoff</div><h4>Compounding efficiency</h4><p>Warm pools grow, targeting sharpens, and cost drops as the system runs. The result is the trifecta effect: typically 20 to 40% lower CAC and 2 to 3x better conversion.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">A concept worth internalizing</span>
+      <h2 class="sec-title display" style="text-transform:none">At any moment, almost no one is ready to buy.</h2>
+      <p class="sec-desc">Only a small share of your market is actively in-market today. Paid search captures that sliver. Everything else, the demand you create and nurture, is what fills the pipeline six months out. An ecosystem does both at once.</p>
+    </div>
+    <div class="dsplit-bar reveal">
+      <div class="dseg cap">~5%<br>in&#8209;market</div>
+      <div class="dseg cre">~95% are future buyers, not searching yet, but forming opinions about who to trust</div>
+    </div>
+    <div class="dsplit-cap2">
+      <div class="dcap reveal"><h5><span class="pct">~5%</span>Demand capture</h5><p>Google search and branded defense convert the few who are actively looking right now. Essential, but a small and expensive ceiling on its own.</p></div>
+      <div class="dcap reveal"><h5><span class="pct">~95%</span>Demand creation</h5><p>Thought leadership, LinkedIn, and the warm-pool engine build trust with the buyers who are not searching yet, so you are the obvious choice when they are.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">It starts before the spend</span>
+      <h2 class="sec-title display" style="text-transform:none">Strategy decides where every dollar points.</h2>
+      <p class="sec-desc">Before a campaign launches, the Foundational Strategy translates one positioning into coordinated execution across every channel. This is the front end of the whole ecosystem.</p>
+    </div>
+    <div class="cascade">
+      <div class="casc-col reveal"><div class="cstep">01 &middot; Find the white space</div><h4>Competitor landscape</h4><p>We map the competitive landscape to find the white space, the unique pain you are best positioned to solve and the competitors whose traffic you can most easily win.</p><div class="casc-chips"><span class="cchip">Positioning</span><span class="cchip">White space</span><span class="cchip">Pain ownership</span></div><div class="carrow">&rarr;</div></div>
+      <div class="casc-col reveal"><div class="cstep">02 &middot; Translate to targeting</div><h4>Audience strategy</h4><p>That positioning becomes a targeting plan: which pains to lead with, which competitors to siphon, and exactly how it maps to Google search terms and LinkedIn audience filters.</p><div class="casc-chips"><span class="cchip">Google search terms</span><span class="cchip">LinkedIn filters</span><span class="cchip">ABM lists</span></div><div class="carrow">&rarr;</div></div>
+      <div class="casc-col reveal"><div class="cstep">03 &middot; Map the message</div><h4>Messaging &amp; offer architecture</h4><p>Then the message and offer are mapped by channel and funnel stage, so Google, LinkedIn TOF / MOF / BOF, Meta, programmatic, and email all tell one coherent story.</p><div class="casc-chips"><span class="cchip">By funnel stage</span><span class="cchip">By channel</span><span class="cchip">Offer design</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="build" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">The build sequence</span>
+      <h2 class="sec-title display" style="text-transform:none">The ecosystem, layer by layer.</h2>
+      <p class="sec-desc">We build it in three movements. Each layer is valuable on its own, but the real advantage is that every one makes the next more efficient.</p>
+    </div>
+    <div class="stack">
+  <div class="sphase found reveal">
+    <div class="sphase-head"><span class="sph-k">Phase 1 &middot; Foundation &amp; capture</span><h3>Create demand, then capture it</h3><p class="sph-thesis">Build trust before paid, then meet the few already searching.</p></div>
+    <div class="srow"><div class="snum">01</div>
+      <div class="sbody"><h4>Founder &amp; expert-led thought leadership <span class="sheart">&#9829; the heart</span></h4><p>The bedrock. A consistent organic motion, tested on organic and amplified by ads, builds trust before a dollar of media runs.</p></div>
+      <div class="schips"><span class="schip">Organic Social</span><span class="schip">Founder TL</span><span class="schip">Creative</span></div></div>
+    <div class="srow"><div class="snum">02</div>
+      <div class="sbody"><h4>Capture in-market intent </h4><p>Google brings high-intent traffic with a shorter sales cycle. The catch: you cannot qualify before the click, which sets up the next phase.</p></div>
+      <div class="schips"><span class="schip">Google Search</span></div></div>
+    <div class="sphase-foot">Paid amplifies what organic proves, and search hands qualified intent to the intelligence layer.</div>
+  </div>
+  <div class="sphase intel reveal">
+    <div class="sphase-head"><span class="sph-k">Phase 2 &middot; Intelligence</span><h3>Turn traffic into named, scored accounts</h3><p class="sph-thesis">LinkedIn qualifies the click, reads the signal, and names the company.</p></div>
+    <div class="srow"><div class="snum">03</div>
+      <div class="sbody"><h4>Qualify the click with LinkedIn </h4><p>The Insight Tag sees search, organic, and referral traffic. ABM filters qualify it, then nurture it. The same traffic, far more efficient.</p></div>
+      <div class="schips"><span class="schip">Insight Tag</span><span class="schip">ABM filters</span></div></div>
+    <div class="srow"><div class="snum">04</div>
+      <div class="sbody"><h4>Read the signals </h4><p>LinkedIn shows the exact accounts engaging, the persona and firmographic patterns, and the companies moving through the funnel.</p></div>
+      <div class="schips"><span class="schip">DemandSense</span><span class="schip">Company Hub</span></div></div>
+    <div class="srow"><div class="snum">05</div>
+      <div class="sbody"><h4>Put names to companies </h4><p>Website Visitor ID pairs real humans to companies, creating outreach paths, richer targeting, and a quality check back to source.</p></div>
+      <div class="schips"><span class="schip">Visitor ID</span><span class="schip">Enrichment</span></div></div>
+    <div class="srow"><div class="snum">06</div>
+      <div class="sbody"><h4>Map the white space </h4><p>LinkedIn surfaces the ICP companies with low or no impressions, a heat map of accounts to own and activate elsewhere.</p></div>
+      <div class="schips"><span class="schip">Penetration map</span></div></div>
+    <div class="sphase-foot">Anonymous demand becomes named, scored, and routable to sales.</div>
+  </div>
+  <div class="sphase act reveal">
+    <div class="sphase-head"><span class="sph-k">Phase 3 &middot; Activation &amp; compounding</span><h3>Own the gaps, scale everywhere, improve</h3><p class="sph-thesis">Turn intelligence into owned audiences and coordinated reach.</p></div>
+    <div class="srow"><div class="snum">07</div>
+      <div class="sbody"><h4>Own the audience </h4><p>The data team enriches under-penetrated accounts into owned audiences deployed across email and multi-channel sequences.</p></div>
+      <div class="schips"><span class="schip">Clay</span><span class="schip">Email & Outreach</span></div></div>
+    <div class="srow"><div class="snum">08</div>
+      <div class="sbody"><h4>Scale the swarm </h4><p>Google mid-intent, LinkedIn cold native, and signal-built account lists deploy across LinkedIn, Meta, and programmatic at once, with landing pages ready to convert.</p></div>
+      <div class="schips"><span class="schip">Meta</span><span class="schip">Programmatic</span><span class="schip">Landing Pages</span></div></div>
+    <div class="srow"><div class="snum">09</div>
+      <div class="sbody"><h4>Compound the intelligence </h4><p>Quarterly diagnostics combine cross-channel insight into one read, more than any internal team or single-channel agency can assemble.</p></div>
+      <div class="schips"><span class="schip">Quarterly EBR</span></div></div>
+    <div class="sphase-foot">Every quarter the whole system gets smarter, cheaper, and more precisely targeted.</div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it all fits together</span>
+      <h2 class="sec-title display" style="text-transform:none">LinkedIn is the layer that connects it all.</h2>
+      <p class="sec-desc">Demand comes in from thought leadership and search. LinkedIn qualifies it, reads the signal, and names the accounts. Then it activates everywhere, with a quarterly diagnostic loop that makes the next cycle sharper.</p>
+    </div>
+    <div class="omap reveal">
+      <div class="omap-zones">
+        <div class="ozone"><div class="zlabel">Demand in</div><h4>Create &amp; capture</h4>
+          <div class="onode"><div class="ont">Founder / Expert TL</div><div class="ond">The trust engine, organic + amplified</div></div>
+          <div class="onode"><div class="ont">Organic Social</div><div class="ond">Where the message is tested</div></div>
+          <div class="onode"><div class="ont">Google Search</div><div class="ond">In-market intent</div></div>
+          <div class="ozarrow">&rarr;</div></div>
+        <div class="ozone hub"><div class="zlabel">The intelligence layer</div><h4>LinkedIn qualifies, reads &amp; owns</h4>
+          <div class="onode"><div class="ont">Qualify with ABM filters</div><div class="ond">Insight Tag sees all traffic, filters to ICP</div></div>
+          <div class="onode"><div class="ont">Read the signals</div><div class="ond">Exact accounts, personas, firmographics</div></div>
+          <div class="onode"><div class="ont">Name with Visitor ID</div><div class="ond">Humans paired to companies</div></div>
+          <div class="onode"><div class="ont">Map penetration &amp; enrich</div><div class="ond">White space becomes owned audiences</div></div>
+          <div class="ozarrow">&rarr;</div></div>
+        <div class="ozone"><div class="zlabel">Demand out</div><h4>Activate everywhere</h4>
+          <div class="onode"><div class="ont">LinkedIn TOF / MOF / BOF</div><div class="ond">Nurture and convert</div></div>
+          <div class="onode"><div class="ont">Meta &amp; Programmatic</div><div class="ond">Reach and reinforce the swarm</div></div>
+          <div class="onode"><div class="ont">Email &amp; Outreach</div><div class="ond">Owned, multi-channel nurture</div></div>
+          <div class="onode"><div class="ont">Landing pages &amp; sales</div><div class="ond">Convert intent, hand warm humans to AEs</div></div></div>
+      </div>
+      <div class="omap-loop"><span class="lpico">&#8635; Quarterly loop</span><p>Cross-channel diagnostics feed every outcome back into targeting, messaging, and budget. The system refines itself each quarter.</p></div>
+      <div class="omap-foot">At the heart of it all: <b>founder and expert-led thought leadership,</b> tested on organic and amplified by ads.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">From one account's point of view</span>
+      <h2 class="sec-title display" style="text-transform:none">How a single target account moves through it.</h2>
+      <p class="sec-desc">The same buyer is touched by different channels at different moments, and each touch adds a signal. This is the journey from a cold name to a sales-ready conversation, the way the system actually experiences it.</p>
+      <span class="gal-note">// Illustrative account journey, anonymized</span>
+    </div>
+    <div class="journey">
+      <div class="jhead reveal">
+        <div><div class="jh-l">Target account</div><div class="jh-acct">Onyx Semiconductors</div></div>
+        <div class="jh-meta">ICP fit: strong &middot; 1,800 employees &middot; VP Eng + Procurement</div>
+      </div>
+      <div class="jgrid reveal">
+        <div class="jstage">
+          <div class="jph-row"><span class="jnode n1">1</span><div><div class="jph">Phase 1</div><h5>Awareness</h5></div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot"></span>LinkedIn TL ad</div><div class="jact">Founder insight reaches VP Eng</div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot mail"></span>Organic post</div><div class="jact">Seen, not yet clicked</div></div>
+          <div class="jsig">1 signal &middot; impression-exposed</div><div class="jarrow">&rarr;</div></div>
+        <div class="jstage">
+          <div class="jph-row"><span class="jnode n2">2</span><div><div class="jph">Phase 2</div><h5>Interest</h5></div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot g"></span>Google search</div><div class="jact">Clicks a solution query</div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot"></span>Qualified on LinkedIn</div><div class="jact">Matches ICP filter, enters retargeting</div></div>
+          <div class="jsig">2 signals &middot; engaged + on-site</div><div class="jarrow">&rarr;</div></div>
+        <div class="jstage">
+          <div class="jph-row"><span class="jnode n3">3</span><div><div class="jph">Phase 3</div><h5>Proof</h5></div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot web"></span>Visitor ID</div><div class="jact">VP Eng named, company confirmed</div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot meta"></span>Meta + carousel</div><div class="jact">Case-study proof reinforces</div></div>
+          <div class="jsig">4 signals &middot; named, multi-touch</div><div class="jarrow">&rarr;</div></div>
+        <div class="jstage">
+          <div class="jph-row"><span class="jnode n4">4</span><div><div class="jph">Phase 4</div><h5>Action</h5></div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot"></span>Conversation / Lead Gen</div><div class="jact">Low-friction offer on warm account</div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot mail"></span>Enriched email</div><div class="jact">Procurement looped in</div></div>
+          <div class="jsig">5 signals &middot; offer engaged</div><div class="jarrow">&rarr;</div></div>
+        <div class="jstage">
+          <div class="jph-row"><span class="jnode n5">5</span><div><div class="jph">Phase 5</div><h5>Activation</h5></div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot sales"></span>Sales handoff</div><div class="jact">Hot-account alert to AE with full context</div></div>
+          <div class="jtouch"><div class="jch"><span class="jdot"></span>Account retargeting</div><div class="jact">Air cover through the deal</div></div>
+          <div class="jsig">6+ signals &middot; sales-ready</div></div>
+      </div>
+      <div class="jbar"></div>
+      <div class="jbar-labels"><span>Cold name</span><span>Engaged</span><span>Named &amp; warm</span><span>In pipeline</span><span>Sales-ready</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="heart-band reveal">
+      <div class="he">&#9679; The center of gravity</div>
+      <h3>People trust people, not logos.</h3>
+      <p>We believe the heart of every ecosystem should be a founder-led or expert-led thought leadership motion: tested on organic, amplified by ads, humanizing the brand and compounding trust across every other channel. It is the one input that makes all the paid layers work harder.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">The economics of warmth</span>
+      <h2 class="sec-title display" style="text-transform:none">Warm audiences convert far cheaper than cold.</h2>
+      <p class="sec-desc">This is why the ecosystem builds and feeds warm pools instead of paying cold prices forever. Cost per lead climbs steeply the colder the audience, so the system is engineered to keep moving accounts up the ladder.</p>
+    </div>
+    <div class="barchart reveal">
+      <div class="barrow"><div class="blab">Warm 1P, bottom-funnel<small>CRM &amp; demo-page visitors</small></div><div class="bartrack"><div class="barfill warm" style="width:22%"><span class="barval">$75&#8211;150 CPL</span></div></div></div>
+      <div class="barrow"><div class="blab">Warm 1P, mid-funnel<small>Content engagers &amp; site visitors</small></div><div class="bartrack"><div class="barfill mwarm" style="width:38%"><span class="barval">$120&#8211;250 CPL</span></div></div></div>
+      <div class="barrow"><div class="blab">Intent &amp; fit ABM<small>Named target accounts</small></div><div class="bartrack"><div class="barfill cool" style="width:60%"><span class="barval">$250&#8211;400 CPL</span></div></div></div>
+      <div class="barrow"><div class="blab">Cold native<small>Net-new, never engaged</small></div><div class="bartrack"><div class="barfill cold" style="width:88%"><span class="barval">$300&#8211;600+ CPL</span></div></div></div>
+    </div>
+    <p class="chart-foot">// Audience efficiency ladder, observed CPL ranges across 200+ B2B SaaS accounts</p>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">Why we aggregate signal</span>
+      <h2 class="sec-title display" style="text-transform:none">The more signals an account shows, the more likely it closes.</h2>
+      <p class="sec-desc">A single click means little. An account that engages an ad, visits the site, and downloads content is a different animal. The system is built to stack those signals and hand the multi-signal accounts to sales first.</p>
+    </div>
+    <div class="barchart reveal">
+      <div class="barrow"><div class="blab">No signal<small>Impression-exposed only</small></div><div class="bartrack"><div class="barfill cold" style="width:7%"><span class="barval">low</span></div></div></div>
+      <div class="barrow"><div class="blab">1 signal<small>Single ad click</small></div><div class="bartrack"><div class="barfill cool" style="width:24%"><span class="barval">&nbsp;</span></div></div></div>
+      <div class="barrow"><div class="blab">2 signals<small>Click + site visit</small></div><div class="bartrack"><div class="barfill mwarm" style="width:52%"><span class="barval">&nbsp;</span></div></div></div>
+      <div class="barrow"><div class="blab">3+ signals<small>Click + visit + content / named contact</small></div><div class="bartrack"><div class="barfill warm" style="width:92%"><span class="barval">highest close rate</span></div></div></div>
+    </div>
+    <p class="chart-foot">// Illustrative pattern. In live programs, multi-signal accounts are prioritized for sales: e.g. a B2B program where 13 of 24 closed deals carried a LinkedIn signal and named multi-signal visits became the hottest at-bats.</p>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Account engagement, ranked</span>
+      <h2 class="sec-title display" style="text-transform:none">We surface the accounts already leaning in.</h2>
+      <p class="sec-desc">Engagement concentrates at a handful of ICP-fit accounts long before they fill a form. The system ranks them into a hot-account leaderboard so sales works the warmest names first, with full context.</p>
+      <span class="gal-note">// Illustrative account intelligence, anonymized</span>
+    </div>
+    <div class="lead reveal">
+      <div class="lead-row head"><div>#</div><div>Account</div><div class="lead-meta">Industry / size</div><div>Signals</div><div>Tier</div></div>
+      <div class="lead-row"><div class="lead-rank">01</div><div class="lead-acct">Northwind Software <span class="star">&#9733;</span></div><div class="lead-meta">SaaS &middot; 1&#8211;5k</div><div class="lead-sig">7</div><div><span class="tierpill hot">HOT</span></div></div>
+      <div class="lead-row"><div class="lead-rank">02</div><div class="lead-acct">Atlas Financial <span class="star">&#9733;</span></div><div class="lead-meta">Fintech &middot; 1&#8211;5k</div><div class="lead-sig">6</div><div><span class="tierpill hot">HOT</span></div></div>
+      <div class="lead-row"><div class="lead-rank">03</div><div class="lead-acct">Halcyon Cloud</div><div class="lead-meta">Infra &middot; 5k+</div><div class="lead-sig">5</div><div><span class="tierpill warm">WARM</span></div></div>
+      <div class="lead-row"><div class="lead-rank">04</div><div class="lead-acct">Brightwave Health <span class="star">&#9733;</span></div><div class="lead-meta">Healthtech &middot; 1&#8211;5k</div><div class="lead-sig">4</div><div><span class="tierpill warm">WARM</span></div></div>
+      <div class="lead-row"><div class="lead-rank">05</div><div class="lead-acct">Onyx Semiconductors</div><div class="lead-meta">Hardware &middot; 1&#8211;5k</div><div class="lead-sig">3</div><div><span class="tierpill cool">RISING</span></div></div>
+    </div>
+    <p class="chart-foot">&#9733; = strong ICP fit. The handoff is a weekly ranked list: who, what they touched, and the last signal, ready for personalized outreach.</p>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Signal becomes outreach</span>
+      <h2 class="sec-title display" style="text-transform:none">Every signal triggers the right next move.</h2>
+      <p class="sec-desc">Most teams stop at website retargeting. We map each behavioral signal to a specific action across ads, automated messaging, and the sales team, so nothing warm goes cold.</p>
+    </div>
+    <div class="sigmap reveal">
+      <div class="sigrow"><div class="sigsrc">Profile viewers<small>Visited a founder or company profile</small></div><div class="sigarr">&rarr;</div><div class="sigact">Automated connect plus a value-based message</div></div>
+      <div class="sigrow"><div class="sigsrc">TL ad engagers<small>Liked or commented on thought leadership</small></div><div class="sigarr">&rarr;</div><div class="sigact">Added to a nurture sequence and warm retargeting pool</div></div>
+      <div class="sigrow"><div class="sigsrc">75%+ video viewers<small>Watched most of a video ad</small></div><div class="sigarr">&rarr;</div><div class="sigact">Triggered into conversation ads with a clear offer</div></div>
+      <div class="sigrow"><div class="sigsrc">Company hub accounts<small>Account-level engagement detected</small></div><div class="sigarr">&rarr;</div><div class="sigact">Exported, enriched, and run as warm email outreach</div></div>
+      <div class="sigrow"><div class="sigsrc">10+ page site visits<small>Named account browsing deeply</small></div><div class="sigarr">&rarr;</div><div class="sigact">Hot-account alert to sales for direct, personalized follow-up</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Creative &amp; landing pages</span>
+      <h2 class="sec-title display" style="text-transform:none">The right creative for where the buyer is.</h2>
+      <p class="sec-desc">Creative is not decoration, it is strategic alignment between format, message, and readiness. The biggest waste in paid is the wrong format at the wrong stage. When creative-to-audience alignment scores above 80, CTR often doubles.</p>
+    </div>
+    <div class="cmatrix">
+      <div class="cmcard reveal"><div class="cmstage">Cold</div><h4>Educate &amp; warm</h4><div class="cmfmt">Video &amp; document ads</div><p>First meeting with the brand. Focus on awareness and trust, not conversion. Video also builds the retargeting pool: viewers who watch 25 to 50%+ become the next warm audience.</p></div>
+      <div class="cmcard warm reveal"><div class="cmstage">Warm</div><h4>Prove &amp; move</h4><div class="cmfmt">Carousel &amp; demo creative</div><p>They already know you. Give proof: stats, customer stories, and demo-focused creative that moves engaged accounts closer to an offer.</p></div>
+      <div class="cmcard ret reveal"><div class="cmstage">Retargeting</div><h4>Convert</h4><div class="cmfmt">Conversation &amp; lead gen</div><p>Already in the funnel. A clear, direct offer converts faster than another awareness ad. Native lead gen forms remove friction with pre-filled contact info.</p></div>
+    </div>
+    <div class="cmnote reveal"><b>Landing pages close the loop.</b> Google and cold traffic lean entirely on the page to convince. We design conversion landing pages and case-study pages that continue the ad's narrative, so the click that the ecosystem earned actually turns into a booked call instead of a bounce.</div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">The diagnostic depth</span>
+      <h2 class="sec-title display" style="text-transform:none">We grade every motion by its actual job.</h2>
+      <p class="sec-desc">Each quarter we read the whole system at once: what each layer is for, whether it is doing that job, and where the budget should move. TOF is judged by reach, MOF by conversion, BOF by pipeline. No motion is graded on a metric outside its role.</p>
+      <span class="gal-note">// Illustrative example, figures anonymized for this page</span>
+    </div>
+    <div class="sysglance">
+      <div class="sgcol reveal"><div class="sgtop"></div><div class="sgpad"><h4>TOF &middot; Build trust</h4><div class="sgsub">Reach the right accounts, feed the warm pool</div><div class="sgspend">42%<small>of media</small></div></div>
+        <div class="sgitem"><div><div class="sgi-n">Thought-Leader image</div><div class="sgi-m">7.3% CTR &middot; healthy frequency</div></div><span class="sgtag core">CORE</span></div>
+        <div class="sgitem"><div><div class="sgi-n">Founder TL (organic, amplified)</div><div class="sgi-m">feeds the TOF engine</div></div><span class="sgtag on">ON</span></div>
+        <div class="sgitem"><div><div class="sgi-n">Cold ABM layer</div><div class="sgi-m">named target accounts</div></div><span class="sgtag next">NEXT</span></div></div>
+      <div class="sgcol mof reveal"><div class="sgtop"></div><div class="sgpad"><h4>MOF &middot; Convert trust</h4><div class="sgsub">Retarget engaged accounts toward an offer</div><div class="sgspend">58%<small>of media</small></div></div>
+        <div class="sgitem"><div><div class="sgi-n">Website-visitor retargeting</div><div class="sgi-m">saturating &middot; rebuild on engagers</div></div><span class="sgtag audit">AUDIT</span></div>
+        <div class="sgitem"><div><div class="sgi-n">Ad-engager retargeting</div><div class="sgi-m">the right pool, not yet its own layer</div></div><span class="sgtag gap">GAP</span></div></div>
+      <div class="sgcol bof reveal"><div class="sgtop"></div><div class="sgpad"><h4>BOF &middot; Close</h4><div class="sgsub">Convert intent into a conversation</div><div class="sgspend">0%<small>of media</small></div></div>
+        <div class="sgitem"><div><div class="sgi-n">Conversion offer / lead magnet</div><div class="sgi-m">the missing conversion engine</div></div><span class="sgtag gap">GAP</span></div>
+        <div class="sgitem"><div><div class="sgi-n">Lead gen form / landing page</div><div class="sgi-m">nothing to convert into yet</div></div><span class="sgtag gap">GAP</span></div></div>
+    </div>
+    <div class="chanscore" style="margin-top:18px">
+      <div class="csc teal reveal"><h4>LinkedIn TOF</h4><div class="cjob">Job: reach + warm-pool feed</div><div class="crow"><span class="ck2">CTR</span><span class="cv">7.28%</span></div><div class="crow"><span class="ck2">CPC</span><span class="cv">$2.99</span></div><div class="crow"><span class="ck2">Freq</span><span class="cv">2.9x healthy</span></div><span class="cverdict cv-scale">SCALE</span></div>
+      <div class="csc red reveal"><h4>LinkedIn MOF</h4><div class="cjob">Job: convert engaged accounts</div><div class="crow"><span class="ck2">CTR</span><span class="cv">0.5%</span></div><div class="crow"><span class="ck2">Pool</span><span class="cv">mostly off-ICP</span></div><div class="crow"><span class="ck2">Freq</span><span class="cv">4.6x saturating</span></div><span class="cverdict cv-reduce">REDUCE + REBUILD</span></div>
+      <div class="csc amber reveal"><h4>LinkedIn Text Ad</h4><div class="cjob">Job: cheap reach</div><div class="crow"><span class="ck2">Clicks</span><span class="cv">0</span></div><div class="crow"><span class="ck2">Freq</span><span class="cv">7.4x over-served</span></div><div class="crow"><span class="ck2">Spend</span><span class="cv">low</span></div><span class="cverdict cv-audit">AUDIT / PAUSE</span></div>
+      <div class="csc purple reveal"><h4>Google &middot; Branded</h4><div class="cjob">Job: intent capture (narrow)</div><div class="crow"><span class="ck2">Role</span><span class="cv">brand defense</span></div><div class="crow"><span class="ck2">Scope</span><span class="cv">high-intent only</span></div><div class="crow"><span class="ck2">Primary?</span><span class="cv">no</span></div><span class="cverdict cv-next">NEXT</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The full suite</span>
+      <h2 class="sec-title display" style="text-transform:none">Every channel we run, and the job it does.</h2>
+      <p class="sec-desc">One team operates the entire ecosystem, so the channels actually coordinate instead of competing for credit.</p>
+    </div>
+    <div class="eco-grid">
+      <div class="ecocard reveal"><div class="ecn">Foundation</div><h4>Founder / Expert TL</h4><p>The trust engine. Tested organically, then amplified as thought-leader ads.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Foundation</div><h4>Organic Social</h4><p>Where messaging is proven before a dollar of media is spent behind it.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Capture</div><h4>Google Paid Search</h4><p>In-market intent capture for branded, competitor, and solution queries.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Qualify &amp; nurture</div><h4>LinkedIn Ads</h4><p>TOF, MOF, and BOF. Qualifies traffic, nurtures the warm pool, converts demand.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Signal &amp; control</div><h4>DemandSense &amp; Visitor ID</h4><p>Attribution, scheduling, audience control, and named-account intelligence.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Reach</div><h4>Meta &amp; Programmatic</h4><p>Cost-effective reinforcement and reach to ICP accounts LinkedIn cannot fully cover.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Own &amp; activate</div><h4>Email &amp; Outreach</h4><p>Owned, enriched audiences moved into coordinated multi-channel nurture.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Data</div><h4>Enrichment &amp; List Building</h4><p>Clay, Apollo, and ZoomInfo turn under-penetrated accounts into owned lists.</p></div>
+      <div class="ecocard reveal"><div class="ecn">Convert</div><h4>Creative &amp; Landing Pages</h4><p>Stage-matched ad creative and conversion pages that turn earned clicks into booked calls.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The blueprint</span>
+      <h2 class="sec-title display" style="text-transform:none">You don't deploy it all at once.</h2>
+      <p class="sec-desc">The ecosystem expands with your maturity. Warm before cold, proof before scale. Here is the path, and where each layer comes online.</p>
+    </div>
+    <div class="exp">
+      <div class="expstage s1 reveal"><div class="est">Stage 1</div><h4>Validate</h4><ul><li>Founder / expert TL</li><li>Organic motion</li><li>Message-market fit</li><li>First conversions</li></ul></div>
+      <div class="expstage s2 reveal"><div class="est">Stage 2</div><h4>Ramp</h4><ul><li>Paid search capture</li><li>LinkedIn qualifying</li><li>Retargeting pools</li><li>Attribution wired</li></ul></div>
+      <div class="expstage s3 reveal"><div class="est">Stage 3</div><h4>Reach</h4><ul><li>Signal &amp; penetration map</li><li>Visitor ID + enrichment</li><li>Owned audiences</li><li>Cold demand gen</li></ul></div>
+      <div class="expstage s4 reveal"><div class="est">Stage 4</div><h4>Supply</h4><ul><li>The everywhere swarm</li><li>Meta + programmatic</li><li>Email multi-channel</li><li>Predictable pipeline</li></ul></div>
+      <div class="expstage s5 reveal"><div class="est">Stage 5</div><h4>Sustain</h4><ul><li>Optimized economics</li><li>Quarterly compounding</li><li>Category leadership</li><li>Brand compounds all</li></ul></div>
+    </div>
+    <div class="sec-head reveal" style="margin-top:48px">
+      <h3 class="display" style="text-transform:none;font-size:clamp(20px,2.6vw,26px);color:var(--bone)">Expansion is earned, and it pays for itself.</h3>
+      <p class="sec-desc">When the funnel is fixed first, added budget compounds instead of inflating cost. A representative path: optimize within current spend, then expand once it validates.</p>
+    </div>
+    <div class="expecon">
+      <div class="eecard reveal"><div class="eephase">Today, optimized</div><div class="eespend">$5k<small>/mo</small></div><div class="eeout">Fix the funnel, rebuild the warm pool, launch the conversion layer. Same budget, working system.</div><div class="eedelta">+30% conversions &middot; -17% cost</div></div>
+      <div class="eecard mid reveal"><div class="eephase">Phase 2, expand</div><div class="eespend">$7.5k<small>/mo</small></div><div class="eeout">Extra spend flows to expanded TOF, deeper MOF, and BOF conversion volume once the base is proven.</div><div class="eedelta">+106% conversions &middot; -21% cost</div></div>
+      <div class="eecard scalecard reveal"><div class="eephase">Phase 3, scale</div><div class="eespend">$10k+<small>/mo</small></div><div class="eeout">The everywhere swarm: Google reach, Meta and programmatic, cold ABM, all measured by account penetration.</div><div class="eedelta">evaluated only after Phase 2 validates</div></div>
+    </div>
+    <p class="chart-foot">// Illustrative expansion economics modeled on a live program. Numbers depend on starting point and are confirmed before any commitment.</p>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Who runs it</span>
+      <h2 class="sec-title display" style="text-transform:none">A full team behind a full ecosystem.</h2>
+      <p class="sec-desc">One coordinated team operates every layer, which is the only way the channels genuinely work together rather than living in separate silos.</p>
+    </div>
+    <div class="team-grid">
+      <div class="tmcard reveal"><div class="tmrole">Full-funnel strategists</div><p>Own the positioning, white space, and channel architecture.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">LinkedIn-certified specialists</div><p>Build and run the qualifying, signal, and conversion layers.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">Paid search team</div><p>Capture in-market intent and defend branded demand.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">Paid social &amp; programmatic</div><p>Run the Meta and programmatic reach of the everywhere swarm.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">Data &amp; enrichment experts</div><p>Turn penetration gaps into enriched, owned, activatable audiences.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">Creative &amp; design</div><p>Produce the thought-leadership, ad creative, and landing pages the system runs on.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">Lifecycle &amp; email</div><p>Sequence owned audiences into coordinated multi-channel nurture.</p></div>
+      <div class="tmcard reveal"><div class="tmrole">Analytics &amp; diagnostics</div><p>Run the quarterly cross-channel reads that compound the intelligence.</p></div>
+    </div>
+    <div class="team-stats reveal">
+      <div class="tstat"><div class="tn">84</div><div class="tl">Person team</div></div>
+      <div class="tstat"><div class="tn">20+</div><div class="tl">LinkedIn-certified insiders</div></div>
+      <div class="tstat"><div class="tn">8+</div><div class="tl">Coordinated channels</div></div>
+      <div class="tstat"><div class="tn">$50M+</div><div class="tl">Ad spend managed</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Speak the language</span>
+      <h2 class="sec-title display" style="text-transform:none">Key concepts, in plain terms.</h2>
+      <p class="sec-desc">A quick glossary for the ideas this system runs on, so the strategy is never a black box.</p>
+    </div>
+    <dl class="glossary reveal">
+      <div class="gterm"><dt>TOF / MOF / BOF</dt><dd>Top, middle, and bottom of funnel. Build trust, convert trust, then close. Each stage has a different job and a different metric.</dd></div>
+      <div class="gterm"><dt>Warm vs cold</dt><dd>Warm audiences have already engaged with you. Cold audiences have not. Warm converts far cheaper, so the system keeps moving accounts from cold to warm.</dd></div>
+      <div class="gterm"><dt>First-party (1P) data</dt><dd>Audiences you own: site visitors, CRM contacts, engagers. The cheapest, highest-converting fuel for paid.</dd></div>
+      <div class="gterm"><dt>Penetration &amp; frequency</dt><dd>How much of a target audience you have actually reached, and how often. Unique reach is impressions divided by frequency, the clearest read on where to scale.</dd></div>
+      <div class="gterm"><dt>Signal aggregation</dt><dd>Stacking multiple behaviors from one account (clicks, visits, downloads) to score intent. More signals, higher close probability.</dd></div>
+      <div class="gterm"><dt>The everywhere swarm</dt><dd>Deploying one account list across LinkedIn, Meta, and programmatic at once, so every touchpoint a buyer has reinforces the same story.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sec" id="start" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">Start here</span>
+      <h2 class="sec-title display" style="text-transform:none">See the blueprint for your business.</h2>
+      <p class="sec-desc">Start free with an Ecosystem Audit, or go straight to a paid strategy engagement. Either way, the first step is a short conversation about where you are today.</p>
+    </div>
+    <div class="offers">
+      <div class="offer free reveal">
+        <span class="opill">Free &middot; Start here</span>
+        <h3>Ecosystem Audit</h3>
+        <div class="oprice f"><b>No cost</b> &middot; ~30 minutes</div>
+        <p class="odesc">A senior read on your current ecosystem: what is connected, what is leaking, and the highest-leverage moves you can make right now.</p>
+        <ul><li>Channel-by-channel current-state read</li><li>Where demand is leaking between channels</li><li>The first three moves we would make</li><li>No commitment, yours to keep</li></ul>
+        <div class="obtns"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get the free audit &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
+      </div>
+      <div class="offer reveal">
+        <span class="opill paid">Paid &middot; New programs</span>
+        <h3>Foundational Strategy</h3>
+        <div class="oprice"><b>$1,500</b> &middot; one-time</div>
+        <p class="odesc">The front end of the ecosystem: competitor white space, audience and messaging architecture, and the channel sequence built for where you are.</p>
+        <ul><li>Competitive white-space analysis</li><li>Audience &amp; targeting architecture</li><li>Messaging &amp; offer by channel and stage</li><li>The 90-day build plan</li></ul>
+        <div class="obtns"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Start the strategy &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
+      </div>
+      <div class="offer reveal">
+        <span class="opill paid">Paid &middot; Existing programs</span>
+        <h3>Impact Report</h3>
+        <div class="oprice"><b>$1,500</b> &middot; one-time</div>
+        <p class="odesc">A full diagnostic of a running program: what each motion is doing, where the budget should move, and the account intelligence your spend has already created.</p>
+        <ul><li>System-at-a-glance and channel scorecard</li><li>Penetration, frequency &amp; waste analysis</li><li>Hot-account intelligence for sales</li><li>Prioritized reallocation plan</li></ul>
+        <div class="obtns"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get the Impact Report &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div><div class="foot-logo"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></div><div class="foot-tag">Built by LinkedIn insiders. Scaled by data.</div></div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>The system</h5><a href="/">Intelligence system</a><a href="#build">The ecosystem</a><a href="/tools">Tools &amp; Expertise</a><a href="https://impactable.com/category/case-studies/">Case Studies</a></div>
+        <div class="foot-col"><h5>LinkedIn Ads</h5><a href="/linkedin-launch">Getting started</a><a href="/linkedin-scale">Scale &amp; Improve</a><a href="https://impactable.com/google-ads/">B2B Paid Search</a><a href="https://impactable.com/automated-messaging/">Lead Gen &amp; Nurture</a></div>
+        <div class="foot-col"><h5>Company</h5><a href="https://impactable.com/impactable-about-us/">About Us</a><a href="https://impactable.com/blog/">Growth Lab</a><a href="https://impactable.com/events/">Events</a><a href="https://impactable.com/careers/">Careers</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 Impactable LLC &middot; LinkedIn Marketing Partner</span><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner" style="height:34px"></div>
+  </div>
+</footer>
+<script>
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');});
+document.querySelectorAll('.nav-item .nav-trigger').forEach(function(t){
+  t.addEventListener('click',function(e){
+    if(window.innerWidth<=1000){
+      e.preventDefault();
+      var item=t.parentElement;var open=item.classList.contains('expanded');
+      document.querySelectorAll('.nav-item.expanded').forEach(function(i){if(i!==item)i.classList.remove('expanded');});
+      item.classList.toggle('expanded',!open);
+    }
+  });
+});
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
