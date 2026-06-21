@@ -362,6 +362,47 @@
   h2.sec-h{font-size:clamp(44px,4.6vw,60px);letter-spacing:-.022em}
   .mk{background:var(--canopy);color:#0A0A0C;padding:.06em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 
+  /* offer ladder (where to start) */
+  .ladder-sec{background:var(--pricing-bg)}
+  .cro-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px;align-items:end}
+  .rung{border:1px solid var(--border);border-radius:10px;padding:22px 20px;background:var(--surface);position:relative;transition:transform .25s,border-color .25s}
+  .cro-ladder .rung:nth-child(1){margin-top:72px}
+  .cro-ladder .rung:nth-child(2){margin-top:54px}
+  .cro-ladder .rung:nth-child(3){margin-top:30px}
+  .cro-ladder .rung:nth-child(4){margin-top:14px}
+  .rung:hover{transform:translateY(-4px);border-color:var(--blue)}
+  .rung.feat{border-color:#D4FF3D;box-shadow:inset 0 0 0 1px #D4FF3D}
+  .rung-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px}
+  .rung-n{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-dim);letter-spacing:.12em}
+  .rung-price{font-family:'Archivo Black',sans-serif;font-size:17px;letter-spacing:-.02em;color:var(--blue)}
+  .rung-price.free{background:#D4FF3D;color:#0A0A0C;padding:3px 9px;border-radius:5px;font-size:16px}
+  .rung-here{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;background:#D4FF3D;color:#0A0A0C;padding:3px 8px;border-radius:5px;white-space:nowrap}
+  .rung h4{font-size:17px;font-weight:700;color:var(--heading);margin-bottom:8px;line-height:1.2}
+  .rung p{font-size:16px;color:var(--text-muted);line-height:1.5;margin-bottom:14px}
+  .rung-cta{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--blue-soft);font-weight:500;display:inline-block;text-decoration:none}
+  .rung-cta:hover{color:var(--heading)}
+  .ladder-reassure{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.03em;color:var(--text-dim)}
+  .ladder-reassure b{color:var(--hot);font-weight:500}
+  @media(max-width:920px){.cro-ladder{grid-template-columns:1fr 1fr;gap:12px}.cro-ladder .rung{margin-top:0!important}}
+  @media(max-width:560px){.cro-ladder{grid-template-columns:1fr}}
+
+  /* where-this-fits cross-link trio */
+  .xfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  @media(max-width:760px){.xfit-grid{grid-template-columns:1fr}}
+  .xfit-card{border:1px solid var(--border);border-radius:12px;padding:26px;background:var(--surface);transition:transform .2s,border-color .2s;display:block;text-decoration:none}
+  .xfit-card:hover{transform:translateY(-3px);border-color:var(--blue)}
+  .xfit-card .xk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:10px}
+  .xfit-card h4{font-size:18px;font-weight:700;color:var(--heading);margin-bottom:8px;line-height:1.2}
+  .xfit-card p{font-size:16px;color:var(--text-muted);line-height:1.5;margin-bottom:14px}
+  .xfit-card .xarrow{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--blue-soft);font-weight:500}
+  .xfit-card:hover .xarrow{color:var(--heading)}
+
+  /* inline bridge strip */
+  .bridge{border:1px solid var(--border);border-left:3px solid #D4FF3D;border-radius:10px;background:var(--surface);padding:18px 24px;margin-top:48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .bridge p{font-size:17px;color:var(--text);margin:0}
+  .bridge a{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--blue-soft);white-space:nowrap;text-decoration:none}
+  .bridge a:hover{color:var(--heading)}
+
 /* ════ GLOBAL NAV (gnav) — shared component, literal colors ════ */
 .gnav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,241,234,0.06)}
 .gnav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -936,6 +977,11 @@ html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:
     <div style="text-align:center;margin-top:54px">
       <a href="#book" class="btn btn-primary">Run my Impact Report <span class="arrow">&rarr;</span></a>
     </div>
+
+    <div class="bridge">
+      <p>Prefer we just run it? Hand the plan to a team that executes it as one system.</p>
+      <a href="/marketing-ecosystem.html">Full Ecosystem Management &rarr;</a>
+    </div>
   </div>
 </section>
 
@@ -1022,6 +1068,79 @@ html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:
     <details><summary>What do you need from me? <span class="plus">+</span></summary><p>For Foundations, context on your business and your market. For the Impact Report, read access to the channels and data you run: LinkedIn and Google ad accounts, your CRM, website visitor data, any intent tool. We can start with whatever you have.</p></details>
     <details><summary>How is this different from an intent tool like 6sense or Demandbase? <span class="plus">+</span></summary><p>Those tools give you a feed of signals. We aggregate signals across sources, score them against your real ICP, and hand you the strategy and the activation plays. Tools tell you something is happening. The room tells you what to do about it.</p></details>
     <details><summary>Will the numbers survive leadership scrutiny? <span class="plus">+</span></summary><p>That is the point. Every number is built same-period, same-definition, same-attribution, with the math shown and the caveats stated plainly. It is built to survive a skeptical CFO, not to look pretty in a slide.</p></details>
+  </div>
+</section>
+
+<!-- WHERE TO START -->
+<section class="ladder-sec">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:30px">
+      <span class="eyebrow">Where to start</span>
+      <h2 class="sec-h">Start light. <span class="mk">Climb when it's proven.</span></h2>
+      <p class="sec-lead">No retainer to begin. Every rung is a fixed-scope, no-brainer next step, and each one graduates into the next. Most clients start with the free scorecard and climb.</p>
+    </div>
+    <div class="cro-ladder">
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 00</span><span class="rung-price free">Free</span></div>
+        <h4>Marketing Ecosystem Scorecard</h4>
+        <p>Answer a few quick questions and get your ecosystem maturity score, plus the top 3 gaps costing you pipeline right now.</p>
+        <a class="rung-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free scorecard &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 01</span><span class="rung-price">$499</span></div>
+        <h4>Single-Channel Audit</h4>
+        <p>One channel pressure-tested, delivered as an expert video walkthrough plus a 30-minute consult.</p>
+        <a class="rung-cta" href="/intelligence-room.html#audit">Get a channel audit &rarr;</a>
+      </div>
+      <div class="rung feat">
+        <div class="rung-top"><span class="rung-n">RUNG 02</span><span class="rung-here">You're here</span></div>
+        <h4>Foundational Strategy or Impact Report</h4>
+        <p>A custom intelligence room: where to grow, or what to scale, test, and cut. Fixed scope. You own it.</p>
+        <a class="rung-cta" href="/intelligence-room.html">Build your room &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 03</span><span class="rung-price">Managed</span></div>
+        <h4>Run it with us</h4>
+        <p>LinkedIn, paid search, and the Thought Leadership Engine, signal-engineered and run as one system.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">See managed options &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 04</span><span class="rung-price">Ecosystem</span></div>
+        <h4>Full Ecosystem Management</h4>
+        <p>Every channel compounding, with a quarterly Impact Report that proves revenue, not clicks.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">Full ecosystem &rarr;</a>
+      </div>
+    </div>
+    <p class="ladder-reassure">Fixed scope. Fixed price. No retainer to start. <b>Your $499 audit credits to your first month.</b></p>
+  </div>
+</section>
+
+<!-- WHERE THIS FITS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:30px">
+      <span class="eyebrow">Where this fits</span>
+    </div>
+    <div class="xfit-grid">
+      <a class="xfit-card" href="/marketing-ecosystem.html">
+        <div class="xk">Run it with us</div>
+        <h4>Hand off the plan</h4>
+        <p>Hand the plan to a team that executes it.</p>
+        <span class="xarrow">Managed options &rarr;</span>
+      </a>
+      <a class="xfit-card" href="/marketing-ecosystem.html">
+        <div class="xk">Full Ecosystem</div>
+        <h4>One compounding system</h4>
+        <p>Every channel, one compounding system.</p>
+        <span class="xarrow">Full ecosystem &rarr;</span>
+      </a>
+      <a class="xfit-card" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">
+        <div class="xk">Free Scorecard</div>
+        <h4>Not ready yet?</h4>
+        <p>Not ready? Grade your funnel free.</p>
+        <span class="xarrow">Get your scorecard &rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 

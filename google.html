@@ -315,6 +315,47 @@
   /* VIVID HIGHLIGHT MARKER */
   .mk{background:#D4FF3D;color:#0A0A0C;padding:.06em .16em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:inherit}
 
+  /* ════ OFFER LADDER ════ */
+  .cro-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px;align-items:end;}
+  .rung{border:1px solid var(--border);border-radius:var(--radius-sm);padding:22px 20px;background:var(--surface);position:relative;transition:transform .25s,border-color .25s;}
+  .cro-ladder .rung:nth-child(1){margin-top:72px;}
+  .cro-ladder .rung:nth-child(2){margin-top:54px;}
+  .cro-ladder .rung:nth-child(3){margin-top:30px;}
+  .cro-ladder .rung:nth-child(4){margin-top:14px;}
+  .rung:hover{transform:translateY(-4px);border-color:var(--border-2);}
+  .rung.feat{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);}
+  .rung.here{border-color:#D4FF3D;box-shadow:inset 0 0 0 1px #D4FF3D;}
+  .rung-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px;}
+  .rung-n{font-family:var(--font-mono);font-size:13px;color:var(--text-faint);letter-spacing:.12em;}
+  .rung-price{font-family:var(--font-display);font-weight:800;font-size:17px;letter-spacing:-.02em;color:var(--accent);}
+  .rung-price.free{background:#D4FF3D;color:#0A0A0C;padding:3px 9px;border-radius:5px;font-size:16px;}
+  .rung-here{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#D4FF3D;color:#0A0A0C;padding:3px 8px;border-radius:5px;white-space:nowrap;}
+  .rung h4{font-size:17px;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.2;}
+  .rung p{font-size:16px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+  .rung-cta{font-family:var(--font-mono);font-size:14px;letter-spacing:.02em;color:var(--accent);font-weight:500;display:inline-block;text-decoration:none;}
+  .rung-cta:hover{color:var(--text);}
+  .ladder-reassure{margin-top:26px;text-align:center;font-family:var(--font-mono);font-size:14px;letter-spacing:.03em;color:var(--text-faint);}
+  .ladder-reassure b{color:var(--accent);font-weight:600;}
+  @media(max-width:920px){.cro-ladder{grid-template-columns:1fr 1fr;gap:12px;}.cro-ladder .rung{margin-top:0!important;}}
+  @media(max-width:560px){.cro-ladder{grid-template-columns:1fr;}}
+
+  /* ════ CROSS-LINK TRIO ════ */
+  .xfit{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  .xcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;transition:border-color .25s,transform .25s;text-decoration:none;display:block;}
+  .xcard:hover{border-color:var(--border-2);transform:translateY(-3px);}
+  .xcard .xk{font-family:var(--font-mono);font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .xcard h4{font-size:1.08rem;color:var(--text);margin-bottom:8px;}
+  .xcard p{font-size:1rem;color:var(--text-muted);margin-bottom:14px;}
+  .xcard .xgo{font-family:var(--font-mono);font-size:14px;color:var(--accent);font-weight:500;}
+  .xcard:hover .xgo{color:var(--text);}
+  @media(max-width:920px){.xfit{grid-template-columns:1fr;}}
+
+  /* ════ INLINE BRIDGE CTA ════ */
+  .bridge{margin-top:34px;background:var(--surface);border:1px solid var(--border);border-left:3px solid #D4FF3D;border-radius:var(--radius-sm);padding:16px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:1.06rem;color:var(--text-muted);text-decoration:none;transition:border-color .2s,background .2s;}
+  .bridge:hover{border-color:var(--border-2);background:var(--surface-2);}
+  .bridge .bgo{font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;color:var(--accent);font-weight:600;margin-left:auto;white-space:nowrap;}
+  .bridge:hover .bgo{color:var(--text);}
+
   /* DARK BAND — forces dark tokens even while page is in light theme */
   .dark{
     --bg:#0A0A0C; --bg-2:#15151A; --panel:#15151A;
@@ -832,6 +873,7 @@
         </ul>
       </div>
     </div>
+    <a class="bridge reveal" href="/marketing-ecosystem.html">Want both channels run as one? <span class="bgo">Full Ecosystem →</span></a>
   </div>
 </section>
 
@@ -949,6 +991,76 @@
       <details><summary>Do I need a Google Ads account to get started?<span class="pm">+</span></summary><p>No. If you have one, we audit and rebuild it; if not, we'll set it up correctly from the start with the right campaign architecture, conversion tracking and intent hierarchy.</p></details>
       <details><summary>How long does it typically take to launch?<span class="pm">+</span></summary><p>For an existing account, the audit takes about two to three weeks and a rebuild follows quickly. New programs start with the Foundational Strategy, then build campaigns from there — most accounts are live within a few weeks.</p></details>
       <details><summary>Do you offer white-label Google Ads services?<span class="pm">+</span></summary><p>Yes — we run paid search programs on behalf of agencies and partners. Reach out and we'll walk through how the white-label engagement works.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO START — OFFER LADDER -->
+<section class="band alt" id="start">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Where to start</span>
+      <h2>Start light. <span class="mk">Climb when it's proven.</span></h2>
+      <p>No retainer to begin. Every rung is a fixed-scope, no-brainer next step, and each one graduates into the next. Most clients start with the free scorecard and climb.</p>
+    </div>
+    <div class="cro-ladder reveal">
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 00</span><span class="rung-price free">Free</span></div>
+        <h4>Marketing Ecosystem Scorecard</h4>
+        <p>Answer a few quick questions and get your ecosystem maturity score, plus the top 3 gaps costing you pipeline right now.</p>
+        <a class="rung-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free scorecard →</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 01</span><span class="rung-price">$499</span></div>
+        <h4>Single-Channel Audit</h4>
+        <p>One channel pressure-tested, delivered as an expert video walkthrough plus a 30-minute consult.</p>
+        <a class="rung-cta" href="/intelligence-room.html#audit">Get a channel audit →</a>
+      </div>
+      <div class="rung feat">
+        <div class="rung-top"><span class="rung-n">RUNG 02</span><span class="rung-price">$1,500</span></div>
+        <h4>Foundational Strategy or Impact Report</h4>
+        <p>A custom intelligence room, where to grow, or what to scale, test, and cut. Fixed scope. You own it.</p>
+        <a class="rung-cta" href="/intelligence-room.html">Build your room →</a>
+      </div>
+      <div class="rung here">
+        <div class="rung-top"><span class="rung-n">RUNG 03</span><span class="rung-here">You're here</span></div>
+        <h4>Run it with us</h4>
+        <p>LinkedIn, paid search, and the Thought Leadership Engine, signal-engineered and run as one system.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">See managed options →</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 04</span><span class="rung-price">Ecosystem</span></div>
+        <h4>Full Ecosystem Management</h4>
+        <p>Every channel compounding, with a quarterly Impact Report that proves revenue, not clicks.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">Full ecosystem →</a>
+      </div>
+    </div>
+    <p class="ladder-reassure">Fixed scope. Fixed price. No retainer to start. <b>Your $499 audit credits to your first month.</b></p>
+  </div>
+</section>
+
+<!-- WHERE THIS FITS — CROSS-LINK TRIO -->
+<section class="band" id="fits">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Where this fits</span>
+    </div>
+    <div class="xfit">
+      <a class="xcard reveal" href="/linkedin-scale.html">
+        <div class="xk">LinkedIn Ads</div>
+        <h4>The demand engine that feeds paid search.</h4>
+        <span class="xgo">See LinkedIn Ads →</span>
+      </a>
+      <a class="xcard reveal" href="/intelligence-room.html">
+        <div class="xk">Foundational Strategy</div>
+        <h4>Get the targeting and messaging right first.</h4>
+        <span class="xgo">Build the strategy →</span>
+      </a>
+      <a class="xcard reveal" href="/marketing-ecosystem.html">
+        <div class="xk">Full Ecosystem</div>
+        <h4>Run search inside one compounding system.</h4>
+        <span class="xgo">See the ecosystem →</span>
+      </a>
     </div>
   </div>
 </section>

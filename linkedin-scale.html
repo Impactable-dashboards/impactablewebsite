@@ -235,6 +235,46 @@ section{position:relative}
 .final p{font-size:21px;color:var(--chalk);max-width:46ch;margin:0 auto 36px}
 .final .btn{font-size:16px;padding:15px 30px}
 
+/* ── offer ladder (shared) ── */
+.ladder-sec{background:var(--concrete)}
+.cro-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px;align-items:end}
+.rung{border:1px solid var(--line);border-radius:10px;padding:22px 20px;background:var(--asphalt);position:relative;transition:transform .25s,border-color .25s}
+.cro-ladder .rung:nth-child(1){margin-top:72px}
+.cro-ladder .rung:nth-child(2){margin-top:54px}
+.cro-ladder .rung:nth-child(3){margin-top:30px}
+.cro-ladder .rung:nth-child(4){margin-top:14px}
+.rung:hover{transform:translateY(-4px);border-color:var(--blue)}
+.rung.feat{border-color:var(--canopy);box-shadow:inset 0 0 0 1px var(--canopy)}
+.rung-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;gap:8px}
+.rung-n{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);letter-spacing:.12em}
+.rung-price{font-family:'Archivo Black',sans-serif;font-size:17px;letter-spacing:-.02em;color:var(--blue)}
+.rung-price.free{background:var(--canopy);color:#0A0A0C;padding:3px 9px;border-radius:5px;font-size:16px}
+.rung h4{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:8px;line-height:1.2}
+.rung p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:14px}
+.rung-cta{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--blue-soft);font-weight:500;display:inline-block}
+.rung-cta:hover{color:var(--bone)}
+.rung-here{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--canopy);color:#0A0A0C;border-radius:20px;padding:3px 9px}
+.ladder-reassure{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.03em;color:var(--chalk-dim)}
+.ladder-reassure b{color:var(--canopy);font-weight:500}
+@media(max-width:920px){.cro-ladder{grid-template-columns:1fr 1fr;gap:12px}.cro-ladder .rung{margin-top:0!important}}
+@media(max-width:560px){.cro-ladder{grid-template-columns:1fr}}
+
+/* ── where this fits trio ── */
+.xfit{background:var(--asphalt)}
+.xfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.xfit-card{border:1px solid var(--line);border-radius:8px;padding:24px 22px;background:var(--concrete);transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
+.xfit-card:hover{transform:translateY(-3px);border-color:var(--blue)}
+.xfit-card .xk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:10px}
+.xfit-card p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:16px}
+.xfit-card .xlink{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--canopy);margin-top:auto}
+.xfit-card:hover .xlink{color:var(--bone)}
+@media(max-width:760px){.xfit-grid{grid-template-columns:1fr}}
+
+/* ── inline bridge strip ── */
+.inlinebridge{border:1px solid var(--line);border-left:3px solid var(--canopy);border-radius:6px;background:linear-gradient(90deg,rgba(212,255,61,0.06),transparent);padding:16px 22px;margin-top:34px;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.01em;color:var(--chalk)}
+.inlinebridge a{color:var(--canopy);font-weight:500}
+.inlinebridge a:hover{color:var(--bone)}
+
 /* ── footer ── */
 .foot{background:var(--asphalt);border-top:1px solid var(--line-soft);padding:56px 0 40px}
 .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px}
@@ -849,6 +889,7 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
         <div class="cs-foot">Source: LinkedIn customer story, "How Lacework drove 6X ROI by shifting to a full-funnel strategy on LinkedIn."</div>
       </div>
     </div>
+    <p class="inlinebridge reveal">Want this on your account? <a href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call &rarr;</a></p>
   </div>
 </section>
 
@@ -1151,6 +1192,76 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
       </div>
     </div>
     <p class="price-bridge reveal">Not running LinkedIn ads yet? <em>Start with the Foundational Strategy &rarr;</em></p>
+  </div>
+</section>
+
+<!-- WHERE TO START LADDER -->
+<section class="sec ladder-sec" id="start">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where to start</span>
+      <h2 class="sec-title display" style="text-transform:none">Start light. <span class="hl">Climb when it's proven.</span></h2>
+      <p class="sec-desc">No retainer to begin. Every rung is a fixed-scope, no-brainer next step, and each one graduates into the next. Most clients start with the free scorecard and climb.</p>
+    </div>
+    <div class="cro-ladder reveal">
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 00</span><span class="rung-price free">Free</span></div>
+        <h4>Marketing Ecosystem Scorecard</h4>
+        <p>Answer a few quick questions and get your ecosystem maturity score, plus the top 3 gaps costing you pipeline right now.</p>
+        <a class="rung-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free scorecard &rarr;</a>
+      </div>
+      <div class="rung feat">
+        <div class="rung-top"><span class="rung-n">RUNG 01</span><span class="rung-price">$499</span></div>
+        <h4>Single-Channel Audit</h4>
+        <p>One channel pressure-tested, delivered as an expert video walkthrough plus a 30-minute consult.</p>
+        <a class="rung-cta" href="/intelligence-room.html#audit">Get a channel audit &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 02</span><span class="rung-price">$1,500</span></div>
+        <h4>Foundational Strategy or Impact Report</h4>
+        <p>A custom intelligence room: where to grow, or what to scale, test, and cut. Fixed scope. You own it.</p>
+        <a class="rung-cta" href="/intelligence-room.html">Build your room &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 03</span><span class="rung-here">You're here</span></div>
+        <h4>Run it with us</h4>
+        <p>LinkedIn, paid search, and the Thought Leadership Engine, signal-engineered and run as one system.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">See managed options &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 04</span><span class="rung-price">Ecosystem</span></div>
+        <h4>Full Ecosystem Management</h4>
+        <p>Every channel compounding, with a quarterly Impact Report that proves revenue, not clicks.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">Full ecosystem &rarr;</a>
+      </div>
+    </div>
+    <p class="ladder-reassure">Fixed scope. Fixed price. No retainer to start. <b>Your $499 audit credits to your first month.</b></p>
+  </div>
+</section>
+
+<!-- WHERE THIS FITS -->
+<section class="sec xfit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where this fits</span>
+    </div>
+    <div class="xfit-grid reveal">
+      <div class="xfit-card">
+        <div class="xk">Impact Report</div>
+        <p>Know exactly what to scale, test, and cut.</p>
+        <a class="xlink" href="/intelligence-room.html">&rarr;</a>
+      </div>
+      <div class="xfit-card">
+        <div class="xk">B2B Paid Search</div>
+        <p>Capture the demand your LinkedIn ads create.</p>
+        <a class="xlink" href="/google.html">&rarr;</a>
+      </div>
+      <div class="xfit-card">
+        <div class="xk">Full Ecosystem</div>
+        <p>Compound every channel, not just LinkedIn.</p>
+        <a class="xlink" href="/marketing-ecosystem.html">&rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 

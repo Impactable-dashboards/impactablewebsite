@@ -815,6 +815,46 @@ html[data-theme="light"] .omap,
 html[data-theme="light"] .jgrid,
 html[data-theme="light"] .stack-mini{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;--canopy:#D4FF3D;color:#F4F1EA}
 
+/* ── offer ladder (where to start) ── */
+.cro-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px;align-items:end}
+.rung{border:1px solid var(--line);border-radius:10px;padding:22px 20px;background:var(--concrete);position:relative;transition:transform .25s,border-color .25s}
+.cro-ladder .rung:nth-child(1){margin-top:72px}
+.cro-ladder .rung:nth-child(2){margin-top:54px}
+.cro-ladder .rung:nth-child(3){margin-top:30px}
+.cro-ladder .rung:nth-child(4){margin-top:14px}
+.rung:hover{transform:translateY(-4px);border-color:var(--blue)}
+.rung.feat{border-color:#D4FF3D;box-shadow:inset 0 0 0 1px #D4FF3D}
+.rung-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px}
+.rung-n{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);letter-spacing:.12em}
+.rung-price{font-family:'Archivo Black',sans-serif;font-size:17px;letter-spacing:-.02em;color:var(--blue)}
+.rung-price.free{background:#D4FF3D;color:#0A0A0C;padding:3px 9px;border-radius:5px;font-size:16px}
+.rung-here{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;background:#D4FF3D;color:#0A0A0C;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.rung h4{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:8px;line-height:1.2}
+.rung p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:14px}
+.rung-cta{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--blue-soft);font-weight:500;display:inline-block}
+.rung-cta:hover{color:var(--bone)}
+.ladder-reassure{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.03em;color:var(--chalk-dim)}
+.ladder-reassure b{color:#D4FF3D;font-weight:500}
+@media(max-width:920px){.cro-ladder{grid-template-columns:1fr 1fr;gap:12px}.cro-ladder .rung{margin-top:0!important}}
+@media(max-width:560px){.cro-ladder{grid-template-columns:1fr}}
+
+/* ── where-this-fits cross-link trio ── */
+.xfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+@media(max-width:760px){.xfit-grid{grid-template-columns:1fr}}
+.xfit-card{border:1px solid var(--line);border-radius:10px;padding:24px;background:var(--concrete);transition:transform .2s,border-color .2s;display:block}
+.xfit-card:hover{transform:translateY(-3px);border-color:var(--blue)}
+.xfit-card .xk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:10px}
+.xfit-card h4{font-size:18px;font-weight:700;color:var(--bone);margin-bottom:8px;line-height:1.2}
+.xfit-card p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:14px}
+.xfit-card .xarrow{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--blue-soft);font-weight:500}
+.xfit-card:hover .xarrow{color:var(--bone)}
+
+/* ── inline bridge strip ── */
+.bridge{border:1px solid var(--line);border-left:3px solid #D4FF3D;border-radius:8px;background:var(--concrete);padding:18px 24px;margin-top:46px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bridge p{font-size:17px;color:var(--bone);margin:0}
+.bridge a{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--blue-soft);white-space:nowrap}
+.bridge a:hover{color:var(--bone)}
+
 </style>
 
 </head>
@@ -942,6 +982,10 @@ html[data-theme="light"] .stack-mini{--asphalt:#0A0A0C;--concrete:#121217;--cour
       <div class="casc-col reveal"><div class="cstep">01 &middot; Find the white space</div><h4>Competitor landscape</h4><p>We map the competitive landscape to find the white space, the unique pain you are best positioned to solve and the competitors whose traffic you can most easily win.</p><div class="casc-chips"><span class="cchip">Positioning</span><span class="cchip">White space</span><span class="cchip">Pain ownership</span></div><div class="carrow">&rarr;</div></div>
       <div class="casc-col reveal"><div class="cstep">02 &middot; Translate to targeting</div><h4>Audience strategy</h4><p>That positioning becomes a targeting plan: which pains to lead with, which competitors to siphon, and exactly how it maps to Google search terms and LinkedIn audience filters.</p><div class="casc-chips"><span class="cchip">Google search terms</span><span class="cchip">LinkedIn filters</span><span class="cchip">ABM lists</span></div><div class="carrow">&rarr;</div></div>
       <div class="casc-col reveal"><div class="cstep">03 &middot; Map the message</div><h4>Messaging &amp; offer architecture</h4><p>Then the message and offer are mapped by channel and funnel stage, so Google, LinkedIn TOF / MOF / BOF, Meta, programmatic, and email all tell one coherent story.</p><div class="casc-chips"><span class="cchip">By funnel stage</span><span class="cchip">By channel</span><span class="cchip">Offer design</span></div></div>
+    </div>
+    <div class="bridge reveal">
+      <p>Want to start smaller? Grade your ecosystem free and see the gaps first.</p>
+      <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Free Ecosystem Scorecard &rarr;</a>
     </div>
   </div>
 </section>
@@ -1290,6 +1334,77 @@ html[data-theme="light"] .stack-mini{--asphalt:#0A0A0C;--concrete:#121217;--cour
       <div class="gterm"><dt>Signal aggregation</dt><dd>Stacking multiple behaviors from one account (clicks, visits, downloads) to score intent. More signals, higher close probability.</dd></div>
       <div class="gterm"><dt>The everywhere swarm</dt><dd>Deploying one account list across LinkedIn, Meta, and programmatic at once, so every touchpoint a buyer has reinforces the same story.</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where to start</span>
+      <h2 class="sec-title display" style="text-transform:none">Start light. <span class="hl">Climb when it's proven.</span></h2>
+      <p class="sec-desc">No retainer to begin. Every rung is a fixed-scope, no-brainer next step, and each one graduates into the next. Most clients start with the free scorecard and climb.</p>
+    </div>
+    <div class="cro-ladder reveal">
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 00</span><span class="rung-price free">Free</span></div>
+        <h4>Marketing Ecosystem Scorecard</h4>
+        <p>Answer a few quick questions and get your ecosystem maturity score, plus the top 3 gaps costing you pipeline right now.</p>
+        <a class="rung-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free scorecard &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 01</span><span class="rung-price">$499</span></div>
+        <h4>Single-Channel Audit</h4>
+        <p>One channel pressure-tested, delivered as an expert video walkthrough plus a 30-minute consult.</p>
+        <a class="rung-cta" href="/intelligence-room.html#audit">Get a channel audit &rarr;</a>
+      </div>
+      <div class="rung feat">
+        <div class="rung-top"><span class="rung-n">RUNG 02</span><span class="rung-price">$1,500</span></div>
+        <h4>Foundational Strategy or Impact Report</h4>
+        <p>A custom intelligence room: where to grow, or what to scale, test, and cut. Fixed scope. You own it.</p>
+        <a class="rung-cta" href="/intelligence-room.html">Build your room &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 03</span><span class="rung-price">Managed</span></div>
+        <h4>Run it with us</h4>
+        <p>LinkedIn, paid search, and the Thought Leadership Engine, signal-engineered and run as one system.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">See managed options &rarr;</a>
+      </div>
+      <div class="rung">
+        <div class="rung-top"><span class="rung-n">RUNG 04</span><span class="rung-here">You're here</span></div>
+        <h4>Full Ecosystem Management</h4>
+        <p>Every channel compounding, with a quarterly Impact Report that proves revenue, not clicks.</p>
+        <a class="rung-cta" href="/marketing-ecosystem.html">Full ecosystem &rarr;</a>
+      </div>
+    </div>
+    <p class="ladder-reassure">Fixed scope. Fixed price. No retainer to start. <b>Your $499 audit credits to your first month.</b></p>
+  </div>
+</section>
+
+<section class="sec" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:30px">
+      <span class="eyebrow">Where this fits</span>
+    </div>
+    <div class="xfit-grid">
+      <a class="xfit-card reveal" href="/intelligence-room.html">
+        <div class="xk">Foundational Strategy</div>
+        <h4>Start with the plan</h4>
+        <p>Start with the plan that anchors the system.</p>
+        <span class="xarrow">Intelligence Room &rarr;</span>
+      </a>
+      <a class="xfit-card reveal" href="/linkedin-scale.html">
+        <div class="xk">LinkedIn Ads</div>
+        <h4>The demand engine</h4>
+        <p>The demand engine at the core.</p>
+        <span class="xarrow">LinkedIn Ads &rarr;</span>
+      </a>
+      <a class="xfit-card reveal" href="/google.html">
+        <div class="xk">B2B Paid Search</div>
+        <h4>Capture the demand</h4>
+        <p>Capture the demand the system creates.</p>
+        <span class="xarrow">B2B Paid Search &rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 

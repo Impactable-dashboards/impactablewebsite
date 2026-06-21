@@ -141,6 +141,14 @@ html[data-theme="light"] .bigstat .n{color:#2C8A0C}
 html[data-theme="light"] .stats{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;color:#F4F1EA}
 html[data-theme="light"] .stats{background:var(--asphalt)}
 html[data-theme="light"] .stats .eyebrow{color:#5BB8E0}
+.xfit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+@media(max-width:760px){.xfit{grid-template-columns:1fr}}
+.xfit a{display:block;border:1px solid var(--line);border-radius:12px;padding:24px 22px;background:var(--concrete);transition:transform .2s,border-color .2s}
+.xfit a:hover{transform:translateY(-3px);border-color:var(--blue)}
+.xfit .xk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:8px}
+.xfit .xt{font-size:19px;font-weight:700;color:var(--bone);margin-bottom:6px}
+.xfit .xd{font-size:15px;color:var(--chalk);line-height:1.5}
+.xfit .xgo{display:inline-block;margin-top:13px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--blue-soft);font-weight:500}
 html[data-theme="light"] .stats .bigstat .n{color:#D4FF3D}
 @media(max-width:880px){.bigstats,.own-row,.testi-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.bigstats,.own-row,.testi-grid{grid-template-columns:1fr}}
@@ -253,6 +261,17 @@ html[data-theme="light"] .stats .bigstat .n{color:#D4FF3D}
     </div>
     <div class="inds">
       <span class="ind">SaaS</span><span class="ind">Cybersecurity</span><span class="ind">Fintech</span><span class="ind">HealthTech</span><span class="ind">Data &amp; Analytics</span><span class="ind">Professional Services</span><span class="ind">Manufacturing</span><span class="ind">DataOps</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Where this fits</span></div>
+    <div class="xfit">
+      <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html"><div class="xk">Free</div><div class="xt">Ecosystem Scorecard</div><div class="xd">Not ready to talk? Grade your funnel and get the top 3 gaps costing you pipeline.</div><span class="xgo">Get your scorecard →</span></a>
+      <a href="/intelligence-room.html"><div class="xk">$1,500</div><div class="xt">Foundational Strategy</div><div class="xd">The plan behind results like these: positioning, targeting, and messaging, built for you.</div><span class="xgo">See the room →</span></a>
+      <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html"><div class="xk">Talk</div><div class="xt">Book a call</div><div class="xd">Walk through what this signal-engineered system would look like on your account.</div><span class="xgo">Book a call →</span></a>
     </div>
   </div>
 </section>
