@@ -371,25 +371,110 @@ section{position:relative}
   .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
+
+/* ════ GLOBAL NAV (gnav) — shared component, literal colors ════ */
+.gnav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,241,234,0.06)}
+.gnav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.gnav-logo img{height:26px;width:auto;display:block}
+.gnav-menu{display:flex;align-items:center;gap:2px}
+.gnav-item{position:relative}
+.gnav-trigger{background:none;border:none;color:#A7A39A;font-family:'Inter',sans-serif;font-size:14.5px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;transition:color .2s}
+.gnav-link{color:#A7A39A;font-size:14.5px;padding:10px 13px;transition:color .2s}
+.gnav-trigger:hover,.gnav-link:hover,.gnav-item:hover .gnav-trigger,.gnav-item:focus-within .gnav-trigger{color:#F4F1EA}
+.gnav-caret{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;display:inline-block}
+.gnav-item:hover .gnav-caret,.gnav-item.open .gnav-caret{transform:rotate(-135deg) translateY(1px)}
+.gnav-cta{margin-left:10px;font-size:13px;padding:11px 20px}
+.gnav-mega{position:absolute;top:calc(100% + 12px);right:0;background:#121217;border:1px solid rgba(244,241,234,0.10);border-radius:10px;padding:24px 26px;box-shadow:0 30px 70px rgba(0,0,0,0.55);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;z-index:120}
+.gnav-mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.gnav-item:hover .gnav-mega,.gnav-item:focus-within .gnav-mega,.gnav-item.open .gnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.gnav-grid{display:grid;gap:22px 36px}
+.gnav-grid.svc{grid-template-columns:repeat(3,minmax(184px,1fr))}
+.gnav-grid.tools{grid-template-columns:repeat(2,minmax(210px,1fr))}
+.gnav-h{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6F6C64;display:block;margin-bottom:12px}
+.gnav-col a{display:block;color:#F4F1EA;font-size:14.5px;font-weight:500;padding:6px 0;transition:color .2s}
+.gnav-col a:hover{color:#5BB8E0}
+.gnav-col a small{display:block;font-size:12px;color:#6F6C64;font-weight:400;margin-top:2px;font-family:'Inter',sans-serif;letter-spacing:0}
+.gnav-feature{color:#D4FF3D!important}
+.gnav-feature:hover{color:#E7FF86!important}
+.gnav-stack{display:block;font-family:'JetBrains Mono',monospace;font-size:13px;color:#A7A39A;line-height:1.95}
+.gnav-toggle{display:none;background:none;border:none;color:#F4F1EA;font-size:22px;cursor:pointer;line-height:1}
+@media(max-width:860px){
+  .gnav-menu{display:none}
+  .gnav-toggle{display:block}
+  .gnav-menu.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#121217;border-bottom:1px solid rgba(244,241,234,0.10);padding:12px 22px 22px;max-height:calc(100vh - 72px);overflow-y:auto}
+  .gnav-item{width:100%}
+  .gnav-trigger{width:100%;justify-content:space-between;font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(244,241,234,0.06)}
+  .gnav-link{font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(244,241,234,0.06)}
+  .gnav-mega{position:static;opacity:1;visibility:hidden;pointer-events:none;transform:none;box-shadow:none;border:none;background:transparent;padding:0;max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .gnav-item.open .gnav-mega{visibility:visible;pointer-events:auto;max-height:1400px;padding:8px 0 16px 10px}
+  .gnav-mega::before{display:none}
+  .gnav-grid.svc,.gnav-grid.tools{grid-template-columns:1fr;gap:18px}
+  .gnav-cta{margin:16px 0 0;width:100%;justify-content:center;font-size:14px;padding:14px}
+}
 </style>
 </head>
 <body>
 
-<!-- ════ NAV ════ -->
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a class="nav-logo" href="#top"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
-    <div class="nav-links" id="navLinks">
-      <a href="#system">The System</a>
-      <a href="#onboarding">Onboarding</a>
-      <a href="#impact">Impact Report</a>
-      <a href="#diagnostics">Diagnostics</a>
-      <a href="#cadence">EBR Cadence</a>
-      <a href="#proof">Proof</a>
-      <a href="/linkedin-launch.html" class="nav-new">New to LinkedIn Ads</a>
-      <a class="btn btn-primary nav-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+<!-- ════ GLOBAL NAV ════ -->
+<nav class="gnav">
+  <div class="gnav-inner">
+    <a class="gnav-logo" href="/"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <button class="gnav-toggle" id="gnavToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <div class="gnav-menu" id="gnavMenu">
+
+      <div class="gnav-item">
+        <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="gnav-caret"></span></button>
+        <div class="gnav-mega">
+          <div class="gnav-grid svc">
+            <div class="gnav-col">
+              <span class="gnav-h">Paid Media</span>
+              <a href="https://impactable.com/paid-ads/">LinkedIn Ads<small>Our core channel</small></a>
+              <a href="https://impactable.com/google-ads/">Paid Search<small>B2B Google &amp; Microsoft Ads</small></a>
+              <a href="https://impactable.com/programmatic-retargeting/">Programmatic<small>Display &amp; retargeting</small></a>
+              <a href="https://impactable.com/paid-ads/">Meta<small>Paid social beyond LinkedIn</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Signature</span>
+              <a class="gnav-feature" href="https://impactable.com/paid-ads/">★ LinkedIn + Paid Search<small>Our highest-leverage combo</small></a>
+              <a href="https://impactable.com/identify-website-visitors-activation/">Audience Engineering + Activation<small>Visitor ID, list building, activation</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">By where you are</span>
+              <a href="/linkedin-launch.html">New to LinkedIn Ads<small>Launch on a validated system</small></a>
+              <a href="https://impactable.com/paid-ads/">Scaling LinkedIn Ads<small>Already live, ready to grow</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gnav-item">
+        <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Tools &amp; Expertise <span class="gnav-caret"></span></button>
+        <div class="gnav-mega">
+          <div class="gnav-grid tools">
+            <div class="gnav-col">
+              <span class="gnav-h">Attribution &amp; Controls</span>
+              <a href="https://impactable.com/dgp-linkedin-ads-tools/">DemandSense<small>LinkedIn attribution · controls · Web ID</small></a>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Account &amp; List Building</span>
+              <span class="gnav-stack">Clay · Apollo · ZoomInfo<br>BuiltWith · Wappalyzer</span>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Outreach &amp; Nurture</span>
+              <span class="gnav-stack">HeyReach · Instantly<br>Klaviyo · HubSpot</span>
+            </div>
+            <div class="gnav-col">
+              <span class="gnav-h">Automation &amp; AI Insights</span>
+              <span class="gnav-stack">Zapier · Make · n8n<br>Claude · OpenAI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="gnav-link" href="/intelligence-room.html">Intelligence Room</a>
+      <a class="gnav-link" href="https://impactable.com/category/case-studies/">Results</a>
+      <a class="btn btn-primary gnav-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
   </div>
 </nav>
 
@@ -912,10 +997,23 @@ section{position:relative}
 </footer>
 
 <script>
-// nav toggle
-document.getElementById('navToggle').addEventListener('click',function(){
-  document.getElementById('navLinks').classList.toggle('open');
-});
+// global nav
+(function(){
+  var t=document.getElementById('gnavToggle'),m=document.getElementById('gnavMenu');
+  if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
+  document.querySelectorAll('.gnav-item .gnav-trigger').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      var item=btn.parentElement,willOpen=!item.classList.contains('open');
+      document.querySelectorAll('.gnav-item.open').forEach(function(i){if(i!==item)i.classList.remove('open');});
+      item.classList.toggle('open',willOpen);
+      btn.setAttribute('aria-expanded',willOpen);
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.gnav-item')){document.querySelectorAll('.gnav-item.open').forEach(function(i){i.classList.remove('open');});}
+  });
+})();
 // scroll reveal
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
