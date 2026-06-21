@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/mona-sans@5.0.0/index.min.css">
 <style>
   :root{
-    --bg:#0A1220; --bg-2:#0E1A30; --panel:#101F38;
+    --bg:#0A0A0C; --bg-2:#15151A; --panel:#15151A;
     --surface:rgba(255,255,255,0.035); --surface-2:rgba(255,255,255,0.06);
     --border:rgba(255,255,255,0.10); --border-2:rgba(120,180,235,0.30);
-    --text:#F3F6FC; --text-muted:rgba(243,246,252,0.64); --text-faint:rgba(243,246,252,0.40);
-    --accent:#2E96E8; --accent-2:#1E78C8; --accent-glow:rgba(30,120,200,0.20);   /* GOOGLE / blue */
+    --text:#F4F1EA; --text-muted:#D8D4C8; --text-faint:rgba(216,212,200,0.42);
+    --accent:#0099D1; --accent-2:#0077A8; --accent-glow:rgba(0,153,209,0.22);   /* GOOGLE / blue */
     --canopy:#2EA37C; --canopy-soft:rgba(46,163,124,0.14);                        /* LINKEDIN / qualify / good */
     --rust:#C76B43; --rust-soft:rgba(199,107,67,0.16);                            /* WASTE / leak / blocked */
     --good:#5EEAD4;
@@ -25,11 +25,11 @@
     --font-mono:'JetBrains Mono',ui-monospace,monospace;
   }
   [data-theme="light"]{
-    --bg:#F5F8FF; --bg-2:#FFFFFF; --panel:#FFFFFF;
+    --bg:#F4F1EA; --bg-2:#FFFFFF; --panel:#FFFFFF;
     --surface:rgba(16,31,56,0.025); --surface-2:rgba(16,31,56,0.05);
     --border:rgba(16,31,56,0.12); --border-2:rgba(30,120,200,0.28);
-    --text:#0E1A30; --text-muted:rgba(14,26,48,0.66); --text-faint:rgba(14,26,48,0.45);
-    --accent:#1E78C8; --accent-2:#1E78C8; --accent-glow:rgba(30,120,200,0.12);
+    --text:#16181D; --text-muted:#4A4E57; --text-faint:rgba(7,26,56,0.45);
+    --accent:#0077A8; --accent-2:#0099D1; --accent-glow:rgba(0,153,209,0.14);
     --canopy:#1F7A57; --canopy-soft:rgba(31,122,87,0.10);
     --rust:#B85C38; --rust-soft:rgba(184,92,56,0.14); --good:#0D9488;
   }
@@ -316,7 +316,7 @@
   .gnav{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--border)}
   .gnav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:70px}
   .gnav-logo img{height:26px;width:auto;display:block}
-  [data-theme="light"] .gnav-logo{background:#0E1A30;border-radius:8px;padding:6px 11px;display:inline-flex;align-items:center}
+  [data-theme="light"] .gnav-logo{background:#0A0A0C;border-radius:8px;padding:6px 11px;display:inline-flex;align-items:center}
   .gnav-menu{display:flex;align-items:center;gap:2px}
   .gnav-item{position:relative}
   .gnav-trigger{background:none;border:none;color:var(--text-muted);font-family:var(--font-display);font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;transition:color .2s}
