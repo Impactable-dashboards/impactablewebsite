@@ -299,17 +299,18 @@ section{position:relative}
 .spec-body{padding:26px 28px 30px}
 
 /* funnel */
-.fun{display:flex;flex-direction:column;align-items:center;gap:16px}
-.fun-row{display:grid;grid-template-columns:150px minmax(0,520px) 1fr;gap:22px;align-items:center;width:100%}
-.fun-label .fl-n{font-size:18px;font-weight:700;color:var(--bone)}
-.fun-label .fl-s{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk-dim);margin-top:3px}
-.fun-label .fl-d{font-family:'JetBrains Mono',monospace;font-size:13px;margin-top:6px;font-weight:600}
-.fun-bar{height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#fff;clip-path:polygon(4% 0,96% 0,86% 100%,14% 100%);position:relative;text-shadow:0 1px 3px rgba(0,0,0,0.4)}
-.fun-bar .fb-n{font-family:'JetBrains Mono',monospace;font-size:27px;font-weight:700;letter-spacing:-0.01em;line-height:1}
-.fun-bar .fb-p{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;opacity:0.92;line-height:1}
-.fun-chips{display:flex;flex-wrap:wrap;gap:6px}
-.fchip{font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid var(--line);border-radius:20px;padding:4px 11px;color:var(--chalk)}
-.fchip.more{color:var(--chalk-dim);border-color:transparent}
+.fun{display:flex;flex-direction:column;gap:13px}
+.fun-row{display:grid;grid-template-columns:172px 1fr 124px;gap:20px;align-items:center;width:100%}
+.fun-label .fl-n{font-size:17px;font-weight:700;color:var(--bone);line-height:1.15}
+.fun-label .fl-s{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);margin-top:3px}
+.fun-track{height:52px;border-radius:8px;display:flex;align-items:center;padding:0 18px;color:#fff;min-width:58px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14)}
+.fun-track .fb-n{font-family:'JetBrains Mono',monospace;font-size:23px;font-weight:700;letter-spacing:-0.01em;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
+.fun-stat{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.fun-stat .fs-p{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--bone);line-height:1.05}
+.fun-stat .fs-p small{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:var(--chalk-dim);letter-spacing:0.02em;display:block;margin-top:3px}
+.fun-delta{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.01em}
+.fun-delta.down{color:var(--rust);background:rgba(196,82,31,0.13)}
+.fun-delta.up{color:var(--moss);background:rgba(123,170,62,0.15)}
 
 /* generic spec table */
 .stab{width:100%;border-collapse:collapse;font-size:16px}
@@ -389,8 +390,10 @@ section{position:relative}
   .diff-grid{grid-template-columns:1fr}
   .ridge-stages{grid-template-columns:1fr 1fr;gap:18px}
   .pgrid,.waste-grid{grid-template-columns:1fr}
-  .fun-row{grid-template-columns:96px 1fr;gap:14px}
-  .fun-chips{display:none}
+  .fun-row{grid-template-columns:104px 1fr;gap:6px 12px}
+  .fun-stat{grid-column:2;flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap}
+  .fun-stat .fs-p{font-size:16px}
+  .fun-stat .fs-p small{display:inline;margin:0 0 0 5px}
   .spec-scroll{overflow-x:auto}
 }
 @media(max-width:680px){
@@ -849,7 +852,7 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
       <p class="sec-desc">If you're spending six figures a month, you don't need a generalist. You need a LinkedIn-specialist team that runs accounts at your size every day.</p>
     </div>
     <div class="scale-grid reveal">
-      <div class="sstat"><div class="sn">$5K&ndash;$500K<span class="u">+</span></div><div class="sl">Monthly managed spend range</div></div>
+      <div class="sstat"><div class="sn">$5K-$500K<span class="u">+</span></div><div class="sl">Monthly managed spend range</div></div>
       <div class="sstat"><div class="sn">$50M<span class="u">+</span></div><div class="sl">Total ad spend managed</div></div>
       <div class="sstat"><div class="sn">20<span class="u">+</span></div><div class="sl">LinkedIn-certified insiders, more than any agency</div></div>
       <div class="sstat"><div class="sn">84</div><div class="sl">Person team across strategy, creative, and data</div></div>
@@ -969,28 +972,28 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
         <div class="fun">
           <div class="fun-row">
             <div class="fun-label"><div class="fl-n">Unaware</div><div class="fl-s">&lt; 30 impressions</div></div>
-            <div class="fun-bar" style="background:linear-gradient(180deg,#3a3f4d,#2a2e39);width:100%"><span class="fb-n">5,840</span><span class="fb-p">82.9%</span></div>
-            <div class="fun-chips"><span class="fchip more">the bulk of your target universe, below awareness</span></div>
+            <div class="fun-track" style="background:linear-gradient(90deg,#3a3f4d,#2a2e39);width:100%"><span class="fb-n">5,840</span></div>
+            <div class="fun-stat"><div class="fs-p">82.9%<small>of universe</small></div></div>
           </div>
           <div class="fun-row">
-            <div class="fun-label"><div class="fl-n">Aware</div><div class="fl-s">30+ impressions</div><div class="fl-d" style="color:var(--rust)">&minus;79.3% from Unaware</div></div>
-            <div class="fun-bar" style="background:linear-gradient(180deg,#2f8fd6,#1b6fb5);width:78%"><span class="fb-n">1,210</span><span class="fb-p">17.2%</span></div>
-            <div class="fun-chips"><span class="fchip">Northwind Software</span><span class="fchip">Atlas Financial</span><span class="fchip">Vertex Logistics</span><span class="fchip more">+14 more</span></div>
+            <div class="fun-label"><div class="fl-n">Aware</div><div class="fl-s">30+ impressions</div></div>
+            <div class="fun-track" style="background:linear-gradient(90deg,#2f8fd6,#1b6fb5);width:78%"><span class="fb-n">1,210</span></div>
+            <div class="fun-stat"><div class="fs-p">17.2%<small>of universe</small></div><span class="fun-delta down">&minus;79.3%</span></div>
           </div>
           <div class="fun-row">
-            <div class="fun-label"><div class="fl-n">Engaged</div><div class="fl-s">3+ clicks</div><div class="fl-d" style="color:var(--rust)">&minus;98.2% from Aware</div></div>
-            <div class="fun-bar" style="background:linear-gradient(180deg,#d98a2b,#b56f1f);width:54%"><span class="fb-n">22</span><span class="fb-p">0.3%</span></div>
-            <div class="fun-chips"><span class="fchip">Halcyon Cloud</span><span class="fchip">Brightwave</span><span class="fchip">Onyx Semi</span><span class="fchip more">+13 more</span></div>
+            <div class="fun-label"><div class="fl-n">Engaged</div><div class="fl-s">3+ clicks</div></div>
+            <div class="fun-track" style="background:linear-gradient(90deg,#d98a2b,#b56f1f);width:54%"><span class="fb-n">22</span></div>
+            <div class="fun-stat"><div class="fs-p">0.3%<small>of universe</small></div><span class="fun-delta down">&minus;98.2%</span></div>
           </div>
           <div class="fun-row">
-            <div class="fun-label"><div class="fl-n">Active Pipeline</div><div class="fl-s">CRM opportunity</div><div class="fl-d" style="color:var(--moss)">+223% vs Engaged (multi-touch)</div></div>
-            <div class="fun-bar" style="background:linear-gradient(180deg,#7d4fb0,#5c2d6e);width:40%"><span class="fb-n">71</span><span class="fb-p">1.0%</span></div>
-            <div class="fun-chips"><span class="fchip">Sterling Capital</span><span class="fchip">Pinnacle Networks</span><span class="fchip more">+4 more</span></div>
+            <div class="fun-label"><div class="fl-n">Active Pipeline</div><div class="fl-s">CRM opportunity</div></div>
+            <div class="fun-track" style="background:linear-gradient(90deg,#7d4fb0,#5c2d6e);width:40%"><span class="fb-n">71</span></div>
+            <div class="fun-stat"><div class="fs-p">1.0%<small>multi-touch lift</small></div><span class="fun-delta up">+223%</span></div>
           </div>
           <div class="fun-row">
-            <div class="fun-label"><div class="fl-n">Closed-Won</div><div class="fl-s">Revenue realized</div><div class="fl-d" style="color:var(--rust)">&minus;88.7% from Pipeline</div></div>
-            <div class="fun-bar" style="background:linear-gradient(180deg,#5aa15f,#3c7a40);width:26%"><span class="fb-n">8</span><span class="fb-p">0.1%</span></div>
-            <div class="fun-chips"><span class="fchip">Cedar Security</span><span class="fchip">Meridian Health</span><span class="fchip more">+1 more</span></div>
+            <div class="fun-label"><div class="fl-n">Closed-Won</div><div class="fl-s">Revenue realized</div></div>
+            <div class="fun-track" style="background:linear-gradient(90deg,#5aa15f,#3c7a40);width:26%"><span class="fb-n">8</span></div>
+            <div class="fun-stat"><div class="fs-p">0.1%<small>of universe</small></div><span class="fun-delta down">&minus;88.7%</span></div>
           </div>
         </div>
       </div>
@@ -1062,11 +1065,11 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
           <div class="waste-col">
             <h5>By company size <span class="zc">0 clicks</span></h5>
             <table class="stab"><thead><tr><th>Segment</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">Signal</th></tr></thead><tbody>
-              <tr><td class="acct">201&ndash;500</td><td class="r num">11,687</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">501&ndash;1000</td><td class="r num">8,619</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">1&ndash;10</td><td class="r num">3,231</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">51&ndash;200</td><td class="r num">2,801</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">11&ndash;50</td><td class="r num">2,103</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
+              <tr><td class="acct">201-500</td><td class="r num">11,687</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
+              <tr><td class="acct">501-1000</td><td class="r num">8,619</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
+              <tr><td class="acct">1-10</td><td class="r num">3,231</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
+              <tr><td class="acct">51-200</td><td class="r num">2,801</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
+              <tr><td class="acct">11-50</td><td class="r num">2,103</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
             </tbody></table>
           </div>
         </div>
@@ -1180,7 +1183,7 @@ html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
       <div class="pc ent reveal">
         <div class="pc-step">Enterprise</div>
         <h4>Custom &amp; Scale</h4>
-        <div class="pc-amt">$25K&ndash;$500K+<small> /mo spend</small></div>
+        <div class="pc-amt">$25K-$500K+<small> /mo spend</small></div>
         <p class="pc-desc">For large and IPO-stage accounts. Fee scales down from 15% to 7% of budget as spend grows.</p>
         <ul>
           <li><span class="ck">&rarr;</span> Dedicated senior strategist and pod</li>
