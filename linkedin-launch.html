@@ -173,6 +173,20 @@ section{position:relative}
 .step h4{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--bone)}
 .step p{font-size:14px;color:var(--chalk);line-height:1.55}
 .step .step-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-dim);margin-top:14px;display:block}
+/* process journey timeline */
+.journey{position:relative;max-width:820px;margin:14px auto 0;padding-left:6px}
+.journey::before{content:"";position:absolute;left:25px;top:18px;bottom:64px;width:2px;background:linear-gradient(180deg,var(--blue),var(--canopy))}
+.jstep,.jend{position:relative;padding:0 0 28px 64px;min-height:42px}
+.jstep:last-of-type{padding-bottom:30px}
+.jdot{position:absolute;left:6px;top:0;width:40px;height:40px;border-radius:50%;background:var(--asphalt);border:2px solid var(--blue);color:var(--blue-soft);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;z-index:2}
+.jrow{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.jbody h4{font-size:16.5px;font-weight:700;color:var(--bone);margin:0}
+.jbody p{font-size:13.5px;color:var(--chalk);line-height:1.5;margin:5px 0 0;max-width:62ch}
+.jval{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--canopy);white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.jval::before{content:"";width:14px;height:14px;border-radius:50%;border:1.5px solid var(--canopy);background:radial-gradient(circle,var(--canopy) 45%,transparent 47%)}
+.jend .jdot{border-color:var(--canopy);color:#0A0A0C;background:var(--canopy);font-family:'Archivo Black',sans-serif}
+.jend .jbody h4{color:var(--canopy)}
+@media(max-width:560px){.jstep,.jend{padding-left:56px}.jdot{width:36px;height:36px}.journey::before{left:23px}}
 .validated{margin-top:30px;font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:var(--bone);text-align:center;max-width:48ch;margin-left:auto;margin-right:auto}
 .validated em{color:var(--canopy);font-style:italic}
 
@@ -866,13 +880,14 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
       <h2 class="sec-title display" style="text-transform:none">Six diagnostics. One validated launch plan.</h2>
       <p class="sec-desc">Each step sharpens the next, and you sign off as we go. By the end you have a launch plan you've already validated, not one we hope lands.</p>
     </div>
-    <div class="step-grid">
-      <div class="step reveal"><div class="step-n">STEP 01</div><h4>Ecosystem Audit</h4><p>A traffic-light read on your current state: website, tracking, CRM, organic presence, and the warm-audience inventory you can launch against.</p><span class="step-tag">Where you're launch-ready, and where you're not</span></div>
-      <div class="step reveal"><div class="step-n">STEP 02</div><h4>Audience + Persona Design</h4><p>LinkedIn audience architecture mapped across warm, ABM, and cold tiers, with budget allocated by tier and the personas to lead with.</p><span class="step-tag">Warm-first, by design</span></div>
-      <div class="step reveal"><div class="step-n">STEP 03</div><h4>Messaging + Offer Architecture</h4><p>Persona-specific messaging pillars and the conversion offers that move buyers, mapped to each funnel stage.</p><span class="step-tag">What you say, and to whom</span></div>
-      <div class="step reveal"><div class="step-n">STEP 04</div><h4>Competitive White Space</h4><p>What competitors are saying, what nobody is saying, and the positioning gap your first campaigns own.</p><span class="step-tag">Your angle in</span></div>
-      <div class="step reveal"><div class="step-n">STEP 05</div><h4>Campaign Execution Playbook</h4><p>Campaign names, objectives, bidding, audiences, formats, budget splits, and tracking. Everything needed to build day one.</p><span class="step-tag">Build-ready specs</span></div>
-      <div class="step reveal"><div class="step-n">STEP 06</div><h4>Creative Direction Brief</h4><p>Exact asset specs and recommended concepts so your first creative launches without guesswork or rounds of rework.</p><span class="step-tag">Your first ads, briefed</span></div>
+    <div class="journey reveal">
+      <div class="jstep"><span class="jdot">01</span><div class="jbody"><div class="jrow"><h4>Ecosystem Audit</h4><span class="jval">You sign off</span></div><p>Traffic-light read on your current state: site, tracking, CRM, organic, and warm-audience inventory.</p></div></div>
+      <div class="jstep"><span class="jdot">02</span><div class="jbody"><div class="jrow"><h4>Audience + Persona Design</h4><span class="jval">You sign off</span></div><p>LinkedIn audiences mapped across warm, ABM, and cold tiers, with budget by tier and the personas to lead with.</p></div></div>
+      <div class="jstep"><span class="jdot">03</span><div class="jbody"><div class="jrow"><h4>Messaging + Offer Architecture</h4><span class="jval">You sign off</span></div><p>Persona-specific pillars and the conversion offers that move buyers, mapped to each funnel stage.</p></div></div>
+      <div class="jstep"><span class="jdot">04</span><div class="jbody"><div class="jrow"><h4>Competitive White Space</h4><span class="jval">You sign off</span></div><p>What competitors say, what nobody says, and the positioning gap your first campaigns own.</p></div></div>
+      <div class="jstep"><span class="jdot">05</span><div class="jbody"><div class="jrow"><h4>Campaign Execution Playbook</h4><span class="jval">You sign off</span></div><p>Names, objectives, bidding, audiences, formats, budget splits, and tracking. Build-ready.</p></div></div>
+      <div class="jstep"><span class="jdot">06</span><div class="jbody"><div class="jrow"><h4>Creative Direction Brief</h4><span class="jval">You sign off</span></div><p>Exact asset specs and concepts so your first creative launches without guesswork.</p></div></div>
+      <div class="jend"><span class="jdot">&rarr;</span><div class="jbody"><h4>A validated launch plan</h4><p>Six diagnostics, one plan you've already approved, ready to build against on day one.</p></div></div>
     </div>
   </div>
 </section>
