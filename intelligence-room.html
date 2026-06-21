@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('imp-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <title>The Intelligence Room — Strategy & Diagnostics, Productized | Impactable</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -389,6 +390,20 @@
   .gnav-grid.svc,.gnav-grid.tools{grid-template-columns:1fr;gap:18px}
   .gnav-cta{margin:16px 0 0;width:100%;justify-content:center;font-size:14px;padding:14px}
 }
+
+/* ════ THEME TOGGLE ════ */
+.gnav-theme{background:none;border:1px solid rgba(244,241,234,0.18);color:#F4F1EA;width:34px;height:34px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:15px;margin-left:8px;transition:border-color .2s,color .2s}
+.gnav-theme:hover{border-color:#5BB8E0;color:#5BB8E0}
+.gnav-theme-lb{display:none}
+@media(max-width:860px){.gnav-theme{width:100%;justify-content:flex-start;gap:10px;border:none;border-top:1px solid rgba(244,241,234,0.06);border-radius:0;padding:15px 2px;margin:0;font-size:16px}.gnav-theme-lb{display:inline}}
+/* light-mode nav (page already themes its own body via data-theme) */
+html[data-theme="light"] .gnav{background:rgba(244,241,234,0.88);border-bottom:1px solid rgba(12,12,16,0.10)}
+html[data-theme="light"] .gnav-logo img{filter:brightness(0)}
+html[data-theme="light"] .gnav-trigger,html[data-theme="light"] .gnav-link,html[data-theme="light"] .gnav-toggle{color:#4D4A44}
+html[data-theme="light"] .gnav-trigger:hover,html[data-theme="light"] .gnav-link:hover,html[data-theme="light"] .gnav-item:hover .gnav-trigger{color:#16161B}
+html[data-theme="light"] .gnav-theme{border-color:rgba(12,12,16,0.18);color:#16161B}
+html[data-theme="light"] .gnav-theme:hover{border-color:#1580AE;color:#1580AE}
+html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:rgba(12,12,16,0.12)}
 </style>
 </head>
 <body>
@@ -427,6 +442,7 @@
 
       <a class="gnav-link" href="/intelligence-room.html">Strategy + Diagnostics</a>
       <a class="gnav-link" href="https://impactable.com/category/case-studies/">Results</a>
+      <button class="gnav-theme" id="gnavTheme" aria-label="Switch theme"><span class="gnav-theme-ic">🌙</span><span class="gnav-theme-lb">Dark mode</span></button>
       <a class="btn btn-primary gnav-cta" href="#book">Book a call</a>
     </div>
   </div>
@@ -1006,6 +1022,20 @@
     document.addEventListener('click',function(e){
       if(!e.target.closest('.gnav-item')){document.querySelectorAll('.gnav-item.open').forEach(function(i){i.classList.remove('open');});}
     });
+    // theme toggle
+    var themeBtn=document.getElementById('gnavTheme');
+    function syncTheme(){
+      var dark=document.documentElement.getAttribute('data-theme')==='dark';
+      if(themeBtn){var ic=themeBtn.querySelector('.gnav-theme-ic'),lb=themeBtn.querySelector('.gnav-theme-lb');
+        if(ic)ic.textContent=dark?'☀':'🌙';if(lb)lb.textContent=dark?'Light mode':'Dark mode';}
+    }
+    syncTheme();
+    if(themeBtn){themeBtn.addEventListener('click',function(){
+      var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      try{localStorage.setItem('imp-theme',next);}catch(e){}
+      syncTheme();
+    });}
   })();
   function toggleTheme(){
     var h=document.documentElement, light=h.getAttribute('data-theme')==='light';
