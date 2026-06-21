@@ -552,6 +552,9 @@ section{position:relative}
 .cs-left h3{font-family:'Archivo Black',sans-serif;font-size:clamp(24px,3vw,33px);letter-spacing:-0.02em;text-transform:none;line-height:1.05;margin-bottom:16px}
 .cs-left h3 .hl{color:var(--canopy)}
 .cs-left p{font-size:15px;color:var(--chalk);line-height:1.65;margin-bottom:14px;max-width:48ch}
+.cs-list{list-style:none;margin:0 0 14px;padding:0;max-width:48ch}
+.cs-list li{font-size:15px;color:var(--chalk);line-height:1.55;padding:6px 0 6px 20px;position:relative}
+.cs-list li::before{content:"\2192";position:absolute;left:0;color:var(--canopy);font-family:'JetBrains Mono',monospace}
 .cs-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);margin-bottom:22px}
 .cs-link{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-soft);text-decoration:none;border-bottom:1px solid rgba(91,184,224,0.4);padding-bottom:2px}
 .cs-link:hover{color:var(--canopy);border-color:var(--canopy)}
@@ -690,6 +693,21 @@ html[data-theme="light"] .proof-card .pn,html[data-theme="light"] .chip.hot,html
 /* turn lime-highlight headline words into vibrant lime highlight blocks */
 html[data-theme="light"] .webid-top h3 .hl,html[data-theme="light"] .cs-left h3 .hl{background:#D4FF3D;color:#0A0A0C;padding:0 .12em;border-radius:3px}
 
+/* ════ LIGHT↔DARK SECTION RHYTHM (match homepage flow) ════ */
+/* dark band 1: reporting gallery (funnels, dashboards, data tables) */
+html[data-theme="light"] .gal{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;--moss:#7BAA3E;color:#F4F1EA}
+html[data-theme="light"] .gal{background:var(--asphalt)}
+html[data-theme="light"] .gal .eyebrow{color:#5BB8E0}
+html[data-theme="light"] .gal .spec-foot .tk{color:#5BB8E0}
+html[data-theme="light"] .gal .spec{background:linear-gradient(180deg,#0c0f16,#0A0A0C)}
+/* dark band 2: maturity curve (ridge chart) */
+html[data-theme="light"] .mtn{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;color:#F4F1EA}
+html[data-theme="light"] .mtn{background:var(--asphalt)}
+html[data-theme="light"] .mtn .eyebrow{color:#5BB8E0}
+html[data-theme="light"] .mtn .rstage.active .rname{color:#D4FF3D}
+/* cs-list arrows: readable green on the light case-study card */
+html[data-theme="light"] .cs-list li::before{color:#2C8A0C}
+
 </style>
 
 </head>
@@ -815,7 +833,14 @@ html[data-theme="light"] .webid-top h3 .hl,html[data-theme="light"] .cs-left h3 
         <div class="cs-badge">&#9679; Featured in LinkedIn customer stories</div>
         <h3>From lead gen to <span class="hl">pipeline,</span> and a 6X return.</h3>
         <p>Lacework knew their ICP and could reach it on LinkedIn, but lower-funnel campaigns weren't converting. Content downloads produced leads that stalled before sales.</p>
-        <p>We rebuilt the account around a full-funnel motion: top-funnel video to prime the audience, nurture by funnel stage, conversation ads down low, and brand campaigns even after the demo to lift close rates. Success was measured one way: marketing investment to pipeline revenue.</p>
+        <p>We rebuilt the account around a full-funnel motion:</p>
+        <ul class="cs-list">
+          <li>Top-funnel video to prime the audience</li>
+          <li>Nurture by funnel stage</li>
+          <li>Conversation ads down low</li>
+          <li>Brand campaigns even after the demo to lift close rates</li>
+        </ul>
+        <p>Success was measured one way: marketing investment to pipeline revenue.</p>
         <div class="cs-meta">Lacework &middot; Computer &amp; Network Security &middot; 1,100+ employees</div>
         <a class="cs-link" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener">Read the case study on LinkedIn &rarr;</a>
       </div>
@@ -1047,7 +1072,7 @@ html[data-theme="light"] .webid-top h3 .hl,html[data-theme="light"] .cs-left h3 
     <div class="sec-head reveal">
       <span class="eyebrow">How we work together</span>
       <h2 class="sec-title display" style="text-transform:none">Two ways to engage.</h2>
-      <p class="sec-desc">Whether you have an in-house strategy you need executed flawlessly, or you want us to own the direction, the same specialist team and proprietary tooling run your account.</p>
+      <p class="sec-desc">Have an in-house strategy you need executed flawlessly? Or want us to own the direction? Either way, the same specialist team and proprietary tooling run your account.</p>
     </div>
     <div class="models">
       <div class="model reveal">

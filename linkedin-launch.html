@@ -44,6 +44,7 @@ img{max-width:100%;display:block}
 .display{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.95}
 .serif{font-family:'Fraunces',serif}
 .mono{font-family:'JetBrains Mono',monospace}
+.hl{background:#D4FF3D;color:#0A0A0C;padding:0 .12em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .eyebrow{
   font-family:'JetBrains Mono',monospace;
   font-size:12px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;
@@ -646,6 +647,20 @@ html[data-theme="light"] .proof-card .pn,html[data-theme="light"] .chip.hot,html
 /* turn lime-highlight headline words into vibrant lime highlight blocks */
 html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padding:0 .12em;border-radius:3px}
 
+/* ════ LIGHT↔DARK SECTION RHYTHM (match homepage flow) ════ */
+/* dark band 1: maturity climb (ridge chart) */
+html[data-theme="light"] .mtn{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;color:#F4F1EA}
+html[data-theme="light"] .mtn{background:var(--asphalt)}
+html[data-theme="light"] .mtn .eyebrow{color:#5BB8E0}
+html[data-theme="light"] .mtn .rstage.active .rname{color:#D4FF3D}
+/* dark band 2: reporting gallery (funnels, dashboards, data tables) */
+html[data-theme="light"] .report-gal{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;--moss:#7BAA3E;color:#F4F1EA}
+html[data-theme="light"] .report-gal{background:var(--asphalt)}
+html[data-theme="light"] .report-gal .eyebrow{color:#5BB8E0}
+html[data-theme="light"] .report-gal .spec-foot .tk{color:#5BB8E0}
+html[data-theme="light"] .report-gal .spec{background:linear-gradient(180deg,#0c0f16,#0A0A0C)}
+html[data-theme="light"] .report-gal .pcard{background:#0A0A0C}
+
 </style>
 
 </head>
@@ -748,7 +763,7 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">The reality</span>
-      <h2 class="sec-title display" style="text-transform:none">Why most first LinkedIn launches waste money.</h2>
+      <h2 class="sec-title display" style="text-transform:none">Why most first LinkedIn launches <span class="hl">waste money</span>.</h2>
       <p class="sec-desc">It's rarely the platform. It's launching it like Google: cold, broad, and measured by the wrong numbers. Here's where the budget actually goes.</p>
     </div>
     <div class="reality">
@@ -767,7 +782,7 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">If you're already running search</span>
-      <h2 class="sec-title display" style="text-transform:none">Search captures demand. LinkedIn creates it.</h2>
+      <h2 class="sec-title display" style="text-transform:none">Search captures demand. LinkedIn <span class="hl">creates it</span>.</h2>
       <p class="sec-desc">Google reaches the small slice of buyers searching right now. LinkedIn reaches and warms the rest, so they convert better everywhere, including the search campaigns you're already paying for.</p>
     </div>
     <div class="split reveal">
@@ -781,7 +796,8 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
         <div class="split-pct">~97%</div>
         <div class="split-lbl">Out-of-market, not searching yet</div>
         <h4>What LinkedIn reaches and warms</h4>
-        <p>The accounts that will buy eventually but aren't searching yet. LinkedIn puts you in front of them by name, warms them over time, and feeds them into search and retargeting already familiar, lifting close rates across every channel.</p>
+        <p>The accounts that will buy eventually but aren't searching yet. LinkedIn puts you in front of them by name and warms them over time.</p>
+        <p>By the time they hit search and retargeting, they already know you, lifting close rates across every channel.</p>
       </div>
     </div>
     <div class="wedge-flip reveal" style="margin-top:18px">
@@ -842,7 +858,7 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
   <div class="wrap">
     <div class="sec-head reveal" style="max-width:780px">
       <span class="eyebrow">The smart first move</span>
-      <h2 class="sec-title display" style="text-transform:none">Get the strategy right before you spend a dollar.</h2>
+      <h2 class="sec-title display" style="text-transform:none">Get the strategy right <span class="hl">before you spend a dollar</span>.</h2>
       <p class="sec-desc">A standalone engagement that produces the full launch plan: the same diagnostic sequence our managed clients get, productized so you can start without a retainer.</p>
     </div>
     <div class="offer reveal">
@@ -966,7 +982,8 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
       <div class="webid-top">
         <span class="webid-badge">&#9679; Free for 90 days</span>
         <h3>90 days of <span class="hl">Website Visitor ID</span>, on us.</h3>
-        <p>During your launch sprint we turn on Website Visitor Identification at no cost for a full 90 days. It de-anonymizes the companies hitting your site, so we see the full funnel and ecosystem, not just ad clicks, and help you harness your own data better than anyone.</p>
+        <p>During your launch sprint we turn on Website Visitor Identification at no cost for a full 90 days.</p>
+        <p>It de-anonymizes the companies hitting your site, so we see the full funnel and ecosystem, not just ad clicks, and help you harness your own data better than anyone.</p>
       </div>
       <div class="webid-grid">
         <div class="wfeat"><div class="wn">01</div><h5>Funnel + ecosystem insight</h5><p>Connect ad exposure to real on-site behavior. See which accounts move from impression to visit to engaged, across the whole motion.</p></div>
@@ -978,7 +995,7 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
 </section>
 
 <!-- REPORTING GALLERY -->
-<section class="sec gal" id="reporting">
+<section class="sec gal report-gal" id="reporting">
   <div class="wrap">
     <div class="sec-head reveal" style="max-width:820px">
       <span class="eyebrow">The reporting you get</span>
@@ -1217,7 +1234,7 @@ html[data-theme="light"] .webid-top h3 .hl{background:#D4FF3D;color:#0A0A0C;padd
 <section class="final">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">Let's get the plan right</span>
-    <h2 class="display" style="text-transform:none;margin-top:16px">Don't learn LinkedIn on your own budget.</h2>
+    <h2 class="display" style="text-transform:none;margin-top:16px">Don't learn LinkedIn on <span class="hl">your own budget</span>.</h2>
     <p>Start with a Foundational Strategy. Walk away with a launch plan you own, and a clear path to managed if you want it.</p>
     <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Start with a Foundational Strategy &rarr;</a>
   </div>

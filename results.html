@@ -136,6 +136,12 @@ html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:
 html[data-theme="light"] .btn-ghost{color:#16161B}
 /* the "we run it on ourselves" card stays dark for contrast */
 html[data-theme="light"] .bigstat .n{color:#2C8A0C}
+/* ════ LIGHT↔DARK SECTION RHYTHM (match homepage flow) ════ */
+/* dark band: the headline stat band */
+html[data-theme="light"] .stats{--asphalt:#0A0A0C;--concrete:#121217;--court:#1B1B22;--line:rgba(244,241,234,0.10);--line-soft:rgba(244,241,234,0.06);--bone:#F4F1EA;--chalk:#D8D4CB;--chalk-dim:#A8A49B;--blue-soft:#5BB8E0;color:#F4F1EA}
+html[data-theme="light"] .stats{background:var(--asphalt)}
+html[data-theme="light"] .stats .eyebrow{color:#5BB8E0}
+html[data-theme="light"] .stats .bigstat .n{color:#D4FF3D}
 @media(max-width:880px){.bigstats,.own-row,.testi-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.bigstats,.own-row,.testi-grid{grid-template-columns:1fr}}
 </style>
@@ -185,7 +191,8 @@ html[data-theme="light"] .bigstat .n{color:#2C8A0C}
   <div class="wrap">
     <span class="eyebrow">The receipts</span>
     <h1 class="display">Proof, not <span class="hl">promises.</span></h1>
-    <p class="hero-sub">Most agencies show you clicks. We prove revenue. Here's what the signal-engineered system produces — starting with the account we run it on hardest: our own.</p>
+    <p class="hero-sub">Most agencies show you clicks. We prove revenue.</p>
+    <p class="hero-sub">Here's what the signal-engineered system produces, starting with the account we run it on hardest: our own.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get your free Signal Teardown →</a>
       <a class="btn btn-ghost" href="/intelligence-room.html">See the offers</a>
@@ -193,11 +200,11 @@ html[data-theme="light"] .bigstat .n{color:#2C8A0C}
   </div>
 </header>
 
-<section class="sec">
+<section class="sec stats">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">By the numbers</span>
-      <h2 class="sec-title display" style="text-transform:none">What the system actually returns.</h2>
+      <h2 class="sec-title display" style="text-transform:none">What the system <span class="hl">actually returns</span>.</h2>
       <p class="sec-desc">Signal-composed account lists, executive content at scale, and closed-loop attribution — measured the only way that matters.</p>
     </div>
     <div class="bigstats">
