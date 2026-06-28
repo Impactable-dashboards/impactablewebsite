@@ -119,7 +119,19 @@ section{position:relative}
 .field input::placeholder{color:rgba(168,164,155,0.55)}
 .form-foot{font-size:14px;color:var(--chalk-dim);margin-top:14px;line-height:1.5}
 .form-foot strong{color:var(--chalk)}
-.cu-embed{background:#fff;border-radius:8px;overflow:hidden;min-height:560px}
+.oc-list{list-style:none;margin:18px 0 6px}
+.oc-list li{font-size:15.5px;color:var(--chalk);padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--line-soft);line-height:1.45}
+.oc-list li:last-child{border-bottom:none}
+.oc-list li::before{content:"+";position:absolute;left:0;top:9px;color:var(--canopy);font-family:'JetBrains Mono',monospace;font-weight:700}
+
+/* lead-gen form section (ClickUp embed) */
+.formsec{background:var(--concrete)}
+.form-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start}
+.form-points{list-style:none;margin:24px 0 0}
+.form-points li{font-size:16px;color:var(--bone);padding:11px 0 11px 26px;position:relative;border-bottom:1px solid var(--line-soft)}
+.form-points li:last-child{border-bottom:none}
+.form-points li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--canopy)}
+.cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:560px}
 .cu-embed iframe{display:block;width:100%;border:0}
 .oc-success{display:none;text-align:center;padding:18px 6px}
 .oc-success.show{display:block}
@@ -308,6 +320,7 @@ section{position:relative}
   .wedge-flip{grid-template-columns:1fr}
   .wedge-col.new{border-left:none;border-top:1px solid var(--line)}
   .doc-grid{grid-template-columns:1fr;gap:30px}
+  .form-grid{grid-template-columns:1fr;gap:30px}
 }
 @media(max-width:860px){
   .nav-links{display:none}
@@ -368,15 +381,18 @@ section{position:relative}
       </div>
     </div>
 
-    <!-- OFFER + FORM -->
-    <aside class="offer-card" id="get-report" aria-label="Free competitor intel report request">
+    <!-- OFFER SUMMARY -->
+    <aside class="offer-card" aria-label="Free Competitor Intel Report offer">
       <div class="oc-tag"><span class="dot"></span> The foot in the door</div>
       <div class="oc-name">Competitor Intel Report<br>+ Targeting Worksheet</div>
       <div class="oc-price">Two documents. Free. 48 hour turnaround.</div>
-      <div class="cu-embed">
-        <iframe class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="640" style="background:transparent;border:none;" title="Request your free Competitor Intel Report and Targeting Worksheet"></iframe>
-      </div>
-      <p class="form-foot"><strong>No form fatigue.</strong> A few fields, two documents, zero obligation. We read every submission ourselves. <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open the form in a new tab</a> if it does not load.</p>
+      <ul class="oc-list">
+        <li>What your top 10 competitors run, and the open lanes they leave</li>
+        <li>A signal-composed targeting worksheet for your best-fit audience</li>
+        <li>Built by hand. Yours to keep.</li>
+      </ul>
+      <a class="btn btn-canopy btn-lg" href="#get-report" style="width:100%;justify-content:center;margin-top:8px">Grab the free reports</a>
+      <p class="form-foot">No pitch unless you ask. We read every submission ourselves.</p>
     </aside>
   </div>
 </header>
@@ -611,6 +627,35 @@ section{position:relative}
       </div>
     </div>
     <p class="build-note serif"><em>The diagnostics come first, and they are free.</em> The Strategy Build is the next step only if the gaps are clear and we both want to move.</p>
+  </div>
+</section>
+
+<!-- LEAD-GEN FORM (ClickUp embed) -->
+<section class="sec formsec" id="get-report">
+  <div class="wrap">
+    <div class="form-grid">
+      <div>
+        <span class="eyebrow">Claim your two documents</span>
+        <h2 class="sec-title display">Tell us your top 3 competitors.</h2>
+        <p class="sec-desc">We will build your Competitor Intel Report and Audience Targeting Worksheet by hand and send them within 48 hours. Free, no pitch unless you ask.</p>
+        <ul class="form-points">
+          <li>Two documents, built by hand</li>
+          <li>48 hour turnaround</li>
+          <li>We read every submission ourselves</li>
+        </ul>
+        <div class="proof-trust" style="margin-top:28px">
+          <span>6.7x on our own spend</span>
+          <span>LinkedIn Marketing Partner</span>
+          <span>Clutch 4.5 / 5</span>
+        </div>
+      </div>
+      <div class="form-panel">
+        <div class="cu-embed">
+          <iframe class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="640" style="background:transparent;border:none;" title="Request your free Competitor Intel Report and Targeting Worksheet"></iframe>
+        </div>
+        <p class="form-foot">Trouble loading the form? <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open it in a new tab.</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
