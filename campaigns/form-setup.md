@@ -1,92 +1,40 @@
 # Form Setup: Competitor Intel Report
 
-The landing page form (`competitor-intel-report.html`) captures four fields and is wired to go
-live with **one switch**. Open the `<script>` near the bottom of the file and set `CONFIG.mode`.
+**Live method: ClickUp form embed.** The landing page (`competitor-intel-report.html`) embeds the
+ClickUp form directly in the hero offer card, so submissions land straight in the ClickUp Leads
+list. No backend, no glue, nothing to wire.
 
-Captured fields: `name`, `email`, `company`, `competitors` (plus `source`).
+- **Embedded form:** `https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF`
+- The page loads `https://app-cdn.clickup.com/assets/js/forms-embed/v1.js`, which auto-resizes the
+  iframe (the `clickup-dynamic-height` class).
+- A fallback "open the form in a new tab" link sits under the embed in case the iframe is blocked.
 
-Default is `demo` (shows the success state, logs to console, sends nothing). Pick one option below.
+## To change the form
+1. Edit or rebuild the form in ClickUp.
+2. Copy the new embed URL (the `forms.clickup.com/.../f/...` link).
+3. In `competitor-intel-report.html`, replace the URL in BOTH places: the `<iframe src="...">` in the
+   offer card and the fallback `<a href="...">` link beside it.
 
----
+## Keep the fields short
+The offer promise is low friction. Keep the ClickUp form to a few fields: name, work email,
+company, and top 3 competitors. More than that and the no-brainer feeling goes away.
 
-## Recommended: HubSpot (no backend, lands in your CRM)
-
-Best fit because you already run HubSpot for attribution. The lead becomes a contact the moment
-the form is submitted, so it ties straight into the LinkedIn to site to CRM trail. No server needed.
-
-**Steps:**
-1. In HubSpot: Marketing > Forms > Create form (a non-HubSpot / embedded form is fine).
-2. Add fields: First name, Email, Company, and a single-line text property for competitors.
-   - Create a contact property named **`top_competitors`** (single-line text), or rename the
-     field in the script to match an existing property.
-3. Publish the form. From the embed code, grab the **Portal ID** and **Form GUID**.
-4. In the page script set:
-   ```js
-   var CONFIG = {
-     mode: 'hubspot',
-     hubspot: { portalId: 'YOUR_PORTAL_ID', formGuid: 'YOUR_FORM_GUID' },
-     webhookUrl: ''
-   };
-   ```
-5. Optional: set up a HubSpot workflow on new submissions to notify the team and create a
-   48-hour delivery task.
-
-Nothing secret lives in the page. The submission endpoint is public by design.
+## After a submission lands
+Set up a ClickUp automation on the Leads list: new task from form to notify the team and create a
+48-hour delivery task, so the "built by hand in 48 hours" promise is met.
 
 ---
 
-## Option B: Google Sheet (free, simple)
+## Alternatives (not in use, kept for reference)
 
-Keeps the on-page form. A short Google Apps Script receives the POST and appends a row.
+If you ever move off ClickUp, the page can also capture leads these ways. Each keeps the on-page
+design and needs a small code swap back to a custom form:
 
-**Steps:**
-1. Create a Google Sheet with header row: `timestamp | name | email | company | competitors`.
-2. Extensions > Apps Script, paste:
-   ```js
-   function doPost(e) {
-     var data = JSON.parse(e.postData.contents);
-     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Sheet1');
-     sheet.appendRow([new Date(), data.name, data.email, data.company, data.competitors]);
-     return ContentService.createTextOutput(JSON.stringify({ok: true}))
-       .setMimeType(ContentService.MimeType.JSON);
-   }
-   ```
-3. Deploy > New deployment > Web app. Execute as: Me. Who has access: Anyone. Copy the `/exec` URL.
-4. In the page script set:
-   ```js
-   var CONFIG = { mode: 'webhook', hubspot: {portalId:'',formGuid:''}, webhookUrl: 'YOUR_EXEC_URL' };
-   ```
+- **HubSpot** (no backend, lands in CRM): submit to the public Forms endpoint
+  `https://api.hsforms.com/submissions/v3/integration/submit/{portalId}/{formGuid}`.
+- **Google Sheet** (free): a Google Apps Script web app `doPost` that appends a row; the form POSTs
+  JSON to the `/exec` URL.
+- **Zapier / Make**: POST JSON to a catch hook that routes anywhere.
 
-Note: cross-origin POST to Apps Script works; the page does not need the response, so a follow-up
-on the Sheet is the source of truth.
-
----
-
-## Option C: ClickUp (trigger as a lead)
-
-ClickUp does not accept an authenticated API POST safely from a public page, so use one of these:
-
-- **Cleanest, keeps our design:** point the same webhook at a **Zapier / Make catch hook**, then
-  the Zap creates a ClickUp task in your Leads list. Set `mode: 'webhook'` with the hook URL.
-- **No-code, replaces our form:** build a native **ClickUp Form** view on a Leads list and link
-  the page CTA buttons to that hosted form URL instead. You lose the on-page design but it is the
-  fastest path with zero glue.
-
-For the Zapier route:
-```js
-var CONFIG = { mode: 'webhook', hubspot: {portalId:'',formGuid:''}, webhookUrl: 'YOUR_ZAPIER_HOOK' };
-```
-
----
-
-## Which to choose
-
-| Option | Backend? | Keeps page design? | Feeds CRM/attribution | Effort |
-| --- | --- | --- | --- | --- |
-| **HubSpot** (recommended) | No | Yes | Direct | Low |
-| Google Sheet | Apps Script (free) | Yes | Manual / export | Low |
-| ClickUp via Zapier | Zapier | Yes | Via Zap | Low-Med |
-| ClickUp native form | No | No | Via ClickUp | Lowest |
-
-The form fails open: if a send errors, the user still sees the confirmation and the payload is
-logged, so a submission is never lost silently during testing.
+The earlier config-driven custom form (demo / hubspot / webhook) was replaced by the ClickUp embed.
+Pull it from git history if you need to restore it.
