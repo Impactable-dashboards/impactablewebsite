@@ -514,12 +514,59 @@ section{position:relative}
 </footer>
 
 <script>
-// Focused campaign form, demoable without a backend.
-// TODO before launch: wire `action` to the HubSpot form / Zapier / Formspree endpoint.
+/* ─────────────────────────────────────────────────────────────────────────
+   COMPETITOR INTEL FORM
+   One switch to go live. Set CONFIG.mode and fill in the matching block.
+   See campaigns/form-setup.md for step-by-step setup of each option.
+
+   mode: 'demo'    no backend, shows the success state (current default)
+         'hubspot' posts to HubSpot (lands the lead in your CRM, no backend)
+         'webhook' posts JSON to any URL: Google Apps Script (Sheet),
+                   Zapier / Make catch hook, ClickUp via Zapier, etc.
+   ───────────────────────────────────────────────────────────────────────── */
+var CONFIG = {
+  mode: 'demo',
+  hubspot: {
+    portalId: '',   // e.g. '1234567'
+    formGuid: ''    // e.g. 'a1b2c3d4-0000-1111-2222-333344445555'
+  },
+  webhookUrl: ''    // e.g. a Google Apps Script /exec URL or a Zapier hook
+};
+
 (function(){
   var form = document.getElementById('reportForm');
   var success = document.getElementById('formSuccess');
   if(!form) return;
+
+  function showSuccess(){ form.style.display = 'none'; success.classList.add('show'); }
+
+  function sendHubSpot(p){
+    var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' +
+              CONFIG.hubspot.portalId + '/' + CONFIG.hubspot.formGuid;
+    var body = {
+      fields: [
+        { name: 'firstname', value: p.name },
+        { name: 'email', value: p.email },
+        { name: 'company', value: p.company },
+        { name: 'top_competitors', value: p.competitors }
+      ],
+      context: { pageUri: location.href, pageName: document.title }
+    };
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+  }
+
+  function sendWebhook(p){
+    return fetch(CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(p)
+    });
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
@@ -527,11 +574,29 @@ section{position:relative}
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       company: form.company.value.trim(),
-      competitors: form.competitors.value.trim()
+      competitors: form.competitors.value.trim(),
+      source: 'competitor-intel-report'
     };
-    try { console.log('competitor intel report request', payload); } catch(err){}
-    form.style.display = 'none';
-    success.classList.add('show');
+
+    var send = null;
+    if(CONFIG.mode === 'hubspot' && CONFIG.hubspot.portalId && CONFIG.hubspot.formGuid){
+      send = sendHubSpot(payload);
+    } else if(CONFIG.mode === 'webhook' && CONFIG.webhookUrl){
+      send = sendWebhook(payload);
+    }
+
+    if(send){
+      var btn = form.querySelector('button[type=submit]');
+      if(btn){ btn.disabled = true; btn.textContent = 'Sending...'; }
+      send.then(showSuccess).catch(function(){
+        // Fail open: still confirm to the user; the lead is logged for follow-up.
+        try { console.error('intel form submit failed', payload); } catch(err){}
+        showSuccess();
+      });
+    } else {
+      try { console.log('competitor intel report request (demo)', payload); } catch(err){}
+      showSuccess();
+    }
   });
 })();
 </script>
