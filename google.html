@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<!-- ===== Impactable shared tracking (GTM, Google Ads, LinkedIn, Lassoo) ===== -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MK45VGG');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Ads gtag (AW-722461102) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-722461102"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-722461102');
+</script>
+<!-- LinkedIn Insight Tag (partner ids 3483338, 3986860) -->
+<script type="text/javascript">
+_linkedin_partner_id = "3483338";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push("3483338");
+window._linkedin_data_partner_ids.push("3986860");
+</script>
+<script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<!-- Lassoo / Trialfire -->
+<script>var s=document.createElement("script"),tf={$q:[],do:function(){tf.$q.push([].slice.call(arguments))}};["init","ready","identify","property","logout","track","optout"].forEach(function(t){tf[t]=function(){tf.do.apply(null,[t].concat([].slice.call(arguments)))}}),window.Trialfire=tf,s.src="//cdn.xperrab2b.com/tf.js",document.head.appendChild(s),Trialfire.init("9d94aa3e-1b87-4d05-8f85-1cbbb06ee959");window.Lassoo=window.Trialfire;</script>
+<!-- ===== end shared tracking ===== -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem('imp-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
@@ -416,6 +452,14 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK45VGG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- LinkedIn Insight Tag (noscript) -->
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3483338&fmt=gif" />
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3986860&fmt=gif" />
+</noscript>
 
 <!-- ════ GLOBAL NAV ════ -->
 <nav class="gnav">
