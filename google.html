@@ -266,16 +266,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   /* PRICING */
   .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
-  .tier-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:30px 28px;transition:border-color .25s,transform .25s;}
+  .tier-card{background:linear-gradient(180deg,rgba(255,255,255,0.035),var(--surface));border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:var(--radius);padding:30px 28px;transition:border-color .25s,transform .25s,box-shadow .25s;}
   .tier-card:hover{transform:translateY(-4px);border-color:var(--border-2);}
   .tier-card.featured{border-color:var(--accent);background:linear-gradient(180deg,rgba(30,120,200,.12),var(--surface));box-shadow:0 24px 70px -34px var(--accent-glow);}
   .tier-card .ribbon{font-family:var(--font-mono);font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--canopy);margin-bottom:12px;}
-  .tier-card h3{font-size:1.3rem;}
+  .tier-card h3{font-size:1.35rem;color:var(--accent);letter-spacing:-.01em;}
   .tier-card .sub{font-size:1rem;margin:8px 0 18px;}
   .ptier{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-top:1px solid var(--border);}
   .ptier:first-of-type{border-top:none;}
-  .ptier .pl{font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);}
-  .ptier .pp{font-weight:800;font-size:1.15rem;}
+  .ptier .pl{font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
+  .ptier .pp{font-weight:800;font-size:1.7rem;letter-spacing:-.02em;color:var(--canopy);}
   .ptier .pp span{font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--text-muted);display:block;}
   .includes{margin-top:26px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;}
   .includes h4{font-family:var(--font-mono);font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);margin-bottom:14px;}
