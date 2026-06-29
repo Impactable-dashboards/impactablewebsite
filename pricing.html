@@ -40,7 +40,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pricing | How to work with Impactable</title>
-<meta name="description" content="How to work with Impactable: start with a free competitor intel report, climb to a paid strategy, then run single-channel or multi-channel management that flexes with your spend. Custom quotes for $25k to $500k+/mo.">
+<meta name="description" content="How to work with Impactable: start free, choose a $1,500 Foundational Strategy or Impact Report, then run single-channel or multi-channel management that flexes with your spend. Custom quotes for $25k to $500k+/mo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -71,7 +71,6 @@ img{max-width:100%;display:block}
 .nav-links{display:flex;align-items:center;gap:24px}
 .nav-links a{font-size:15px;color:var(--chalk);transition:color .2s;font-weight:500}
 .nav-links a:hover{color:var(--bone)}
-.nav-toggle{display:none;background:none;border:none;color:var(--bone);font-size:22px;cursor:pointer}
 .btn{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;padding:12px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:8px;transition:all .22s;cursor:pointer;border:none}
 .btn-primary{background:var(--blue);color:#03121b}
 .btn-primary:hover{background:var(--blue-soft);transform:translateY(-1px)}
@@ -91,12 +90,12 @@ img{max-width:100%;display:block}
 
 /* sections */
 .sec{padding:64px 0;border-top:1px solid var(--line-soft)}
-.sec-head{max-width:720px;margin-bottom:38px}
-.sec-title{font-size:clamp(30px,3.2vw,42px);margin:16px 0 14px;line-height:1.06}
-.sec-desc{font-size:18px;color:var(--chalk);max-width:62ch}
+.sec-head{max-width:740px;margin-bottom:38px}
+.sec-title{font-size:clamp(30px,3.2vw,42px);margin:14px 0 14px;line-height:1.06}
+.sec-desc{font-size:18px;color:var(--chalk);max-width:64ch}
 .step-tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--canopy)}
 
-/* generic card */
+/* cards */
 .cards{display:grid;gap:18px}
 .cards.c3{grid-template-columns:repeat(3,1fr)}
 .cards.c2{grid-template-columns:repeat(2,1fr)}
@@ -105,10 +104,11 @@ img{max-width:100%;display:block}
 .card.feat{border-color:var(--blue);background:linear-gradient(180deg,rgba(0,153,209,0.12),var(--concrete));box-shadow:0 24px 70px -34px rgba(0,153,209,0.5)}
 .card .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .card .tag-free{background:var(--canopy);color:#0A0A0C;border-radius:5px;padding:2px 8px;font-weight:700}
+.card .tag-best{background:rgba(0,153,209,0.2);color:var(--blue-soft);border-radius:5px;padding:2px 8px;font-weight:700}
 .card h3{font-size:1.3rem;color:var(--blue-soft);letter-spacing:-.01em;margin-bottom:4px}
 .card .price{font-family:'Archivo Black',sans-serif;font-size:2rem;letter-spacing:-.02em;color:var(--canopy);margin:6px 0 2px}
 .card .price small{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:400;color:var(--chalk-dim);letter-spacing:.04em}
-.card .cap{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);margin-top:4px}
+.card .who{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);margin-top:4px}
 .card .d{font-size:15.5px;color:var(--chalk);margin:12px 0 16px;line-height:1.5}
 .card ul{list-style:none;margin:0 0 18px}
 .card li{font-size:15px;color:var(--chalk);padding:6px 0 6px 22px;position:relative}
@@ -134,15 +134,23 @@ img{max-width:100%;display:block}
 .custom .range{font-family:'Archivo Black',sans-serif;font-size:1.6rem;color:var(--canopy);letter-spacing:-.02em;margin-bottom:10px}
 .custom p{font-size:16px;color:var(--chalk)}
 
-/* system / diagnostics */
+/* diagnostics sequence */
 .sys{background:var(--concrete)}
-.sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
-.sys-card{border:1px solid var(--line);border-radius:10px;padding:24px 22px;background:var(--asphalt)}
-.sys-card .n{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-soft);margin-bottom:10px}
-.sys-card h4{font-size:1.05rem;color:var(--bone);margin-bottom:8px}
-.sys-card p{font-size:15px;color:var(--chalk);line-height:1.5}
-.sys-loop{margin-top:24px;font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--chalk)}
-.sys-loop em{color:var(--canopy);font-style:italic}
+.seq{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+.seq-col{border:1px solid var(--line);border-radius:12px;padding:26px 24px;background:var(--asphalt)}
+.seq-col .sc-h{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--canopy);margin-bottom:3px}
+.seq-col.q .sc-h{color:var(--blue-soft)}
+.seq-col h3{font-size:1.2rem;color:var(--bone);margin-bottom:6px}
+.seq-col .sc-sub{font-size:14.5px;color:var(--chalk-dim);margin-bottom:16px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
+.seq-step{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line-soft)}
+.seq-step:first-of-type{border-top:none}
+.seq-step .sn{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;color:var(--canopy);width:24px;flex-shrink:0;padding-top:2px}
+.seq-col.q .seq-step .sn{color:var(--blue-soft)}
+.seq-step b{color:var(--bone);font-weight:600;font-size:16px}
+.seq-step .sd{display:block;color:var(--chalk);font-size:14.5px;line-height:1.45;margin-top:2px}
+.seq-loop{margin-top:24px;font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--chalk);max-width:70ch}
+.seq-loop em{color:var(--canopy);font-style:italic}
+@media(max-width:760px){.seq{grid-template-columns:1fr}}
 
 /* final */
 .final{text-align:center;background:linear-gradient(165deg,rgba(0,153,209,0.10),var(--asphalt))}
@@ -161,7 +169,8 @@ img{max-width:100%;display:block}
 .foot-col a:hover{color:var(--blue-soft)}
 .foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:14px;color:var(--chalk-dim);font-family:'JetBrains Mono',monospace}
 
-@media(max-width:920px){.cards.c3,.cards.c2,.sys-grid{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:920px){.cards.c3,.cards.c2{grid-template-columns:1fr}.nav-links{gap:16px}}
+@media(max-width:680px){.nav-links a:not(.btn){display:none}}
 @media(max-width:520px){.sec{padding:48px 0}}
 </style>
 </head>
@@ -206,42 +215,75 @@ img{max-width:100%;display:block}
     <div class="sec-head">
       <span class="step-tag">Step 1</span>
       <h2 class="sec-title display">Start here. Prove it first.</h2>
-      <p class="sec-desc">Low-commitment entry points. See how we think before any retainer. Paid diagnostics credit toward what comes next.</p>
+      <p class="sec-desc">Low-commitment entry points. See how we think before any retainer, and the paid audit credits toward what comes next.</p>
     </div>
-    <div class="cards c3">
+    <div class="cards c2">
       <div class="card feat">
         <div class="k">Foot in the door <span class="tag-free">Free</span></div>
         <h3>Competitor Intel Report</h3>
         <div class="price">$0<small> &middot; 48 hrs</small></div>
         <p class="d">Competitor intel plus a signal-composed targeting worksheet, built by hand. Two documents, yours to keep.</p>
-        <ul><li>What your competitors run</li><li>The open lanes they leave</li><li>Your best-fit audience, mapped</li></ul>
+        <ul><li>What your competitors run, and the open lanes they leave</li><li>Your best-fit audience, mapped</li><li>No pitch unless you ask</li></ul>
         <a class="btn btn-canopy" href="/competitor-intel-report.html">Get the free report</a>
       </div>
       <div class="card">
-        <div class="k">Diagnostic</div>
+        <div class="k">Quick diagnostic</div>
         <h3>Single-Channel Audit</h3>
         <div class="price">$499<small> &middot; one-time</small></div>
         <p class="d">One channel pressure-tested, delivered as an expert walkthrough plus a 30-minute consult.</p>
         <ul><li>What's working, what's wasting</li><li>Prioritized fixes</li><li>Credits to your first month</li></ul>
         <a class="btn btn-ghost" href="/intelligence-room.html#audit">Get a channel audit</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2: TWO STRATEGIC STARTING POINTS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="step-tag">Step 2</span>
+      <h2 class="sec-title display">Two strategic starting points. <span class="hl">$1,500 each.</span></h2>
+      <p class="sec-desc">Both produce a custom intelligence room and documents built for your team and your AI. Which one depends on where you are: building from scratch, or already in motion.</p>
+    </div>
+    <div class="cards c2">
       <div class="card">
-        <div class="k">Strategy</div>
-        <h3>Foundational Strategy / Impact Report</h3>
+        <div class="k">For new or unclear foundations</div>
+        <h3>Foundational Strategy</h3>
         <div class="price">$1,500<small> &middot; one-time</small></div>
-        <p class="d">The full diagnostic suite and a build-ready plan. Foundations for new accounts, Impact Report for live ones. You own it.</p>
-        <ul><li>Positioning, audience, messaging</li><li>90-day roadmap</li><li>Setup fee waived if you move to managed</li></ul>
-        <a class="btn btn-ghost" href="/intelligence-room.html">Build your room</a>
+        <div class="who">Getting started &middot; new channel</div>
+        <p class="d">The clearest starting point when you're launching paid ads, adding a channel like LinkedIn, or just need your foundations clarified. Run it in-house, hand it to your current agency, or move to managed with us.</p>
+        <ul>
+          <li>Positioning and competitive white space</li>
+          <li>Audience and persona targeting</li>
+          <li>Messaging and offer architecture</li>
+          <li>A build-ready 90-day roadmap you own</li>
+        </ul>
+        <a class="btn btn-ghost" href="/intelligence-room.html">Start the strategy</a>
+      </div>
+      <div class="card feat">
+        <div class="k">For accounts already in motion <span class="tag-best">Full audit</span></div>
+        <h3>Impact Report</h3>
+        <div class="price">$1,500<small> &middot; one-time</small></div>
+        <div class="who">Data, history, warm audiences</div>
+        <p class="d">When you have spend, data, and warm audiences to work with, this is the full audit: channel-by-channel, ecosystem, and our core diagnostics. We scope exactly what to fix, build, reduce, and scale. The fastest way for a mature team to get clarity and back on track, and the natural ladder to managed if it makes sense.</p>
+        <ul>
+          <li>Channel audits across what you run</li>
+          <li>Ecosystem and funnel coverage</li>
+          <li>Signal and account intelligence</li>
+          <li>Fix / build / reduce / scale verdicts + plan</li>
+        </ul>
+        <a class="btn btn-canopy" href="/intelligence-room.html">Get the Impact Report</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STEP 2: MANAGEMENT -->
+<!-- STEP 3: MANAGEMENT -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <span class="step-tag">Step 2</span>
+      <span class="step-tag">Step 3</span>
       <h2 class="sec-title display">Run it with us.</h2>
       <p class="sec-desc">Single-channel management, two ways. Execution for hands on the account, Strategic Oversight for ongoing guidance built to scale. $3,000/mo minimum to start with us.</p>
     </div>
@@ -266,11 +308,11 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- STEP 3: COMBINATIONS -->
+<!-- STEP 4: COMBINATIONS -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <span class="step-tag">Step 3</span>
+      <span class="step-tag">Step 4</span>
       <h2 class="sec-title display">Combine channels as you grow.</h2>
       <p class="sec-desc">Run more than one channel as a single connected system, with shared signals and retargeting. A few common ways teams combine, all starting at $3,000/mo.</p>
     </div>
@@ -292,15 +334,15 @@ img{max-width:100%;display:block}
         <div class="cprice">$3,000/mo</div>
       </div>
     </div>
-    <p class="note">// Spend levels are illustrative starting points. The exact mix and rate are set in your scoping call. [Confirm the Thought Leadership + LinkedIn bundle price and whether the $749 TL Engine is included or added.]</p>
+    <p class="note">// Spend levels are illustrative starting points. Your exact mix and rate are set in the scoping call.</p>
   </div>
 </section>
 
-<!-- STEP 4: CUSTOM / SCALE -->
+<!-- STEP 5: CUSTOM / SCALE -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <span class="step-tag">Step 4</span>
+      <span class="step-tag">Step 5</span>
       <h2 class="sec-title display">Scaling past that? We build it around you.</h2>
     </div>
     <div class="custom">
@@ -319,15 +361,30 @@ img{max-width:100%;display:block}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Under everything</span>
-      <h2 class="sec-title display">Strategy and diagnostics, always running.</h2>
-      <p class="sec-desc">Whatever you run with us sits on the same intelligence system. It does not stop at launch. It compounds, sharpening targeting, messaging, and budget every quarter.</p>
+      <h2 class="sec-title display">The strategy you start with, and the loop that keeps it sharp.</h2>
+      <p class="sec-desc">Whatever you run with us sits on the same intelligence system. It maps the starting point, then runs a quarterly diagnostic loop that compounds, sharpening targeting, messaging, and budget every cycle.</p>
     </div>
-    <div class="sys-grid">
-      <div class="sys-card"><div class="n">ONBOARDING</div><h4>Diagnostic sequence</h4><p>Positioning, audience, messaging, and channel diagnostics map the starting point and the white space.</p></div>
-      <div class="sys-card"><div class="n">EACH QUARTER</div><h4>The Impact Report</h4><p>A full read on what each motion is doing, where budget should move, and the account intelligence your spend created.</p></div>
-      <div class="sys-card"><div class="n">ONGOING</div><h4>The EBR loop</h4><p>Cross-channel diagnostics feed every outcome back into targeting, messaging, and budget. The system refines itself.</p></div>
+    <div class="seq">
+      <div class="seq-col">
+        <div class="sc-h">Onboarding &middot; once</div>
+        <h3>The initial strategy</h3>
+        <div class="sc-sub">Foundational Strategy or Impact Report</div>
+        <div class="seq-step"><span class="sn">01</span><div><b>Competitive white space</b><span class="sd">Where rivals are saturated and the lanes left open for you.</span></div></div>
+        <div class="seq-step"><span class="sn">02</span><div><b>Audience and ICP discovery</b><span class="sd">Who your buyers actually are, from engagement data, not a survey.</span></div></div>
+        <div class="seq-step"><span class="sn">03</span><div><b>Messaging and offer architecture</b><span class="sd">What to say, to whom, at each stage of the buying journey.</span></div></div>
+        <div class="seq-step"><span class="sn">04</span><div><b>Channel and funnel plan</b><span class="sd">A build-ready roadmap, activation paths, and budget direction.</span></div></div>
+      </div>
+      <div class="seq-col q">
+        <div class="sc-h">Every quarter &middot; ongoing</div>
+        <h3>Core diagnostics</h3>
+        <div class="sc-sub">The Impact Report, on a loop</div>
+        <div class="seq-step"><span class="sn">01</span><div><b>Coverage and funnel analysis</b><span class="sd">Where accounts are moving, and where they stall.</span></div></div>
+        <div class="seq-step"><span class="sn">02</span><div><b>Signal and account intelligence</b><span class="sd">The hot, multi-signal accounts sitting near pipeline.</span></div></div>
+        <div class="seq-step"><span class="sn">03</span><div><b>Waste audit and verdicts</b><span class="sd">What to cut, what to fix, what to scale, stated plainly.</span></div></div>
+        <div class="seq-step"><span class="sn">04</span><div><b>Reallocation and 90-day plan</b><span class="sd">Where budget moves next, fed back into targeting and messaging.</span></div></div>
+      </div>
     </div>
-    <p class="sys-loop serif"><em>The result:</em> the longer you run, the sharper it gets. Most agencies send a monthly metrics dump. We run a system that compounds.</p>
+    <p class="seq-loop serif"><em>The result:</em> the longer you run, the sharper it gets. Most agencies send a monthly metrics dump. We run a system that compounds.</p>
   </div>
 </section>
 
