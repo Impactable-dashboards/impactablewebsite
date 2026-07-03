@@ -1,0 +1,1299 @@
+<script>
+  (function () {
+
+    var CONFIG = {
+      minUsers: 3,
+      maxUsers: 999,
+      defaultUsers: 10,
+      thresholds: {
+        essentialMax: 9,
+        professionalMax: 50
+      },
+      pricing: {
+        usd: {
+          essential:    { monthly: 12, yearly: 10 },
+          professional: { monthly: 29, yearly: 25 },
+          ultimate:     { monthly: 40, yearly: 33 }
+        },
+        eur: {
+          essential:    { monthly: 11,   yearly: 9.5 },
+          professional: { monthly: 27,   yearly: 23 },
+          ultimate:     { monthly: 37,   yearly: 31 }
+        }
+      },
+      hiddenPrices: {},
+      currency: "usd",
+      enableGeoCurrency: true,
+      eurCountries: ["DE"],
+      enterprise: {
+        letsTalkText: "Let\u2019s talk",
+        ctaText: "Book a Demo",
+        demoUrl: "https://productive.io/book-a-demo/"
+      },
+      copy: {
+        professional: {
+          default: "For growing companies ready to scale their operations",
+          enterprise: "For larger teams that need advanced control and visibility"
+        },
+        ultimate: {
+          default: "Designed for complex organizations with advanced financial oversight",
+          enterprise: "Custom enterprise pricing tailored to your organization"
+        }
+      }
+    };
+
+    var CYCLE_TO_PRICING = { month: "monthly", year: "yearly" };
+    var currencySymbols = { usd: "$", eur: "€" };
+
+    var root = null;
+    var usersValueEl = null;
+    var minusBtn = null;
+    var plusBtn = null;
+    var cycleBtns = null;
+    var cards = null;
+    var monthlyWrap = null;
+    var yearlyWrap = null;
+    var cycleTrack = null;
+    var cycleThumb = null;
+    var hasDualTables = false;
+    var RECOMMENDED_BADGE_MQ = "(max-width: 991px)";
+    var RECOMMENDED_BADGE_MOBILE = "BEST VALUE";
+
+    var state = {
+      users: CONFIG.defaultUsers,
+      cycle: "year",
+      selectedPlan: null
+    };
+
+    function persistRegistrationContext() {
+      if (!state.selectedPlan) return;
+
+      try {
+        sessionStorage.setItem(
+          "pricing_registration",
+          JSON.stringify({
+            plan: state.selectedPlan,
+            cycle: state.cycle,
+            currency: CONFIG.currency,
+            users: state.users
+          })
+        );
+      } catch (err) {}
+    }
+
+    function getRegistrationParams() {
+      if (!state.selectedPlan) return null;
+
+      return {
+        plan: state.selectedPlan,
+        cycle: state.cycle,
+        currency: CONFIG.currency,
+        users: state.users
+      };
+    }
+
+    function bindPricingCtaClicks() {
+      if (bindPricingCtaClicks.bound) return;
+      bindPricingCtaClicks.bound = true;
+
+      document.addEventListener(
+        "click",
+        function (e) {
+          var cta = e.target.closest
+            ? e.target.closest(".pricing-table .pricing-card__cta, .pricing-table .pricing-trial")
+            : null;
+          if (!cta || cta.classList.contains("pricing-demo") || cta.classList.contains("is-demo-cta")) return;
+
+          var card = cta.closest(".pricing-card");
+          if (!card) return;
+
+          var planKey = getPlanKey(card);
+          if (!planKey) return;
+
+          state.selectedPlan = planKey;
+          persistRegistrationContext();
+        },
+        true
+      );
+    }
+
+    function formatPrice(amount, currency) {
+      var symbol = currencySymbols[currency] || "$";
+      var formatted = amount.toFixed(2);
+      if (formatted.slice(-3) === ".00") formatted = formatted.slice(0, -3);
+      return symbol + formatted;
+    }
+
+    function getPricingCycleKey(cycle) {
+      return CYCLE_TO_PRICING[cycle] || cycle;
+    }
+
+    function isEnterpriseUsers() {
+      return state.users > CONFIG.thresholds.professionalMax;
+    }
+
+    function shouldHidePrice(planKey) {
+      if (!planKey) return false;
+      if (CONFIG.hiddenPrices[planKey]) return true;
+      if (isEnterpriseUsers() && (planKey === "professional" || planKey === "ultimate")) return true;
+      return false;
+    }
+
+    function shouldUseDemoCta(planKey) {
+      return isEnterpriseUsers() && planKey === "ultimate";
+    }
+
+    function renderProfessionalCtAs(card) {
+      var demoBtns = card.querySelectorAll(".pricing-demo");
+      var trialBtns = card.querySelectorAll(".pricing-trial");
+      if (!demoBtns.length && !trialBtns.length) return false;
+
+      card.classList.toggle("is-enterprise-users", isEnterpriseUsers());
+
+      demoBtns.forEach(function (el) {
+        el.style.removeProperty("display");
+      });
+      trialBtns.forEach(function (el) {
+        el.style.removeProperty("display");
+      });
+
+      return true;
+    }
+
+    function injectTransitionStyles() {
+      var styleId = "pricing-table-styles-v7";
+      var existing = document.getElementById(styleId);
+      if (existing) existing.remove();
+      var style = document.createElement("style");
+      style.id = styleId;
+      style.textContent =
+        ".pricing-table>.pricing__cards.monthly{display:none;}" +
+        ".pricing__cards-track{display:grid;grid-template-columns:1fr;width:100%;position:relative;overflow:visible;}" +
+        ".pricing__cards-track>.pricing__cards{display:flex;align-content:stretch;align-items:flex-start;justify-content:center;grid-area:1/1;width:100%;overflow:visible;isolation:isolate;box-sizing:border-box;}" +
+        ".pricing__cards-track>.pricing__cards>.pricing-card-outer,.pricing__cards-track>.pricing__cards>div{flex:1 1 0;min-width:0;position:relative;z-index:0;}" +
+        ".pricing__cards-track>.pricing__cards .pricing-card{width:100%;box-sizing:border-box;}" +
+        ".pricing__cards-track>.pricing__cards.is-active{display:flex;opacity:1;visibility:visible;pointer-events:auto;z-index:2;}" +
+        ".pricing__cards-track>.pricing__cards.is-hidden{display:none;opacity:0;visibility:hidden;pointer-events:none;z-index:1;}" +
+        ".pricing__cycle-track{position:relative;display:inline-flex;align-items:stretch;border-radius:999px;padding:0!important;margin:0;gap:0;overflow:hidden;}" +
+        ".pricing__cycle-thumb{position:absolute;top:0;left:0;height:100%;border-radius:999px;background:#21D191 !important;box-shadow:none;transition:transform .35s cubic-bezier(.4,0,.2,1),width .35s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:0;}" +
+        ".pricing__cycle-track .pricing__cycle-btn{position:relative;z-index:1;background:transparent !important;transition:color .25s ease;}" +
+        ".pricing__cycle-track .pricing__cycle-btn.is-active{color:#fff !important;}" +
+        "input.pricing__users-value,.pricing__users input.pricing__users-value{min-width:48px;width:48px;max-width:48px;text-align:center;font-variant-numeric:tabular-nums;flex-shrink:0;margin:0;padding:0;border:0!important;box-shadow:none!important;background:transparent!important;outline:none!important;appearance:textfield;-moz-appearance:textfield;box-sizing:border-box;-webkit-appearance:none;}" +
+        "input.pricing__users-value:focus,input.pricing__users-value:focus-visible{outline:none!important;border:0!important;box-shadow:none!important;}" +
+        "input.pricing__users-value::-webkit-outer-spin-button,input.pricing__users-value::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}" +
+        ".pricing__cycle-btn{transition:color .25s ease;}" +
+        ".pricing__users-btn.is-disabled{pointer-events:none;opacity:.4;}" +
+        ".pricing-card__recommended{display:none;}" +
+        ".pricing-card-outer{display:flex;flex-direction:column;height:auto;flex:1 1 0;min-width:0;position:relative;z-index:0;}" +
+        ".pricing-card-outer.is-recommended,.pricing__cards>div.is-recommended{z-index:10;overflow:visible;border-radius:24px;box-shadow:none;transform:translateZ(0);transition:border-radius .35s ease;}" +
+        ".pricing-card-outer.is-recommended::before,.pricing__cards>div.is-recommended::before{content:\"\";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 40px 0 rgba(17,17,17,0.10);pointer-events:none;z-index:0;}" +
+        ".pricing-card-outer.is-recommended>.pricing-card__recommended,.pricing__cards>div.is-recommended>.pricing-card__recommended{display:block;flex-shrink:0;position:relative;z-index:1;border-radius:24px 24px 0 0;}" +
+        ".pricing-card-outer.is-recommended .pricing-card,.pricing__cards>div.is-recommended .pricing-card{position:relative;z-index:1;border-radius:0 0 24px 24px;overflow:hidden;box-shadow:none;}" +
+        ".pricing-card-professional .pricing-demo{display:none;}" +
+        ".pricing-card-professional.is-enterprise-users .pricing-demo{display:revert;}" +
+        ".pricing-card-professional.is-enterprise-users .pricing-trial{display:none;}" +
+        "@media (min-width:992px){" +
+        ".pricing__cards-track>.pricing__cards{align-items:flex-start;}" +
+        ".pricing-card-outer{align-self:flex-start;}" +
+        ".pricing-card-outer .pricing-card{flex:1 1 auto;height:auto;}" +
+        ".pricing-card-outer.is-recommended .pricing-card.is-recommended{box-sizing:border-box;}" +
+        "}" +
+        "@media (max-width:991px){" +
+        ".pricing__cards-track>.pricing__cards{align-content:flex-start;align-items:stretch;gap:0px;}" +
+        ".pricing__cards-track>.pricing__cards>.pricing-card-outer,.pricing__cards-track>.pricing__cards>div{flex:0 0 auto !important;height:auto !important;width:100%;}" +
+        ".pricing-card-outer{height:auto !important;display:flex;flex-direction:column;}" +
+        ".pricing-card-outer .pricing-card{flex:0 0 auto;height:auto;}" +
+        "}";
+      document.head.appendChild(style);
+    }
+
+    function getCardWrap(card) {
+      var outer = card.closest(".pricing-card-outer");
+      if (outer) return outer;
+
+      var parent = card.parentElement;
+      if (parent && parent.querySelector(":scope > .pricing-card__recommended")) {
+        return parent;
+      }
+
+      return null;
+    }
+
+    function setupRecommendedWrapper(card) {
+      if (card.dataset.recommendedSetup) return;
+
+      var wrap = getCardWrap(card);
+      if (!wrap) return;
+
+      wrap.classList.add("pricing-card-outer");
+      card.dataset.recommendedSetup = "1";
+    }
+
+    function findFeaturesHeading(card) {
+      var nodes = card.querySelectorAll(".pricing__users-label, .w-richtext, .u-text");
+      var i;
+
+      for (i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        if (el.closest(".pricing-card__price-wrap, .pricing-card__cta, .pricing-card__title")) continue;
+
+        var text = (el.textContent || "").trim();
+        if (/includes|everything in/i.test(text)) return el;
+      }
+
+      return null;
+    }
+
+    function setupFeaturesToggle(card) {
+      if (card.dataset.featuresToggleSetup) return;
+
+      var tableList = card.querySelector(".table-list");
+      if (!tableList) return;
+
+      var heading = tableList.querySelector(".pricing__users-label");
+      if (!heading) return;
+
+      var panel = document.createElement("div");
+      panel.className = "pricing-card__features-panel";
+
+      var toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "pricing-card__features-toggle";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.innerHTML =
+        '<span class="pricing-card__features-toggle-text">See all features</span>' +
+        '<span class="pricing-card__features-chevron" aria-hidden="true">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">' +
+        '<path d="M2.64025 5.67578L8.00006 10.9981L13.3599 5.67578" stroke="currentColor" stroke-width="2"/>' +
+        "</svg></span>";
+
+      tableList.parentNode.insertBefore(toggle, tableList);
+
+      panel.appendChild(tableList);
+      card.appendChild(panel);
+
+      toggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        var isOpen = card.classList.toggle("is-features-open");
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        syncCardHeights();
+      });
+
+      card.dataset.featuresToggleSetup = "1";
+    }
+
+    function updateFeaturesToggleLayout() {
+      var isMobile = window.matchMedia(RECOMMENDED_BADGE_MQ).matches;
+
+      document.querySelectorAll(".pricing-card").forEach(function (card) {
+        if (!isMobile) {
+          card.classList.remove("is-features-open");
+          var toggle = card.querySelector(".pricing-card__features-toggle");
+          if (toggle) toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    var RECOMMENDED_EXTRA_HEIGHT = 40;
+
+    function syncCardHeights() {
+      var isDesktop = window.matchMedia("(min-width: 992px)").matches;
+
+      document.querySelectorAll(".pricing-card-outer").forEach(function (outer) {
+        outer.style.minHeight = "";
+        var card = outer.querySelector(":scope > .pricing-card");
+        if (card) card.style.minHeight = "";
+      });
+
+      if (!isDesktop) return;
+
+      document.querySelectorAll(".pricing__cards.monthly, .pricing__cards.yearly").forEach(function (wrap) {
+        if (wrap.classList.contains("is-hidden")) return;
+
+        var outers = Array.prototype.slice.call(
+          wrap.querySelectorAll(":scope > .pricing-card-outer, :scope > div")
+        ).filter(function (outer) {
+          return !outer.classList.contains("pricing__cards");
+        });
+
+        outers.forEach(function (outer) {
+          outer.style.minHeight = "";
+          var card = outer.querySelector(":scope > .pricing-card");
+          if (card) card.style.minHeight = "";
+        });
+
+        void wrap.offsetHeight;
+
+        var maxOtherOuter = 0;
+        var recommendedOuter = null;
+
+        outers.forEach(function (outer) {
+          if (outer.classList.contains("is-recommended")) {
+            recommendedOuter = outer;
+            return;
+          }
+          maxOtherOuter = Math.max(maxOtherOuter, outer.offsetHeight);
+        });
+
+        if (maxOtherOuter <= 0) return;
+
+        outers.forEach(function (outer) {
+          if (outer.classList.contains("is-recommended")) return;
+          outer.style.minHeight = maxOtherOuter + "px";
+        });
+
+        if (recommendedOuter) {
+          recommendedOuter.style.minHeight = (maxOtherOuter + RECOMMENDED_EXTRA_HEIGHT) + "px";
+        }
+      });
+    }
+
+    function applyCardsLayout(wrap) {
+      if (!wrap) return;
+
+      if (wrap.classList.contains("is-hidden")) {
+        wrap.style.display = "none";
+        return;
+      }
+
+      var isTablet = window.matchMedia("(max-width: 991px)").matches;
+
+      wrap.style.display = "flex";
+      wrap.style.width = "100%";
+      wrap.style.justifyContent = "center";
+      wrap.style.removeProperty("place-content");
+
+      if (isTablet) {
+        wrap.style.flexDirection = "column";
+        wrap.style.alignContent = "flex-start";
+        wrap.style.alignItems = "stretch";
+        wrap.querySelectorAll(":scope > .pricing-card-outer, :scope > div").forEach(function (item) {
+          if (item.classList.contains("pricing__cards")) return;
+          item.style.removeProperty("min-height");
+        });
+      } else {
+        wrap.style.removeProperty("flex-direction");
+        wrap.style.alignContent = "stretch";
+        wrap.style.alignItems = "stretch";
+        syncCardHeights();
+      }
+    }
+
+    function bindResponsiveLayout() {
+      if (bindResponsiveLayout.bound) return;
+      bindResponsiveLayout.bound = true;
+
+      window.matchMedia("(max-width: 991px)").addEventListener("change", function () {
+        document.querySelectorAll(".pricing__cards.monthly, .pricing__cards.yearly").forEach(applyCardsLayout);
+        updateFeaturesToggleLayout();
+        syncCardHeights();
+        updateCycleSlider();
+      });
+
+      window.matchMedia("(min-width: 992px)").addEventListener("change", function () {
+        document.querySelectorAll(".pricing__cards.monthly, .pricing__cards.yearly").forEach(applyCardsLayout);
+        syncCardHeights();
+        updateCycleSlider();
+      });
+    }
+
+    function setupCycleSlider() {
+      var cycleWrap = root.querySelector(".pricing__cycle");
+      if (!cycleWrap || cycleWrap.dataset.cycleSliderSetup) {
+        cycleTrack = root.querySelector(".pricing__cycle-track");
+        cycleThumb = cycleTrack ? cycleTrack.querySelector(".pricing__cycle-thumb") : null;
+        return;
+      }
+
+      var btns = Array.prototype.slice.call(cycleWrap.querySelectorAll("[data-cycle-btn]"));
+      if (btns.length < 2) return;
+
+      cycleTrack = document.createElement("div");
+      cycleTrack.className = "pricing__cycle-track";
+
+      cycleThumb = document.createElement("span");
+      cycleThumb.className = "pricing__cycle-thumb";
+      cycleThumb.setAttribute("aria-hidden", "true");
+      cycleTrack.appendChild(cycleThumb);
+
+      btns.forEach(function (btn) {
+        cycleTrack.appendChild(btn);
+      });
+
+      var saveBlock = cycleWrap.querySelector(".pricing__save-block");
+      cycleWrap.insertBefore(cycleTrack, saveBlock || null);
+
+      cycleWrap.dataset.cycleSliderSetup = "1";
+    }
+
+    function updateCycleSlider() {
+      if (!cycleTrack || !cycleThumb) return;
+
+      var active = cycleTrack.querySelector("[data-cycle-btn].is-active");
+      if (!active) return;
+
+      cycleThumb.style.width = active.offsetWidth + "px";
+      cycleThumb.style.transform = "translateX(" + active.offsetLeft + "px)";
+    }
+
+    function setupDualTables() {
+      monthlyWrap = root.querySelector(".pricing__cards.monthly");
+      yearlyWrap = root.querySelector(".pricing__cards.yearly");
+      hasDualTables = !!(monthlyWrap && yearlyWrap);
+
+      if (!hasDualTables) return;
+
+      if (!root.querySelector(".pricing__cards-track")) {
+        var track = document.createElement("div");
+        track.className = "pricing__cards-track";
+        monthlyWrap.parentNode.insertBefore(track, monthlyWrap);
+        track.appendChild(monthlyWrap);
+        track.appendChild(yearlyWrap);
+      }
+
+      monthlyWrap.style.display = "";
+      yearlyWrap.style.display = "";
+      renderCycleVisibility();
+    }
+
+    function renderCycleVisibility() {
+      if (!hasDualTables) return false;
+
+      var showMonthly = state.cycle === "month";
+
+      monthlyWrap.classList.remove("is-leaving", "is-entering");
+      yearlyWrap.classList.remove("is-leaving", "is-entering");
+
+      monthlyWrap.classList.toggle("is-active", showMonthly);
+      monthlyWrap.classList.toggle("is-hidden", !showMonthly);
+      yearlyWrap.classList.toggle("is-active", !showMonthly);
+      yearlyWrap.classList.toggle("is-hidden", showMonthly);
+
+      applyCardsLayout(monthlyWrap);
+      applyCardsLayout(yearlyWrap);
+      syncCardHeights();
+      updateCycleSlider();
+
+      return true;
+    }
+
+    function getCardPricingCycle(card) {
+      var wrap = card.closest(".pricing__cards");
+      if (wrap) {
+        if (wrap.classList.contains("monthly")) return "monthly";
+        if (wrap.classList.contains("yearly")) return "yearly";
+      }
+      return getPricingCycleKey(state.cycle);
+    }
+
+    function getTaglineEl(card) {
+      return card.querySelector(".pricing-card__tagline p") ||
+        card.querySelector(".separator-pricing + .w-richtext p");
+    }
+
+    function cacheCardOriginals(card) {
+      var taglineEl = getTaglineEl(card);
+      if (taglineEl && !card.dataset.originalTagline) {
+        card.dataset.originalTagline = taglineEl.textContent;
+      }
+
+      var btnText = card.querySelector(".button_main_text");
+      if (btnText && !card.dataset.originalCtaText) {
+        card.dataset.originalCtaText = btnText.textContent.trim();
+      }
+
+      var ctaWrap = card.querySelector(".pricing-card__cta");
+      var ctaLink = ctaWrap ? ctaWrap.querySelector(".clickable_link") : null;
+
+      if (ctaWrap && !ctaWrap.dataset.originalPopupCached) {
+        ctaWrap.dataset.originalPopup = ctaWrap.classList.contains("popup-btn") ? "1" : "0";
+        ctaWrap.dataset.originalPopupCached = "1";
+      }
+
+      if (ctaWrap && ctaLink && !ctaWrap.dataset.originalHref) {
+        ctaWrap.dataset.originalHref = ctaLink.getAttribute("href") || "#";
+      }
+
+      card.dataset.cached = "1";
+    }
+
+    function isExternalHref(href) {
+      href = (href || "").trim();
+      return !!(href && href !== "#" && href.indexOf("javascript:") !== 0);
+    }
+
+    function getUsersFromEl(el) {
+      if (!el) return NaN;
+      if (el.tagName === "INPUT") return parseInt(el.value, 10);
+      return parseInt(el.textContent, 10);
+    }
+
+    function setUsersElValue(el, n) {
+      if (!el) return;
+      if (el.tagName === "INPUT") el.value = n;
+      else el.textContent = n;
+    }
+
+    function clampUsers(n) {
+      if (isNaN(n)) return state.users;
+      return Math.min(CONFIG.maxUsers, Math.max(CONFIG.minUsers, n));
+    }
+
+    function setupUsersInput() {
+      var el =
+        root.querySelector(".pricing__users .pricing__users-value") ||
+        root.querySelector(".pricing__users-value");
+      if (!el) return;
+
+      if (el.tagName === "INPUT") {
+        usersValueEl = el;
+      } else if (el.tagName === "P") {
+        var input = document.createElement("input");
+        input.type = "number";
+        input.className = el.className;
+        input.value = parseInt(el.textContent, 10) || CONFIG.defaultUsers;
+        input.setAttribute("aria-label", "Number of users");
+        input.setAttribute("inputmode", "numeric");
+        el.parentNode.replaceChild(input, el);
+        usersValueEl = input;
+      } else {
+        return;
+      }
+
+      usersValueEl.min = CONFIG.minUsers;
+      usersValueEl.max = CONFIG.maxUsers;
+      usersValueEl.step = 1;
+    }
+
+    function syncInitialState() {
+      if (usersValueEl) {
+        var usersFromDom = getUsersFromEl(usersValueEl);
+        if (!isNaN(usersFromDom)) state.users = clampUsers(usersFromDom);
+      }
+
+      var activeCycleBtn = root.querySelector("[data-cycle-btn].is-active");
+      if (activeCycleBtn) {
+        state.cycle = activeCycleBtn.getAttribute("data-cycle-btn");
+      }
+    }
+
+    function updateUsersUI() {
+      if (!usersValueEl) return;
+      if (document.activeElement !== usersValueEl) {
+        setUsersElValue(usersValueEl, state.users);
+      }
+      if (minusBtn) minusBtn.classList.toggle("is-disabled", state.users <= CONFIG.minUsers);
+      if (plusBtn) plusBtn.classList.toggle("is-disabled", state.users >= CONFIG.maxUsers);
+    }
+
+    function setUsers(n) {
+      n = clampUsers(n);
+      if (n === state.users) {
+        updateUsersUI();
+        return;
+      }
+      state.users = n;
+      updateUsersUI();
+      persistRegistrationContext();
+      renderAll();
+    }
+
+    function commitUsersFromInput() {
+      if (!usersValueEl) return;
+      var n = getUsersFromEl(usersValueEl);
+      if (isNaN(n)) {
+        updateUsersUI();
+        return;
+      }
+      setUsers(n);
+    }
+
+    function changeUsers(delta) {
+      setUsers(state.users + delta);
+    }
+
+    function bindEvents() {
+      if (minusBtn) {
+        minusBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          changeUsers(-1);
+        });
+      }
+
+      if (plusBtn) {
+        plusBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          changeUsers(1);
+        });
+      }
+
+      if (usersValueEl) {
+        usersValueEl.addEventListener("change", commitUsersFromInput);
+        usersValueEl.addEventListener("blur", commitUsersFromInput);
+        usersValueEl.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            usersValueEl.blur();
+          }
+        });
+      }
+
+      cycleBtns.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var cycle = btn.getAttribute("data-cycle-btn");
+          if (cycle === state.cycle) return;
+
+          state.cycle = cycle;
+
+          cycleBtns.forEach(function (b) {
+            b.classList.toggle("is-active", b === btn);
+          });
+
+          handleCycleChange();
+        });
+      });
+    }
+
+    function handleCycleChange() {
+      if (!root) return;
+
+      persistRegistrationContext();
+
+      if (hasDualTables) {
+        renderCycleVisibility();
+      }
+
+      renderAll();
+    }
+
+    function getPlanKey(card) {
+      if (card.classList.contains("pricing-card-essential")) return "essential";
+      if (card.classList.contains("pricing-card-professional")) return "professional";
+      if (card.classList.contains("pricing-card-ultimate")) return "ultimate";
+      return null;
+    }
+
+    function renderCardPrice(card) {
+      var planKey = getPlanKey(card);
+      var currencyPricing = CONFIG.pricing[CONFIG.currency];
+      var planPricing = currencyPricing ? currencyPricing[planKey] : null;
+      var pricingCycle = getCardPricingCycle(card);
+
+      var priceEl = card.querySelector(".pricing-card__price p");
+      var subtextWrap = card.querySelector(".pricing-card__subtext");
+      var totalEl = card.querySelector(".pricing-card__subtext p strong");
+      var cycleNoteEl = card.querySelector(".pricing-card__cycle-note p");
+      var cycleNoteWrap = cycleNoteEl ? cycleNoteEl.parentElement : null;
+      var priceWrap = card.querySelector(".pricing-card__price-wrap");
+
+      if (shouldHidePrice(planKey)) {
+        if (priceEl) priceEl.innerHTML = CONFIG.enterprise.letsTalkText;
+        if (subtextWrap) subtextWrap.style.display = "none";
+        if (cycleNoteWrap) cycleNoteWrap.style.display = "none";
+        if (priceWrap) priceWrap.style.display = "";
+        return;
+      }
+
+      if (subtextWrap) subtextWrap.style.display = "";
+      if (cycleNoteWrap) cycleNoteWrap.style.display = "";
+
+      if (!planPricing || planPricing[pricingCycle] == null) return;
+
+      var unitPrice = planPricing[pricingCycle];
+      var total = Math.round(unitPrice * state.users * 100) / 100;
+
+      if (priceEl) {
+        priceEl.innerHTML = formatPrice(unitPrice, CONFIG.currency) + "<strong> /month</strong>";
+      }
+      if (totalEl) {
+        totalEl.textContent =
+          "total " + formatPrice(total, CONFIG.currency) + "/month for " + state.users + " users";
+      }
+
+      if (!hasDualTables && cycleNoteEl) {
+        cycleNoteEl.textContent = state.cycle === "year" ? "billed yearly" : "billed monthly";
+      }
+    }
+
+    function renderCardCopy(card) {
+      var planKey = getPlanKey(card);
+      if (!planKey || !CONFIG.copy[planKey]) return;
+
+      var taglineEl = getTaglineEl(card);
+      if (!taglineEl) return;
+
+      if (isEnterpriseUsers()) {
+        taglineEl.textContent = CONFIG.copy[planKey].enterprise;
+      } else if (card.dataset.originalTagline) {
+        taglineEl.textContent = card.dataset.originalTagline;
+      }
+    }
+
+    function getRecommendedPlan() {
+      if (state.users <= CONFIG.thresholds.essentialMax) return "essential";
+      if (state.users <= CONFIG.thresholds.professionalMax) return "professional";
+      return "ultimate";
+    }
+
+    function updateRecommendedBadgeLabel(badge) {
+      if (!badge) return;
+
+      if (!badge.dataset.originalText) {
+        badge.dataset.originalText = badge.textContent.trim() || "RECOMMENDED";
+      }
+
+      badge.textContent = window.matchMedia(RECOMMENDED_BADGE_MQ).matches
+        ? RECOMMENDED_BADGE_MOBILE
+        : badge.dataset.originalText;
+    }
+
+    function bindRecommendedBadgeMedia() {
+      if (bindRecommendedBadgeMedia.bound) return;
+      bindRecommendedBadgeMedia.bound = true;
+
+      var mq = window.matchMedia(RECOMMENDED_BADGE_MQ);
+      mq.addEventListener("change", function () {
+        document.querySelectorAll(".pricing-card-outer.is-recommended .pricing-card__recommended, .pricing__cards > div.is-recommended > .pricing-card__recommended").forEach(updateRecommendedBadgeLabel);
+      });
+    }
+
+    function renderRecommendedFlag() {
+      var recommended = getRecommendedPlan();
+
+      cards.forEach(function (card) {
+        var planKey = getPlanKey(card);
+        var isRecommended = planKey === recommended;
+        var wrap = getCardWrap(card);
+
+        card.classList.toggle("is-recommended", isRecommended);
+        if (wrap) wrap.classList.toggle("is-recommended", isRecommended);
+
+        var badge = wrap ? wrap.querySelector(":scope > .pricing-card__recommended") : null;
+        if (badge) {
+          badge.style.display = "";
+          if (isRecommended) updateRecommendedBadgeLabel(badge);
+        }
+      });
+    }
+
+    function renderCardCta(card) {
+      var planKey = getPlanKey(card);
+      if (!planKey) return;
+
+      if (planKey === "professional") {
+        if (renderProfessionalCtAs(card)) return;
+      }
+
+      var useDemo = planKey === "professional"
+        ? isEnterpriseUsers()
+        : shouldUseDemoCta(planKey);
+      var ctaText = useDemo
+        ? CONFIG.enterprise.ctaText
+        : (card.dataset.originalCtaText || "Try for free");
+
+      var btnText = card.querySelector(".button_main_text");
+      var srTexts = card.querySelectorAll(".clickable_text");
+      var ctaWrap = card.querySelector(".pricing-card__cta");
+      var ctaLink = ctaWrap ? ctaWrap.querySelector(".clickable_link") : null;
+
+      if (btnText) btnText.textContent = ctaText;
+      srTexts.forEach(function (el) {
+        el.textContent = ctaText;
+      });
+
+      if (!ctaWrap) return;
+
+      var originalHref = ctaWrap.dataset.originalHref || "#";
+      var usePopup = !useDemo &&
+        ctaWrap.dataset.originalPopup === "1" &&
+        !isExternalHref(originalHref);
+
+      ctaWrap.setAttribute("data-plan", planKey);
+      ctaWrap.classList.toggle("is-demo-cta", useDemo);
+      ctaWrap.classList.toggle("popup-btn", usePopup);
+
+      if (ctaLink) {
+        if (useDemo) {
+          ctaLink.setAttribute("href", CONFIG.enterprise.demoUrl);
+          ctaLink.removeAttribute("target");
+        } else {
+          ctaLink.setAttribute("href", originalHref);
+        }
+      }
+    }
+
+    function hidePlanPrice(planKey) {
+      CONFIG.hiddenPrices[planKey] = true;
+      renderAll();
+    }
+
+    function showPlanPrice(planKey) {
+      delete CONFIG.hiddenPrices[planKey];
+      renderAll();
+    }
+
+    function renderAll() {
+      if (!cards || !cards.length) return;
+      cards.forEach(renderCardPrice);
+      cards.forEach(renderCardCopy);
+      cards.forEach(renderCardCta);
+      renderRecommendedFlag();
+      requestAnimationFrame(function () {
+        syncCardHeights();
+        requestAnimationFrame(function () {
+          syncCardHeights();
+          updateCycleSlider();
+        });
+      });
+    }
+
+    function initTable(tableRoot) {
+      root = tableRoot;
+      minusBtn = root.querySelector(".pricing__users-btn:not(.pricing__users-btn-r)");
+      plusBtn = root.querySelector(".pricing__users-btn-r");
+      cycleBtns = root.querySelectorAll("[data-cycle-btn]");
+      cards = root.querySelectorAll(".pricing-card");
+
+      if (!cards.length) return;
+
+      cards.forEach(setupRecommendedWrapper);
+      cards.forEach(setupFeaturesToggle);
+      cards.forEach(cacheCardOriginals);
+      setupUsersInput();
+      syncInitialState();
+      setupCycleSlider();
+      cycleBtns = root.querySelectorAll("[data-cycle-btn]");
+      setupDualTables();
+      bindEvents();
+      updateUsersUI();
+      renderAll();
+      requestAnimationFrame(updateCycleSlider);
+    }
+
+    function boot() {
+      injectTransitionStyles();
+      bindRecommendedBadgeMedia();
+      bindResponsiveLayout();
+      bindPricingCtaClicks();
+      document.querySelectorAll(".pricing-table").forEach(initTable);
+      window.addEventListener("load", function () {
+        syncCardHeights();
+        updateCycleSlider();
+      });
+      window.addEventListener("resize", function () {
+        clearTimeout(boot.resizeTimer);
+        boot.resizeTimer = setTimeout(function () {
+          syncCardHeights();
+          updateCycleSlider();
+        }, 100);
+      });
+    }
+
+    window.pricingTable = {
+      hidePlanPrice: hidePlanPrice,
+      showPlanPrice: showPlanPrice,
+      setCurrency: function (cur) {
+        CONFIG.currency = cur;
+        renderAll();
+      },
+      getState: function () { return state; },
+      getRegistrationParams: getRegistrationParams,
+      setHiddenPrice: hidePlanPrice,
+      setMinUsers: function (n) {
+        CONFIG.minUsers = n;
+        if (state.users < n) {
+          state.users = n;
+          updateUsersUI();
+        }
+        renderAll();
+      }
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
+
+    if (CONFIG.enableGeoCurrency) {
+      fetch("https://ipapi.co/json/")
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (data) {
+          if (!data || !data.country_code) return;
+          if (CONFIG.eurCountries.indexOf(data.country_code) !== -1) {
+            CONFIG.currency = "eur";
+            renderAll();
+          }
+        })
+        .catch(function () {});
+    }
+
+  })();
+</script>
+<style>
+  .u-text.u-rich-text.w-richtext.pricing-card__price p strong {
+      color: #7F82A4;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135%;
+      letter-spacing: -0.48px;
+  }
+  a.pricing__cycle-btn {
+      border-radius: 999px !important;
+  }
+  .pricing__cycle-track {
+      padding: 0 !important;
+      margin: 0;
+      overflow: hidden;
+      align-items: stretch;
+  }
+  .pricing__cycle-track .pricing__cycle-thumb {
+      top: 0;
+      height: 100%;
+      background: #21D191 !important;
+      box-shadow: none;
+  }
+  .pricing__cycle-track .pricing__cycle-btn.is-active {
+      background: transparent !important;
+      color: #fff !important;
+  }
+  input.pricing__users-value {
+    color: #7F82A4 !important;
+    text-align: center;
+    font-size: 16px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 150%;
+}
+  input.pricing__users-value,
+  .pricing__users input.pricing__users-value {
+      min-width: 48px;
+      width: 48px;
+      max-width: 48px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+      margin: 0;
+      padding: 0;
+      border: 0 !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      outline: none !important;
+      appearance: textfield;
+      -moz-appearance: textfield;
+      -webkit-appearance: none;
+      font: inherit;
+      color: inherit;
+      line-height: inherit;
+      box-sizing: border-box;
+  }
+  input.pricing__users-value:focus,
+  input.pricing__users-value:focus-visible {
+      outline: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+  }
+  input.pricing__users-value::-webkit-outer-spin-button,
+  input.pricing__users-value::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  .pricing__cards-track {
+      width: 100%;
+  }
+  .pricing-card {
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+  }
+  .pricing__cards {
+      display: flex;
+      align-content: stretch;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      overflow: visible;
+      isolation: isolate;
+      padding: 0 40px;
+      box-sizing: border-box;
+  }
+  .pricing__cards > .pricing-card-outer,
+  .pricing__cards > div {
+      flex: 1 1 0;
+      min-width: 0;
+      position: relative;
+      z-index: 0;
+  }
+  .pricing-card-outer.is-recommended,
+  .pricing__cards > div.is-recommended {
+      z-index: 10;
+      overflow: visible;
+      border-radius: 24px;
+      box-shadow: none;
+      transform: translateZ(0);
+  }
+  .pricing-card-outer.is-recommended::before,
+  .pricing__cards > div.is-recommended::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 40px 0 rgba(17, 17, 17, 0.10);
+      pointer-events: none;
+      z-index: 0;
+  }
+  .pricing-card__features-panel {
+      width: 100%;
+  }
+  .pricing-card-outer.is-recommended > .pricing-card__recommended,
+  .pricing__cards > div.is-recommended > .pricing-card__recommended {
+      position: relative;
+      z-index: 1;
+      border-radius: 24px 24px 0 0;
+  }
+  .pricing-card-outer.is-recommended .pricing-card,
+  .pricing__cards > div.is-recommended .pricing-card {
+      position: relative;
+      z-index: 1;
+      border-radius: 0 0 24px 24px;
+      overflow: hidden;
+  }
+  .pricing__save-block {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: -20px;
+  }
+  .u-text.u-rich-text.w-richtext.pricing__save-label {
+      max-width: fit-content !important;
+  }
+  .pricing-card {
+      margin-top: 40px;
+  }
+  .list-2 {
+      width: 54px !important;
+      max-width: 54px !important;
+      height: 24px !important;
+  }
+  .list-1 .u-text.u-rich-text.w-richtext.pricing__users-label {
+      padding-right: 41px;
+  }
+  .pricing-table .u-text.u-rich-text.w-richtext.min-h-72, .pricing-card__features-panel .u-text.u-rich-text.w-richtext.pricing__users-label {
+      font-size: 16px !important;
+  }
+  .pricing__users-btn {
+      height: 40px !important;
+  }
+  @media (min-width: 992px) {
+  .pricing__cards {
+    align-items: flex-start;
+  }
+  .pricing-card-outer {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+  }
+  .pricing-card-outer .pricing-card {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  }
+  .pricing-card-outer.is-recommended .button_main_element.w-variant-e85564cd-af30-a478-692b-71732aefb3ab {
+      position: relative;
+      overflow: hidden;
+      background-color: #5d2bff;
+      border: none !important;
+  }
+  .pricing-card-outer.is-recommended .button_main_element.w-variant-e85564cd-af30-a478-692b-71732aefb3ab::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(270deg, #5d2bff, #ab40ff);
+      opacity: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      transition: opacity 0.3s ease-out;
+      z-index: 0;
+  }
+  .pricing-card-outer.is-recommended .button_main_wrap:is(:hover, :focus-within) .button_main_element.w-variant-e85564cd-af30-a478-692b-71732aefb3ab::before {
+      opacity: 1;
+  }
+  .pricing-card-outer.is-recommended .button_main_element.w-variant-e85564cd-af30-a478-692b-71732aefb3ab .button_main_text,
+  .pricing-card-outer.is-recommended .button_main_element.w-variant-e85564cd-af30-a478-692b-71732aefb3ab .button_main_icon {
+      position: relative;
+      z-index: 1;
+  }
+  .pricing-card-outer.is-recommended .button_main_text.u-text-style-main:where(.w-variant-e85564cd-af30-a478-692b-71732aefb3ab) {
+      color: #fff !important;
+  }
+  .pricing-card-outer.is-recommended .button_main_wrap:is(:hover, :focus-within) .button_main_text.u-text-style-main:where(.w-variant-e85564cd-af30-a478-692b-71732aefb3ab) {
+      color: #fff !important;
+  }
+  .pricing-card-outer.is-recommended {
+      z-index: 9 !important;
+  }
+  .pricing-card-professional .pricing-demo {
+      display: none;
+  }
+  .pricing-card-professional.is-enterprise-users .pricing-demo {
+      display: revert;
+  }
+  .pricing-card-professional.is-enterprise-users .pricing-trial {
+      display: none;
+  }
+  .pricing-card.pricing-card-professional {
+      box-shadow: 0 -20px 40px -20px rgba(17, 17, 17, 0.10), 0 20px 40px -20px rgba(17, 17, 17, 0.10);
+  }
+  .pricing-card.pricing-card-essential {
+      box-shadow: 8px 0 40px -8px rgba(17, 17, 17, 0.10);
+  }
+  .pricing-card.pricing-card-professional {
+      box-shadow: 0 -20px 20px -20px rgba(17, 17, 17, 0.10), 0 20px 20px -20px rgba(17, 17, 17, 0.10);
+  }
+  .pricing-card.pricing-card-ultimate {
+      box-shadow: 10px -12px 20px -12px rgba(17, 17, 17, 0.10), 10px 12px 20px -12px rgba(17, 17, 17, 0.10);
+  }
+  .pricing__cards.yearly.is-active {
+      padding: 0px;
+  }
+  .pricing-table .button_main_text.u-text-style-main {
+      font-size: 16px !important;
+  }
+  .pricing__cards.monthly {
+      padding: 0px;
+  }
+  @media (max-width: 991px) {
+  .pricing__cards-track>.pricing__cards {
+    padding: 0px;
+  }
+  .pricing__cards {
+    align-items: stretch;
+    gap: 24px;
+  }
+  .pricing__cards > .pricing-card-outer,
+  .pricing__cards > div {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0;
+    width: 100%;
+  }
+  .pricing-card-outer {
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .pricing-card-outer .pricing-card {
+    flex: 0 0 auto;
+    height: auto;
+  }
+  .pricing-card .min-h-72 {
+    min-height: 0 !important;
+  }
+  .pricing-card {
+    margin-top: 0;
+    border-radius: 24px;
+    box-shadow: 0 0 40px 0 rgba(17, 17, 17, 0.10);
+  }
+  .pricing-card__price-wrap {
+    min-height: auto;
+  }
+  .pricing-card__features-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 24px 0 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--Color-text-accent, #5D2BFF);
+    font-family: var(--primary-family, Inter);
+    font-size: var(--font-size-text-main, 16px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    cursor: pointer;
+  }
+  .pricing-card__features-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--Color-text-accent, #5D2BFF);
+  }
+  .pricing-card__features-panel {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    visibility: hidden;
+    transition:
+      max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.35s ease,
+      padding-top 0.35s ease,
+      visibility 0s linear 0.45s;
+  }
+  .pricing-card.is-features-open .pricing-card__features-panel {
+    max-height: 3200px;
+    opacity: 1;
+    padding-top: 30px;
+    visibility: visible;
+    transition:
+      max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.4s ease 0.06s,
+      padding-top 0.35s ease,
+      visibility 0s linear 0s;
+  }
+  .pricing-card.is-features-open .pricing-card__features-chevron {
+    transform: rotate(180deg);
+  }
+  button.pricing-card__features-toggle {
+    margin-top: 32px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .pricing-card-outer.is-recommended {
+    margin-top: 40px;
+  }
+  }
+  @media (min-width: 992px) {
+  .pricing-card__features-toggle {
+    display: none !important;
+  }
+  .pricing-card__features-panel {
+    display: block !important;
+  }
+  }
+  @media (max-width: 768px) {
+  .u-text.u-rich-text.w-richtext.pricing__save-label {
+      position: absolute;
+      z-index: 9999;
+      transform: rotate(-8deg);
+      transform-origin: center center;
+  }
+  .u-image-wrapper.w-variant-065af4d8-6b19-ec4b-49fc-f1f59a96fbd6.pdt-40.mobile-price-tag {
+    width: 70px;
+  }
+  .pricing__save-block {
+    margin-left: 210px;
+    margin-top: -65px;
+  }
+  .pricing__save-block {
+    gap: 0px;
+  }
+  .u-text.u-rich-text.w-richtext.pricing__save-label, .u-image-wrapper.w-variant-065af4d8-6b19-ec4b-49fc-f1f59a96fbd6.pdt-40.w-44 {
+    display: none !important;
+  }
+  section.u-section.w-variant-1a3d5ec3-4c8f-e0d2-6441-14e520c8c1de {
+    margin-top: 40px;
+  }
+  }
+</style>
