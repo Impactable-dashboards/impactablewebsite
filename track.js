@@ -6,6 +6,47 @@
 (function () {
   'use strict';
 
+  /* Snappier link/button response: no 300ms tap delay, no transition lag on press */
+  try {
+    var snap = document.createElement('style');
+    snap.textContent = 'a,button,.btn,.gnav-link,.gnav-trigger,.gnav-cta{touch-action:manipulation}.btn,.gnav .btn{transition:background-color .15s ease,color .15s ease,border-color .15s ease,box-shadow .15s ease,transform .15s ease!important}a:active,.btn:active,.gnav-link:active,.gnav-cta:active{transition-duration:0s!important}';
+    document.head.appendChild(snap);
+  } catch (e) {}
+
+  /* Prefetch internal pages so cross-page navigation feels instant */
+  var prefetched = {};
+  function prefetchPath(path) {
+    if (!path || path.charAt(0) !== '/' || prefetched[path]) return;
+    prefetched[path] = 1;
+    var link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = path;
+    document.head.appendChild(link);
+  }
+  function prefetchFromAnchor(a) {
+    if (!a) return;
+    var url = a.getAttribute('href');
+    if (!url || url.charAt(0) !== '/' || url.indexOf('#') === 0) return;
+    prefetchPath(url.split('#')[0]);
+  }
+  function onLinkIntent(e) {
+    prefetchFromAnchor(e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null);
+  }
+  document.addEventListener('mouseover', onLinkIntent, { passive: true });
+  document.addEventListener('mousedown', onLinkIntent, { passive: true });
+  document.addEventListener('touchstart', onLinkIntent, { passive: true });
+
+  var warmPaths = ['/pricing', '/google', '/thought-leadership', '/intelligence-room', '/linkedin-launch', '/linkedin-scale', '/marketing-ecosystem', '/competitor-intel-report'];
+  function warmNav() {
+    warmPaths.forEach(prefetchPath);
+    document.querySelectorAll('a[href^="/"]').forEach(function (a) { prefetchFromAnchor(a); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', warmNav);
+  } else {
+    warmNav();
+  }
+
   function track(name, data) {
     try {
       if (typeof window.va === 'function') {
