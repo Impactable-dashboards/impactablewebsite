@@ -254,8 +254,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   /* OPTIMIZATION LOOP */
   .loop2{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center;}
   .loop-list{list-style:none;display:grid;gap:13px;}
-  .loop-list li{display:flex;gap:12px;align-items:flex-start;font-size:1.06rem;color:var(--text-muted);}
-  .loop-list li .tick{color:var(--canopy);font-weight:800;flex:none;}
+  .loop-list li{position:relative;padding-left:26px;font-size:1.06rem;color:var(--text-muted);}
+  .loop-list li .tick{position:absolute;left:0;top:0;color:var(--canopy);font-weight:800;}
 
   /* PRICING */
   .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
