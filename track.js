@@ -91,6 +91,10 @@
       track('book_call_click', { page: PAGE, dest: bookingDest(href), value: 25 });
       return;
     }
+    if (href.indexOf('ad-revenue-forecaster') !== -1) {
+      track('forecaster_click', { page: PAGE, value: 15 });
+      return;
+    }
     if (href.indexOf('competitor-intel-report') !== -1) {
       track('offer_cta_click', { page: PAGE, value: 10 });
       return;
