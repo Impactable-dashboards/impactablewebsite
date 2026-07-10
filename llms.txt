@@ -12,8 +12,6 @@ Impactable is a B2B marketing agency founded and led by Justin Rowe. LinkedIn na
 - Productized diagnostics: the free Competitor Intel Report, the Impact Report, and the Foundational Strategy
 
 ## Proof
-- 6.7x return on Impactable's own LinkedIn spend
-- 5x close rate on multi-signal accounts
 - $50M+ in B2B ad spend managed
 - Lacework: 6X ROI, published by LinkedIn as a customer story
 - HeyReach: 20x ROAS
