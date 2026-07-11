@@ -317,7 +317,7 @@ section{position:relative}
 /* ── where this fits trio ── */
 .xfit{background:var(--asphalt)}
 .xfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-.xfit-card{border:1px solid var(--line);border-radius:8px;padding:24px 22px;background:var(--concrete);transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
+.xfit-card{border:1px solid var(--line);border-radius:8px;padding:24px 22px;background:var(--concrete);transition:transform .25s,border-color .25s;display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer}
 .xfit-card:hover{transform:translateY(-3px);border-color:var(--blue)}
 .xfit-card .xk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:10px}
 .xfit-card p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:16px}
@@ -1494,21 +1494,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="eyebrow">Where this fits</span>
     </div>
     <div class="xfit-grid reveal">
-      <div class="xfit-card">
+      <a class="xfit-card" href="/intelligence-room">
         <div class="xk">Foundational Strategy</div>
         <p>Not sure your foundation is right? Get the plan first.</p>
-        <a class="xlink" href="/intelligence-room">&rarr;</a>
-      </div>
-      <div class="xfit-card">
+        <span class="xlink">&rarr;</span>
+      </a>
+      <a class="xfit-card" href="/google">
         <div class="xk">B2B Paid Search</div>
         <p>Add Google so demand capture and creation run as one.</p>
-        <a class="xlink" href="/google">&rarr;</a>
-      </div>
-      <div class="xfit-card">
+        <span class="xlink">&rarr;</span>
+      </a>
+      <a class="xfit-card" href="/marketing-ecosystem">
         <div class="xk">Full Ecosystem</div>
         <p>See how LinkedIn feeds the whole system.</p>
-        <a class="xlink" href="/marketing-ecosystem">&rarr;</a>
-      </div>
+        <span class="xlink">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>
