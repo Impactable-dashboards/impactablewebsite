@@ -121,6 +121,22 @@ theater. Confident, not crude. We say the quiet part out loud and never hide beh
 **Calibrate by audience:** keep the swagger everywhere; ease the slang slightly on
 mid-market pages (Pricing, Marketing Ecosystem). SMB founder pages can take the most edge.
 
+## 7. Framing and ecosystem consistency (every page)
+
+This is what keeps the whole site feeling like one operating system, not ten separate pages.
+
+**Positive framing.** Lead with the capability and the outcome, not the buyer's failure. Name the lazy default we beat (other agencies, the old way, channels run in isolation), never tell the reader their business is broken. If a line diagnoses a problem, resolve it to the positive in the same breath. Avoid buyer-negative openers: "your X is broken," "you're wasting / leaking," "you're guessing / flying blind," "spend is up, pipeline isn't." Keep the contrarian edge pointed at the industry, not the customer.
+
+**Connect every channel to the ecosystem.** No service page sells a channel in isolation. Each one says how that channel feeds and is fed by the operating system: LinkedIn creates demand, search captures it, content earns trust, signals route it, email and connect plays close it. The channel is a layer; the system is the point. Link out to the related pages so a reader can flow across the ecosystem.
+
+**Anchor to the UVP, everywhere.** Every page ladders to the same engine: map competitors, find where you win, concentrate budget on the highest-leverage accounts, read the signals the motion throws off, compound into pipeline. Use the same entity language site-wide: the B2B marketing intelligence partner (command center), the operating system, the signals hub, "compound," "pipeline, not clicks."
+
+**Pre-publish framing check (add to the QA gate):**
+- Does the hero lead positive, capability or outcome first?
+- Is the enemy the industry or the old way, not the buyer?
+- Does the page connect its channel to the ecosystem and anchor to the UVP?
+- Same voice and entity language as the rest of the site?
+
 ---
 
 *Sources: Impactable Messaging & Offer Architecture v2.0; Impactable Brand Bible v2.9
