@@ -207,9 +207,9 @@
 
   function mkEl(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
 
-  var mbar = mkEl('<div class="imp-mbar"><a class="imp-cta-btn imp-mbar-primary" data-imp-src="mobile" href="' + BOOK + '">Book a call</a><a class="imp-cta-btn imp-mbar-alt" data-imp-src="mobile" href="/competitor-intel-report">Free report</a></div>');
+  var mbar = mkEl('<div class="imp-mbar"><a class="imp-cta-btn imp-mbar-primary" data-imp-src="mobile" href="' + BOOK + '">Book a call</a><a class="imp-cta-btn imp-mbar-alt" data-imp-src="mobile" href="/competitor-intel-report">Free competitor intel</a></div>');
   var spill = mkEl('<a class="imp-cta-btn imp-spill" data-imp-src="sticky" href="' + BOOK + '">' + pillLabel + '</a>');
-  var exit = !isTouch ? mkEl('<div class="imp-exit" role="dialog" aria-modal="true" aria-label="Free competitor intel report"><div class="imp-exit-card"><button class="imp-exit-x" type="button" aria-label="Close">&times;</button><h3>Before you go &mdash; see your competitors&rsquo; playbook.</h3><p>Get the free Competitor Intel Report: exactly what your competitors run on LinkedIn, and the audience lanes they leave open. No call required.</p><a class="imp-cta-btn imp-exit-cta" data-imp-src="exit" href="/competitor-intel-report">Get the free report &rarr;</a></div></div>') : null;
+  var exit = !isTouch ? mkEl('<div class="imp-exit" role="dialog" aria-modal="true" aria-label="Free competitor intel report"><div class="imp-exit-card"><button class="imp-exit-x" type="button" aria-label="Close">&times;</button><h3>Before you go &mdash; see your competitors&rsquo; playbook.</h3><p>Get the free Competitor Intel Report: exactly what your competitors run on LinkedIn, and the audience lanes they leave open. No call required.</p><a class="imp-cta-btn imp-exit-cta" data-imp-src="exit" href="/competitor-intel-report">Get your free competitor intel &rarr;</a></div></div>') : null;
 
   function mount() {
     try {
