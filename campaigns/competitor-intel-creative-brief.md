@@ -35,7 +35,7 @@ tactics. They want proof and a partner who already knows the field.
 
 ## 4. The offer (what we are pushing)
 
-**Competitor Intel Report + Targeting Worksheet.** Three documents, built by hand, free,
+**Competitor Intel Report + Targeting Worksheet.** Three documents, built for you, free,
 48-hour turnaround:
 1. **Competitor Intel** - what your top rivals run on LinkedIn: angles, offers, positioning.
 2. **Open Lanes Report** - the gaps they leave open that you can own.
@@ -127,7 +127,7 @@ prospect we have not worked with.
 
 **Subheads / support lines:**
 - "Three documents: competitor intel, the open lanes, and a signal-composed targeting worksheet."
-- "Built by hand in 48 hours. No pitch unless you ask."
+- "Built for you in 48 hours. No pitch unless you ask."
 - "Composed from 8 signals and 200+ campaigns, not a native filter."
 
 **CTAs (test these):**
@@ -145,7 +145,7 @@ prospect we have not worked with.
   flat and generic (what everyone else gives). Right, dominant: the vine + node network in
   brand blue/green, alive and connected (our process). An orange CTA chip anchors the right.
 - **Headline:** "A report is the output. The process is the point."
-- **Support:** "Free competitor intel, the open lanes, and a signal-composed targeting worksheet. Built by hand in 48 hours."
+- **Support:** "Free competitor intel, the open lanes, and a signal-composed targeting worksheet. Built for you in 48 hours."
 - **Why it works:** dramatizes the exact gap we own. Warm buyers instantly get that we give more than a file.
 
 ### Concept B: Competitor Landscape Decoded

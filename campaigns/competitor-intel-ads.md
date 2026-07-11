@@ -53,7 +53,7 @@ On our own spend, that system returned 6.7x.
 
 ### Ad 2B: Follower / Single Image (benefit promise)
 **Headline:** See the open lanes your competitors leave wide open.
-**Body:** We will analyze your top three competitors on LinkedIn and hand you the angles nobody is occupying that you can own. Plus a signal-composed targeting worksheet. Three documents, built by hand, free.
+**Body:** We will analyze your top three competitors on LinkedIn and hand you the angles nobody is occupying that you can own. Plus a signal-composed targeting worksheet. Three documents, built for you, free.
 **CTA:** Get the free report
 
 ### Ad 2C: Video testimonial frame (caption)
@@ -66,7 +66,7 @@ On our own spend, that system returned 6.7x.
 **Job:** one specific, low-friction ask. Formats: Lead Gen Form, conversation ad, landing page. No awareness content.
 
 ### Ad 3A: Lead Gen Form
-**Headline:** Free competitor intel report, built by hand in 48 hours.
+**Headline:** Free competitor intel report, built for you in 48 hours.
 **Body:** Tell us your top three competitors. We build three documents: a competitor intel report, an open-lanes report, and a signal-composed targeting worksheet. Yours to keep, no pitch unless you ask.
 **Form (4 fields):** First name | Work email | Company | Top 3 competitors
 **CTA:** Get my free report

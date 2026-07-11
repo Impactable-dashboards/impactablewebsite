@@ -15,7 +15,7 @@ Worksheet), not three. Do not use "287 accounts." Per brand, say "the accounts a
 4. **Kill the sameness.** Do not put a node map on every ad. Vary the device: document, matrix,
    funnel, highlighter, redaction, stopwatch, map.
 5. **One orange, for the CTA only.** Core navy/blue, black, white, neutrals, canopy/moss accents.
-6. **Honesty sells the value.** No fake price tags. Use "built by hand," "the same diagnostic we
+6. **Honesty sells the value.** No fake price tags. Use "built for you," "the same diagnostic we
    run before a client's first dollar," "60 to 90 minutes of our analysts." All true, all valuable.
 
 **CTA options (keep short):** "Send your 3 competitors" / "Grab the free reports" / "Get the intel" / "Claim your 2 reports"
@@ -28,7 +28,7 @@ Worksheet), not three. Do not use "287 accounts." Per brand, say "the accounts a
 CTA: Send your 3 competitors.
 Design: a polished report cover tilted in 3D, titled "Competitor Intel + Targeting," with a canopy-green "FREE" wax seal stamped on the corner. It looks like a real, valuable deliverable being handed over.
 
-**02.** On-image: **"Two documents. Built by hand. $0."**  Sub: "Competitor intel and a targeting worksheet, in 48 hours."
+**02.** On-image: **"Two documents. Built for you. $0."**  Sub: "Competitor intel and a targeting worksheet, in 48 hours."
 Design: two report covers fanned side by side, each labeled (Competitor Intel / Audience Targeting). A bold "$0" as the hero element. Clean, high-contrast, premium.
 
 **03.** On-image: **"Most agencies charge for this. We do it free to earn the work."**

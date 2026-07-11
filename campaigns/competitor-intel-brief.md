@@ -30,7 +30,7 @@ low-friction, board-relevant hand-raise that proves how we think before money ch
 
 ## 2. The offer (renamed for clarity)
 
-**Competitor Intel Report + Targeting Worksheet.** Three documents, built by hand, 48-hour
+**Competitor Intel Report + Targeting Worksheet.** Three documents, built for you, 48-hour
 turnaround. "White space" was insider jargon, so the customer-facing language is now plain.
 
 | # | Document | What it is |

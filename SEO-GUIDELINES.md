@@ -59,7 +59,7 @@ Schema must describe **visible** content (never fabricate). Required by page typ
 - **Answer first.** Put the direct, extractable answer in the first sentence of a
   section; elaborate after. AI engines lift concise, self-contained answers.
 - **Be specific and quantitative.** Named numbers, named clients, concrete steps.
-  "6.7x on our own spend," "$20k/mo waste at $100k spend," "Built by hand in 48 hours."
+  "6.7x on our own spend," "$20k/mo waste at $100k spend," "Built for you in 48 hours."
   Vague claims never get cited.
 - **Entity consistency.** Describe Impactable the same way everywhere (site, llms.txt,
   schema, LinkedIn): "the B2B Demand Intelligence System," certified LinkedIn Marketing

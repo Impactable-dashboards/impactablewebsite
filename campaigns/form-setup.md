@@ -21,7 +21,7 @@ company, and top 3 competitors. More than that and the no-brainer feeling goes a
 
 ## After a submission lands
 Set up a ClickUp automation on the Leads list: new task from form to notify the team and create a
-48-hour delivery task, so the "built by hand in 48 hours" promise is met.
+48-hour delivery task, so the "built for you in 48 hours" promise is met.
 
 ---
 
