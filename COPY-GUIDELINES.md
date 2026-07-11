@@ -97,6 +97,28 @@ adjectives where one works, and any sentence that would still be true for a comp
 | Creative alignment scores above 80 and CTR doubles | The biggest waste in paid is the right message in the wrong format for the stage |
 | A strategy that helps you grow — quarter after quarter | We build the strategy foundation. We re-cut it every quarter. |
 
+## 6. The voice dial: grit / real-talk (default setting)
+
+Our default register is **grit**: real-talk, direct, a little swagger. We sound like
+a sharp operator who has run this a hundred times and has no patience for agency
+theater. Confident, not crude. We say the quiet part out loud and never hide behind polish.
+
+**Do:**
+- Say what agencies actually do, out loud: "take the order and start spending," "a dashboard nobody on your exec team opens."
+- Short, declarative, punchy. Fragments are fine. Write it like you'd say it across a table.
+- Carry some attitude: "We actually know." "Stop paying to reach accounts that won't buy."
+- Second person, present tense, active voice. One operator, talking to another.
+- Back the swagger with a number or a named proof right beside it.
+
+**Don't:**
+- Profanity, crude language, or slang for its own sake. Grit is attitude, not vulgarity.
+- Punch down at the buyer. We call out lazy agencies, never the reader.
+- Inflate. Grit is more honest, not more hyped (the section 3 bans still hold).
+- Trade specificity for a punchy line. A gritty line still names a real number or behavior.
+
+**Calibrate by audience:** keep the swagger everywhere; ease the slang slightly on
+mid-market pages (Pricing, Marketing Ecosystem). SMB founder pages can take the most edge.
+
 ---
 
 *Sources: Impactable Messaging & Offer Architecture v2.0; Impactable Brand Bible v2.9
