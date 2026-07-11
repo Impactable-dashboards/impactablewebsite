@@ -99,6 +99,8 @@ adjectives where one works, and any sentence that would still be true for a comp
 
 ## 6. The voice dial: grit / real-talk (default setting)
 
+**Source of truth: `VOICE-DNA.md`** (Justin's full website Voice DNA) governs all site copy; when the two differ, the DNA wins. Key calibration: this is *cleaned-up Justin*, not raw LinkedIn. Keep directness, specificity, and the contrarian stance at full strength; dial stylistic quirks (ALL CAPS, ellipses, slang) down to ~30%, never crude. This section is the quick reference.
+
 Our default register is **grit**: real-talk, direct, a little swagger. We sound like
 a sharp operator who has run this a hundred times and has no patience for agency
 theater. Confident, not crude. We say the quiet part out loud and never hide behind polish.
