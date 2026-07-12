@@ -906,6 +906,14 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
     <div class="vwall reveal">
       <div class="vcard">
         <div class="vmedia">
+          <button class="vfac" type="button" data-yt="ahUK2NUXs-k" aria-label="Play the Lacework interview, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/ahUK2NUXs-k/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vmedia">
           <button class="vfac" type="button" data-yt="IZ7SohPLbSs" aria-label="Play video, loads YouTube embed">
             <img loading="lazy" src="https://i.ytimg.com/vi/IZ7SohPLbSs/hqdefault.jpg" alt="">
             <span class="vplay" aria-hidden="true"></span>
@@ -1050,7 +1058,7 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
       </div>
     </div>
     <div style="text-align:center;margin-top:24px">
-      <button type="button" class="vmore" id="vmore">Show all 18 videos &darr;</button>
+      <button type="button" class="vmore" id="vmore">Show all 19 videos &darr;</button>
     </div>
     <p class="lc-cap" style="margin-top:22px">See more on <a href="https://www.youtube.com/@Impactable-B2B-Agency" target="_blank" rel="noopener" style="color:var(--blue-soft)">our YouTube channel &rarr;</a> &middot; Want us on your show or panel? <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html" style="color:var(--blue-soft)">Get in touch &rarr;</a></p>
   </div>
@@ -1072,6 +1080,38 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
   });
   var mb=document.getElementById('vmore');
   if(mb){mb.addEventListener('click',function(){document.querySelectorAll('.vcard.vhide').forEach(function(c){c.classList.remove('vhide');});mb.remove();});}
+})();
+</script>
+
+<!-- ════ EDUCATIONAL VIDEOS ════ -->
+<section class="sec evt-sec" id="learn">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Learn the plays</span>
+      <h2 class="sec-title">Educational, how-to &amp; workshops</h2>
+      <p class="sec-desc">The actual playbooks, walkthroughs, and tool tours we run. No gate, no pitch. See how the system works under the hood.</p>
+    </div>
+    <div class="vwall reveal">
+      <div class="vcard"><div class="vmedia"><button class="vfac" type="button" data-yt="HoJlEt7gFbI" data-start="4" aria-label="Play video, loads YouTube embed"><img loading="lazy" src="https://i.ytimg.com/vi/HoJlEt7gFbI/hqdefault.jpg" alt=""><span class="vplay" aria-hidden="true"></span></button></div></div>
+      <div class="vcard"><div class="vmedia"><button class="vfac" type="button" data-yt="s_lW9PW_NT8" data-start="29" aria-label="Play video, loads YouTube embed"><img loading="lazy" src="https://i.ytimg.com/vi/s_lW9PW_NT8/hqdefault.jpg" alt=""><span class="vplay" aria-hidden="true"></span></button></div></div>
+      <div class="vcard"><div class="vmedia"><button class="vfac" type="button" data-yt="7Pqs4jgyZA4" aria-label="Play video, loads YouTube embed"><img loading="lazy" src="https://i.ytimg.com/vi/7Pqs4jgyZA4/hqdefault.jpg" alt=""><span class="vplay" aria-hidden="true"></span></button></div></div>
+    </div>
+    <p class="lc-cap" style="margin-top:22px">More how-to on <a href="https://www.youtube.com/@Impactable-B2B-Agency" target="_blank" rel="noopener" style="color:var(--blue-soft)">our YouTube channel &rarr;</a></p>
+  </div>
+</section>
+<script>
+(function(){
+  document.querySelectorAll('#learn .vfac').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-yt'),st=b.getAttribute('data-start');
+      var f=document.createElement('iframe');f.className='vframe-i';
+      f.setAttribute('src','https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0'+(st?'&start='+st:''));
+      f.setAttribute('title','YouTube video');f.setAttribute('frameborder','0');
+      f.setAttribute('allow','accelerated-sensors; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      f.setAttribute('allowfullscreen','');
+      b.replaceWith(f);
+    });
+  });
 })();
 </script>
 
