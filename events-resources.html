@@ -783,7 +783,7 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
 .evg-proof{position:absolute;right:24px;bottom:18px;font-family:'Archivo Black',sans-serif;font-size:clamp(28px,4vw,46px);line-height:.9;transform:rotate(-4deg);text-shadow:0 6px 18px rgba(0,0,0,.5)}
 .evg-proof .evg-p1{color:var(--canopy)}.evg-proof .evg-p2{color:var(--bone)}
 /* interview / collab video wall */
-.vwall{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+.vwall{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:8px}
 .vcard{background:var(--concrete);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s}
 .vcard:hover{border-color:var(--line);transform:translateY(-3px)}
 .vmedia{position:relative;aspect-ratio:16/9;width:100%;background:#0a1f3d}
@@ -797,7 +797,10 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
 .vfoot{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
 .vfoot .vkick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-soft)}
 .vfoot .vwatch{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim)}
-@media(max-width:760px){.vwall{grid-template-columns:1fr}}
+.vcard.vhide{display:none}
+.vmore{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--bone);background:var(--concrete);border:1px solid var(--line);border-radius:100px;padding:11px 22px;cursor:pointer;transition:border-color .2s,color .2s}
+.vmore:hover{border-color:var(--blue)}
+@media(max-width:520px){.vwall{grid-template-columns:1fr 1fr;gap:12px}}
 </style>
 
 <section class="sec evt-sec" id="upcoming">
@@ -897,8 +900,8 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">On camera</span>
-      <h2 class="sec-title">Interviews &amp; collaborations</h2>
-      <p class="sec-desc">The B2B community brings us on to talk shop: what works on LinkedIn, how to report on pipeline, and where the budget gets wasted. A few of the conversations worth your time.</p>
+      <h2 class="sec-title">Talks, interviews &amp; collaborations</h2>
+      <p class="sec-desc">The B2B community brings us on to talk shop, and we host our own sessions too. Interviews, podcasts, and workshops on what actually works in B2B LinkedIn.</p>
     </div>
     <div class="vwall reveal">
       <div class="vcard">
@@ -908,7 +911,6 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
             <span class="vplay" aria-hidden="true"></span>
           </button>
         </div>
-        <div class="vfoot"><span class="vkick">Interview</span><span class="vwatch">Watch &rarr;</span></div>
       </div>
       <div class="vcard">
         <div class="vmedia">
@@ -917,7 +919,6 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
             <span class="vplay" aria-hidden="true"></span>
           </button>
         </div>
-        <div class="vfoot"><span class="vkick">Collaboration</span><span class="vwatch">Watch &rarr;</span></div>
       </div>
       <div class="vcard">
         <div class="vmedia">
@@ -926,7 +927,6 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
             <span class="vplay" aria-hidden="true"></span>
           </button>
         </div>
-        <div class="vfoot"><span class="vkick">Interview</span><span class="vwatch">Watch &rarr;</span></div>
       </div>
       <div class="vcard">
         <div class="vmedia">
@@ -935,10 +935,124 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
             <span class="vplay" aria-hidden="true"></span>
           </button>
         </div>
-        <div class="vfoot"><span class="vkick">Collaboration</span><span class="vwatch">Watch &rarr;</span></div>
+      </div>
+      <div class="vcard">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="QMPBgv0T8KU" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/QMPBgv0T8KU/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="N4cxTa8ML18" data-start="29" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/N4cxTa8ML18/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="GU2AaN2FTDg" data-start="3" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/GU2AaN2FTDg/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="_cXliYsiHdg" data-start="551" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/_cXliYsiHdg/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="abAMikPimis" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/abAMikPimis/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="VhUkHgV_v-I" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/VhUkHgV_v-I/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="G5Q1HtbkS6I" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/G5Q1HtbkS6I/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="0TeWhSKq_Bw" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/0TeWhSKq_Bw/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="9dDlS919144" data-start="9" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/9dDlS919144/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="1Z44wrAHpbE" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/1Z44wrAHpbE/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="qfS4D3SzIYA" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/qfS4D3SzIYA/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="NPVIqqECWG4" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/NPVIqqECWG4/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="zB9Mpg2gS48" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/zB9Mpg2gS48/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="vcard vhide">
+        <div class="vmedia">
+          <button class="vfac" type="button" data-yt="zt_Aud1Ls_g" data-start="2" aria-label="Play video, loads YouTube embed">
+            <img loading="lazy" src="https://i.ytimg.com/vi/zt_Aud1Ls_g/hqdefault.jpg" alt="">
+            <span class="vplay" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </div>
-    <p class="lc-cap" style="margin-top:20px">Want us on your show or panel? <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html" style="color:var(--blue-soft)">Get in touch &rarr;</a></p>
+    <div style="text-align:center;margin-top:24px">
+      <button type="button" class="vmore" id="vmore">Show all 18 videos &darr;</button>
+    </div>
+    <p class="lc-cap" style="margin-top:22px">See more on <a href="https://www.youtube.com/@Impactable-B2B-Agency" target="_blank" rel="noopener" style="color:var(--blue-soft)">our YouTube channel &rarr;</a> &middot; Want us on your show or panel? <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html" style="color:var(--blue-soft)">Get in touch &rarr;</a></p>
   </div>
 </section>
 <script>
@@ -956,6 +1070,8 @@ html[data-theme="light"] .er-final h2,html[data-theme="light"] .er-final p{color
       b.replaceWith(f);
     });
   });
+  var mb=document.getElementById('vmore');
+  if(mb){mb.addEventListener('click',function(){document.querySelectorAll('.vcard.vhide').forEach(function(c){c.classList.remove('vhide');});mb.remove();});}
 })();
 </script>
 
