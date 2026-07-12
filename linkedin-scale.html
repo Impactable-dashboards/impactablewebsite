@@ -1535,6 +1535,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="cs-media reveal">
+      <style>
+      .cs-video{position:relative;aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0a1f3d;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+      .csvfac{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:transparent;display:block}
+      .csvfac img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .25s,transform .35s}
+      .csvfac:hover img{opacity:1;transform:scale(1.03)}
+      .csvcap{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;color:#F4F1EA;background:linear-gradient(0deg,rgba(4,12,24,.82),rgba(4,12,24,0));text-align:left;pointer-events:none}
+      .csvplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(255,182,39,.96);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.45);transition:transform .2s}
+      .csvplay::before{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #071A38;margin-left:4px}
+      .csvfac:hover .csvplay{transform:translate(-50%,-50%) scale(1.08)}
+      .csv-i{position:absolute;inset:0;width:100%;height:100%;border:0}
+      </style>
+      <div class="cs-video">
+        <button class="csvfac" type="button" data-yt="ahUK2NUXs-k" aria-label="Play the Lacework client interview, loads YouTube embed">
+          <img loading="lazy" src="https://i.ytimg.com/vi/ahUK2NUXs-k/hqdefault.jpg" alt="">
+          <span class="csvplay" aria-hidden="true"></span>
+          <span class="csvcap">Simon Chuang, Lacework, on the partnership</span>
+        </button>
+      </div>
+      <script>(function(){var b=document.querySelector('.csvfac');if(!b)return;b.addEventListener('click',function(){var f=document.createElement('iframe');f.className='csv-i';f.setAttribute('src','https://www.youtube.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0');f.setAttribute('title','Lacework client interview');f.setAttribute('frameborder','0');f.setAttribute('allow','accelerated-sensors; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');b.replaceWith(f);});})();</script>
       <a class="cs-shot" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener"><img src="/img/lacework-casestudy.jpg" width="1400" height="588" alt="LinkedIn's published case study: How Lacework drove 6X ROI by shifting to a full-funnel strategy on LinkedIn" loading="lazy"></a>
       <a class="cs-shot post" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener"><img src="/img/lacework-shoutout.jpg" width="898" height="1346" alt="Lacework's Simon Chuang crediting Impactable by name in a LinkedIn post about the case study" loading="lazy"></a>
     </div>
