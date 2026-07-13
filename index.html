@@ -905,6 +905,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 <!-- ════ OPERATING SYSTEM OVERVIEW ════ -->
+<style>
+.midcta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--concrete);border:1px solid var(--line);border-radius:16px;padding:24px 30px;max-width:1000px;margin:0 auto}
+.midcta-txt{font-size:19px;color:var(--bone);line-height:1.4}
+.midcta-txt span{color:var(--chalk-dim);font-size:16px}
+.midcta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+@media(max-width:680px){.midcta-inner{flex-direction:column;align-items:flex-start}}
+.expander{margin-top:6px}
+.expander>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--blue-soft);background:var(--concrete);border:1px solid var(--line);border-radius:100px;padding:11px 22px;transition:border-color .2s,color .2s}
+.expander>summary::-webkit-details-marker{display:none}
+.expander>summary::after{content:"\25be";font-size:11px}
+.expander[open]>summary::after{content:"\25b4"}
+.expander>summary:hover{border-color:var(--blue-soft);color:var(--bone)}
+.expander[open]>summary{margin-bottom:26px}
+.exp-body .reveal{opacity:1!important;transform:none!important}
+</style>
+<!-- ════ MID-PAGE CTA ════ -->
+<section class="sec midcta" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="midcta-inner reveal">
+      <div class="midcta-txt"><b>Seen enough?</b> <span>Start free, or grab 15 minutes with us.</span></div>
+      <div class="midcta-btns">
+        <a class="btn btn-primary" href="/competitor-intel-report">Get your free competitor intel &rarr;</a>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec os">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -996,6 +1024,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="gal-note">Example data: client accounts, revenue, and pipeline figures anonymized for this page</span>
     </div>
 
+    <details class="expander"><summary>See the reporting examples</summary>
+    <div class="exp-body">
     <div class="gal-tablist" role="tablist" aria-label="Reporting examples">
       <button class="gal-tab" id="galt-1" role="tab" aria-controls="galp-1" aria-selected="true">Coverage</button>
       <button class="gal-tab" id="galt-2" role="tab" aria-controls="galp-2" aria-selected="false">Account signals</button>
@@ -1219,6 +1249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="spec-foot"><span>Every row is a suppression or exclusion opportunity: budget redirected to the segments the verdicts say to scale.</span></div>
     </div>
 
+    </div></details>
   </div>
 </section>
 
@@ -1274,6 +1305,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="sec-desc">Every engagement starts with an honest diagnosis. We place you on the curve, name the moves for your stage, and set the triggers that graduate you up, so you never scale before attribution holds.</p>
     </div>
 
+    <details class="expander"><summary>See the maturity curve</summary>
+    <div class="exp-body">
     <div class="ridge-wrap reveal">
       <svg class="ridge-svg" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
         <defs>
@@ -1297,7 +1330,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="rstage active"><div class="rn">Stage 4</div><div class="rname">Supply</div><div class="rd">Multi-channel at scale. Predictable pipeline velocity.</div></div>
         <div class="rstage"><div class="rn">Stage 5</div><div class="rname">Sustain</div><div class="rd">Optimized economics. Brand compounds everything.</div></div>
       </div>
-    </div>
+    </div></div></details>
   </div>
 </section>
 
