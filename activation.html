@@ -1152,8 +1152,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- FAQ -->
+<style>
+.faqx{margin-top:26px}
+.faqx details{border-bottom:1px solid var(--line,var(--border,rgba(255,255,255,.12)))}
+.faqx summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:700;font-size:1.12rem;color:var(--bone,var(--text,#F4F1EA));display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faqx summary::-webkit-details-marker{display:none}
+.faqx summary .fqx-pm{color:var(--blue,var(--accent,#0099D1));font-size:1.5rem;line-height:1;flex:none;transition:transform .25s}
+.faqx details[open] summary .fqx-pm{transform:rotate(45deg)}
+.faqx details p{padding:0 0 22px;margin:0;font-size:1.02rem;line-height:1.6;color:var(--chalk,var(--text-muted,#c9cdd3));max-width:74ch}
+</style>
+<section class="sec" id="faq" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap" style="max-width:880px">
+    <span class="eyebrow">Common questions</span>
+    <h2 class="sec-title display" style="text-transform:none">Before you book.</h2>
+    <div class="faqx reveal">
+      <details><summary>What does activation actually mean?<span class="fqx-pm">+</span></summary><p>It means turning the warm signals you already have, ad engagers, site visitors, and CRM contacts, into real conversations through LinkedIn and email, instead of buying more cold reach. We work the intent that already exists.</p></details>
+      <details><summary>Is this cold outreach?<span class="fqx-pm">+</span></summary><p>No. We reach people who have shown a signal, engaged with an ad, visited the site, or fit your ICP and raised a hand. That is why reply rates hold up and the outreach stays warm and compliant.</p></details>
+      <details><summary>What do you need from us to start?<span class="fqx-pm">+</span></summary><p>Access to the signals you already have: your CRM, LinkedIn ad engagement, and site visitor data. The starting package activates that warm intent with no new ad spend required.</p></details>
+      <details><summary>How does activation connect to our ads?<span class="fqx-pm">+</span></summary><p>Your ads and content create the signals, and activation reaches every account that leans in. That closes the loop, so the attention you already paid for turns into pipeline instead of evaporating.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
-<section class="final">
+<section class="final" id="book">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">Your move</span>
     <h2 class="display" style="text-transform:none;margin-top:16px">Stop guessing who to message. <span class="hl">Let the signals decide.</span></h2>

@@ -1633,7 +1633,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="final">
+<!-- FAQ -->
+<style>
+.faqx{margin-top:26px}
+.faqx details{border-bottom:1px solid var(--line,var(--border,rgba(255,255,255,.12)))}
+.faqx summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:700;font-size:1.12rem;color:var(--bone,var(--text,#F4F1EA));display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faqx summary::-webkit-details-marker{display:none}
+.faqx summary .fqx-pm{color:var(--blue,var(--accent,#0099D1));font-size:1.5rem;line-height:1;flex:none;transition:transform .25s}
+.faqx details[open] summary .fqx-pm{transform:rotate(45deg)}
+.faqx details p{padding:0 0 22px;margin:0;font-size:1.02rem;line-height:1.6;color:var(--chalk,var(--text-muted,#c9cdd3));max-width:74ch}
+</style>
+<section class="sec" id="faq" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap" style="max-width:880px">
+    <span class="eyebrow">Common questions</span>
+    <h2 class="display" style="text-transform:none;margin-top:16px">Before you book.</h2>
+    <div class="faqx reveal">
+      <details><summary>We already run LinkedIn ads. What do you actually do differently?<span class="fqx-pm">+</span></summary><p>We start with a diagnostic read on your live account, restructure around buyer intent and clean signals, and wire up reporting that ties spend to pipeline. The difference is a system that proves impact and compounds, not just more ads.</p></details>
+      <details><summary>Will you work with our existing campaigns or start from scratch?<span class="fqx-pm">+</span></summary><p>We assess what is live first and keep what is working. Where the structure is holding you back we rebuild it, but we do not throw away performance you have already earned.</p></details>
+      <details><summary>How do you prove pipeline impact, not just lead volume?<span class="fqx-pm">+</span></summary><p>We connect LinkedIn to your CRM and attribution so we can report on pipeline influenced and cost per opportunity, not just form fills. Offline conversions feed the platform your real revenue signals so it optimizes to buyers.</p></details>
+      <details><summary>What spend level is this built for?<span class="fqx-pm">+</span></summary><p>This page is for teams already investing in LinkedIn and ready to scale. If you are just starting out, our launch program is the better first step, and we will point you there on the call.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="book">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">See what your account is really doing</span>
     <h2 class="display" style="text-transform:none;margin-top:16px">Stop guessing. Get the diagnosis.</h2>
