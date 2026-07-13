@@ -940,6 +940,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .post-card img{width:100%;height:100%;object-fit:cover;display:block}
 .post-card.post-video{background:#000}
 .post-card.post-video video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.feed-grid{column-count:2;column-gap:16px;margin-top:28px}
+.feed-shot{break-inside:avoid;margin:0 0 16px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border);background:var(--surface)}
+.feed-shot img{width:100%;height:auto;display:block}
+@media(max-width:640px){.feed-grid{column-count:1}}
 </style>
 <section class="band alt" id="examples">
   <div class="wrap">
@@ -959,6 +963,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="post-card"><img loading="lazy" src="/img/contentexample5.png" width="1146" height="1150" alt="Founder-led thought-leadership post produced for a client"></div>
       <div class="post-card"><img loading="lazy" src="/img/contentexample6.png" width="1148" height="1150" alt="Founder-led thought-leadership post produced for a client"></div>
       <div class="post-card"><img loading="lazy" src="/img/contentexample7.png" width="1150" height="1154" alt="Founder-led thought-leadership post produced for a client"></div>
+    </div>
+    <div class="section-head reveal" style="margin-top:46px">
+      <span class="eyebrow"><span class="dot"></span>Seen in the feed</span>
+    </div>
+    <div class="feed-grid reveal">
+      <div class="feed-shot"><img loading="lazy" src="/img/feed-1.png" width="996" height="817" alt="A client's thought-leadership video post live in the LinkedIn feed"></div>
+      <div class="feed-shot"><img loading="lazy" src="/img/feed-2.png" width="926" height="811" alt="A client's thought-leadership post live in the LinkedIn feed"></div>
+      <div class="feed-shot"><img loading="lazy" src="/img/feed-3.png" width="439" height="812" alt="A client's thought-leadership post on mobile"></div>
+      <div class="feed-shot"><img loading="lazy" src="/img/feed-4.png" width="994" height="822" alt="A client's thought-leadership video post live in the LinkedIn feed"></div>
     </div>
   </div>
 </section>
