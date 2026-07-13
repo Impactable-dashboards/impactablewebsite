@@ -261,12 +261,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   /* PRICING */
   .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
-  .tier-card{background:linear-gradient(180deg,rgba(255,255,255,0.035),var(--surface));border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:var(--radius);padding:30px 28px;transition:border-color .25s,transform .25s,box-shadow .25s;}
+  .tier-card{display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,0.035),var(--surface));border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:var(--radius);padding:30px 28px;transition:border-color .25s,transform .25s,box-shadow .25s;}
   .tier-card:hover{transform:translateY(-4px);border-color:var(--border-2);}
   .tier-card.featured{border-color:var(--accent);background:linear-gradient(180deg,rgba(30,120,200,.12),var(--surface));box-shadow:0 24px 70px -34px var(--accent-glow);}
-  .tier-card .ribbon{font-family:var(--font-mono);font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--canopy);margin-bottom:12px;}
+  .tier-card .ribbon{font-family:var(--font-mono);font-size:13px;line-height:1.4;letter-spacing:.09em;text-transform:uppercase;color:var(--canopy);margin-bottom:12px;}
+  .tier-card:not(.featured)::before{content:"";display:block;height:18px;margin-bottom:12px;}
   .tier-card h3{font-size:1.35rem;color:var(--accent);letter-spacing:-.01em;}
-  .tier-card .sub{font-size:1rem;margin:8px 0 18px;}
+  .tier-card .sub{font-size:1rem;margin:8px 0 18px;min-height:4.4em;}
+  .tier-card .note{font-size:.9rem;color:var(--text-muted);margin:10px 0 0;}
+  .tier-card .btn{margin-top:auto;}
   .ptier{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-top:1px solid var(--border);}
   .ptier:first-of-type{border-top:none;}
   .ptier .pl{font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
@@ -1097,21 +1100,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Execution</h3>
         <p class="sub">A paid-search specialist in your Google account, added to an engagement you already have with us.</p>
         <div class="ptier"><div><div class="pl">Add-on to an existing service</div><div class="pp">$1,500/mo</div></div></div>
-        <p style="font-size:.9rem;color:var(--text-muted);margin:10px 0 0;">Not sold standalone. $3,000/mo minimum to start with us.</p>
-        <a href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:16px;">Talk to sales</a>
+        <p class="note">Not sold standalone. $3,000/mo minimum to start with us.</p>
+        <a href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html" class="btn btn-ghost" style="width:100%;justify-content:center;">Talk to sales</a>
       </div>
       <div class="tier-card featured reveal">
         <div class="ribbon">★ Core product</div>
         <h3>Strategic Oversight · Google</h3>
         <p class="sub">Ongoing strategy plus hands-on execution on your Google Ads, built to scale.</p>
         <div class="ptier"><div><div class="pl">Google ad spend up to $15k/mo</div><div class="pp">from $3,000/mo</div></div></div>
-        <a href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html" class="btn btn-canopy" style="width:100%;justify-content:center;margin-top:20px;">Talk to sales</a>
+        <a href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html" class="btn btn-canopy" style="width:100%;justify-content:center;">Talk to sales</a>
       </div>
       <div class="tier-card reveal">
         <h3>LinkedIn + Google</h3>
         <p class="sub">Run both channels as one system, with shared signals and retargeting.</p>
         <div class="ptier"><div><div class="pl">Combined ad spend up to $10k/mo</div><div class="pp">from $3,000/mo</div></div></div>
-        <a href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:20px;">Talk to sales</a>
+        <a href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html" class="btn btn-ghost" style="width:100%;justify-content:center;">Talk to sales</a>
       </div>
     </div>
     <div class="reveal" style="margin-top:20px;border:1px solid var(--border);border-radius:var(--radius);padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--surface);">
