@@ -83,3 +83,58 @@ var(--chalk, var(--text-muted,...))/* body     */
 - Title 10 to 70 chars, meta description 50 to 170, one `<h1>`, a canonical tag,
   valid JSON-LD. Run `python3 scripts/check-seo.py` before committing.
 - One free-first primary CTA per hero.
+
+---
+
+# Offer / lead-magnet landing pages
+
+A different animal from a service page. A **service page** educates and sells a
+service across a broad narrative with an offer ladder. An **offer page** exists
+to convert one specific low-friction offer (a free audit, a gated asset, a lead
+magnet) and nothing else. Reference implementation: `competitor-intel-report.html`.
+
+## The one rule
+
+**One page, one job, one primary CTA.** Every section drives to the same single
+conversion (the form or the booking). Do not introduce competing offers or a
+full offer ladder. Repeat the *same* primary CTA down the page.
+
+## Canonical offer-page spine
+
+| # | Section | Job |
+|---|---------|-----|
+| 1 | **Hero** | Who it's for (eyebrow) + the promise + the deliverable named, primary CTA, and an offer card that lists the parts of what they get. One or two proof stats. |
+| 2 | **What you get** | Spell out the deliverable concretely (the N documents/parts). Lead with this, right after the hero, before any philosophy. |
+| 3 | **Proof** | Stats, named results, trust badges. Stated plainly, placed *after* the offer to reinforce. No framing lecture, no competitor bashing. |
+| 4 | **Why it's different / the mechanism** | The unique method, framed positively (what *we* do), not "every other agency…". |
+| 5 | **Sample outputs** | Show the actual thing (specimens/screenshots) so the deliverable is tangible. |
+| 6 | **Where it leads** (optional) | The paid next step after the free offer, kept clearly subordinate. CTAs still point to the free offer. |
+| 7 | **Conversion section** | The on-page form (or booking). Minimal fields. Restate turnaround and "no pitch unless you ask." |
+| 8 | **How it works** | 3 steps, the turnaround, zero obligation. |
+| 9 | **FAQ** | Objection handling: is it free / what's the catch, what do you need from me, will you spam me, what happens after. |
+| 10 | **Final CTA** | Restate the offer and repeat the primary CTA. |
+
+## Best practice
+
+**Do**
+- Put the offer and the deliverable above the fold or one scroll down.
+- Keep it free / low-commitment; state the turnaround and that a human handles it.
+- Make proof concrete and named, and place it after the offer.
+- Keep every claim one you can stand behind and scope it honestly (e.g. "a
+  targeting worksheet composed from signals, filters and data," not "a named
+  account list" if that isn't always what's delivered).
+- Match the framing to reality (if a human builds it, say so; don't imply
+  auto-generated, and don't claim hand-built if it isn't).
+
+**Don't**
+- Stack competing offers or a 5-rung ladder on a single-offer page.
+- Bash "every other agency"; make the case positively.
+- Bury the offer under philosophy or a long problem essay before saying what
+  they get.
+- Add mid-page CTAs that point somewhere other than the one conversion.
+
+## Nav
+
+These pages keep the shared `gnav` for brand consistency. For dedicated
+paid-campaign traffic, a stripped-down nav (logo + single CTA, no menu) usually
+converts better; consider a per-campaign variant if you run paid traffic to it.
