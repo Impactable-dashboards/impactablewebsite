@@ -195,6 +195,16 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
 .custom h3{font-size:1.5rem;color:var(--bone);margin-bottom:6px}
 .custom .range{font-family:'Archivo Black',sans-serif;font-size:1.6rem;color:var(--canopy);letter-spacing:-.02em;margin-bottom:10px}
 .custom p{font-size:16px;color:var(--chalk)}
+/* Step 4 managed ladder (Core / Growth / Scale flagship / Enterprise) */
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.ladder .card .price{color:var(--blue-soft);font-size:clamp(1.25rem,1.5vw,1.55rem)}
+.ladder .card .metaline{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--chalk-dim);margin:4px 0 14px;line-height:1.45}
+.ladder .card .guardrail{font-size:13px;color:var(--chalk-dim);line-height:1.45;margin:0 0 16px;padding-left:12px;border-left:2px solid var(--line)}
+.ladder .card.flagship{border-color:var(--canopy);border-top:3px solid var(--canopy);background:linear-gradient(180deg,rgba(255,182,39,0.10),var(--concrete));box-shadow:0 24px 70px -34px rgba(255,182,39,0.45)}
+.ladder .card.flagship:hover{border-color:var(--canopy)}
+.ladder .card.flagship .price{color:var(--canopy)}
+.ladder .card.flagship h3{color:var(--bone)}
+.ladder .flag-ribbon{align-self:flex-start;background:var(--canopy);color:#071A38;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:5px;padding:4px 10px;margin-bottom:14px}
 
 /* diagnostics sequence */
 .sys{background:var(--concrete)}
@@ -232,6 +242,8 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
 .foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:14px;color:var(--chalk-dim);font-family:'JetBrains Mono',monospace}
 
 @media(max-width:920px){.cards.c3,.cards.c2{grid-template-columns:1fr}}
+@media(max-width:1024px){.cards.c4{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.cards.c4{grid-template-columns:1fr}}
 @media(max-width:520px){.sec{padding:48px 0}}
 .foot-social{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}.foot-social a{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--chalk-dim);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;transition:color .2s,border-color .2s}.foot-social a:hover{color:var(--bone);border-color:var(--blue)}.foot-social svg{width:15px;height:15px;flex:none}.evt-banner{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;background:linear-gradient(90deg,#0099D1,#5BB8E0);color:#04161d;font-size:14px;line-height:1.3;padding:10px 46px 10px 18px;text-align:center}.evt-banner.hide{display:none}.evt-link{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;color:#04161d;text-decoration:none;font-weight:600}.evt-link:hover .evt-cta{text-decoration:none}.evt-dot{width:8px;height:8px;border-radius:50%;background:#04161d;flex:none;animation:evtPulse 1.8s ease-in-out infinite}.evt-cta{text-decoration:underline;white-space:nowrap}.evt-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:0;color:#04161d;font-size:22px;line-height:1;cursor:pointer;opacity:.65;padding:0}.evt-x:hover{opacity:1}@keyframes evtPulse{0%,100%{opacity:1}50%{opacity:.35}}@media(prefers-reduced-motion:reduce){.evt-dot{animation:none}}@media(max-width:560px){.evt-banner{font-size:12.5px;padding:9px 38px 9px 14px}.evt-cta{width:100%}}:is(h1,h2,h3,h4):has(.hl){line-height:1.2}</style>
 
@@ -432,62 +444,89 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
         <div class="price">from $3,000<small> /mo</small></div>
         <p class="d">Ongoing strategy plus a full execution pod on one channel, built to scale. The rate flexes with your spend as you grow.</p>
         <ul><li>Full-funnel strategist + pod</li><li>Signal composition + ABM support</li><li>Quarterly diagnostic Impact Report</li></ul>
-        <a class="btn btn-canopy" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to sales</a>
+        <a class="btn btn-canopy" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a strategy call</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STEP 4: COMBINATIONS -->
+<!-- STEP 4: MANAGED LADDER (flagship-led; folds in former Step 5 Custom & Scale) -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
       <span class="step-tag">Step 4</span>
-      <h2 class="sec-title display">Scale the system as budgets grow.</h2>
-      <p class="sec-desc">Run one channel or many as a single connected system, with shared signals and retargeting. Common entry combinations start at $3,000/mo; as spend and channel count grow, the managed rate steps up with them.</p>
+      <h2 class="sec-title display">Run it with us. Priced to the operation, not the ad budget.</h2>
+      <p class="sec-desc">One channel or a full multi-channel system. A flat start that flexes as you grow. Each channel you add lifts both the scope and the spend it supports, so the price reflects the team on your account.</p>
     </div>
-    <div class="combo">
-      <div class="combo-row head"><div>Managed tier</div><div>Ad spend covered</div><div style="text-align:right">From</div></div>
-      <div class="combo-row">
-        <div class="cmix">One channel<small>LinkedIn, Google, or Meta</small></div>
-        <div class="cspend">up to $15k/mo spend</div>
-        <div class="cprice">$3,000/mo</div>
-      </div>
-      <div class="combo-row">
-        <div class="cmix">Two channels, one system<small>e.g. LinkedIn + Google, or organic + paid</small></div>
-        <div class="cspend">up to $15k/mo combined</div>
-        <div class="cprice">$3,000/mo</div>
-      </div>
-      <div class="combo-row">
-        <div class="cmix">Multi-channel system<small>up to 3 channels, fully coordinated</small></div>
-        <div class="cspend">up to $25k/mo combined</div>
-        <div class="cprice">$5,500/mo</div>
-      </div>
-      <div class="combo-row">
-        <div class="cmix">Full ecosystem<small>up to 4 channels, one connected system</small></div>
-        <div class="cspend">up to $100k/mo combined</div>
-        <div class="cprice">$9,500/mo</div>
-      </div>
-    </div>
-    <p class="note">Illustrative starting points. Your exact mix and rate are set in the scoping call, most accounts at scale are custom-scoped.</p>
-  </div>
-</section>
+    <div class="cards ladder c4">
 
-<!-- STEP 5: CUSTOM / SCALE -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="step-tag">Step 5</span>
-      <h2 class="sec-title display">Scaling past that? We build it around you.</h2>
-    </div>
-    <div class="custom">
-      <div class="cl">
-        <h3>Custom &amp; Scale</h3>
-        <div class="range">$25k to $500k+/mo spend</div>
-        <p>Beyond the published tiers, for larger, multi-channel, and IPO-stage accounts managing $25k&ndash;$500k+/mo in ad spend, we start with an audit and a scoping call, then build a custom quote. Management flexes from 15% down to 7% of ad spend as budgets grow and the system gets more efficient at scale. Dedicated senior strategist and pod, advanced attribution, multi-channel coordination, and executive business reviews.</p>
+      <!-- CORE -->
+      <div class="card">
+        <div class="k">One channel, run right</div>
+        <h3>Core</h3>
+        <div class="price">from $3,000<small> /mo</small></div>
+        <div class="metaline">One channel &middot; up to $15k/mo ad spend</div>
+        <ul>
+          <li>Full-funnel strategist plus execution pod on one channel</li>
+          <li>Signal composition and ABM audience build</li>
+          <li>DemandSense signals and Web ID included</li>
+          <li>Quarterly diagnostic Impact Report</li>
+        </ul>
+        <p class="guardrail">Defined single-channel scope. Add a channel or scale spend and you move up to Growth.</p>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to sales</a>
       </div>
-      <a class="btn btn-canopy btn-lg" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a custom quote</a>
+
+      <!-- GROWTH -->
+      <!-- PENDING FOUNDER CONFIRMATION: Growth price from $4,500/mo (internal pricing model, confirm before publish) -->
+      <div class="card">
+        <div class="k">Two channels, one system</div>
+        <h3>Growth</h3>
+        <div class="price">from $4,500<small> /mo</small></div>
+        <div class="metaline">Two channels &middot; up to $25k/mo combined</div>
+        <ul>
+          <li>Everything in Core, across two channels wired as one motion</li>
+          <li>Shared signals and cross-channel retargeting</li>
+          <li>Search captures in-market demand, LinkedIn creates it</li>
+          <li>Consolidated cross-channel reporting</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to sales</a>
+      </div>
+
+      <!-- SCALE (flagship) -->
+      <!-- PENDING FOUNDER CONFIRMATION: Scale band $6,000 to $12,000/mo (internal pricing model, confirm before publish) -->
+      <div class="card feat flagship">
+        <div class="flag-ribbon">Most common for scaling teams</div>
+        <div class="k">A senior team running your whole system</div>
+        <h3>Scale</h3>
+        <div class="price">$6,000 to $12,000<small> /mo</small></div>
+        <div class="metaline">Multi-channel &middot; multi-account &middot; multi-geo</div>
+        <ul>
+          <li>Dedicated senior strategist and a full pod, not a shared queue</li>
+          <li>Multiple ad accounts and geographies run as one coordinated system</li>
+          <li>Custom attribution wired into your CRM, board-ready reporting</li>
+          <li>Full eight-signal stack, DemandSense, Web ID, and CAPI</li>
+          <li>Quarterly EBR with a board-grade Impact Report</li>
+        </ul>
+        <a class="btn btn-canopy" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a strategy call</a>
+      </div>
+
+      <!-- ENTERPRISE (former Step 5 Custom & Scale, folded in) -->
+      <div class="card">
+        <div class="k">Custom, for the largest accounts</div>
+        <h3>Enterprise</h3>
+        <div class="price">$25k to $500k+<small> /mo spend</small></div>
+        <div class="metaline">Management flexes 15% down to 7% as budgets grow</div>
+        <ul>
+          <li>Dedicated senior strategist and pod</li>
+          <li>Advanced multi-channel attribution and coordination</li>
+          <li>Executive business reviews</li>
+          <li>Built from an audit and a scoping call into a custom quote</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a custom quote</a>
+      </div>
+
     </div>
+    <p class="note">Illustrative starting points. Your exact mix and rate are set in the scoping call.</p>
   </div>
 </section>
 
@@ -533,6 +572,7 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
       <a class="btn btn-canopy btn-lg" href="/competitor-intel-report">Get your free competitor intel</a>
       <a class="btn btn-ghost btn-lg" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
+    <p class="cta-reassure" style="font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--chalk-dim);margin:20px 0 0;text-align:center">No retainer to start. <a href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html" style="color:var(--blue-soft)">Running serious spend already? Skip the ramp and book a scoping call.</a></p>
   </div>
 </section>
 
