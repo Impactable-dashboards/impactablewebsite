@@ -180,7 +180,7 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
 
 /* combination table */
 .combo{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
-.combo-row{display:grid;grid-template-columns:1.25fr 1.85fr 0.95fr 0.95fr;gap:16px;padding:20px 24px;border-top:1px solid var(--line-soft);align-items:center}
+.combo-row{display:grid;grid-template-columns:1.4fr 1fr 0.9fr;gap:16px;padding:20px 24px;border-top:1px solid var(--line-soft);align-items:center}
 .combo-row:first-child{border-top:none}
 .combo-row.head{background:rgba(255,255,255,0.03);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim)}
 .combo-row .cmix{font-weight:700;color:var(--bone);font-size:16.5px}
@@ -195,13 +195,17 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
 .custom h3{font-size:1.5rem;color:var(--bone);margin-bottom:6px}
 .custom .range{font-family:'Archivo Black',sans-serif;font-size:1.6rem;color:var(--canopy);letter-spacing:-.02em;margin-bottom:10px}
 .custom p{font-size:16px;color:var(--chalk)}
-/* Step 3 managed pricing table (flagship-led) */
-.combo.mgd .cwhat{font-size:14px;color:var(--chalk);line-height:1.5}
-.combo.mgd .combo-row.flag{background:linear-gradient(90deg,rgba(255,182,39,0.10),transparent 70%);box-shadow:inset 3px 0 0 var(--canopy)}
-.combo.mgd .combo-row.flag .cprice{color:var(--canopy)}
-.combo.mgd .cmix .flag-pill{display:inline-block;background:var(--canopy);color:#071A38;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:2px 7px;margin-left:6px;vertical-align:middle}
-.mgd-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:24px}
-.mgd-note{font-size:14px;color:var(--chalk-dim);max-width:54ch;line-height:1.5}
+/* Step 3 managed pricing cards (flagship-led) */
+.ladder{align-items:stretch;margin-top:24px}
+.ladder .card{position:relative}
+.ladder .card .metaline{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--chalk-dim);margin:6px 0 18px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.ladder .card .price{color:var(--blue-soft)}
+.ladder .card .guardrail{font-size:12.5px;color:var(--chalk-dim);line-height:1.45;margin:0 0 18px;padding-left:12px;border-left:2px solid var(--line)}
+.ladder .card.flagship{border-color:var(--canopy);border-top:2px solid var(--canopy);background:linear-gradient(180deg,rgba(255,182,39,0.12),var(--concrete));box-shadow:0 30px 80px -34px rgba(255,182,39,0.5)}
+.ladder .card.flagship:hover{border-color:var(--canopy)}
+.ladder .card.flagship .price{color:var(--canopy)}
+.ladder .card.flagship h3{color:var(--bone)}
+.ladder .flag-ribbon{position:absolute;top:-13px;left:26px;background:var(--canopy);color:#071A38;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 12px;box-shadow:0 8px 20px -6px rgba(255,182,39,0.6)}
 
 /* diagnostics sequence */
 .sys{background:var(--concrete)}
@@ -424,35 +428,60 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
       <h2 class="sec-title display">Run it with us. Priced to the operation, not the ad budget.</h2>
       <p class="sec-desc">One channel or a full multi-channel system. A flat start that flexes as you grow. Each channel you add lifts both the scope and the spend it supports, so the price reflects the team on your account.</p>
     </div>
-    <div class="combo mgd">
-      <div class="combo-row head">
-        <div>Managed tier</div><div>What you get</div><div>Ad spend covered</div><div style="text-align:right">From</div>
+    <div class="cards c3 ladder">
+
+      <!-- CORE -->
+      <div class="card">
+        <div class="k">One channel, run right</div>
+        <h3>Core</h3>
+        <div class="price">from $3,000<small> /mo</small></div>
+        <div class="metaline">One channel &middot; up to $15k/mo ad spend</div>
+        <ul>
+          <li>Full-funnel strategist plus execution pod on one channel</li>
+          <li>Signal composition and ABM audience build</li>
+          <li>DemandSense signals and Web ID included</li>
+          <li>Quarterly diagnostic Impact Report</li>
+        </ul>
+        <p class="guardrail">Defined single-channel scope. Add a channel or scale spend and you move up to Growth.</p>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to sales</a>
       </div>
-      <div class="combo-row">
-        <div class="cmix">Core<small>One channel, run right</small></div>
-        <div class="cwhat">Full-funnel strategist and execution pod on one channel. Signal composition, ABM audience build, DemandSense and Web ID. Quarterly Impact Report.</div>
-        <div class="cspend">up to $15k/mo</div>
-        <div class="cprice">from $3,000/mo</div>
-      </div>
+
+      <!-- GROWTH -->
       <!-- PENDING FOUNDER CONFIRMATION: Growth price from $4,500/mo (internal pricing model, confirm before publish) -->
-      <div class="combo-row">
-        <div class="cmix">Growth<small>Two channels, one system</small></div>
-        <div class="cwhat">Everything in Core across two channels wired as one motion. Shared signals, cross-channel retargeting, and consolidated reporting.</div>
-        <div class="cspend">up to $25k/mo combined</div>
-        <div class="cprice">from $4,500/mo</div>
+      <div class="card">
+        <div class="k">Two channels, one system</div>
+        <h3>Growth</h3>
+        <div class="price">from $4,500<small> /mo</small></div>
+        <div class="metaline">Two channels &middot; up to $25k/mo combined</div>
+        <ul>
+          <li>Everything in Core, across two channels wired as one motion</li>
+          <li>Shared signals and cross-channel retargeting</li>
+          <li>Search captures in-market demand, LinkedIn creates it</li>
+          <li>Consolidated cross-channel reporting</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to sales</a>
       </div>
+
+      <!-- SCALE (flagship) -->
       <!-- PENDING FOUNDER CONFIRMATION: Scale band $6,000 to $12,000/mo (internal pricing model, confirm before publish) -->
-      <div class="combo-row flag">
-        <div class="cmix">Scale <span class="flag-pill">Most common for scaling teams</span><small>A senior team running your whole system</small></div>
-        <div class="cwhat">Dedicated senior strategist and full pod. Multiple ad accounts and geographies run as one system. Custom attribution wired to your CRM, board-ready. Full eight-signal stack, DemandSense, Web ID, and CAPI. Quarterly EBR.</div>
-        <div class="cspend">multi-channel &middot; multi-geo</div>
-        <div class="cprice">$6,000 to $12,000/mo</div>
+      <div class="card flagship">
+        <div class="flag-ribbon">Most common for scaling teams</div>
+        <div class="k">A senior team running your whole system</div>
+        <h3>Scale</h3>
+        <div class="price">$6,000 to $12,000<small> /mo</small></div>
+        <div class="metaline">Multi-channel &middot; multi-account &middot; multi-geo</div>
+        <ul>
+          <li>Dedicated senior strategist and a full pod, not a shared queue</li>
+          <li>Multiple ad accounts and geographies run as one coordinated system</li>
+          <li>Custom attribution wired into your CRM, board-ready reporting</li>
+          <li>Full eight-signal stack, DemandSense, Web ID, and CAPI</li>
+          <li>Quarterly EBR with a board-grade Impact Report</li>
+        </ul>
+        <a class="btn btn-canopy" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a strategy call</a>
       </div>
+
     </div>
-    <div class="mgd-cta">
-      <a class="btn btn-canopy btn-lg" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a strategy call</a>
-      <span class="mgd-note">Your exact mix and rate are set in the scoping call. Most accounts at scale are custom-scoped.</span>
-    </div>
+    <p class="note">Your exact mix and rate are set in the scoping call. Most accounts at scale are custom-scoped.</p>
   </div>
 </section>
 
