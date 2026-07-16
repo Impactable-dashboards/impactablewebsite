@@ -3,7 +3,7 @@
 Run before publishing / in CI:  python3 scripts/check-seo.py"""
 import re, sys, glob
 NOINDEX = {"thank-you.html"}
-EXCLUDE = {"pricing-table-embed.html"}
+EXCLUDE = {"pricing-table-embed.html", "googledc79b137a1cd7351.html"}
 REQUIRED = [
     ("<title>", r"<title>.{10,70}</title>", "title 10-70 chars"),
     ("meta description", r'<meta name="description" content=".{50,170}"', "meta description 50-170 chars"),
