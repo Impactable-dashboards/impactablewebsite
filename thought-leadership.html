@@ -556,13 +556,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <a class="gnav-link" href="/pricing">Pricing</a>
-      <a class="gnav-link" href="/events-resources">Events &amp; Community</a>
       <div class="gnav-item">
-        <button class="gnav-trigger" aria-haspopup="true" aria-expanded="false">Resources <span class="gnav-caret"></span></button>
+        <a class="gnav-trigger" href="/events-resources" aria-haspopup="true" aria-expanded="false">Events &amp; Resources <span class="gnav-caret"></span></a>
         <div class="gnav-mega">
-          <div class="gnav-grid" style="grid-template-columns:1fr;min-width:240px">
+          <div class="gnav-grid" style="grid-template-columns:1fr;min-width:260px">
             <div class="gnav-col">
-              <span class="gnav-h">Learn &amp; Connect</span>
+              <span class="gnav-h">Events &amp; Resources</span>
+              <a href="/events-resources">Events &amp; Community<small>Live sessions and community</small></a>
+              <a href="/marketing-ecosystem">The Marketing Ecosystem<small>How every channel connects</small></a>
               <a href="https://impactable.com/blog/">Growth Lab<small>Blog &amp; insights</small></a>
               <a href="https://impactable.com/impactable-about-us/">About Us<small>Who we are and the team</small></a>
             </div>
@@ -1425,7 +1426,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var t=document.getElementById('gnavToggle'),m=document.getElementById('gnavMenu');
     if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
     document.querySelectorAll('.gnav-item .gnav-trigger').forEach(function(btn){
-      btn.addEventListener('click',function(e){
+      btn.addEventListener('click',function(e){if(btn.tagName==='A')return;
         e.preventDefault();
         var item=btn.parentElement,willOpen=!item.classList.contains('open');
         document.querySelectorAll('.gnav-item.open').forEach(function(i){if(i!==item)i.classList.remove('open');});
