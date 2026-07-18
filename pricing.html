@@ -435,6 +435,17 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
       <h2 class="sec-title display">Have us run it. Priced to the operation, not the ad budget.</h2>
       <p class="sec-desc">One channel or a full system. Start small and climb. The plan we run can be one you built with us, or your own.</p>
     </div>
+    <style>
+    .ds-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--canopy);margin:2px 0 12px;line-height:1.4}
+    .ds-climb{margin-top:24px;border:1px solid var(--line);border-radius:12px;background:var(--concrete);padding:22px 24px}
+    .ds-climb-h{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:16px}
+    .ds-climb-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+    .ds-climb-grid > div{padding:0 16px;border-left:1px solid var(--line-soft)}
+    .ds-climb-grid > div:first-child{padding-left:0;border-left:none}
+    .ds-climb-grid .r{display:block;font-weight:700;color:var(--bone);font-size:14px;margin-bottom:6px}
+    .ds-climb-grid .d{display:block;color:var(--chalk-dim);font-size:13.5px;line-height:1.5}
+    @media(max-width:900px){.ds-climb-grid{grid-template-columns:1fr;gap:14px}.ds-climb-grid > div{padding:0 0 14px;border-left:none;border-bottom:1px solid var(--line-soft)}.ds-climb-grid > div:last-child{border-bottom:none;padding-bottom:0}}
+    </style>
     <div class="cards c4 ladder">
 
       <!-- PILOT (managed entry) -->
@@ -443,6 +454,7 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
         <h3>Pilot</h3>
         <div class="price">$1,750<small> /mo</small></div>
         <div class="metaline">Single channel &middot; up to 3 cold segments + warm audiences &middot; up to $5k/mo ad spend</div>
+        <div class="ds-line">DemandSense &middot; standard reporting only</div>
         <ul>
           <li>Single-channel setup and management, run by the same team</li>
           <li>Up to 3 cold audience segments plus your warm audiences</li>
@@ -459,6 +471,7 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
         <h3>Core</h3>
         <div class="price">from $3,000<small> /mo</small></div>
         <div class="metaline">One channel &middot; up to $15k/mo ad spend</div>
+        <div class="ds-line">DemandSense &middot; full five-source stack + site-level ID</div>
         <ul>
           <li>Full-funnel strategist plus execution pod on one channel</li>
           <li>Signal composition and ABM audience build</li>
@@ -476,6 +489,7 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
         <h3>Growth</h3>
         <div class="price">from $4,500<small> /mo</small></div>
         <div class="metaline">Two channels &middot; up to $25k/mo combined</div>
+        <div class="ds-line">DemandSense &middot; full stack, shared across channels</div>
         <ul>
           <li>Everything in Core, across two channels wired as one motion</li>
           <li>Shared signals and cross-channel retargeting</li>
@@ -493,6 +507,7 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
         <h3>Scale</h3>
         <div class="price">$6,000 to $12,000<small> /mo</small></div>
         <div class="metaline">Multi-channel &middot; multi-account &middot; multi-geo</div>
+        <div class="ds-line">DemandSense &middot; full stack + CAPI to LinkedIn, board-grade</div>
         <ul>
           <li>Dedicated senior strategist and a full pod, not a shared queue</li>
           <li>Multiple ad accounts and geographies run as one coordinated system</li>
@@ -504,7 +519,28 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
       </div>
 
     </div>
+    <div class="ds-climb reveal">
+      <div class="ds-climb-h">What grows as you climb &middot; DemandSense by rung</div>
+      <div class="ds-climb-grid">
+        <div><span class="r">Demand Plan &middot; Free</span><span class="d">A taste, built by hand.</span></div>
+        <div><span class="r">Channel Check / Build</span><span class="d">Signal-composed targeting baked into the plan you own.</span></div>
+        <div><span class="r">Pilot</span><span class="d">Standard reporting. The limited view.</span></div>
+        <div><span class="r">Core</span><span class="d">Full five-source stack including site-level company and person ID, quarterly Impact Report.</span></div>
+        <div><span class="r">Growth / Scale</span><span class="d">Full stack plus attribution wired to your CRM, and CAPI feeding conversions back to LinkedIn. Board-grade reporting.</span></div>
+      </div>
+    </div>
     <p class="note">Your exact mix and rate are set in the scoping call. Most accounts at scale are custom-scoped.</p>
+  </div>
+</section>
+
+<!-- MEET DEMANDSENSE -->
+<section class="sec">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec-head">
+      <span class="eyebrow">Meet DemandSense</span>
+      <h2 class="sec-title display">The intelligence layer behind every account.</h2>
+      <p class="sec-desc">Most agencies rent a dashboard. We built our own. DemandSense composes five signal sources into one account-level view: who is engaging, from what company, in what role, and how close they are to buying. Web ID de-anonymizes the companies and people on your site, and DemandSense traces ad exposure through those visits and your CRM stages to closed revenue, then surfaces the accounts sales should call this week. The free Demand Plan is a taste of it, built by hand. No competitor connects these dots.</p>
+    </div>
   </div>
 </section>
 
