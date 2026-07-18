@@ -417,6 +417,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   .gnav-caret{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;display:inline-block}
   .gnav-item:hover .gnav-caret,.gnav-item.open .gnav-caret{transform:rotate(-135deg) translateY(1px)}
   .gnav-cta{margin-left:8px;font-size:15px;padding:10px 18px;white-space:nowrap}
+@media(max-width:1024px){.gnav-bookcall{display:none}}
   .gnav-mega{position:absolute;top:calc(100% + 12px);right:0;background:#0E2A50;border:1px solid rgba(190,214,246,0.14);border-radius:10px;padding:24px 26px;box-shadow:0 30px 70px rgba(0,0,0,0.55);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;z-index:120}
   .gnav-mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
   .gnav-item:hover .gnav-mega,.gnav-item:focus-within .gnav-mega,.gnav-item.open .gnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
@@ -560,7 +561,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <button class="gnav-theme" id="gnavTheme" aria-label="Switch theme"><span class="gnav-theme-ic">🌙</span><span class="gnav-theme-lb">Dark mode</span></button>
-      <a class="btn btn-primary gnav-cta" href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html">Book a call</a>
+      <a class="gnav-link gnav-bookcall" href="https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html">Book a call</a>
+      <a class="btn btn-primary gnav-cta" href="/competitor-intel-report">Free Demand Plan</a>
     </div>
   </div>
 </nav>
