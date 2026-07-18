@@ -845,10 +845,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="form-panel">
-        <div class="gform-frame">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform?embedded=true" width="100%" height="1737" frameborder="0" marginheight="0" marginwidth="0" style="background:transparent;border:none;display:block" title="Request your free Demand Plan Lite">Loading&hellip;</iframe>
+        <div class="cu-embed">
+          <iframe class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="640" style="background:transparent;border:none;" title="Request your free Demand Plan Lite"></iframe>
         </div>
-        <p class="form-foot">Prefer more room? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open the form in a new tab.</a></p>
+        <p class="form-foot">Trouble loading the form? <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open it in a new tab.</a></p>
       </div>
     </div>
   </div>
@@ -998,22 +998,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });}
 })();
 </script>
-<!-- Native Demand Plan form: submits to the Google Forms backend via a hidden iframe, then redirects to /thank-you -->
-<script>
-(function(){
-  var f=document.getElementById('dpForm');
-  if(!f) return;
-  var sink=document.getElementsByName('dp_sink')[0], submitted=false;
-  f.addEventListener('submit', function(){
-    submitted=true;
-    var b=f.querySelector('button[type="submit"]');
-    if(b){b.disabled=true;b.textContent='Sending…';}
-  });
-  if(sink) sink.addEventListener('load', function(){
-    if(submitted){ window.location.href='/thank-you'; }
-  });
-})();
-</script>
+<!-- ClickUp form embed: handles dynamic iframe height for the lead-gen form -->
+<script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
 
 <!-- Vercel Web Analytics -->
 <script>
