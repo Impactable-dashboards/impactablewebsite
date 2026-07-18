@@ -226,6 +226,10 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
 .form-points li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--canopy)}
 .cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:560px}
 .cu-embed iframe{display:block;width:100%;border:0}
+/* Google Form: contained scroll window so the tall form never dominates the page */
+.gform-frame{border:1px solid var(--line);border-radius:10px;overflow-y:auto;-webkit-overflow-scrolling:touch;height:760px;background:#fff}
+.gform-frame iframe{width:100%}
+@media(max-width:520px){.gform-frame{height:640px}}
 .oc-success{display:none;text-align:center;padding:18px 6px}
 .oc-success.show{display:block}
 .oc-success .chk{font-family:'Archivo Black',sans-serif;font-size:40px;color:var(--canopy);line-height:1}
@@ -820,10 +824,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="form-panel">
-        <div class="cu-embed">
-          <iframe class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="640" style="background:transparent;border:none;" title="Request your free Competitor Intel Report and Targeting Worksheet"></iframe>
+        <div class="gform-frame">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform?embedded=true" width="100%" height="1737" frameborder="0" marginheight="0" marginwidth="0" style="background:transparent;border:none;display:block" title="Request your free Demand Plan">Loading&hellip;</iframe>
         </div>
-        <p class="form-foot">Trouble loading the form? <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open it in a new tab.</a></p>
+        <p class="form-foot">Prefer more room? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open the form in a new tab.</a></p>
       </div>
     </div>
   </div>
@@ -893,9 +897,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">Last thing</span>
     <h2 class="display">See the accounts actually moving<br>before you spend the next $10K.</h2>
-    <p>Reply with your top competitors. We'll build the competitor intel report and targeting worksheet and send them inside 48 hours. Free, no pitch unless you ask.</p>
+    <p>Reply with your top competitors. We'll build your free Demand Plan and send it inside 48 hours. No pitch unless you ask.</p>
     <div class="hero-cta">
-      <a class="btn btn-canopy btn-lg" href="#get-report">Get my free competitor intel</a>
+      <a class="btn btn-canopy btn-lg" href="#get-report">Get my free Demand Plan</a>
       <a class="btn btn-ghost btn-lg" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Or book a call</a>
     </div>
   </div>
