@@ -231,6 +231,17 @@ html[data-theme="light"] .btn-ghost{color:#16161B}
 .gform-frame{border:1px solid var(--line);border-radius:10px;overflow-y:auto;-webkit-overflow-scrolling:touch;height:760px;background:#fff}
 .gform-frame iframe{width:100%}
 @media(max-width:520px){.gform-frame{height:640px}}
+/* Native on-brand form (submits to Google Forms backend) — ready to swap in once field IDs are wired */
+.field textarea{width:100%;background:var(--asphalt);border:1px solid var(--line);border-radius:3px;color:var(--bone);font-family:'Inter',sans-serif;font-size:16px;padding:12px 13px;transition:border-color .2s;resize:vertical;min-height:88px}
+.field textarea:focus{outline:none;border-color:var(--blue)}
+.field textarea::placeholder{color:rgba(168,164,155,0.55)}
+.dpform{background:var(--concrete);border:1px solid var(--line);border-radius:10px;padding:26px 24px}
+.dpform .btn{width:100%;justify-content:center;margin-top:8px}
+.dp-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:520px){.dp-row{grid-template-columns:1fr}}
+.oc-success{border:1px solid rgba(255,182,39,0.42);border-radius:10px;background:var(--concrete);padding:34px 26px}
+.oc-success h3{font-family:'Archivo Black',sans-serif;font-size:22px;color:var(--bone);margin-bottom:10px;text-transform:none}
+.oc-success p{color:var(--chalk-dim);line-height:1.55}
 .oc-success{display:none;text-align:center;padding:18px 6px}
 .oc-success.show{display:block}
 .oc-success .chk{font-family:'Archivo Black',sans-serif;font-size:40px;color:var(--canopy);line-height:1}
@@ -503,7 +514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <a href="/intelligence-room">Strategy &amp; Diagnostics<small>Foundations, Impact Report, EBR cadence</small></a>
               <a href="/intelligence-room">Diagnostic Reporting<small>What to scale, test, and cut</small></a>
               <a href="/intelligence-room#audit">Channel Audits<small>$499 single-channel audit</small></a>
-              <a href="/competitor-intel-report">Free Demand Plan<small>Positioning read + targeting worksheet</small></a>
+              <a href="/competitor-intel-report">Free Demand Plan Lite<small>Positioning read + targeting worksheet</small></a>
             </div>
           </div>
         </div>
@@ -525,7 +536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <button class="gnav-theme" id="gnavTheme" aria-label="Switch theme"><span class="gnav-theme-ic">🌙</span><span class="gnav-theme-lb">Dark mode</span></button>
       <a class="gnav-link gnav-bookcall" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
-      <a class="btn btn-primary gnav-cta" href="#get-report">Free Demand Plan</a>
+      <a class="btn btn-primary gnav-cta" href="#get-report">Free Demand Plan Lite</a>
     </div>
   </div>
 </nav>
@@ -538,12 +549,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="https://impactable.com/wp-content/uploads/2026/04/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner">
         <span>LinkedIn Marketing Partner</span>
       </div>
-      <span class="eyebrow">The Demand Plan &middot; Free</span>
+      <span class="eyebrow">Demand Plan Lite</span>
       <h1 class="display">See how your competitors are positioned, and the <span class="em">open lane</span> that's yours to own.</h1>
-      <p class="hero-lede">The Demand Plan, free: who your real buyers are, where you beat your competitors, who to target first, and what your channel priority should be. Built for you in 48 hours. Three outputs, yours to keep.</p>
+      <p class="hero-lede">Demand Plan Lite, free: who your real buyers are, where you beat your competitors, who to target first, and what your channel priority should be. Built for you in 48 hours. Three outputs, yours to keep.</p>
       <p class="hero-sub">DemandSense thinking, done by hand. From the team behind Lacework's 6X ROI. No pitch unless you ask.</p>
       <div class="hero-cta">
-        <a class="btn btn-canopy btn-lg" href="#get-report">Get your free Demand Plan</a>
+        <a class="btn btn-canopy btn-lg" href="#get-report">Get your free Demand Plan Lite</a>
         <a class="btn btn-ghost btn-lg" href="#report-1">See sample outputs</a>
       </div>
       <div class="hero-stats">
@@ -556,14 +567,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- OFFER SUMMARY -->
     <aside class="offer-card" aria-label="Free Competitor Intel Report offer">
       <div class="oc-tag"><span class="dot"></span> The front door</div>
-      <div class="oc-name">The Demand Plan &middot; Free</div>
+      <div class="oc-name">Demand Plan Lite</div>
       <div class="oc-price">Three outputs. Free. 48 hour turnaround.</div>
       <ul class="oc-list">
         <li>How your top 10 competitors position, and the open lanes they leave</li>
         <li>A signal-composed targeting worksheet for your best-fit audience</li>
         <li>A channel priority read: where to start, warm and first-party first</li>
       </ul>
-      <a class="btn btn-canopy btn-lg" href="#get-report" style="width:100%;justify-content:center;margin-top:8px">Grab your free Demand Plan</a>
+      <a class="btn btn-canopy btn-lg" href="#get-report" style="width:100%;justify-content:center;margin-top:8px">Grab your free Demand Plan Lite</a>
       <p class="form-foot">No pitch unless you ask. We read every submission ourselves.</p>
     </aside>
   </div>
@@ -794,8 +805,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Where this leads</span>
-      <h2 class="sec-title display">After the free plan: the Demand Plan &middot; Build.</h2>
-      <p class="sec-desc">Here's the difference. The free Demand Plan is a fast read we build <em>for</em> you. The Build is the full version, made <em>with</em> you: working sessions personalize the positioning, messaging, and offers to your input, and you walk away with the campaign build specs and creative direction your team executes against, plus a build-ready 90-day roadmap you own.</p>
+      <h2 class="sec-title display">After the free plan: the Demand Plan Full.</h2>
+      <p class="sec-desc">Here's the difference. Demand Plan Lite is a fast read we build <em>for</em> you, free. Demand Plan Full is the paid version, made <em>with</em> you: working sessions personalize the positioning, messaging, and offers to your input, and you walk away with the campaign build specs and creative direction your team executes against, plus a build-ready 90-day roadmap you own.</p>
     </div>
     <div class="build-grid">
       <div class="bcard"><div class="bn">01</div><h4>Prioritize and fund</h4><p>Rank the audience segments and deploy budget into an efficient ecosystem, starting with warm.</p></div>
@@ -804,13 +815,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="bcard"><div class="bn">04</div><h4>90-day roadmap</h4><p>A build-and-improve roadmap that moves the marketing motion in one clear direction.</p></div>
     </div>
     <div class="build-foot">
-      <div class="build-price">$1,500<small>Full Demand Plan Build, you own it</small></div>
+      <div class="build-price">$1,500<small>Full Demand Plan Full, you own it</small></div>
       <div class="hero-cta">
         <a class="btn btn-canopy btn-lg" href="#get-report">Start with the free plan</a>
         <a class="btn btn-ghost btn-lg" href="/intelligence-room">See Strategy + Diagnostics</a>
       </div>
     </div>
-    <p class="build-note serif"><em>The free plan comes first, and it's free.</em> The Build is the next step only if the gaps are clear and we both want to move.</p>
+    <p class="build-note serif"><em>Demand Plan Lite comes first, and it's free.</em> Demand Plan Full is the next step only if the gaps are clear and we both want to move.</p>
   </div>
 </section>
 
@@ -819,9 +830,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="form-grid">
       <div>
-        <span class="eyebrow">Claim your Demand Plan</span>
+        <span class="eyebrow">Claim your Demand Plan Lite</span>
         <h2 class="sec-title display">Tell us your top 3 competitors.</h2>
-        <p class="sec-desc">We'll build your Demand Plan, the Competitor Intel Report, Audience Targeting Worksheet, and Channel Priority Read, and send it within 48 hours. Free, no pitch unless you ask.</p>
+        <p class="sec-desc">We'll build your Demand Plan Lite, the Competitor Intel Report, Audience Targeting Worksheet, and Channel Priority Read, and send it within 48 hours. Free, no pitch unless you ask.</p>
         <ul class="form-points">
           <li>Three outputs, built for you</li>
           <li>48 hour turnaround</li>
@@ -835,7 +846,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="form-panel">
         <div class="gform-frame">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform?embedded=true" width="100%" height="1737" frameborder="0" marginheight="0" marginwidth="0" style="background:transparent;border:none;display:block" title="Request your free Demand Plan">Loading&hellip;</iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform?embedded=true" width="100%" height="1737" frameborder="0" marginheight="0" marginwidth="0" style="background:transparent;border:none;display:block" title="Request your free Demand Plan Lite">Loading&hellip;</iframe>
         </div>
         <p class="form-foot">Prefer more room? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmSdRg8C5MAaNDsFgq4cTwsNEdGat952QZaUQwTWRyjuo8cA/viewform" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open the form in a new tab.</a></p>
       </div>
@@ -896,7 +907,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="faq-item">
         <h4>What happens after I get the reports?</h4>
-        <p>Nothing you don't choose. Many leaders book a 30-minute walkthrough. Some take the documents and run with them in-house. If the gaps are clear, the Demand Plan Build is the next step. Your call.</p>
+        <p>Nothing you don't choose. Many leaders book a 30-minute walkthrough. Some take the documents and run with them in-house. If the gaps are clear, the Demand Plan Full is the next step. Your call.</p>
       </div>
     </div>
   </div>
@@ -907,9 +918,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">Last thing</span>
     <h2 class="display">See the accounts actually moving<br>before you spend the next $10K.</h2>
-    <p>Reply with your top competitors. We'll build your free Demand Plan and send it inside 48 hours. No pitch unless you ask.</p>
+    <p>Reply with your top competitors. We'll build your free Demand Plan Lite and send it inside 48 hours. No pitch unless you ask.</p>
     <div class="hero-cta">
-      <a class="btn btn-canopy btn-lg" href="#get-report">Get my free Demand Plan</a>
+      <a class="btn btn-canopy btn-lg" href="#get-report">Get my free Demand Plan Lite</a>
       <a class="btn btn-ghost btn-lg" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Or book a call</a>
     </div>
   </div>
@@ -926,9 +937,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="foot-cols">
         <div class="foot-col">
           <h5>This offer</h5>
-          <a href="#get-report">Free Demand Plan</a>
+          <a href="#get-report">Free Demand Plan Lite</a>
           <a href="#report-1">Sample outputs</a>
-          <a href="#strategy-build">The Demand Plan Build</a>
+          <a href="#strategy-build">The Demand Plan Full</a>
         </div>
         <div class="foot-col">
           <h5>Services</h5>
@@ -987,8 +998,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });}
 })();
 </script>
-<!-- ClickUp form embed: handles dynamic iframe height for the lead-gen form -->
-<script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+<!-- Native Demand Plan form: submits to the Google Forms backend via a hidden iframe, then redirects to /thank-you -->
+<script>
+(function(){
+  var f=document.getElementById('dpForm');
+  if(!f) return;
+  var sink=document.getElementsByName('dp_sink')[0], submitted=false;
+  f.addEventListener('submit', function(){
+    submitted=true;
+    var b=f.querySelector('button[type="submit"]');
+    if(b){b.disabled=true;b.textContent='Sending…';}
+  });
+  if(sink) sink.addEventListener('load', function(){
+    if(submitted){ window.location.href='/thank-you'; }
+  });
+})();
+</script>
 
 <!-- Vercel Web Analytics -->
 <script>
