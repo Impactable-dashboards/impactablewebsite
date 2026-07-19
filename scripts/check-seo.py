@@ -29,6 +29,7 @@ BANNED = [
     (r"Demand Plan Full", "naming: paid offer is 'Full Marketing Strategy' (not Demand Plan Full)"),
     (r"daily optimization", "positioning: say 'ongoing optimization'"),
     (r"two to three weeks|\b2\s*(?:-|to)\s*3\s*weeks\b", "no delivery-time estimate on strategy/impact-report offers"),
+    (r"Facebook (?:&amp;|and|,) Instagram|Facebook, Instagram", "channel naming: say 'B2B Facebook', not 'Facebook and Instagram'"),
     # Price-format consistency: canonical prices use comma thousands.
     (r"\$1750\b", "price format: write $1,750"),
     (r"\$3000\b", "price format: write $3,000"),

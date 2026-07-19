@@ -38,6 +38,9 @@ fails the build on a regression.
   framing. Banned words: unlock, disrupt, game-changing, synergy, cutting-edge,
   hustle. No delivery-time estimates on the strategy / Impact Report offers
   (e.g. "2-3 weeks"). A "90-day plan/roadmap" as a deliverable *horizon* is fine.
+- **Channel naming:** the paid-social channel is **"B2B Facebook"**, never
+  "Facebook and Instagram" / "Facebook & Instagram" (linted). Standalone
+  "Facebook" in prose is fine.
 - **Five signal sources:** CRM, LinkedIn paid, LinkedIn organic, companies on
   site, people on site. CAPI is Impactable's certified integration (not a
   DemandSense feature).
@@ -96,17 +99,19 @@ A change in one place must be swept everywhere. Process:
 4. Run `python3 scripts/check-seo.py` (must PASS) before pushing.
 
 ## LinkedIn cluster status
-LIVE: `/linkedin-ads-agency` (flagship hub). **Still to build** (copy is final
-in the spec files; build all on impactable.marketing, cross-link, then merge
-together): `/linkedin-ads-audit`, `/linkedin-ads-by-industry` (verticals hub),
-`/linkedin-ads-for-saas`, `/linkedin-ads-for-cybersecurity`,
-`/linkedin-ads-for-financial-services` (**system-led, keyword-focused, no named
-accounts** — Justin's call; real FinServ cases may come later). When they exist,
-re-wire: nav (add LinkedIn Ads Audit + LinkedIn Ads by Industry), Channel Audits
-→ /linkedin-ads-audit, flagship hub cards (audit + by-industry), footer "By
-industry" group, sitemap.
+**All LIVE:** `/linkedin-ads-agency` (flagship hub), `/linkedin-ads-audit`,
+`/linkedin-ads-by-industry` (verticals hub), `/linkedin-ads-for-saas`,
+`/linkedin-ads-for-cybersecurity`, `/linkedin-ads-for-financial-services`
+(system-led, keyword-focused, no named accounts; drop a real FinServ case into
+its Proof section when one exists). Nav, flagship hub cards, footer "By industry"
+group, and sitemap are all wired. Future/optional: dedicated B2B Facebook and
+Programmatic money pages, and a 4th vertical (healthtech or pro services).
 
 ## Decisions log (newest first)
+- **2026-07-19** Built the full LinkedIn cluster (audit, verticals hub, SaaS,
+  cybersecurity, financial-services) and wired nav/hub/footer/sitemap.
+- **2026-07-19** Channel naming: "B2B Facebook", never "Facebook and Instagram"
+  (linted). FinServ built system-led, keyword-focused, no named accounts.
 - **2026-07-19** Consistency mechanism: added `scripts/sweep.py` and a canonical
   values table + `CANON`/price-format checks in the gate. Rule: never change a
   price/name/phrase in one spot — sweep it everywhere (process above).
