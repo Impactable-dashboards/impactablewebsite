@@ -61,8 +61,10 @@ fails the build on a regression.
   (blue-soft); **B** = `.band` + `--accent` + `.text-accent` / `.text-canopy`.
 - The `gnav` mega-menu and the head tracking block are **duplicated in every
   HTML file** — edit them consistently across all pages (script it).
-- Services nav is LinkedIn-anchored (two columns: "LinkedIn Ads" first, then
-  "Everything else"). How We Work has ONE "Strategy & Diagnostics" item
+- Services nav is a three-column mega-menu: "LinkedIn Ads" (agency, new,
+  scaling, audit), "By industry" (SaaS, cybersecurity, financial services, all
+  industries), "Everything else". Every content page's footer also carries a
+  "By industry" column. How We Work has ONE "Strategy & Diagnostics" item
   (the duplicate "Diagnostic Reporting" was removed — both pointed to /intelligence-room).
 - `.reveal` elements fade in on scroll, so they look dim/blank in static
   screenshots — that is a render artifact, not a bug. Verify layout in a real browser.
@@ -108,6 +110,10 @@ group, and sitemap are all wired. Future/optional: dedicated B2B Facebook and
 Programmatic money pages, and a 4th vertical (healthtech or pro services).
 
 ## Decisions log (newest first)
+- **2026-07-19** Verticals surfaced best-practice: Services mega-menu is now
+  three columns with a dedicated "By industry" column (SaaS, cybersecurity,
+  financial services, all industries), and every content page's footer carries
+  a "By industry" column.
 - **2026-07-19** Every LinkedIn-cluster page (audit, hub, all spokes) carries the
   LinkedIn partnership sections (certified-agency award + summit photos + CAPI)
   and the managed pricing grid, structured like /linkedin-scale. Only hero
