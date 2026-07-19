@@ -108,6 +108,11 @@ group, and sitemap are all wired. Future/optional: dedicated B2B Facebook and
 Programmatic money pages, and a 4th vertical (healthtech or pro services).
 
 ## Decisions log (newest first)
+- **2026-07-19** Every LinkedIn-cluster page (audit, hub, all spokes) carries the
+  LinkedIn partnership sections (certified-agency award + summit photos + CAPI)
+  and the managed pricing grid, structured like /linkedin-scale. Only hero
+  language and references differ by industry. Audit's "what it covers" mirrors
+  the real 35-point inspection: 6 diagnostic layers (7/6/7/6/5/4).
 - **2026-07-19** Built the full LinkedIn cluster (audit, verticals hub, SaaS,
   cybersecurity, financial-services) and wired nav/hub/footer/sitemap.
 - **2026-07-19** Channel naming: "B2B Facebook", never "Facebook and Instagram"
