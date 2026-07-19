@@ -15,6 +15,22 @@ REQUIRED = [
     ("twitter:card", r'twitter:card', "Twitter card"),
     ("JSON-LD", r'application/ld\+json', "JSON-LD structured data"),
 ]
+# ── Content-lint: phrases we deliberately removed and must never reappear. ──
+# Each entry: (regex, why). Case-insensitive, checked against body text (CSS
+# comments stripped). See CLAUDE.md "Decisions log" for the reasoning behind each.
+BANNED = [
+    (r"account list", "account-list claim: we do competitor intel + audience targeting from signals/first-party/in-market, not 'engineer the account list'"),
+    (r"we built our own", "DemandSense ownership: we are a top partner, we do not own/build it"),
+    (r"our own intelligence layer", "DemandSense ownership: use 'a deeper signal layer' / 'we run on DemandSense'"),
+    (r"proprietary", "DemandSense ownership: no 'proprietary' tooling/infrastructure claims"),
+    (r"DemandSense thinking", "attribution: strategy/intelligence is Impactable; DemandSense provides signals"),
+    (r"\bby hand\b", "voice: drop 'by hand' / 'done by hand' framing"),
+    (r"Demand Plan Lite", "naming: free offer is 'Demand Plan' (not Lite)"),
+    (r"Demand Plan Full", "naming: paid offer is 'Full Marketing Strategy' (not Demand Plan Full)"),
+    (r"daily optimization", "positioning: say 'ongoing optimization'"),
+    (r"two to three weeks|\b2\s*(?:-|to)\s*3\s*weeks\b", "no delivery-time estimate on strategy/impact-report offers"),
+]
+
 fail = 0
 for f in sorted(glob.glob("*.html")):
     if f in EXCLUDE: continue
@@ -30,6 +46,11 @@ for f in sorted(glob.glob("*.html")):
     # em dashes are banned everywhere (Brand Bible + AI tell); ignore CSS comments
     body = re.sub(r"/\*.*?\*/", "", s, flags=re.S)
     if "—" in body or "&mdash;" in body: problems.append("contains an em dash (banned)")
+    # banned/regressed phrases (see CLAUDE.md); check visible text, not <style>/<script>
+    text = re.sub(r"<(style|script)\b.*?</\1>", "", body, flags=re.S | re.I)
+    for rx, why in BANNED:
+        if re.search(rx, text, re.I):
+            problems.append(f"banned phrase /{rx}/ - {why}")
     if problems:
         fail = 1
         print(f"FAIL {f}:")
