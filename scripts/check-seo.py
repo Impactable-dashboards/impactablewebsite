@@ -29,7 +29,23 @@ BANNED = [
     (r"Demand Plan Full", "naming: paid offer is 'Full Marketing Strategy' (not Demand Plan Full)"),
     (r"daily optimization", "positioning: say 'ongoing optimization'"),
     (r"two to three weeks|\b2\s*(?:-|to)\s*3\s*weeks\b", "no delivery-time estimate on strategy/impact-report offers"),
+    # Price-format consistency: canonical prices use comma thousands.
+    (r"\$1750\b", "price format: write $1,750"),
+    (r"\$3000\b", "price format: write $3,000"),
+    (r"\$4500\b", "price format: write $4,500"),
+    (r"\$6000\b", "price format: write $6,000 (or the $6-12k range)"),
+    (r"\$12000\b", "price format: write $12,000 (or the $6-12k range)"),
 ]
+# Canonical pricing/packaging = single source of truth (also in CLAUDE.md).
+# When any of these change: (1) edit here + CLAUDE.md, (2) run scripts/sweep.py
+# to propagate, (3) add the OLD value to BANNED above so leftovers cannot ship.
+CANON = {
+    "Demand Plan": "free tier name",
+    "Full Marketing Strategy": "one-time paid plan name",
+    "Channel Check": "single-channel audit name",
+    "$499": "Channel Check price", "$1,500": "Full Marketing Strategy price",
+    "$1,750": "Pilot", "$3,000": "Core", "$4,500": "Growth", "$6-12k": "Scale",
+}
 
 fail = 0
 for f in sorted(glob.glob("*.html")):

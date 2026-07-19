@@ -73,16 +73,44 @@ robots, OG + Twitter tags, valid JSON-LD, exactly one `<h1>`, no em dashes, and
 none of the banned phrases above. `EXCLUDE`: pricing-table-embed.html,
 googledc79b137a1cd7351.html. `NOINDEX`: thank-you.html.
 
+## Canonical values (single source of truth)
+These are the only correct spellings. They also live in `check-seo.py` (`CANON`)
+and the gate enforces their formatting.
+
+| Offer | Name | Price |
+|---|---|---|
+| Free | Demand Plan | free |
+| Single-channel audit | Channel Check | $499 |
+| One-time plan | Full Marketing Strategy | $1,500 |
+| Managed entry | Pilot | $1,750/mo |
+| Managed, one channel | Core | $3,000/mo |
+| Managed, two channels | Growth | $4,500/mo |
+| Managed, full system | Scale | $6-12k/mo (detail pages: $6,000 to $12,000) |
+
+## When you change pricing / packaging / language (SWEEP — do not edit one spot)
+A change in one place must be swept everywhere. Process:
+1. Update the canonical table above **and** `CANON` in `scripts/check-seo.py`.
+2. Propagate site-wide: `python3 scripts/sweep.py "old" "new"`
+   (preview first with `--dry`; find with `--find "text"`).
+3. Add the **old** value to `BANNED` in `check-seo.py` so a leftover can never ship.
+4. Run `python3 scripts/check-seo.py` (must PASS) before pushing.
+
 ## LinkedIn cluster status
 LIVE: `/linkedin-ads-agency` (flagship hub). **Still to build** (copy is final
 in the spec files; build all on impactable.marketing, cross-link, then merge
 together): `/linkedin-ads-audit`, `/linkedin-ads-by-industry` (verticals hub),
 `/linkedin-ads-for-saas`, `/linkedin-ads-for-cybersecurity`,
-`/linkedin-ads-for-financial-services`. When they exist, re-wire: nav (add
-LinkedIn Ads Audit + LinkedIn Ads by Industry), Channel Audits → /linkedin-ads-audit,
-flagship hub cards (audit + by-industry), footer "By industry" group, sitemap.
+`/linkedin-ads-for-financial-services` (**system-led, keyword-focused, no named
+accounts** — Justin's call; real FinServ cases may come later). When they exist,
+re-wire: nav (add LinkedIn Ads Audit + LinkedIn Ads by Industry), Channel Audits
+→ /linkedin-ads-audit, flagship hub cards (audit + by-industry), footer "By
+industry" group, sitemap.
 
 ## Decisions log (newest first)
+- **2026-07-19** Consistency mechanism: added `scripts/sweep.py` and a canonical
+  values table + `CANON`/price-format checks in the gate. Rule: never change a
+  price/name/phrase in one spot — sweep it everywhere (process above).
+- **2026-07-19** FinServ spoke = system-led, keyword-focused, no named accounts.
 - **2026-07-19** Removed "Two to three weeks" from the launch/scale offer subs.
   Rule: no delivery-time estimates on strategy/audit offers (now linted).
 - **2026-07-19** Added LinkedIn partnership visuals to the flagship (certified
