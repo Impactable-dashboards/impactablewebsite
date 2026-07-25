@@ -111,10 +111,38 @@ A change in one place must be swept everywhere. Process:
 `/linkedin-ads-for-cybersecurity`, `/linkedin-ads-for-financial-services`
 (system-led, keyword-focused, no named accounts; drop a real FinServ case into
 its Proof section when one exists). Nav, flagship hub cards, footer "By industry"
-group, and sitemap are all wired. Future/optional: dedicated B2B Facebook and
-Programmatic money pages, and a 4th vertical (healthtech or pro services).
+group, and sitemap are all wired. `/programmatic` (B2B Programmatic money page)
+is LIVE and wired (nav "Programmatic" repointed from /marketing-ecosystem in all
+files, footer, sitemap). Future/optional: a dedicated B2B Facebook money page,
+and a 4th vertical (healthtech or pro services).
+
+## /programmatic conventions (compliance-sensitive)
+- **No vendor names.** Never name the DSP or any data provider. Reference every
+  capability by its job.
+- **First-party wording.** Never imply we take/extract/export audiences from
+  LinkedIn. Frame as the client's OWN first-party signal (companies/people
+  engaging with them on LinkedIn + visiting their site), built into an audience
+  reached across the open web. Compliance-sensitive.
+- **No "account list"** (site-wide lint). The targeting section is "Your
+  audience, built from signal" (not "the programmatic account list").
+- **Honest expectations.** Programmatic = reach/trust/incremental lift, measured
+  on awareness + engagement, best run alongside a capture channel. No direct or
+  last-click ROI promises. No fabricated programmatic metrics (Lacework/HeyReach
+  are agency proof only; drop a real awareness/engagement case in when cleared).
+- Open items for Justin (not yet resolved): publisher names/logos to show, how
+  boldly to feature emerging AI placements + geofencing.
 
 ## Decisions log (newest first)
+- **2026-07-25** Built and shipped `/programmatic` (B2B Programmatic money page)
+  from the deep-build spec: hero + Everywhere Effect placements + full-channel
+  (not retargeting) + first-party-vs-rented wedge + reachability + targeting +
+  specialty plays + awareness/engagement measurement + who-it's-for + ecosystem
+  cross-links + proof (Lacework/HeyReach/Clutch, agency-level) + FAQ (FAQPage
+  schema) + final CTA. Cloned from linkedin-launch (gnav/footer/components).
+  Reconciled spec vs. gate: "Demand Plan Lite" -> Demand Plan; "the programmatic
+  account list" -> "Your audience, built from signal" (account-list is banned).
+  Nav "Programmatic" repointed to /programmatic in all files; footer + sitemap
+  wired. See /programmatic conventions above.
 - **2026-07-25** CRM framing corrected site-wide: we **sync the client's CRM with
   DemandSense** so reporting is anchored in real deals and pipeline. Removed
   "wired to your CRM" / "attribution wired into your CRM" from index, verticals
