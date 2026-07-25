@@ -31,6 +31,11 @@ fails the build on a regression.
   layer", "proprietary" tooling/infrastructure. The strategy and intelligence
   are Impactable's; DemandSense provides signals and reporting. Link out with
   `https://demandsense.com/?utm_source=impactable&utm_medium=referral&utm_campaign=site`.
+- **CRM framing:** we do NOT "wire signals/attribution into your CRM". We **sync
+  the client's CRM with DemandSense** so reporting is anchored in real deals and
+  pipeline. Say "CRM synced with DemandSense", never "wired to your CRM" (linted).
+  (Exception: google.html's offline-conversion import genuinely wires the CRM
+  into Google Ads, a different, correct claim.)
 - **What we actually do:** competitor intel + audience targeting built from
   signals, first-party data, and in-market intent. NOT "engineer the account
   list before you spend." Never the phrase "account list."
@@ -110,6 +115,12 @@ group, and sitemap are all wired. Future/optional: dedicated B2B Facebook and
 Programmatic money pages, and a 4th vertical (healthtech or pro services).
 
 ## Decisions log (newest first)
+- **2026-07-25** CRM framing corrected site-wide: we **sync the client's CRM with
+  DemandSense** so reporting is anchored in real deals and pipeline. Removed
+  "wired to your CRM" / "attribution wired into your CRM" from index, verticals
+  hub, audit, marketing-ecosystem, and pricing; added the phrase to `BANNED`.
+  Also removed the "Led by founder Justin Rowe" line from the pricing team
+  section (kept the LinkedIn Partner + Lacework/HeyReach proof).
 - **2026-07-25** `pricing.html` is intentionally scoped to managed **Core /
   Growth / Scale + a Custom band** ($25k-$500k+). Pilot ($1,750) and the $1,500
   Full Marketing Strategy / Impact Report are deliberately NOT shown on this page
