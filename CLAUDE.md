@@ -110,6 +110,15 @@ group, and sitemap are all wired. Future/optional: dedicated B2B Facebook and
 Programmatic money pages, and a 4th vertical (healthtech or pro services).
 
 ## Decisions log (newest first)
+- **2026-07-25** `pricing.html` is intentionally scoped to managed **Core /
+  Growth / Scale + a Custom band** ($25k-$500k+). Pilot ($1,750) and the $1,500
+  Full Marketing Strategy / Impact Report are deliberately NOT shown on this page
+  (they still exist as offers and appear on other pages, e.g. the flagship /
+  scale). Do not "restore" them here as if it were a regression. Web ID is a
+  **Growth-tier ($4,500) inclusion** (and above), not a Core feature. Page anchors
+  on Book a call. Added a "Who runs your account" senior-pod section (4 role cards
+  + pod-by-tier row + founder credibility line) to show the team and justify the
+  flat fee.
 - **2026-07-19** Verticals surfaced best-practice: Services mega-menu is now
   three columns with a dedicated "By industry" column (SaaS, cybersecurity,
   financial services, all industries), and every content page's footer carries
