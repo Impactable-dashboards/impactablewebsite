@@ -159,7 +159,7 @@
     <div class="svc-grid">
       <a class="svc-card reveal" href="/linkedin-ads-agency">
         <h3>B2B LinkedIn Ads</h3>
-        <p>The account list, engineered from real buyer signal before a dollar is spent.</p>
+        <p>Audience targeting built from real buyer signal before a dollar is spent.</p>
         <span class="svc-arrow">Explore LinkedIn Ads &rarr;</span>
       </a>
       <a class="svc-card reveal" href="/thought-leadership">
@@ -634,7 +634,7 @@
       <div class="spec-foot sp-ft"><span>Synthesized by cross-referencing title, seniority, function, and industry against engagement, then mapped straight onto your messaging architecture.</span></div>
     </div>
 
-    <!-- SPEC 4: Scale vs cut — Figma 5000:177987 -->
+    <!-- SPEC 4: Scale vs cut - Figma 5000:177987 -->
     <div class="spec gal-panel" id="galp-4" role="tabpanel" aria-labelledby="galt-4" data-gal-group="impactable" hidden>
       <div class="spec-head">
         <div class="spec-q">Question 04 · Audience efficiency</div>
@@ -728,7 +728,7 @@
       <div class="spec-foot spec-foot--legend"><span class="tk">INVEST</span> scale · <span class="tk">HOLD</span> ICP-adjacent · <span class="tk">REDUCE</span> poor efficiency · <span class="tk">EXCLUDE</span> off-ICP. Also run by job function, industry, company size, and title.</div>
     </div>
 
-        <!-- SPEC 5: Budget waste — Figma 5000:178672 -->
+        <!-- SPEC 5: Budget waste - Figma 5000:178672 -->
     <div class="spec gal-panel" id="galp-5" role="tabpanel" aria-labelledby="galt-5" data-gal-group="impactable" hidden>
       <div class="spec-head">
         <div class="spec-q">Question 05 · Waste</div>
@@ -1151,21 +1151,18 @@
       var emb=b.getAttribute('data-embed');
       if(!yt&&!emb)return;
 
-      /* YouTube embeds often fail on file:// — open watch URL instead */
-      if(yt&&location.protocol==='file:'){
-        window.open('https://www.youtube.com/watch?v='+encodeURIComponent(yt),'_blank','noopener');
-        return;
-      }
-
       poster.setAttribute('data-play-html',b.outerHTML);
       var f=document.createElement('iframe');
       f.className='case-iframe';
       if(emb){
         f.src=emb+(emb.indexOf('?')>-1?'&':'?')+'autoplay=1';
       }else{
-        var origin=encodeURIComponent(location.origin||'https://impactable.marketing');
-        f.src='https://www.youtube.com/embed/'+encodeURIComponent(yt)+
-          '?autoplay=1&rel=0&playsinline=1&modestbranding=1&enablejsapi=1&origin='+origin;
+        /* Always play inline in the poster (Watch Video does the same) */
+        var qs='?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+        if(location.protocol!=='file:'){
+          qs+='&enablejsapi=1&origin='+encodeURIComponent(location.origin||'https://impactable.marketing');
+        }
+        f.src='https://www.youtube.com/embed/'+encodeURIComponent(yt)+qs;
       }
       f.title=b.getAttribute('aria-label')||'Case study video';
       f.setAttribute('frameborder','0');

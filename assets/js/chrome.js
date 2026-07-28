@@ -22,8 +22,6 @@
 
   var toggle = document.getElementById('rdToggle');
   var menu = document.getElementById('rdMenu');
-  var scrollLockTimer = null;
-  var scrollLockHandler = null;
 
   function isMobileNav() {
     return window.matchMedia('(max-width:1024px)').matches;
@@ -35,33 +33,6 @@
       var t = i.querySelector('.rd-trigger');
       if (t) t.setAttribute('aria-expanded', 'false');
     });
-    clearScrollLock();
-  }
-
-  function clearScrollLock() {
-    if (scrollLockTimer) {
-      clearTimeout(scrollLockTimer);
-      scrollLockTimer = null;
-    }
-    if (scrollLockHandler && menu) {
-      menu.removeEventListener('scroll', scrollLockHandler);
-      scrollLockHandler = null;
-    }
-  }
-
-  /* After opening Services, pin dropdown scroll to top and block browser
-     focus/scroll-into-view from jumping mid-list for a short window. */
-  function pinServicesInMenu() {
-    if (!menu) return;
-    clearScrollLock();
-    menu.scrollTop = 0;
-    scrollLockHandler = function () {
-      if (menu.scrollTop !== 0) menu.scrollTop = 0;
-    };
-    menu.addEventListener('scroll', scrollLockHandler, { passive: true });
-    scrollLockTimer = setTimeout(function () {
-      clearScrollLock();
-    }, 450);
   }
 
   function setMenuOpen(open) {
@@ -70,6 +41,7 @@
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.innerHTML = open ? '&times;' : '&#9776;';
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+    document.documentElement.classList.toggle('rd-nav-open', open);
     if (!open) closeServices();
   }
 
@@ -82,7 +54,6 @@
 
   /* Services accordion: click-to-toggle (desktop hover still via CSS) */
   document.querySelectorAll('.rd-item .rd-trigger').forEach(function (btn) {
-    /* Block focus on press — focused tall .rd-item triggers mobile scroll jump */
     btn.addEventListener('mousedown', function (e) {
       if (isMobileNav()) e.preventDefault();
     });
@@ -106,17 +77,15 @@
       btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       try { btn.blur(); } catch (err) { /* ignore */ }
 
-      if (isMobileNav() && menu) {
+      /* Keep page still; scroll the Services panel itself from the top */
+      if (isMobileNav()) {
         window.scrollTo(0, pageY);
-        if (willOpen) {
-          pinServicesInMenu();
-          requestAnimationFrame(function () {
-            window.scrollTo(0, pageY);
-            pinServicesInMenu();
-          });
-        } else {
-          clearScrollLock();
-        }
+        var mega = item.querySelector('.rd-mega');
+        if (willOpen && mega) mega.scrollTop = 0;
+        requestAnimationFrame(function () {
+          window.scrollTo(0, pageY);
+          if (willOpen && mega) mega.scrollTop = 0;
+        });
       }
     });
   });

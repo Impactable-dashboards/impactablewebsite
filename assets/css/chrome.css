@@ -27,25 +27,53 @@ a.rd-cta.rd-cta-desk {
 .evt-banner.hide{display:none}
 .evt-link{
   display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
-  color:#04161d;text-decoration:none;font-weight:600;
+  color:#04161d;text-decoration:none;font-weight:600;max-width:100%;
 }
 .evt-link:hover .evt-cta{text-decoration:none}
 .evt-dot{
   width:8px;height:8px;border-radius:50%;background:#04161d;flex:none;
   animation:evtPulse 1.8s ease-in-out infinite;
 }
+.evt-txt{min-width:0}
 .evt-cta{text-decoration:underline;white-space:nowrap}
 .evt-x{
   position:absolute;right:14px;top:50%;transform:translateY(-50%);
   background:none;border:0;color:#04161d;font-size:22px;line-height:1;
-  cursor:pointer;opacity:.65;padding:0;
+  cursor:pointer;opacity:.65;padding:0;z-index:1;
 }
 .evt-x:hover{opacity:1}
 @keyframes evtPulse{0%,100%{opacity:1}50%{opacity:.35}}
 @media(prefers-reduced-motion:reduce){.evt-dot{animation:none}}
-@media(max-width:560px){
-  .evt-banner{font-size:12.5px;padding:9px 38px 9px 14px}
-  .evt-cta{width:100%}
+/* Mobile: compact 2-line banner — dot left, copy + CTA stacked, no orphan layout */
+@media(max-width:640px){
+  .evt-banner{
+    font-size:12px;line-height:1.35;
+    padding:8px 36px 8px 12px;
+    align-items:flex-start;justify-content:flex-start;
+    text-align:left;
+  }
+  .evt-link{
+    display:grid;
+    grid-template-columns:7px minmax(0,1fr);
+    column-gap:8px;row-gap:3px;
+    align-items:start;justify-content:stretch;
+    flex-wrap:nowrap;width:100%;
+    text-align:left;
+  }
+  .evt-dot{
+    width:6px;height:6px;margin-top:5px;
+    grid-column:1;grid-row:1 / span 2;
+  }
+  .evt-txt{grid-column:2;grid-row:1}
+  .evt-cta{
+    grid-column:2;grid-row:2;
+    width:auto;justify-self:start;
+    font-size:12px;
+  }
+  .evt-x{
+    top:6px;right:10px;transform:none;
+    font-size:20px;line-height:1;padding:4px;
+  }
 }
 
 /* ── NAV (Figma 4954:147294) ── */
@@ -163,17 +191,19 @@ a.rd-cta.rd-cta-desk {
     background:var(--navy-800);
     border-bottom:1px solid var(--line);
     padding:4px 20px 20px;
-    max-height:min(72vh,calc(100vh - 90px));
-    overflow-x:hidden;overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
-    overscroll-behavior:contain;
-    overflow-anchor:none;
+    max-height:min(78vh,calc(100dvh - 96px));
+    overflow:hidden;
     justify-self:stretch;width:100%;
     z-index:120;
     box-shadow:0 18px 40px rgba(0,0,0,.35);
   }
-  .rd-item{width:100%;display:block;position:static;overflow-anchor:none}
-  .rd-link{display:block}
+  .rd-item{width:100%;display:block;position:static;overflow-anchor:none;flex:none}
+  /* When open, item fills leftover height; mega scrolls inside */
+  .rd-item.open{
+    flex:1 1 auto;min-height:0;
+    display:flex;flex-direction:column;
+  }
+  .rd-link{display:block;flex:none}
   .rd-trigger,.rd-link{
     width:100%;text-align:left;padding:14px 2px;
     border-bottom:1px solid var(--line-soft);
@@ -181,42 +211,34 @@ a.rd-cta.rd-cta-desk {
   .rd-trigger{
     justify-content:space-between;
     -webkit-tap-highlight-color:transparent;
+    flex:none;
   }
-  /* Accordion: ONLY .open — no sticky hover/focus-within.
-     Instant show/hide (no max-height:1800px) — that fake height made
-     mobile browsers scroll the tall .rd-item into view and hide Services. */
+  /* Accordion: ONLY .open — no hover/focus-within open on mobile */
   .rd-mega,
   .rd-mega.wide,
   .rd-item:hover .rd-mega,
   .rd-item:focus-within .rd-mega{
     display:none!important;
     position:static;left:auto;transform:none!important;
-    opacity:1;visibility:visible;pointer-events:none;
     box-shadow:none;border:0;border-radius:0;background:transparent;
-    padding:0;margin:0;max-height:none;overflow:hidden;min-width:0!important;
-    width:100%;
-    transition:none;
+    padding:0;margin:0;min-width:0!important;width:100%;
   }
   .rd-mega::before{display:none!important}
   .rd-item.open .rd-mega,
   .rd-item.open .rd-mega.wide{
     display:block!important;
-    pointer-events:auto;
-    margin:8px 0 12px;
-    padding:14px 14px 10px;
+    flex:1 1 auto;min-height:0;
+    margin:4px 0 12px;
+    padding:12px 12px 8px;
     border-radius:10px;
     background:rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
     max-height:none;
-    overflow:visible;
-    transition:none;
-  }
-  /* Keep Services label visible while scrolling the open list */
-  .rd-item.open > .rd-trigger{
-    position:sticky;top:0;z-index:3;
-    background:var(--navy-800);
-    color:var(--white);
-    border-bottom-color:transparent;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    overflow-anchor:none;
   }
   .rd-item:hover .rd-trigger{color:var(--text)}
   .rd-item.open .rd-trigger{color:var(--white);border-bottom-color:transparent}
@@ -239,7 +261,7 @@ a.rd-cta.rd-cta-desk {
   .rd-col a small{display:none}
   .rd-cta-mobile{
     display:inline-flex;width:100%;margin-top:16px;justify-content:center;
-    padding:14px 22px;font-size:13px;
+    padding:14px 22px;font-size:13px;flex:none;
   }
 }
 
