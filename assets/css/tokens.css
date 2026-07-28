@@ -1,0 +1,29 @@
+/* Figma Homepage-dark tokens */
+:root{
+  --navy-900:#001122;
+  --navy-800:#00172e;
+  --navy-700:#002245;
+  --navy-500:#003973;
+  --navy-100:#ccd7e3;
+  --text:#dde1e5;
+  --white:#ffffff;
+  --blue:#0099d1;
+  --blue-soft:#5bb8e0;
+  --blue-400:#33adda;
+  --teal:#00c4b3;
+  --teal-dark:#009d8f;
+  --lime:#c6ff3d;
+  --orange:#f4a261;
+  --yellow:#ffd166;
+  --muted:#d8d4c8;
+  --muted-dim:rgba(216,212,200,.6);
+  --line:rgba(221,225,229,.14);
+  --line-soft:rgba(221,225,229,.08);
+  --card:#0a1f38;
+  --card-2:#0d2744;
+  --wrap:1200px;
+  --pad:120px;
+  --radius:6px;
+  --font-display:'Anton',sans-serif;
+  --font-body:'Inter',sans-serif;
+}

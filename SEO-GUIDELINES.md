@@ -14,7 +14,8 @@ those four places (one find-replace) and re-run the gate.
 
 ---
 
-## 1. Required `<head>` on every indexable page (the gate checks these)
+## 1. Required `<head><link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/chrome.css"><script src="/assets/js/main.js"></script>` on every indexable page (the gate checks these)
 
 ```html
 <title>…</title>                              <!-- unique, 10–70 chars, primary keyword + | Impactable -->

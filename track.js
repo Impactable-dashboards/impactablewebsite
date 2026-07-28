@@ -9,7 +9,7 @@
   /* Snappier link/button response: no 300ms tap delay, no transition lag on press */
   try {
     var snap = document.createElement('style');
-    snap.textContent = 'a,button,.btn,.gnav-link,.gnav-trigger,.gnav-cta{touch-action:manipulation}.btn,.gnav .btn{transition:background-color .15s ease,color .15s ease,border-color .15s ease,box-shadow .15s ease,transform .15s ease!important}a:active,.btn:active,.gnav-link:active,.gnav-cta:active{transition-duration:0s!important}';
+    snap.textContent = 'a,button,.btn,.gnav-link,.gnav-trigger,.gnav-cta,.rd-cta,.rd-foot .btn{touch-action:manipulation}.btn,.gnav .btn,.rd-cta,.rd-foot .btn{transition:background-color .12s ease,color .12s ease,border-color .12s ease,box-shadow .12s ease,transform .12s ease!important}a:active,.btn:active,.gnav-link:active,.gnav-cta:active,.rd-cta:active,.rd-foot .btn:active{transition-duration:0s!important}';
     document.head.appendChild(snap);
   } catch (e) {}
 
@@ -83,6 +83,42 @@
     return 'other';
   }
 
+  /* Warm Landbot DNS/TLS so Book a call feels instant */
+  try {
+    ['dns-prefetch', 'preconnect'].forEach(function (rel) {
+      var l = document.createElement('link');
+      l.rel = rel;
+      l.href = 'https://landbot.online';
+      if (rel === 'preconnect') l.crossOrigin = 'anonymous';
+      document.head.appendChild(l);
+    });
+  } catch (e) {}
+
+  function landbotHref(el) {
+    if (!el) return '';
+    var href = el.getAttribute('href') || '';
+    return href.indexOf('landbot.online') !== -1 ? href : '';
+  }
+
+  function bookSource(el) {
+    var srcEl = el.closest ? el.closest('[data-imp-src]') : null;
+    return srcEl ? srcEl.getAttribute('data-imp-src') : 'page';
+  }
+
+  /* Navigate on pointerdown (not click) so Book a call doesn't wait on
+     mouseup / GTM click tags / transition lag. Skip modified clicks + _blank. */
+  var landbotNavPending = false;
+  document.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var el = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    var href = landbotHref(el);
+    if (!href || (el.target && el.target !== '_self')) return;
+    landbotNavPending = true;
+    track('book_call_click', { page: PAGE, dest: bookingDest(href), source: bookSource(el), ab: AB, value: 25 });
+    e.preventDefault();
+    window.location.assign(el.href);
+  }, true);
+
   /* ---- click tracking via delegation (covers both nav systems) ---- */
   document.addEventListener('click', function (e) {
     var el = e.target && e.target.closest ? e.target.closest('a, button') : null;
@@ -99,10 +135,10 @@
 
     // which surface the click came from (hero/section = "page", vs the injected
     // sticky pill / mobile bar / exit modal). Lets us see where conversions come from.
-    var srcEl = el.closest ? el.closest('[data-imp-src]') : null;
-    var source = srcEl ? srcEl.getAttribute('data-imp-src') : 'page';
+    var source = bookSource(el);
 
     if (href.indexOf('landbot.online') !== -1) {
+      if (landbotNavPending) { landbotNavPending = false; return; }
       track('book_call_click', { page: PAGE, dest: bookingDest(href), source: source, ab: AB, value: 25 });
       return;
     }
@@ -186,9 +222,13 @@
     var cs = document.createElement('style');
     cs.textContent = [
       '.imp-cta-btn{box-sizing:border-box;font-family:"JetBrains Mono",monospace;font-weight:700;letter-spacing:.02em;text-decoration:none;border-radius:8px}',
-      '.imp-mbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;gap:8px;align-items:center;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,26,56,0.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(190,214,246,0.16)}',
-      '.imp-mbar .imp-mbar-primary{flex:1;min-width:0;text-align:center;background:#0099D1;color:#03121b;padding:14px 14px;font-size:15px;white-space:nowrap}',
-      '.imp-mbar .imp-mbar-alt{flex:0 0 auto;color:#D8D4CB;font-size:13px;padding:11px 12px;border:1px solid rgba(190,214,246,0.22);white-space:nowrap}',
+      '.imp-mbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;gap:8px;align-items:stretch;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,26,56,0.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(190,214,246,0.16)}',
+      '.imp-mbar .imp-cta-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 12px;font-size:13px;line-height:1.2;white-space:nowrap;transition:none;-webkit-tap-highlight-color:transparent}',
+      '.imp-mbar .imp-mbar-primary{flex:1;min-width:0;background:#0099D1;color:#03121b;border:1px solid #0099D1}',
+      '.imp-mbar .imp-mbar-alt{flex:0 0 auto;color:#D8D4CB;background:transparent;border:1px solid rgba(190,214,246,0.22)}',
+      '.imp-mbar .imp-cta-btn:hover,.imp-mbar .imp-cta-btn:focus,.imp-mbar .imp-cta-btn:active{filter:none;opacity:1;transform:none;box-shadow:none}',
+      '.imp-mbar .imp-mbar-primary:hover,.imp-mbar .imp-mbar-primary:focus,.imp-mbar .imp-mbar-primary:active{background:#0099D1;color:#03121b;border-color:#0099D1}',
+      '.imp-mbar .imp-mbar-alt:hover,.imp-mbar .imp-mbar-alt:focus,.imp-mbar .imp-mbar-alt:active{background:transparent;color:#D8D4CB;border-color:rgba(190,214,246,0.22)}',
       '@media(max-width:820px){.imp-mbar{display:flex}body{padding-bottom:76px}}',
       '.imp-spill{position:fixed;right:22px;bottom:22px;z-index:110;background:#0099D1;color:#03121b;padding:14px 22px;font-size:14px;box-shadow:0 12px 34px rgba(0,0,0,.42);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}',
       '.imp-spill.show{opacity:1;transform:translateY(0);pointer-events:auto}',
