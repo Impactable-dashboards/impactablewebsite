@@ -2,7 +2,7 @@
 """Impactable SEO/AEO gate. Fails (exit 1) if any public page is missing required signals.
 Run before publishing / in CI:  python3 scripts/check-seo.py"""
 import re, sys, glob
-NOINDEX = {"thank-you.html"}
+NOINDEX = {"thank-you.html", "redesign.html"}
 EXCLUDE = {"pricing-table-embed.html", "googledc79b137a1cd7351.html"}
 REQUIRED = [
     ("<title>", r"<title>.{10,70}</title>", "title 10-70 chars"),
