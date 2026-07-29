@@ -1225,5 +1225,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="track.js"></script>
 <script src="assets/js/chrome.js"></script>
+<script>
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // Also trigger bar fills
+  document.querySelectorAll('.bar-fill').forEach(function(el){
+    var parent=el.closest('.reveal')||el;
+    io.observe(parent);
+  });
+})();
+</script>
 </body>
 </html>
