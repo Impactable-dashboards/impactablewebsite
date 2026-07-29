@@ -24,8 +24,10 @@ fails the build on a regression.
 - **Offer naming — live/current:** free = **Demand Plan**; one-time paid = **Full
   Marketing Strategy** ($1,500); single-channel audit = **Channel Check** ($499).
   NEVER "Demand Plan Lite" / "Demand Plan Full" (old naming, abandoned).
-- **Managed tiers:** Pilot **$1,750**/mo · Core **$3,000**/mo · Growth **$4,500**/mo
-  · Scale **$6-12k**/mo. Flat monthly fee, not a percent of spend.
+- **Managed tiers (public):** lead with **Core $3,000**/mo · Growth **$4,500**/mo
+  · Scale **$6-12k**/mo. Flat monthly fee, not a percent of spend. **Pilot
+  ($1,750) is NOT shown on any public page** (scoping/backend option only, dropped
+  2026-07-25). Do not re-add a Pilot price/card/rung to public pages.
 - **DemandSense is NOT ours.** It is a signal platform Impactable is a **top
   partner** in / **runs on**. Never "we built our own", "our own intelligence
   layer", "proprietary" tooling/infrastructure. The strategy and intelligence
@@ -149,6 +151,14 @@ and a 4th vertical (healthtech or pro services).
   hub, audit, marketing-ecosystem, and pricing; added the phrase to `BANNED`.
   Also removed the "Led by founder Justin Rowe" line from the pricing team
   section (kept the LinkedIn Partner + Lacework/HeyReach proof).
+- **2026-07-25** Dropped **Pilot ($1,750) from every public page** and made
+  managed pricing lead. `pricing.html` reordered so the Core/Growth/Scale + Custom
+  block sits directly under the hero and the free/low-commitment offers (Demand
+  Plan, Channel Check) move below it (visitors expect the management fee first).
+  Spoke/flagship cro-ladders went 4->3 rungs (Core/Growth/Scale); launch and
+  google pricing grids dropped the Pilot card and lead with Core; flagship FAQ +
+  index + intelligence-room copy now reference Core, not a $1,750 Pilot. Pilot
+  remains a scoping/backend option, just not shown publicly.
 - **2026-07-25** `pricing.html` is intentionally scoped to managed **Core /
   Growth / Scale + a Custom band** ($25k-$500k+). Pilot ($1,750) and the $1,500
   Full Marketing Strategy / Impact Report are deliberately NOT shown on this page
