@@ -230,7 +230,7 @@
       '.imp-mbar .imp-mbar-primary:hover,.imp-mbar .imp-mbar-primary:focus,.imp-mbar .imp-mbar-primary:active{background:#0099D1;color:#03121b;border-color:#0099D1}',
       '.imp-mbar .imp-mbar-alt:hover,.imp-mbar .imp-mbar-alt:focus,.imp-mbar .imp-mbar-alt:active{background:transparent;color:#D8D4CB;border-color:rgba(190,214,246,0.22)}',
       '@media(max-width:820px){.imp-mbar{display:flex}body{padding-bottom:76px}}',
-      '.imp-spill{position:fixed;right:22px;bottom:22px;z-index:110;background:#0099D1;color:#03121b;padding:14px 22px;font-size:14px;box-shadow:0 12px 34px rgba(0,0,0,.42);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}',
+      '.imp-spill{font-family:"Inter";font-style: normal;text-transform: uppercase;position:fixed;right:22px;bottom:22px;z-index:110;background:#00c4b3;color:#fff;padding:14px 22px;font-size:14px;box-shadow:0 12px 34px rgba(0,0,0,.42);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}',
       '.imp-spill.show{opacity:1;transform:translateY(0);pointer-events:auto}',
       '@media(max-width:820px){.imp-spill{display:none!important}}',
       '.imp-exit{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(4,12,26,0.74);padding:24px}',
@@ -238,7 +238,7 @@
       '.imp-exit-card{position:relative;max-width:460px;background:#0E2A50;border:1px solid rgba(190,214,246,0.18);border-radius:16px;padding:36px 30px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}',
       '.imp-exit-card h3{font-family:"Archivo Black","Inter",sans-serif;color:#F4F1EA;font-size:23px;line-height:1.16;margin:0 0 12px}',
       '.imp-exit-card p{color:#D8D4CB;font-size:15px;line-height:1.5;margin:0 0 22px}',
-      '.imp-exit-cta{display:inline-block;background:#0099D1;color:#03121b;padding:13px 22px;font-size:14px}',
+      '.imp-exit-cta{font-family: "Inter", sans-serif;text-transform: uppercase;display:inline-block;background: #0099D1;color: #FFF;border-color: #0099D1;padding:13px 22px;font-size:14px}',
       '.imp-exit-x{position:absolute;top:12px;right:14px;background:none;border:0;color:#A8A49B;font-size:26px;line-height:1;cursor:pointer}',
       '.imp-exit-x:hover{color:#F4F1EA}'
     ].join('');
