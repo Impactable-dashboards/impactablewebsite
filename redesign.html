@@ -155,8 +155,11 @@
           <img class="sys-ico" src="assets/img/sys-check-off.svg" alt="" width="22" height="22">
           <div><div class="sn-t">Prove</div><div class="sn-d">Diagnostic Impact Report</div></div>
         </li>
-        <li class="sys-node loop" data-ico-off="assets/img/sys-check-lime.svg" data-ico-on="assets/img/sys-check-lime-on.svg">
-          <img class="sys-ico" src="assets/img/sys-check-lime.svg" alt="" width="22" height="22">
+        <li class="sys-node loop" data-ico-off="assets/img/sys-check-lime.svg" data-ico-on="assets/img/sys-check-lime-on.svg" data-ico-off-light="assets/img/sys-check-teal.svg" data-ico-on-light="assets/img/sys-check-teal-on.svg">
+          <span class="sys-ico-wrap">
+            <img class="sys-ico sys-ico-dark" src="assets/img/sys-check-lime.svg" alt="" width="22" height="22">
+            <img class="sys-ico sys-ico-light" src="assets/img/sys-check-teal.svg" alt="" width="22" height="22">
+          </span>
           <div><div class="sn-t">Compound</div><div class="sn-d">Every finding feeds the next cycle</div></div>
         </li>
       </ol>
@@ -970,12 +973,21 @@
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function setOn(node,on){
-    var img=node.querySelector('.sys-ico');
-    var src=on?(node.getAttribute('data-ico-on')||''):(node.getAttribute('data-ico-off')||'');
     node.classList.toggle('is-on',!!on);
-    if(img&&src)img.src=src;
+    var dark=node.querySelector('.sys-ico-dark');
+    var light=node.querySelector('.sys-ico-light');
+    var img=node.querySelector('.sys-ico:not(.sys-ico-dark):not(.sys-ico-light)')||(!dark&&!light?node.querySelector('.sys-ico'):null);
+    var onSrc=node.getAttribute('data-ico-on')||'';
+    var offSrc=node.getAttribute('data-ico-off')||'';
+    var onL=node.getAttribute('data-ico-on-light')||onSrc;
+    var offL=node.getAttribute('data-ico-off-light')||offSrc;
+    if(dark)dark.src=on?onSrc:offSrc;
+    if(light)light.src=on?onL:offL;
+    if(img){
+      var isLight=document.documentElement.getAttribute('data-theme')==='light';
+      img.src=on?(isLight?onL:onSrc):(isLight?offL:offSrc);
+    }
   }
-
   function setRailProgress(activeCount){
     var segments=Math.max(1,nodes.length-1);
     var progress=Math.max(0,Math.min(1,(activeCount-1)/segments));
