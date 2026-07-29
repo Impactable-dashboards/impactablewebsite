@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="https://impactable.com/wp-content/uploads/2022/02/fav.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Impactable | The B2B Demand Intelligence System</title>
 <meta name="description" content="The B2B Demand Intelligence System. We map your competitors, target your best-fit buyers from real signal, and prove revenue, not clicks.">
+<script>(function(){try{var t=localStorage.getItem('imp-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <script src="assets/js/main.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +47,7 @@
 
 <nav class="rd-nav" id="top">
   <div class="rd-nav-inner">
-    <a class="rd-logo" href="/"><img src="assets/img/logo-impactable-nav.svg" alt="Impactable" width="145" height="26"></a>
-    <button class="rd-toggle" id="rdToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <a class="rd-logo" href="/"><img src="assets/img/logo.svg" alt="Impactable" width="146" height="26"></a>
     <div class="rd-menu" id="rdMenu">
       <div class="rd-item">
         <button class="rd-trigger" aria-haspopup="true" aria-expanded="false">
@@ -86,24 +86,34 @@
       <a class="rd-link" href="/pricing">Pricing</a>
       <a class="rd-cta rd-cta-mobile" href="/competitor-intel-report#get-report">Free Demand Plan</a>
     </div>
-        <a class="rd-cta rd-cta-desk" href="/competitor-intel-report#get-report">Free Demand Plan</a>
+    <div class="rd-actions">
+      <button type="button" class="rd-theme" id="rdTheme" aria-label="Switch to light mode">
+        <svg class="rd-theme-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.75"/>
+          <path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+        <svg class="rd-theme-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5 7 7 0 1 0 20.5 14.3Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <a class="rd-cta rd-cta-desk" href="/competitor-intel-report#get-report">Free Demand Plan</a>
+      <button class="rd-toggle" id="rdToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    </div>
   </div>
 </nav>
 
 <header class="rd-hero">
   <div class="rd-hero-bg" aria-hidden="true">
     <div class="rd-hero-bg-inner">
-      <img class="rd-hero-dots" src="assets/img/dots.svg" alt="" width="856" height="679">
-      <img class="rd-hero-ellipse rd-hero-ellipse--a" src="assets/img/Ellipse.svg" alt="" width="760" height="520">
-      <img class="rd-hero-ellipse rd-hero-ellipse--b" src="assets/img/Ellipse0.svg" alt="" width="760" height="520">
+      <img class="rd-hero-dots rd-hero-dots--dark" src="assets/img/dots.svg" alt="" width="856" height="679">
+      <img class="rd-hero-dots rd-hero-dots--light" src="assets/img/light-hero-pattern.svg" alt="" width="856" height="679">
+      <img class="rd-hero-ellipse rd-hero-ellipse--a rd-hero-ellipse--dark" src="assets/img/Ellipse.svg" alt="" width="760" height="520">
+      <img class="rd-hero-ellipse rd-hero-ellipse--b rd-hero-ellipse--dark" src="assets/img/Ellipse0.svg" alt="" width="760" height="520">
+      <img class="rd-hero-ellipse-light" src="assets/img/light-ellipse.svg" alt="" width="1110" height="799">
     </div>
   </div>
   <div class="wrap rd-hero-grid">
     <div class="rd-hero-copy">
-      <div class="partner-badge" aria-label="LinkedIn Marketing Partner">
-        <img src="assets/img/li-badge-icon.svg" alt="" width="37" height="37">
-        <span>Marketing<br>Partner</span>
-      </div>
       <div class="rd-pill">LinkedIn Marketing Partner · B2B Demand Intelligence</div>
       <h1>
         <span class="h1-line">Your B2B <span class="em">Marketing</span></span>
@@ -364,19 +374,19 @@
       <button class="cap-tab" id="capt-2" role="tab" aria-controls="capp-2" aria-selected="false">PHASE 2</button>
       <button class="cap-tab" id="capt-3" role="tab" aria-controls="capp-3" aria-selected="false">PHASE 3</button>
     </div>
-    <div class="cap-panel reveal" id="capp-1" role="tabpanel" aria-labelledby="capt-1">
+    <div class="cap-panel is-enter" id="capp-1" role="tabpanel" aria-labelledby="capt-1">
       <div class="cap-kicker">Phase 1 · First 30 days</div>
       <h3>Strategic Onboarding</h3>
       <p>Six sequential diagnostics, each validated by you before the next is built. No insight is lost, no research repeated. By launch we know your current state, your real audiences, your message, and exactly what the team needs to build.</p>
       <div class="cap-chips"><span>6 diagnostics</span><span>Client-validated</span><span>Build-ready specs</span></div>
     </div>
-    <div class="cap-panel reveal" id="capp-2" role="tabpanel" aria-labelledby="capt-2" hidden>
+    <div class="cap-panel" id="capp-2" role="tabpanel" aria-labelledby="capt-2" hidden>
       <div class="cap-kicker">Phase 2 · Every quarter</div>
       <h3>The Diagnostic Impact Report</h3>
       <p>Not a performance report. A strategic diagnostic in 15-17 slides that synthesizes four intelligence layers, places you on the maturity curve, and answers the questions leadership actually asks: what's the thesis, what did we learn about buyers, what can we prove about pipeline.</p>
       <div class="cap-chips"><span>6 acts</span><span>Named-account proof</span><span>Built for the board</span></div>
     </div>
-    <div class="cap-panel reveal" id="capp-3" role="tabpanel" aria-labelledby="capt-3" hidden>
+    <div class="cap-panel" id="capp-3" role="tabpanel" aria-labelledby="capt-3" hidden>
       <div class="cap-kicker">Phase 3 · Continuous</div>
       <h3>The EBR Cadence</h3>
       <p>Every finding feeds the next cycle. Targeting sharpens, messaging tightens, budget shifts to what converts, creative follows the data. The quarterly business review isn't a check-in. It's the moment the system compounds and the strategy gets re-set for the next 90 days.</p>
@@ -410,12 +420,37 @@
       <p>Four intelligence layers in one unified report: maturity assessment, buyer intelligence, pipeline proof, and the play forward. Built for the board.</p>
     </div>
     <div class="ir-acts">
-      <div class="act reveal"><div class="act-n">ACT 1</div><h4><img src="assets/img/act-1-thesis.svg" alt="" width="26" height="26">The Thesis</h4><p>One provable claim and your placement on the maturity curve. Where you were, where you are, what changed.</p></div>
-      <div class="act reveal"><div class="act-n">ACT 2</div><h4><img src="assets/img/act-2-buyer-intelligence.svg" alt="" width="26" height="26">Buyer Intelligence</h4><p>Discovered personas with named examples, seniority and industry analysis, and the messaging and creative that won.</p></div>
-      <div class="act reveal"><div class="act-n">ACT 3</div><h4><img src="assets/img/act-3-pipeline-proof.svg" alt="" width="26" height="26">Account + Pipeline Proof</h4><p>Named accounts in pipeline, revenue influenced with attribution stated plainly, and cross-channel signal overlap.</p></div>
-      <div class="act reveal"><div class="act-n">ACT 4</div><h4><img src="assets/img/act-4-ecosystem.svg" alt="" width="26" height="26">Marketing Ecosystem</h4><p>How LinkedIn feeds Google, outbound, organic, and email, with named-company proof and clearly defined channel roles.</p></div>
-      <div class="act reveal"><div class="act-n">ACT 5</div><h4><img src="assets/img/act-5-play-forward.svg" alt="" width="26" height="26">The Play Forward</h4><p>The next 90 days in five priority actions, graduation triggers with targets, and expansion grounded in data.</p></div>
-      <div class="act reveal"><div class="act-n">ACT 6</div><h4><img src="assets/img/act-6-partnership-value.svg" alt="" width="26" height="26">Partnership Value</h4><p>What we built, what most agencies can't, and the expansion case with the ROI math to back it.</p></div>
+      <div class="act reveal"><div class="act-n">ACT 1</div><h4><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M13.0026 21.6654C17.7891 21.6654 21.6693 17.7852 21.6693 12.9987C21.6693 8.21223 17.7891 4.33203 13.0026 4.33203C8.21614 4.33203 4.33594 8.21223 4.33594 12.9987C4.33594 17.7852 8.21614 21.6654 13.0026 21.6654Z" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12.9974 17.3346C15.3906 17.3346 17.3307 15.3945 17.3307 13.0013C17.3307 10.6081 15.3906 8.66797 12.9974 8.66797C10.6042 8.66797 8.66406 10.6081 8.66406 13.0013C8.66406 15.3945 10.6042 17.3346 12.9974 17.3346Z" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M13.0021 14.4065C13.7799 14.4065 14.4104 13.776 14.4104 12.9982C14.4104 12.2204 13.7799 11.5898 13.0021 11.5898C12.2243 11.5898 11.5938 12.2204 11.5938 12.9982C11.5938 13.776 12.2243 14.4065 13.0021 14.4065Z" fill="currentColor"/>
+      </svg>The Thesis</h4><p>One provable claim and your placement on the maturity curve. Where you were, where you are, what changed.</p></div>
+      <div class="act reveal"><div class="act-n">ACT 2</div><h4><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M13.0036 12.5659C15.0379 12.5659 16.687 10.9168 16.687 8.88255C16.687 6.8483 15.0379 5.19922 13.0036 5.19922C10.9694 5.19922 9.32031 6.8483 9.32031 8.88255C9.32031 10.9168 10.9694 12.5659 13.0036 12.5659Z" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M5.41406 21.6667C5.41406 17.4417 8.7724 14.625 12.9974 14.625C17.2224 14.625 20.5807 17.4417 20.5807 21.6667" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+        Buyer Intelligence</h4><p>Discovered personas with named examples, seniority and industry analysis, and the messaging and creative that won.</p></div>
+      <div class="act reveal"><div class="act-n">ACT 3</div><h4><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M4.33594 5.41797H21.6693L15.1693 14.0846V19.5013L10.8359 21.668V14.0846L4.33594 5.41797Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        Account + Pipeline Proof</h4><p>Named accounts in pipeline, revenue influenced with attribution stated plainly, and cross-channel signal overlap.</p></div>
+      <div class="act reveal"><div class="act-n">ACT 4</div><h4><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M8.23438 8.99036L11.4844 17.332M17.7677 8.99036L14.5177 17.332M8.66771 7.58203H17.3344" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M6.5026 9.7513C7.69922 9.7513 8.66927 8.78125 8.66927 7.58464C8.66927 6.38802 7.69922 5.41797 6.5026 5.41797C5.30599 5.41797 4.33594 6.38802 4.33594 7.58464C4.33594 8.78125 5.30599 9.7513 6.5026 9.7513Z" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M19.5026 9.7513C20.6992 9.7513 21.6693 8.78125 21.6693 7.58464C21.6693 6.38802 20.6992 5.41797 19.5026 5.41797C18.306 5.41797 17.3359 6.38802 17.3359 7.58464C17.3359 8.78125 18.306 9.7513 19.5026 9.7513Z" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M13.0026 21.6654C14.1992 21.6654 15.1693 20.6953 15.1693 19.4987C15.1693 18.3021 14.1992 17.332 13.0026 17.332C11.806 17.332 10.8359 18.3021 10.8359 19.4987C10.8359 20.6953 11.806 21.6654 13.0026 21.6654Z" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
+        Marketing Ecosystem</h4><p>How LinkedIn feeds Google, outbound, organic, and email, with named-company proof and clearly defined channel roles.</p></div>
+      <div class="act reveal"><div class="act-n">ACT 5</div><h4><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M4.33594 13H18.4193" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M14.0859 7.58203L19.5026 12.9987L14.0859 18.4154" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        The Play Forward</h4><p>The next 90 days in five priority actions, graduation triggers with targets, and expansion grounded in data.</p></div>
+      <div class="act reveal"><div class="act-n">ACT 6</div><h4><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M13 22.75C18.3848 22.75 22.75 18.3848 22.75 13C22.75 7.61522 18.3848 3.25 13 3.25C7.61522 3.25 3.25 7.61522 3.25 13C3.25 18.3848 7.61522 22.75 13 22.75Z" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M8.125 15.168L11.7 11.0513L14.625 13.6513L18.525 8.66797" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        Partnership Value</h4><p>What we built, what most agencies can't, and the expansion case with the ROI math to back it.</p></div>
     </div>
   </div>
 </section>
@@ -908,9 +943,12 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; 2026 Impactable LLC · LinkedIn Marketing Partner</span>
+      <div class="foot-legal">
+        <span>&copy; 2026 Impactable LLC · LinkedIn Marketing Partner</span>
+        <img class="partner-logo" src="img/marketing-partner-logo.svg" alt="LinkedIn Marketing Partner" width="120" height="43">
+      </div>
       <div class="foot-social">
-        <a href="https://www.linkedin.com/in/justin-rowe-4043339b/" target="_blank" rel="noopener" aria-label="Justin Rowe on LinkedIn"><img src="assets/img/foot-linkedin.svg" alt="" width="16" height="16"></a>
+        
         <a href="https://www.linkedin.com/company/impactableb2b/" target="_blank" rel="noopener" aria-label="Impactable on LinkedIn"><img src="assets/img/foot-linkedin.svg" alt="" width="16" height="16"></a>
         <a href="https://www.youtube.com/@Impactable-B2B-Agency" target="_blank" rel="noopener" aria-label="Impactable on YouTube"><img src="assets/img/foot-youtube.svg" alt="" width="16" height="16"></a>
       </div>
@@ -1047,6 +1085,8 @@
     resetPanel(panel);
     requestAnimationFrame(function(){
       panel.classList.add('is-enter');
+      // Cap panels only need the enter class (CSS handles the rest)
+      if(panel.classList.contains('cap-panel'))return;
       var bars=[].slice.call(panel.querySelectorAll('.fun-bar'));
       bars.forEach(function(bar,i){
         var fill=bar.querySelector('.fun-fill');
@@ -1132,9 +1172,101 @@
   window.__galAnimatePanel=animatePanel;
   window.__galResetPanel=resetPanel;
   window.__galShowPanel=showPanel;
-  bind('.cap-tab');
   bind('#impactTabs .gal-tab');
   bind('#dsTabs .gal-tab');
+})();
+
+/* Capabilities phases: click + smooth auto-rotate */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.cap-tab'));
+  if(tabs.length<2)return;
+  var section=document.getElementById('capabilities')||tabs[0].closest('.rd-caps');
+  var intervalMs=2800;
+  var timer=null;
+  var inView=false;
+  var idx=0;
+  for(var i=0;i<tabs.length;i++){
+    if(tabs[i].getAttribute('aria-selected')==='true'){idx=i;break;}
+  }
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  function showCap(panel){
+    if(!panel)return;
+    panel.removeAttribute('hidden');
+    panel.classList.remove('is-enter');
+    // Force restart of CSS enter animation
+    void panel.offsetWidth;
+    panel.classList.add('is-enter');
+  }
+
+  function hideCap(panel){
+    if(!panel)return;
+    panel.setAttribute('hidden','');
+    panel.classList.remove('is-enter');
+  }
+
+  function syncProgress(){
+    tabs.forEach(function(t,n){
+      t.classList.remove('is-progress');
+      t.style.removeProperty('--cap-progress-ms');
+      if(n===idx&&!reduced&&inView){
+        t.style.setProperty('--cap-progress-ms',intervalMs+'ms');
+        void t.offsetWidth;
+        t.classList.add('is-progress');
+      }
+    });
+  }
+
+  function select(i,fromUser){
+    idx=((i%tabs.length)+tabs.length)%tabs.length;
+    tabs.forEach(function(t,n){
+      var on=n===idx;
+      t.setAttribute('aria-selected',on?'true':'false');
+      var p=document.getElementById(t.getAttribute('aria-controls'));
+      if(!p)return;
+      if(on)showCap(p);
+      else hideCap(p);
+    });
+    restart();
+  }
+
+  function next(){select(idx+1,false);}
+
+  function stopTimer(){
+    if(timer){clearInterval(timer);timer=null;}
+  }
+
+  function startTimer(){
+    stopTimer();
+    if(reduced||!inView)return;
+    timer=setInterval(next,intervalMs);
+  }
+
+  function restart(){
+    stopTimer();
+    syncProgress();
+    startTimer();
+  }
+
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(e){
+      e.preventDefault();
+      select(i,true);
+    });
+  });
+
+  if(section&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        inView=!!en.isIntersecting;
+        restart();
+      });
+    },{threshold:0.2});
+    io.observe(section);
+  }else{
+    inView=true;
+    restart();
+  }
 })();
 
 (function(){

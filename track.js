@@ -236,7 +236,7 @@
       '.imp-exit{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(4,12,26,0.74);padding:24px}',
       '.imp-exit.show{display:flex}',
       '.imp-exit-card{position:relative;max-width:460px;background:#0E2A50;border:1px solid rgba(190,214,246,0.18);border-radius:16px;padding:36px 30px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}',
-      '.imp-exit-card h3{font-family:"Archivo Black","Inter",sans-serif;color:#F4F1EA;font-size:23px;line-height:1.16;margin:0 0 12px}',
+      '.imp-exit-card h3{font-family:"Archivo Black","Inter",sans-serif;color:#f5f5f5;font-size:23px;line-height:1.16;margin:0 0 12px}',
       '.imp-exit-card p{color:#D8D4CB;font-size:15px;line-height:1.5;margin:0 0 22px}',
       '.imp-exit-cta{font-family: "Inter", sans-serif;text-transform: uppercase;display:inline-block;background: #0099D1;color: #FFF;border-color: #0099D1;padding:13px 22px;font-size:14px}',
       '.imp-exit-x{position:absolute;top:12px;right:14px;background:none;border:0;color:#A8A49B;font-size:26px;line-height:1;cursor:pointer}',

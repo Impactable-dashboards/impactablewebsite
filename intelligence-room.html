@@ -23,13 +23,13 @@
     --wrap:1200px; --font-body:'Inter',sans-serif;
     /* DARK theme */
     --bg:#071A38; --surface:#0E2A50; --surface-2:#1b1b21; --surface-3:#22222A;
-    --text:#F4F1EA; --heading:#F4F1EA; --text-muted:#E8E4DA;
+    --text:#f5f5f5; --heading:#f5f5f5; --text-muted:#E8E4DA;
     --text-dim:rgba(216,212,200,.55); --text-faint:rgba(216,212,200,.62);
     --border:rgba(216,212,200,.12); --border-soft:rgba(216,212,200,.07);
     --nav-bg:rgba(10,10,12,.72);
     --mock-bg:linear-gradient(160deg,#0E2A50,#0e0e13);
     --hero-glow:radial-gradient(circle, rgba(0,153,209,.20) 0%, rgba(255,182,39,.06) 38%, transparent 66%);
-    --bar-off:rgba(216,212,200,.16); --ghost-text:#F4F1EA;
+    --bar-off:rgba(216,212,200,.16); --ghost-text:#f5f5f5;
     --idea-bg:linear-gradient(150deg,#0E2A50,#0c0c11);
     --feature-bg:linear-gradient(150deg,#0c1418,#071A38);
     --pricing-bg:#0E2A50; --examples-bg:#0c0c11;
@@ -42,7 +42,7 @@
     --pill-watch-bg:rgba(255,90,31,.14); --pill-watch-text:#FF5A1F;
   }
   html[data-theme="light"]{
-    --bg:#F4F1EA; --surface:#FFFFFF; --surface-2:#FBFAF6; --surface-3:#EFEBE1;
+    --bg:#f5f5f5; --surface:#FFFFFF; --surface-2:#FBFAF6; --surface-3:#EFEBE1;
     --text:#16181D; --heading:#071A38; --text-muted:#3A3E47;
     --text-dim:rgba(7,26,56,.8); --text-faint:rgba(7,26,56,.68);
     --border:rgba(7,26,56,.14); --border-soft:rgba(7,26,56,.08);
@@ -223,7 +223,7 @@
   .acard li{font-size:14px;color:var(--text-muted);padding-left:13px;position:relative;line-height:1.4}
   .acard li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
   .acard .metric{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--canopy);color:#071A38;padding:5px 8px;border-radius:5px;font-weight:700;text-align:center}
-  .aud-core{margin-top:14px;background:var(--navy-deep);color:#F4F1EA;border-radius:10px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:16px}
+  .aud-core{margin-top:14px;background:var(--navy-deep);color:#f5f5f5;border-radius:10px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:16px}
   .aud-core .big{font-family:'JetBrains Mono',monospace;color:#FFB627;font-weight:700;font-size:17px}
 
   /* message matrix */
@@ -333,10 +333,10 @@
   /* ===== alternating dark bands ===== */
   .dark{
     --bg:#071A38;--surface:#0E2A50;--surface-2:#1b1b21;--surface-3:#22222A;
-    --text:#F4F1EA;--heading:#F4F1EA;--text-muted:#E8E4DA;
+    --text:#f5f5f5;--heading:#f5f5f5;--text-muted:#E8E4DA;
     --text-dim:rgba(216,212,200,.55);--text-faint:rgba(216,212,200,.62);
     --border:rgba(216,212,200,.13);--border-soft:rgba(216,212,200,.07);
-    --bar-off:rgba(216,212,200,.16);--ghost-text:#F4F1EA;
+    --bar-off:rgba(216,212,200,.16);--ghost-text:#f5f5f5;
     --hot:#FFB627;--cold:rgba(216,212,200,.62);
     --accent-teal-text:#FFB627;--chip-text:#5BB8E0;--amber-text:#FFB627;
     --pill-up-bg:rgba(255,182,39,.16);--pill-up-text:#FFB627;
@@ -421,13 +421,13 @@
 .gnav-menu .gnav-item:first-child .gnav-mega{left:0;right:auto}
 .gnav-grid.tools{grid-template-columns:repeat(2,minmax(210px,1fr))}
 .gnav-h{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#93A7BD;display:block;margin-bottom:12px}
-.gnav-col a{display:block;color:#F4F1EA;font-size:16px;font-weight:500;padding:6px 0;transition:color .2s}
+.gnav-col a{display:block;color:#f5f5f5;font-size:16px;font-weight:500;padding:6px 0;transition:color .2s}
 .gnav-col a:hover{color:#5BB8E0}
 .gnav-col a small{display:block;font-size:14px;color:#B3C2D2;font-weight:400;margin-top:3px;font-family:'Inter',sans-serif;letter-spacing:0}
 .gnav-feature{color:#FFB627!important}
 .gnav-feature:hover{color:#E7FF86!important}
 .gnav-stack{display:block;font-family:'JetBrains Mono',monospace;font-size:16px;color:#A7A39A;line-height:1.95}
-.gnav-toggle{display:none;background:none;border:none;color:#F4F1EA;font-size:22px;cursor:pointer;line-height:1}
+.gnav-toggle{display:none;background:none;border:none;color:#f5f5f5;font-size:22px;cursor:pointer;line-height:1}
 @media(max-width:1280px){
   .gnav-inner{padding:0 20px}
   .gnav-trigger,.gnav-link{font-size:14px;padding:8px 7px}
@@ -447,7 +447,7 @@
   .gnav-grid.svc,.gnav-grid.tools{grid-template-columns:1fr!important;gap:18px}
   .gnav-cta{margin:16px 0 0;width:100%;justify-content:center;font-size:16px;padding:14px}
 }
-.gnav-theme{background:none;border:1px solid rgba(244,241,234,0.18);color:#F4F1EA;width:34px;height:34px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:16px;margin-left:8px;transition:border-color .2s,color .2s}
+.gnav-theme{background:none;border:1px solid rgba(244,241,234,0.18);color:#f5f5f5;width:34px;height:34px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:16px;margin-left:8px;transition:border-color .2s,color .2s}
 .gnav-theme:hover{border-color:#5BB8E0;color:#5BB8E0}
 .gnav-theme-lb{display:none}
 @media(max-width:1024px){.gnav-theme{width:100%;justify-content:flex-start;gap:10px;border:none;border-top:1px solid rgba(190,214,246,0.08);border-radius:0;padding:15px 2px;margin:0;font-size:16px}.gnav-theme-lb{display:inline}}
@@ -1142,7 +1142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="foot-bottom">
       <span>&copy; 2026 Impactable LLC · LinkedIn Marketing Partner</span>
       <div class="foot-social">
-        <a href="https://www.linkedin.com/in/justin-rowe-4043339b/" target="_blank" rel="noopener" aria-label="Justin Rowe on LinkedIn"><img src="assets/img/foot-linkedin.svg" alt="" width="16" height="16"></a>
+        
         <a href="https://www.linkedin.com/company/impactableb2b/" target="_blank" rel="noopener" aria-label="Impactable on LinkedIn"><img src="assets/img/foot-linkedin.svg" alt="" width="16" height="16"></a>
         <a href="https://www.youtube.com/@Impactable-B2B-Agency" target="_blank" rel="noopener" aria-label="Impactable on YouTube"><img src="assets/img/foot-youtube.svg" alt="" width="16" height="16"></a>
       </div>
