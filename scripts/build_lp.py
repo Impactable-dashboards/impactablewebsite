@@ -1,0 +1,425 @@
+#!/usr/bin/env python3
+"""Builder for the 3 paid-search landing pages (/lp/*). Final copy is authoritative
+(see Paid_Search_Landing_Pages_FINAL_COPY.md). noindex,follow. Not in nav/sitemap.
+Run: python3 scripts/build_lp.py  -> writes lp/*.html"""
+import os
+
+LANDBOT = "https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html"
+
+TRACKING = '''<!-- ===== Impactable shared tracking (GTM, Google Ads, LinkedIn, Lassoo) ===== -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MK45VGG');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Ads gtag (AW-722461102) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-722461102"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-722461102');
+</script>
+<!-- LinkedIn Insight Tag (partner ids 3483338, 3986860) -->
+<script type="text/javascript">
+_linkedin_partner_id = "3483338";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push("3483338");
+window._linkedin_data_partner_ids.push("3986860");
+</script>
+<script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<!-- Lassoo / Trialfire -->
+<script>var s=document.createElement("script"),tf={$q:[],do:function(){tf.$q.push([].slice.call(arguments))}};["init","ready","identify","property","logout","track","optout"].forEach(function(t){tf[t]=function(){tf.do.apply(null,[t].concat([].slice.call(arguments)))}}),window.Trialfire=tf,s.src="//cdn.xperrab2b.com/tf.js",document.head.appendChild(s),Trialfire.init("9d94aa3e-1b87-4d05-8f85-1cbbb06ee959");window.Lassoo=window.Trialfire;</script>
+<!-- DemandSense Website Visitor ID -->
+<script type="text/javascript" async src="https://insightcdn.net/js/a400e6c5f5ecf708b9215326b8e2347f.js"></script>
+<!-- StackAdapt -->
+<script>!function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('ts', '5AgGhKLUA0YA3K2L1GlFqQ');</script>
+<!-- ===== end shared tracking ===== -->'''
+
+CSS = '''<style>
+:root{--asphalt:#071A38;--concrete:#0E2A50;--court:#173B66;--line:rgba(190,214,246,0.14);--line-soft:rgba(190,214,246,0.08);--bone:#F4F1EA;--chalk:#E8E4DA;--chalk-dim:#C9C4B9;--blue:#0099D1;--blue-soft:#5BB8E0;--canopy:#FFB627;--rust:#FF5A1F}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--asphalt);color:var(--bone);font-family:'Inter',sans-serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:1.02}
+.mono{font-family:'JetBrains Mono',monospace}
+.hl{color:var(--blue-soft)}
+.em{color:var(--canopy)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-soft)}
+.btn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;padding:14px 24px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;cursor:pointer;border:none;text-align:center}
+.btn-primary{background:var(--canopy);color:#071A38}
+.btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--blue-soft);color:var(--blue-soft)}
+/* header */
+.lph{position:sticky;top:0;z-index:60;background:rgba(7,26,56,0.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.lph-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.lph-logo img{height:24px;width:auto}
+.lph-right{display:flex;align-items:center;gap:16px}
+.lph-badge{display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk-dim)}
+.lph-badge img{height:30px;width:auto}
+.lph .btn{padding:11px 18px;font-size:13px}
+@media(max-width:720px){.lph-badge{display:none}}
+/* hero */
+.hero{padding:52px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.hero h1{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:1.05;font-size:clamp(32px,4vw,50px);margin:14px 0 0}
+.hero-sub{font-size:19px;color:var(--chalk);margin:20px 0 0;max-width:52ch}
+.hero-note{font-size:16px;color:var(--chalk-dim);margin:14px 0 0;max-width:52ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.hero-risk{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--canopy);margin:16px 0 0}
+/* trust cluster */
+.trust{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin:28px 0 0;padding-top:22px;border-top:1px solid var(--line-soft)}
+.trust .tp{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--chalk-dim)}
+.trust .tp b{color:var(--bone);font-weight:600}
+.trust .tp img{height:26px;width:auto}
+.trust .dot{width:4px;height:4px;border-radius:50%;background:var(--line);display:inline-block}
+/* form card */
+.formcard{background:linear-gradient(160deg,rgba(0,153,209,0.10),var(--concrete));border:1px solid var(--line);border-radius:14px;padding:26px 24px;position:sticky;top:88px}
+.formcard .fk{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--canopy);margin-bottom:6px}
+.formcard h2{font-size:1.35rem;color:var(--bone);letter-spacing:-.01em;margin-bottom:16px;line-height:1.2}
+.formcard label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-dim);margin:0 0 5px}
+.formcard input,.formcard select{width:100%;background:var(--asphalt);border:1px solid var(--line);border-radius:7px;padding:11px 13px;color:var(--bone);font-family:'Inter',sans-serif;font-size:15px;margin-bottom:13px}
+.formcard input:focus,.formcard select:focus{outline:none;border-color:var(--blue-soft)}
+.formcard .btn{width:100%;margin-top:2px}
+.formcard .fmicro{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--chalk-dim);margin-top:13px}
+/* logo strip */
+.logos{padding:26px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin-bottom:18px}
+.logos-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.logo-ph{width:118px;height:38px;border-radius:7px;background:rgba(190,214,246,0.05);border:1px solid var(--line-soft)}
+/* generic section */
+.sec{padding:64px 0}
+.sec.alt{background:var(--concrete)}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 40px}
+.sec-head h2{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:1.08;font-size:clamp(26px,3vw,38px);margin-top:10px}
+.sec-head p{color:var(--chalk);margin-top:12px}
+/* diff cards */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dcard{border:1px solid var(--line);border-top:2px solid var(--blue);border-radius:12px;padding:24px 22px;background:var(--asphalt)}
+.sec.alt .dcard{background:var(--asphalt)}
+.dcard .dn{width:34px;height:34px;border-radius:8px;background:rgba(255,182,39,0.12);color:var(--canopy);display:inline-flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;margin-bottom:14px}
+.dcard h3{font-size:1.06rem;color:var(--bone);margin-bottom:8px;line-height:1.25}
+.dcard p{font-size:14.5px;color:var(--chalk);line-height:1.55}
+@media(max-width:900px){.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid4{grid-template-columns:1fr}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{border:1px solid var(--line);border-radius:12px;padding:24px 22px;background:var(--asphalt)}
+.step .sn{font-family:'Archivo Black',sans-serif;font-size:30px;color:var(--blue-soft);line-height:1;margin-bottom:12px}
+.step h3{font-size:1.06rem;color:var(--bone);margin-bottom:7px}
+.step p{font-size:14.5px;color:var(--chalk);line-height:1.55}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ccard{border:1px solid var(--line);border-radius:12px;padding:26px 24px;background:var(--asphalt);display:flex;flex-direction:column}
+.ccard .ctag{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
+.ccard .cmetric{font-family:'Archivo Black',sans-serif;font-size:clamp(28px,3vw,36px);letter-spacing:-.02em;color:var(--canopy);line-height:1}
+.ccard .cmetric.blue{color:var(--blue-soft)}
+.ccard .cctx{font-size:15px;color:var(--chalk);line-height:1.55;margin-top:14px}
+.ccard .cquote{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--bone);line-height:1.4}
+.ccard .ccite{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;color:var(--chalk-dim);margin-top:14px}
+.ccard.quote{background:linear-gradient(160deg,rgba(0,153,209,0.10),var(--asphalt))}
+.case-weave{text-align:center;max-width:80ch;margin:26px auto 0;font-size:14.5px;color:var(--chalk-dim);line-height:1.6}
+@media(max-width:820px){.cases{grid-template-columns:1fr}}
+/* faq */
+.faq{max-width:800px;margin:0 auto}
+.faq details{border:1px solid var(--line);border-radius:11px;background:var(--asphalt);margin-bottom:11px;padding:0 22px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px 0;font-size:16.5px;font-weight:600;color:var(--bone)}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{font-family:'JetBrains Mono',monospace;color:var(--blue-soft);font-size:21px;flex:none;transition:transform .2s}
+.faq details[open] .pm{transform:rotate(45deg)}
+.faq details p{font-size:15px;color:var(--chalk);line-height:1.6;padding:0 0 20px;margin:0}
+/* final */
+.final{background:linear-gradient(165deg,rgba(0,153,209,0.12),var(--asphalt));border-top:1px solid var(--line-soft);text-align:center;padding:72px 0}
+.final .fproof{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:16px}
+.final h2{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;font-size:clamp(28px,3.6vw,44px);line-height:1.06;max-width:20ch;margin:0 auto}
+.final .hero-cta{justify-content:center;margin-top:28px}
+.final .fscarce{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--canopy);margin-top:22px}
+/* footer */
+.lpf{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(--chalk-dim)}
+.lpf-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.lpf img.plogo{height:24px;opacity:.9}
+.lpf .lpf-part{height:32px}
+.lpf a{color:var(--chalk-dim)}.lpf a:hover{color:var(--bone)}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:34px}.formcard{position:static}}
+.reveal{opacity:1}
+</style>'''
+
+
+def head(title, desc, slug):
+    return f'''<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{TRACKING}
+<meta charset="UTF-8">
+<link rel="icon" href="https://impactable.com/wp-content/uploads/2022/02/fav.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{desc}">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://impactable.marketing/lp/{slug}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Impactable">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="https://impactable.marketing/lp/{slug}">
+<meta property="og:image" content="https://impactable.marketing/img/linkedin-certified-social-square.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="https://impactable.marketing/img/linkedin-certified-social-square.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+{CSS}
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK45VGG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3483338&fmt=gif" /><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3986860&fmt=gif" /></noscript>'''
+
+HEADER = '''
+<!-- [SHARED-HEADER] -->
+<header class="lph">
+  <div class="wrap lph-in">
+    <a class="lph-logo" href="#top"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <div class="lph-right">
+      <span class="lph-badge"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="">LinkedIn Marketing Partner</span>
+      <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
+    </div>
+  </div>
+</header>'''
+
+def form_card():
+    # NOTE: form routes to /thank-you for review. TODO: wire to the CRM / Google Forms endpoint.
+    return '''<aside class="formcard" id="demandplan">
+        <div class="fk">Free &middot; 48 hours</div>
+        <h2>Get your free Demand Plan</h2>
+        <!-- TODO: wire action to the CRM / Google Forms backend. Routes to /thank-you for review. -->
+        <form onsubmit="event.preventDefault();window.location='/thank-you';">
+          <label for="f-email">Work email</label>
+          <input id="f-email" type="email" name="email" required placeholder="you@company.com">
+          <label for="f-site">Company website</label>
+          <input id="f-site" type="url" name="website" required placeholder="company.com">
+          <label for="f-comp">Top 1-3 competitors</label>
+          <input id="f-comp" type="text" name="competitors" required placeholder="competitor.com, competitor.com">
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" name="name" required placeholder="Your name">
+          <label for="f-mkt">Current marketing (optional)</label>
+          <select id="f-mkt" name="current_marketing">
+            <option value="">Select one</option>
+            <option>Running LinkedIn ads</option>
+            <option>Running other paid</option>
+            <option>Not running paid yet</option>
+            <option>Not sure</option>
+          </select>
+          <button class="btn btn-primary" type="submit">Get My Free Demand Plan</button>
+          <p class="fmicro">48-hour turnaround. No working sessions, no commitment. We read every submission ourselves.</p>
+        </form>
+      </aside>'''
+
+def trust(saas=False):
+    third = '<span class="tp"><b>SaaS is our largest vertical</b></span>' if saas else '<span class="tp"><b>6X ROI</b> published by LinkedIn</span>'
+    return f'''<div class="trust">
+        <span class="tp"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner"></span>
+        <span class="tp"><b>60+</b> active B2B clients</span><span class="dot"></span>
+        {third}<span class="dot"></span>
+        <span class="tp"><b>$50M+</b> in B2B ad spend managed</span>
+      </div>'''
+
+def hero(eyebrow, h1, sub, extra_line, risk, saas=False):
+    extra = f'<p class="hero-note">{extra_line}</p>' if extra_line else ''
+    return f'''
+<a id="top"></a>
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">{eyebrow}</span>
+      <h1>{h1}</h1>
+      <p class="hero-sub">{sub}</p>
+      {extra}
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
+        <a class="btn btn-ghost" href="{LANDBOT}">Book a Call</a>
+      </div>
+      <p class="hero-risk">{risk}</p>
+      {trust(saas)}
+    </div>
+    {form_card()}
+  </div>
+</section>'''
+
+def logos(header_txt, n=6):
+    tiles = "".join('<div class="logo-ph"></div>' for _ in range(n))
+    return f'''
+<!-- Logo strip -->
+<section class="logos">
+  <div class="wrap">
+    <div class="logos-h">{header_txt}</div>
+    <!-- TODO: swap placeholder tiles for cleared client logos (grayscale). -->
+    <div class="logos-row">{tiles}</div>
+  </div>
+</section>'''
+
+DIFF = '''
+<!-- [SHARED-DIFF] -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Why us</span><h2>Why teams move their LinkedIn budget to us.</h2></div>
+    <div class="grid4">
+      <div class="dcard"><div class="dn">01</div><h3>We know which accounts are in-market.</h3><p>Most agencies pick a job title and hope. DemandSense, our signal layer, composes five sources into one view: your CRM, your LinkedIn paid and organic engagement, and the companies and people on your site. Budget goes to the accounts actually showing intent, not a demographic guess.</p></div>
+      <div class="dcard"><div class="dn">02</div><h3>A first-cohort LinkedIn Marketing Partner.</h3><p>We were in LinkedIn's first partner cohort. That means direct platform support, early access to beta features, and ad credits working for you, instead of an agency learning on your budget.</p></div>
+      <div class="dcard"><div class="dn">03</div><h3>We report on pipeline, not clicks.</h3><p>We sync your CRM with DemandSense so pipeline becomes a core signal, then report on the named accounts moving toward a decision. The scoreboard your board actually asks about.</p></div>
+      <div class="dcard"><div class="dn">04</div><h3>Optimized every week, reset every quarter.</h3><p>Weekly performance work keeps spend efficient, and a quarterly Impact Report resets targeting, messaging, and budget on real data. The longer you run, the sharper it gets.</p></div>
+    </div>
+  </div>
+</section>'''
+
+HOWITWORKS = '''
+<!-- [SHARED-HOWITWORKS] -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">How it works</span><h2>From first call to qualified pipeline.</h2></div>
+    <div class="steps">
+      <div class="step"><div class="sn">1</div><h3>Get your free Demand Plan.</h3><p>Tell us your site and top competitors. In 48 hours you get a positioning read, a signal-composed targeting worksheet, and your channel priority. Yours to keep.</p></div>
+      <div class="step"><div class="sn">2</div><h3>We build on signal, not guesses.</h3><p>We engineer your targeting from real buyer signal, launch warm-first so early wins fund cold reach, and sync DemandSense with your CRM.</p></div>
+      <div class="step"><div class="sn">3</div><h3>You get pipeline you can prove.</h3><p>Named accounts move toward a decision, and the quarterly Impact Report shows exactly what to scale, fix, and cut.</p></div>
+    </div>
+  </div>
+</section>'''
+
+FAQ = '''
+<!-- [SHARED-FAQ] -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Questions teams ask before they start.</h2></div>
+    <div class="faq">
+      <details open><summary>Is there a minimum budget?<span class="pm">+</span></summary><p>Managed engagements start at $3,000 a month, priced to the operation, not a percent of your spend, so the fee never taxes you for scaling. You can also start free with a Demand Plan and see the value first.</p></details>
+      <details><summary>How soon will we see results?<span class="pm">+</span></summary><p>B2B cycles are long, so we won't promise overnight leads. Expect early signal in the first few weeks and pipeline building across a quarter as the data sharpens the targeting.</p></details>
+      <details><summary>What does the process look like?<span class="pm">+</span></summary><p>A structured onboarding maps your positioning, audience, and messaging, then a quarterly Impact Report loop compounds it, sharpening targeting, messaging, and budget every cycle.</p></details>
+      <details><summary>What if LinkedIn doesn't work for us?<span class="pm">+</span></summary><p>We pace warm-first, grade every audience segment honestly, and tell you plainly if you're not ready to scale. We don't force spend just to hit a retainer, and when LinkedIn can't reach an account efficiently, we route it to another channel.</p></details>
+      <details><summary>What do you need from us?<span class="pm">+</span></summary><p>Access to your ad accounts, a CRM sync so pipeline becomes a signal, and your brand assets. We handle strategy, build, creative direction, and reporting.</p></details>
+    </div>
+  </div>
+</section>'''
+
+FINAL = f'''
+<!-- [SHARED-FINALCTA] -->
+<section class="final">
+  <div class="wrap">
+    <div class="fproof">The team behind Lacework's 6X, published by LinkedIn, and HeyReach's 20X.</div>
+    <h2 class="display">See who your buyers really are, before you spend a dollar.</h2>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
+      <a class="btn btn-ghost" href="{LANDBOT}">Book a Call</a>
+    </div>
+    <p class="fscarce">We onboard a set number of new accounts each quarter, so the ones we take get real attention.</p>
+  </div>
+</section>'''
+
+FOOTER = '''
+<!-- footer -->
+<footer class="lpf">
+  <div class="wrap lpf-in">
+    <a href="https://impactable.com"><img class="plogo" src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <span>&copy; 2026 Impactable LLC &middot; LinkedIn Marketing Partner</span>
+    <img class="lpf-part" src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner">
+  </div>
+</footer>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/track.js"></script>
+</body>
+</html>'''
+
+# Case cards
+JASON = '''<div class="ccard quote"><div class="ctag">Peer endorsement</div><p class="cquote">"The only LinkedIn ads agency we recommend to our clients."</p><div class="ccite">Jason Vana, Founder, SHFT</div></div>'''
+
+def case_6x(ctx):
+    return f'''<div class="ccard"><div class="ctag">Cloud security</div><div class="cmetric">6X</div><p class="cctx"><b>Return on LinkedIn ad spend.</b> {ctx}</p></div>'''
+
+def case_20x(ctx, tag="B2B SaaS"):
+    return f'''<div class="ccard"><div class="ctag">{tag}</div><div class="cmetric blue">20X</div><p class="cctx"><b>Return on managed paid media.</b> {ctx}</p></div>'''
+
+def cases_section(header, cards, weave):
+    return f'''
+<!-- Case studies -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Proof</span><h2>{header}</h2></div>
+    <div class="cases">{cards}</div>
+    <p class="case-weave">{weave}</p>
+  </div>
+</section>'''
+
+# ---- Page definitions ----
+pages = {}
+
+# LP1 — Agency
+lp1_cases = case_6x("Full-funnel LinkedIn built on signal, with a result LinkedIn published as a partner success story.") \
+    + case_20x("The company that builds LinkedIn outreach software hired us to run their paid media.") + JASON
+pages["linkedin-ads-agency"] = head(
+    "LinkedIn Ads Agency That Builds Pipeline | Impactable",
+    "The LinkedIn Ads agency that builds pipeline, not vanity metrics. First-cohort LinkedIn Marketing Partner, 60+ active B2B clients, powered by DemandSense.",
+    "linkedin-ads-agency") + HEADER + hero(
+    "LinkedIn Marketing Partner",
+    'The LinkedIn Ads agency that builds pipeline, not <span class="em">vanity metrics.</span>',
+    "We're a first-cohort LinkedIn Marketing Partner with 60+ active B2B clients. We run LinkedIn Ads powered by DemandSense, so your budget goes to the accounts actually in-market, and we turn clicks into closed deals you can prove.",
+    "", "A done-for-you plan in 48 hours. No commitment.") \
+    + logos("Trusted by B2B teams across industries.") + DIFF + HOWITWORKS \
+    + cases_section("LinkedIn ad results, across B2B.", lp1_cases,
+        "As a specialist LinkedIn advertising agency and LinkedIn PPC agency, we run LinkedIn ads as a full-funnel system, not a set-and-forget service.") \
+    + FAQ + FINAL + FOOTER
+
+# LP2 — B2B
+lp2_cases = case_6x("A long, committee-driven security buy, warmed across the funnel until accounts arrived ready. Published by LinkedIn.") \
+    + case_20x("Full-funnel demand built on buyer signal, tied to real pipeline, not form fills.") + JASON
+pages["b2b-linkedin-ads-agency"] = head(
+    "B2B LinkedIn Ads Agency for Complex Cycles | Impactable",
+    "The B2B LinkedIn Ads agency for complex sales cycles. We turn LinkedIn Ads into qualified pipeline, powered by DemandSense buyer signals, not clicks.",
+    "b2b-linkedin-ads-agency") + HEADER + hero(
+    "LinkedIn Marketing Partner &middot; B2B",
+    'The B2B LinkedIn Ads agency for <span class="em">complex sales cycles.</span>',
+    "We reach the whole buying committee and turn LinkedIn Ads into qualified B2B pipeline, powered by DemandSense buyer signals. Built for long, multi-stakeholder cycles, and reported in pipeline, not clicks.",
+    "More than a channel. We run B2B demand generation and paid media as one system, with LinkedIn as the signals hub.",
+    "A done-for-you plan in 48 hours. No commitment.") \
+    + logos("Trusted by B2B teams with long, considered sales cycles.") + DIFF + HOWITWORKS \
+    + cases_section("Qualified pipeline, not clicks.", lp2_cases,
+        "As a B2B LinkedIn ads agency and B2B paid media agency, we build for decision-makers at scale and measure on qualified pipeline.") \
+    + FAQ + FINAL + FOOTER
+
+# LP3 — SaaS (lead with 20X; card 3 = Jason Vana per spec since third SaaS case not supplied)
+lp3_cases = case_20x("The company behind a LinkedIn outreach platform hired us to run their paid media, demand built on real buyer signal.") \
+    + case_6x("Full-funnel LinkedIn for a technical, committee-driven SaaS buy. Published by LinkedIn.") + JASON
+pages["b2b-saas"] = head(
+    "B2B SaaS Marketing Agency That Builds Pipeline | Impactable",
+    "The B2B SaaS marketing agency that builds pipeline. LinkedIn Ads plus paid search built for SaaS metrics: pipeline, CAC, and ACV. DemandSense finds in-market SaaS buyers.",
+    "b2b-saas") + HEADER + hero(
+    "LinkedIn Marketing Partner &middot; B2B SaaS",
+    'The B2B SaaS marketing agency that <span class="em">builds pipeline.</span>',
+    "LinkedIn Ads plus paid search, built for SaaS metrics: pipeline, CAC, and ACV. SaaS is our largest vertical, and DemandSense finds in-market SaaS buyers before your competitors do. More demos, less ad waste.",
+    "", "A done-for-you SaaS plan in 48 hours. No commitment.", saas=True) \
+    + logos("Trusted by B2B SaaS teams.") + DIFF + HOWITWORKS \
+    + cases_section("Built for SaaS pipeline, CAC, and ACV.", lp3_cases,
+        "As a B2B SaaS marketing agency and SaaS demand generation agency, we turn LinkedIn and search into demos and qualified pipeline.") \
+    + FAQ + FINAL + FOOTER
+
+os.makedirs("lp", exist_ok=True)
+for slug, html in pages.items():
+    with open(f"lp/{slug}.html", "w", encoding="utf-8") as fh:
+        fh.write(html)
+    print("wrote lp/%s.html (%d bytes)" % (slug, len(html)))
