@@ -352,40 +352,62 @@ html[data-theme="light"] .rd-feat a:hover{color:#0099D1}
   }
 }
 
-/* ── FOOTER ── */
-.rd-foot{background:var(--navy-900);border-top:1px solid var(--line-soft);padding:90px 0}
-.rd-foot .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-.foot-top{display:grid;grid-template-columns:280px 1fr;gap:176px;align-items:start}
-.foot-brand{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
-.foot-brand img{height:34px;width:auto;margin:0}
-.foot-tag{font-size:16px;line-height:1.2;color:var(--white);margin:0;max-width:205px}
-.foot-cols{display:flex;gap:120px;flex-wrap:wrap;justify-content:flex-start}
-.foot-col{display:flex;flex-direction:column;gap:12px;min-width:120px}
-.foot-col h5{font-size:16px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#f5f5f5;margin:0}
-.foot-col a{display:block;font-size:14px;line-height:1.5;color:var(--text);padding:0;text-decoration:none}
-.foot-col a:hover{color:var(--white)}
-.foot-bottom{
-  margin-top:36px;padding-top: 56px;border-top:1px solid var(--line-soft);
-  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  font-size:14px;color:var(--white);align-items:center;
+/* ── FOOTER (always dark — do not inherit light-theme tokens) ── */
+.rd-foot{
+  --text:#dde1e5;
+  --text-muted:#dde1e5;
+  --text-faint:#f5f5f5;
+  --white:#ffffff;
+  --line:rgba(221,225,229,.14);
+  --line-soft:rgba(221,225,229,.08);
+  --border:rgba(221,225,229,.14);
+  --navy-900:#001122;
+  --navy-800:#00172e;
+  --bone:#f5f5f5;
+  --chalk:#dde1e5;
+  --chalk-dim:rgba(216,212,200,.7);
+  --bg:#001122;
+  --bg-2:#001122;
+  background:#001122!important;
+  border-top:1px solid rgba(221,225,229,.08);
+  padding:90px 0;
+  color:#dde1e5;
 }
-.foot-legal{
+.rd-foot .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.rd-foot .foot-top{display:grid;grid-template-columns:280px 1fr;gap:176px;align-items:start}
+.rd-foot .foot-brand{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.rd-foot .foot-brand img{height:34px;width:auto;margin:0;filter:none!important}
+.rd-foot .foot-tag{font-size:16px;line-height:1.2;color:#fff!important;margin:0;max-width:205px}
+.rd-foot .foot-cols{display:flex;gap:120px;flex-wrap:wrap;justify-content:flex-start}
+.rd-foot .foot-col{display:flex;flex-direction:column;gap:12px;min-width:120px}
+.rd-foot .foot-col h5{font-size:16px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#f5f5f5!important;margin:0}
+.rd-foot .foot-col a{display:block;font-size:14px;line-height:1.5;color:#dde1e5!important;padding:0;text-decoration:none}
+.rd-foot .foot-col a:hover{color:#fff!important}
+.rd-foot .foot-bottom{
+  margin-top:36px;padding-top: 56px;border-top:1px solid rgba(221,225,229,.08);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:14px;color:#fff!important;align-items:center;
+}
+.rd-foot .foot-legal{
   display:flex;flex-direction:column;align-items:flex-start;gap:14px;
 }
-.foot-legal .partner-logo{
+.rd-foot .foot-legal .partner-logo{
   display:block;height:40px;width:auto;margin:0;
 }
-.foot-social{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.foot-social a{
+.rd-foot .foot-social{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.rd-foot .foot-social a{
   display:inline-flex;align-items:center;justify-content:center;
   width:34px;height:34px;padding:0;border-radius:50px;
-  border:1px solid rgba(244,241,234,.1);background:var(--navy-800);
+  border:1px solid rgba(244,241,234,.1);background:#00172e;
   overflow:hidden;text-decoration:none;flex:none;
+  color:#dde1e5!important;
 }
-.foot-social a:hover{border-color:rgba(244,241,234,.22)}
-.foot-social img{width:16px;height:16px;display:block;flex:none}
+.rd-foot .foot-social a:hover{border-color:rgba(244,241,234,.22);color:#fff!important}
+.rd-foot .foot-social img{width:16px;height:16px;display:block;flex:none}
+html[data-theme="light"] .rd-foot .foot-brand img,
+html[data-theme="light"] .rd-foot .foot-logo img{filter:none!important}
 @media(max-width:800px){
-  .foot-top{grid-template-columns:1fr;gap:48px}
-  .foot-cols{justify-content:flex-start;gap:40px}
-  .foot-bottom{align-items:flex-start}
+  .rd-foot .foot-top{grid-template-columns:1fr;gap:48px}
+  .rd-foot .foot-cols{justify-content:flex-start;gap:40px}
+  .rd-foot .foot-bottom{align-items:flex-start}
 }
