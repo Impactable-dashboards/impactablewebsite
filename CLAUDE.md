@@ -139,6 +139,14 @@ and a 4th vertical (healthtech or pro services).
   boldly to feature emerging AI placements + geofencing.
 
 ## Decisions log (newest first)
+- **2026-07-25** Display font aligned to the homepage: headlines now use **Anton**
+  (`--font-display`), not Archivo Black. Swapped `'Archivo Black'` -> `'Anton'`
+  across all content pages (the `.display` rule uses Anton tracking:
+  `letter-spacing:.01em;line-height:.98;font-weight:400;text-transform:uppercase`).
+  Google (on Mona Sans) got a targeted `h1,h2,.hero h1,.final h2` Anton override.
+  Anton is loaded via the Google Fonts link on every page. Do not reintroduce
+  Archivo Black. (Remaining homepage-only visual: organic hero background +
+  animated system rail; Google body text is still Mona Sans, others are Inter.)
 - **2026-07-25** Palette realigned to the redesigned homepage across all content
   pages (money pages first). Warm navy -> redesign navy (`#071A38`->`#001122`,
   `#0E2A50`->`#0D2744`, `#173B66`->`#002245`) and **amber/canopy -> teal**
