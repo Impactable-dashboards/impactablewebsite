@@ -50,11 +50,21 @@ CANON = {
     "$3,000": "Core", "$4,500": "Growth", "$6-12k": "Scale",
 }
 
+# Indexed pages must carry the full signal set. Noindex pages (paid LPs,
+# thank-you, redesign) still need core hygiene but not social/schema markup.
+REQUIRED_NOINDEX = [r for r in REQUIRED if r[2] not in {
+    "Open Graph title", "Open Graph image", "Open Graph description",
+    "Twitter card", "JSON-LD structured data"}]
+
 fail = 0
-for f in sorted(glob.glob("*.html")):
+# Gate root pages AND indexed subdirectory sections (thought-leadership/, lp/).
+files = sorted(glob.glob("*.html") + glob.glob("thought-leadership/*.html") + glob.glob("lp/*.html"))
+for f in files:
     if f in EXCLUDE: continue
     s = open(f, encoding="utf-8").read()
-    problems = [msg for _, rx, msg in REQUIRED if not re.search(rx, s, re.S)]
+    noindex = bool(re.search(r'name="robots"[^>]*content="[^"]*noindex', s, re.I))
+    checks = REQUIRED_NOINDEX if noindex else REQUIRED
+    problems = [msg for _, rx, msg in checks if not re.search(rx, s, re.S)]
     h1 = len(re.findall(r"<h1[ >]", s))
     if h1 != 1: problems.append(f"exactly one <h1> (found {h1})")
     # JSON-LD must parse

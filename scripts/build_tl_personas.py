@@ -16,6 +16,28 @@ OUTDIR = os.path.join(ROOT, "thought-leadership")
 LANDBOT = "https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html"
 DEMAND = "/competitor-intel-report"
 
+# AEO: freshness signal. Bump MODIFIED when a page's copy changes materially.
+PUBLISHED = "2026-07-30"
+MODIFIED = "2026-07-30"
+# AEO: self-contained Organization identity mirrored from the homepage canonical
+# node, so an AI parsing any single persona page can verify who published it.
+ORG = {
+    "@type": "Organization", "@id": "https://impactable.marketing/#org",
+    "name": "Impactable", "alternateName": "Impactable B2B",
+    "url": "https://impactable.marketing/",
+    "logo": "https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp",
+    "description": "Impactable is the B2B Demand Intelligence System: a certified LinkedIn Marketing Partner that targets your best-fit buyers from real signal, discovers who your buyers actually are, and proves revenue with a continuous quarterly diagnostic.",
+    "sameAs": [
+        "https://www.linkedin.com/company/impactableb2b/",
+        "https://www.youtube.com/@Impactable-B2B-Agency",
+        "https://www.linkedin.com/in/justin-rowe-4043339b/",
+    ],
+    "founder": {"@type": "Person", "name": "Justin Rowe", "jobTitle": "CEO & Founder",
+                "sameAs": "https://www.linkedin.com/in/justin-rowe-4043339b/"},
+    "award": "LinkedIn Indie Agency Awards 2026: Thought Leader of the Year",
+    "knowsAbout": ["B2B LinkedIn Ads", "B2B thought leadership", "B2B demand generation", "account-based marketing"],
+}
+
 # ---- lift the main <style> block verbatim from the live TL page --------------
 _src = open(SRC, encoding="utf-8").read()
 _i = _src.index("<style>")
@@ -556,9 +578,12 @@ def head(title, desc, slug, breadcrumb_name, faq_items):
     faq_ld = [{"@type": "Question", "name": q,
                "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_items]
     graph = [
+        ORG,
         {"@type": "WebPage", "@id": f"{canon}#webpage", "url": canon, "name": title,
          "description": desc, "isPartOf": {"@id": "https://impactable.marketing/#website"},
-         "about": {"@id": "https://impactable.marketing/#org"}, "inLanguage": "en"},
+         "about": {"@id": "https://impactable.marketing/#org"},
+         "publisher": {"@id": "https://impactable.marketing/#org"},
+         "datePublished": PUBLISHED, "dateModified": MODIFIED, "inLanguage": "en"},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://impactable.marketing/"},
             {"@type": "ListItem", "position": 2, "name": "Thought Leadership", "item": "https://impactable.marketing/thought-leadership"},
