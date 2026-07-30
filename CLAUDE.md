@@ -21,9 +21,13 @@ fails the build on a regression.
   merge to `main` together.
 
 ## Non-negotiable content conventions (enforced by the gate)
-- **Offer naming — live/current:** free = **Demand Plan**; one-time paid = **Full
-  Marketing Strategy** ($1,500); single-channel audit = **Channel Check** ($499).
-  NEVER "Demand Plan Lite" / "Demand Plan Full" (old naming, abandoned).
+- **Offer naming — live/current:** free = **Demand Plan**; single-channel audit =
+  **Channel Check** ($499); the one-time $1,500 plan is the **LinkedIn Ads Launch
+  Plan**, shown **only on linkedin-launch**. On the general strategy pages
+  (intelligence-room, marketing-ecosystem) the strategy offering is **"Strategy
+  Foundations"** (scoped, not a fixed price). **"Full Marketing Strategy" is
+  retired everywhere (linted) — never reintroduce it.** NEVER "Demand Plan Lite" /
+  "Demand Plan Full" (old naming, abandoned).
 - **Managed tiers (public):** lead with **Core $3,000**/mo · Growth **$4,500**/mo
   · Scale **$6-12k**/mo. Flat monthly fee, not a percent of spend. **Pilot
   ($1,750) is NOT shown on any public page** (scoping/backend option only, dropped
@@ -93,8 +97,8 @@ and the gate enforces their formatting.
 |---|---|---|
 | Free | Demand Plan | free |
 | Single-channel audit | Channel Check | $499 |
-| One-time plan | Full Marketing Strategy | $1,500 |
-| Managed entry | Pilot | $1,750/mo |
+| One-time plan (launch page only) | LinkedIn Ads Launch Plan | $1,500 |
+| Strategy offering (intelligence-room, ecosystem) | Strategy Foundations | scoped on a call |
 | Managed, one channel | Core | $3,000/mo |
 | Managed, two channels | Growth | $4,500/mo |
 | Managed, full system | Scale | $6-12k/mo (detail pages: $6,000 to $12,000) |

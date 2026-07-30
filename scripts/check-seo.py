@@ -31,6 +31,7 @@ BANNED = [
     (r"two to three weeks|\b2\s*(?:-|to)\s*3\s*weeks\b", "no delivery-time estimate on strategy/impact-report offers"),
     (r"Facebook (?:&amp;|and|,) Instagram|Facebook, Instagram", "channel naming: say 'B2B Facebook', not 'Facebook and Instagram'"),
     (r"(?:attribution |reporting )?wired (?:in)?to your CRM", "CRM mechanism: we sync the client's CRM WITH DemandSense to anchor reporting in real deals/pipeline; we do not wire signals/attribution INTO the CRM"),
+    (r"Full Marketing Strategy", "offer retired: launch = 'LinkedIn Ads Launch Plan' ($1,500); general strategy pages = 'Strategy Foundations' (scoped). Do not reintroduce."),
     # Price-format consistency: canonical prices use comma thousands.
     (r"\$1750\b", "price format: write $1,750"),
     (r"\$3000\b", "price format: write $3,000"),
@@ -43,10 +44,10 @@ BANNED = [
 # to propagate, (3) add the OLD value to BANNED above so leftovers cannot ship.
 CANON = {
     "Demand Plan": "free tier name",
-    "Full Marketing Strategy": "one-time paid plan name",
+    "LinkedIn Ads Launch Plan": "one-time plan, linkedin-launch page only",
     "Channel Check": "single-channel audit name",
-    "$499": "Channel Check price", "$1,500": "Full Marketing Strategy price",
-    "$1,750": "Pilot", "$3,000": "Core", "$4,500": "Growth", "$6-12k": "Scale",
+    "$499": "Channel Check price", "$1,500": "LinkedIn Ads Launch Plan price",
+    "$3,000": "Core", "$4,500": "Growth", "$6-12k": "Scale",
 }
 
 fail = 0
