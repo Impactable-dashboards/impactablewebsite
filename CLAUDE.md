@@ -135,6 +135,24 @@ and a 4th vertical (healthtech or pro services).
   boldly to feature emerging AI placements + geofencing.
 
 ## Decisions log (newest first)
+- **2026-07-25** Enriched the vertical spokes (saas/cybersecurity/financial-services)
+  to scale-level depth: added scale's account-coverage **reporting waterfall**
+  (`.fun` specimen, "The reporting big accounts actually need") above the existing
+  named-accounts grid, and a **"how pricing works" + custom ($25k-$500k+) note**
+  under the Core/Growth/Scale ladder. Proof was already at parity (award image +
+  summit thumbs + CAPI + Lacework + HeyReach). Spokes differ from scale only in
+  hero/message now.
+- **2026-07-25** Pricing/offer consistency pass. Pilot dropped from every public
+  page; managed pricing leads and is **Core $3,000 / Growth $4,500 / Scale $6-12k
+  + Custom** consistently across pricing, spokes, scale, launch, and google
+  (google's $3k Google+LinkedIn card folded into the standard Growth tier). The
+  one-time $1,500 offer is renamed **"LinkedIn Ads Launch Plan" and shown only on
+  linkedin-launch**; "Full Marketing Strategy" removed as a priced offer elsewhere
+  (strategy work still described). scale leads with Demand Plan + Book a call (paid
+  offer demoted to "Account Diagnostic"). LP `/lp/*` forms capture via the ClickUp
+  embed. STILL PENDING: FMS on intelligence-room + marketing-ecosystem; add FMS to
+  BANNED once fully cleared.
+
 - **2026-07-25** Built and shipped `/programmatic` (B2B Programmatic money page)
   from the deep-build spec: hero + Everywhere Effect placements + full-channel
   (not retargeting) + first-party-vs-rented wedge + reachability + targeting +
