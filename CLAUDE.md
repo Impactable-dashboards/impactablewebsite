@@ -107,6 +107,9 @@ Every new indexed page must ship with:
   top AEO citation signal) and `publisher` → `#org`, a **BreadcrumbList**, the
   page's primary type (**Service**, Article, etc.), and a **FAQPage** if the
   page has genuine Q&A (FAQPage produces the highest AI-citation lift).
+  `scripts/sweep_schema.py` normalizes the Organization node + `dateModified`
+  across all root pages (idempotent, skips noindex); bump its `MODIFIED` and
+  re-run after a real site-wide content change.
 - **AEO content shape** (not gated, but do it): phrase key `<h2>`/`<h3>` as real
   questions buyers ask; lead each section with a direct 40-80 word answer, then
   expand; keep claims specific and backed by a stat or named proof
