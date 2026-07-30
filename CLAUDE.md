@@ -139,6 +139,16 @@ and a 4th vertical (healthtech or pro services).
   boldly to feature emerging AI placements + geofencing.
 
 ## Decisions log (newest first)
+- **2026-07-25** Palette realigned to the redesigned homepage across all content
+  pages (money pages first). Warm navy -> redesign navy (`#071A38`->`#001122`,
+  `#0E2A50`->`#0D2744`, `#173B66`->`#002245`) and **amber/canopy -> teal**
+  (`#FFB627`/`#A66A00`->`#00C4B3`), moss->lime (`#7BAA3E`->`#C6FF3D`); hero
+  headline pop (`.hero h1 .em`) is now teal to match the homepage's `.em`.
+  IMPORTANT: the `--canopy`/`--clay` variables still exist by NAME but now render
+  **teal**, not amber. The brand accent is **teal `#00C4B3`** (+ blue `#0099D1`,
+  lime `#C6FF3D`); do not reintroduce amber `#FFB627`. Still on the old visual
+  system (not migrated to redesign.css): organic hero background, Anton display
+  font, and exact section rhythm are homepage-only for now.
 - **2026-07-25** Enriched the vertical spokes (saas/cybersecurity/financial-services)
   to scale-level depth: added scale's account-coverage **reporting waterfall**
   (`.fun` specimen, "The reporting big accounts actually need") above the existing
