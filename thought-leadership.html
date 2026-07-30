@@ -616,15 +616,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .ps-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
   .ps-top .eyebrow{margin:0}
   .ps-top .ps-note{font-size:.96rem;color:var(--text-muted)}
-  .ps-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .ps-card{display:flex;flex-direction:column;gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:17px 18px;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
+  .ps-cards{display:grid;gap:12px}
+  .ps-cards.six{grid-template-columns:repeat(3,1fr)}
+  .ps-cards.two{grid-template-columns:repeat(2,1fr)}
+  .ps-card{display:flex;flex-direction:column;gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 18px;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
   .ps-card:hover{border-color:var(--canopy);transform:translateY(-3px);background:var(--surface-2)}
   .ps-card .psk{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint)}
-  .ps-card .psn{font-family:var(--font-display);font-weight:800;font-size:1.06rem;color:var(--text);line-height:1.15;letter-spacing:-.01em}
+  .ps-card .psn{font-family:var(--font-display);font-weight:800;font-size:1.04rem;color:var(--text);line-height:1.15;letter-spacing:-.01em}
   .ps-card .psgo{margin-top:6px;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
   .ps-card:hover .psgo{color:var(--canopy)}
-  @media(max-width:900px){.ps-cards{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.ps-cards{grid-template-columns:1fr}}
+  .ps-sublabel{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin:0 0 10px}
+  @media(max-width:900px){.ps-cards.six{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.ps-cards.six,.ps-cards.two{grid-template-columns:1fr}}
   </style>
   <div class="wrap">
     <div class="ps-wrap reveal">
@@ -632,11 +635,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="eyebrow"><span class="dot"></span>Who we build this for</span>
         <span class="ps-note">The engine is the same. The play is built for how you sell. Pick yours.</span>
       </div>
-      <div class="ps-cards">
+      <div class="ps-sublabel">By what you sell</div>
+      <div class="ps-cards six">
         <a class="ps-card" href="/thought-leadership/saas-founders"><span class="psk">B2B SaaS</span><span class="psn">SaaS Founders</span><span class="psgo">See the play &rarr;</span></a>
         <a class="ps-card" href="/thought-leadership/coaching-training"><span class="psk">Coaching &amp; training</span><span class="psn">Coaches &amp; Training Firms</span><span class="psgo">See the play &rarr;</span></a>
         <a class="ps-card" href="/thought-leadership/consulting"><span class="psk">Consulting</span><span class="psn">Consulting Firms</span><span class="psgo">See the play &rarr;</span></a>
         <a class="ps-card" href="/thought-leadership/it-services"><span class="psk">IT services &amp; MSPs</span><span class="psn">IT Services &amp; MSPs</span><span class="psgo">See the play &rarr;</span></a>
+        <a class="ps-card" href="/thought-leadership/financial-services"><span class="psk">Financial services</span><span class="psn">Financial Services</span><span class="psgo">See the play &rarr;</span></a>
+        <a class="ps-card" href="/thought-leadership/agency-founders"><span class="psk">Agency &amp; marketing</span><span class="psn">Agency &amp; Marketing Founders</span><span class="psgo">See the play &rarr;</span></a>
+      </div>
+      <div class="ps-sublabel" style="margin-top:18px;">Or by how your team is set up</div>
+      <div class="ps-cards two">
+        <a class="ps-card" href="/thought-leadership/founder-led"><span class="psk">One voice</span><span class="psn">Founder-Led</span><span class="psgo">See the play &rarr;</span></a>
+        <a class="ps-card" href="/thought-leadership/expert-bench"><span class="psk">Multiple experts</span><span class="psn">Expert Bench</span><span class="psgo">See the play &rarr;</span></a>
       </div>
     </div>
   </div>
@@ -1160,16 +1171,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BUILT FOR HOW YOU SELL (persona cards) -->
 <section class="band" id="personas">
   <style>
-  .persona-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
-  .persona-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+  .persona-grid{display:grid;gap:16px;margin-top:8px}
+  .persona-grid.by-sell{grid-template-columns:repeat(3,1fr)}
+  .persona-grid.by-setup{grid-template-columns:repeat(2,1fr)}
+  .persona-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 24px;text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
   .persona-card:hover{border-color:var(--border-2);transform:translateY(-3px)}
   .persona-card h3{font-size:1.12rem;color:var(--text);margin-bottom:10px;line-height:1.2}
   .persona-card p{font-size:.96rem;color:var(--text-muted);line-height:1.5;margin:0 0 16px;font-style:italic}
   .persona-card .pgo{margin-top:auto;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
   .persona-card:hover .pgo{color:var(--text)}
-  .persona-more{margin-top:22px;font-family:var(--font-mono);font-size:13px;color:var(--text-faint);letter-spacing:.02em}
-  @media(max-width:900px){.persona-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.persona-grid{grid-template-columns:1fr}}
+  .persona-rowlabel{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:28px 0 12px}
+  @media(max-width:900px){.persona-grid.by-sell{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.persona-grid.by-sell,.persona-grid.by-setup{grid-template-columns:1fr}}
   </style>
   <div class="wrap">
     <div class="section-head reveal">
@@ -1177,13 +1190,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>The engine is the same. <span class="text-accent">Your buyers aren't.</span></h2>
       <p>What changes by business is your voice, who you're earning trust with, and where authority pays off fastest. Find yourself below and see the play built for it.</p>
     </div>
-    <div class="persona-grid reveal">
+    <div class="persona-rowlabel reveal" style="margin-top:8px;">By what you sell</div>
+    <div class="persona-grid by-sell reveal">
       <a class="persona-card" href="/thought-leadership/saas-founders"><h3>SaaS Founders</h3><p>"Our category all sounds the same, and I'm the only one who can explain why we're different."</p><span class="pgo">See the SaaS play &rarr;</span></a>
       <a class="persona-card" href="/thought-leadership/coaching-training"><h3>Coaches &amp; Training Firms</h3><p>"My expertise is the product, and I'm too busy delivering it to market it."</p><span class="pgo">See the coaching play &rarr;</span></a>
       <a class="persona-card" href="/thought-leadership/consulting"><h3>Consulting Firms</h3><p>"Growth runs on our partners' reputations, and no partner has time to post."</p><span class="pgo">See the consulting play &rarr;</span></a>
       <a class="persona-card" href="/thought-leadership/it-services"><h3>IT Services &amp; MSPs</h3><p>"We're technically better than our competitors and it sounds identical on paper."</p><span class="pgo">See the IT services play &rarr;</span></a>
+      <a class="persona-card" href="/thought-leadership/financial-services"><h3>Financial Services</h3><p>"Trust is the whole sale, everyone claims it, and compliance slows everything we publish."</p><span class="pgo">See the financial services play &rarr;</span></a>
+      <a class="persona-card" href="/thought-leadership/agency-founders"><h3>Agency &amp; Marketing Founders</h3><p>"We market everyone else for a living and never get to our own."</p><span class="pgo">See the agency play &rarr;</span></a>
     </div>
-    <p class="persona-more reveal">More on the way: financial services, agency founders, HR and people-tech.</p>
+    <div class="persona-rowlabel reveal">Or by how your team is set up</div>
+    <div class="persona-grid by-setup reveal">
+      <a class="persona-card" href="/thought-leadership/founder-led"><h3>Founder-Led</h3><p>"I'm the brand. That's the advantage and the bottleneck."</p><span class="pgo">See the founder-led play &rarr;</span></a>
+      <a class="persona-card" href="/thought-leadership/expert-bench"><h3>Expert Bench</h3><p>"We have five experts and it reads like five different companies."</p><span class="pgo">See the expert bench play &rarr;</span></a>
+    </div>
   </div>
 </section>
 

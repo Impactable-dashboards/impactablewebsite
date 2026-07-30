@@ -131,6 +131,10 @@ FOOTER = """<footer class="rd-foot">
           <a href="/thought-leadership/coaching-training">Coaches &amp; Training Firms</a>
           <a href="/thought-leadership/consulting">Consulting Firms</a>
           <a href="/thought-leadership/it-services">IT Services &amp; MSPs</a>
+          <a href="/thought-leadership/financial-services">Financial Services</a>
+          <a href="/thought-leadership/agency-founders">Agency &amp; Marketing Founders</a>
+          <a href="/thought-leadership/founder-led">Founder-Led</a>
+          <a href="/thought-leadership/expert-bench">Expert Bench</a>
         </div>
         <div class="foot-col">
           <h5>Company</h5>
@@ -476,10 +480,11 @@ def final_cta(headline_html):
 
 
 # ---- section builders for the per-page unique copy ---------------------------
-def cards4(label, header_html, cards):
+def cards4(label, header_html, cards, alt=True):
+    band = "band alt" if alt else "band"
     lis = "\n".join(
         f'      <div class="pillar reveal"><h4>{t}</h4><p>{b}</p></div>' for t, b in cards)
-    return f"""<section class="band alt">
+    return f"""<section class="{band}">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>{label}</span>
@@ -492,10 +497,11 @@ def cards4(label, header_html, cards):
 </section>"""
 
 
-def cards3(label, header_html, cards):
+def cards3(label, header_html, cards, alt=False):
+    band = "band alt" if alt else "band"
     lis = "\n".join(
         f'      <div class="pillar reveal"><h4>{t}</h4><p>{b}</p></div>' for t, b in cards)
-    return f"""<section class="band">
+    return f"""<section class="{band}">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>{label}</span>
@@ -526,13 +532,16 @@ def plist(label, header_html, items, alt=False, footer_html=""):
 </section>"""
 
 
-def hero(eyebrow, h1_html, subhead, risk):
+def hero(eyebrow, h1_html, subhead, risk, proof_line=""):
+    pl = ""
+    if proof_line:
+        pl = f'\n    <p class="reveal" style="margin-top:16px;font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;color:var(--text-faint);">{proof_line}</p>'
     return f"""<!-- HERO -->
 <section class="hero" id="hero">
   <div class="wrap">
     <span class="eyebrow reveal"><span class="dot"></span>{eyebrow}</span>
     <h1 class="reveal">{h1_html}</h1>
-    <p class="lead reveal">{subhead}</p>
+    <p class="lead reveal">{subhead}</p>{pl}
     <div class="hero-cta reveal">
       {cta_pair()}
     </div>
@@ -602,12 +611,14 @@ def head(title, desc, slug, breadcrumb_name, faq_items):
 
 def build_page(cfg):
     faq_html, faq_items = faq_section(cfg["faq_extra"])
+    # whitespace renders 3-up on vertical pages, 4-up on the profile pages
+    ws_builder = cards4 if len(cfg["whitespace"][2]) >= 4 else cards3
     parts = [
         head(cfg["title"], cfg["desc"], cfg["slug"], cfg["breadcrumb"], faq_items),
-        hero(cfg["eyebrow"], cfg["h1"], cfg["subhead"], cfg["risk"]),
-        cards4(*cfg["pain"]),
-        cards3(*cfg["whitespace"]),
-        cards4(*cfg["committee"]),
+        hero(cfg["eyebrow"], cfg["h1"], cfg["subhead"], cfg["risk"], cfg.get("proof_line", "")),
+        cards4(*cfg["pain"], alt=True),
+        ws_builder(*cfg["whitespace"], alt=False),
+        cards4(*cfg["committee"], alt=True),
         plist(*cfg["voice"]),
         plist(*cfg["targeting"], alt=True, footer_html=cfg.get("targeting_links", "")),
         MIDCTA,
@@ -769,7 +780,7 @@ CONSULTING = {
         ("Then amplify per partner.", "Posts that earn organic traction become thought-leader ads from that partner's profile, which outperforms company-page advertising because buyers trust people."),
         ("Then hand sales the warm ones.", "Named accounts engaging across content, site, and ads get surfaced with full context. Multi-touch accounts convert to pipeline at 3x+ single-touch across the accounts we manage."),
     ]),
-    "targeting_links": '<a href="/marketing-ecosystem">See how the ecosystem fits together &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "targeting_links": '<a href="/marketing-ecosystem">See how the ecosystem fits together &rarr;</a><a href="/thought-leadership/expert-bench">Several partners publishing? See the Expert Bench play &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
     "stage_label": "Roughly: a single practice lead sits at Validate, a repeatable service line at Ramp, multiple partners publishing at Reach, a firm-wide voice at Supply, and category authority at Sustain. PE-backed roll-ups usually enter at Reach.",
     "rec": "Content Engine", "addon": "2nd Exec Profile", "system": True,
     "faq_extra": [
@@ -831,7 +842,210 @@ IT = {
     "final_h": "Your technical depth is the differentiator. <span class=\"text-accent\">Let's make it visible.</span>",
 }
 
-PAGES = [SAAS, COACHING, CONSULTING, IT]
+FOUNDER = {
+    "slug": "founder-led",
+    "title": "Founder-Led Thought Leadership | Impactable",
+    "desc": "Founder-led thought leadership, built as a system. We capture your voice once and run it, so authority compounds without you posting daily. Built by LinkedIn's 2026 Thought Leader of the Year.",
+    "breadcrumb": "Founder-Led",
+    "eyebrow": "LinkedIn Marketing Partner &middot; Founder-Led",
+    "h1": "You're the brand. <span class=\"text-accent\">That's your advantage and your bottleneck.</span>",
+    "subhead": "Buyers trust a person faster than they trust a company, which makes founder-led the strongest position you have. It also means everything stops when you get busy. We capture your voice once and run it as a system, so the authority keeps compounding.",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "Why founder-led content usually dies.", [
+        ("It only exists when you have a spare hour.", "You post for three weeks, then a launch or a fundraise or a customer fire takes the month. The audience cools, the algorithm forgets you, and restarting costs more than continuing would have."),
+        ("Nobody can write as you.", "You've tried handing it off. What comes back is technically correct and completely lifeless, because the person writing it has never had your conversations. So you rewrite it yourself, which defeats the point."),
+        ("You're posting, not building.", "Individual posts vanish in days. Without pillars, a library, and a way to reuse the good ones, you're renting attention every week instead of accumulating an asset."),
+        ("You can't tell if it's working.", "Likes aren't pipeline. Without knowing which companies are actually reading, founder-led content stays a leap of faith you feel guilty about."),
+    ]),
+    "whitespace": ("The structural advantage", "A person <span class=\"text-accent\">out-earns a logo,</span> every time.", [
+        ("Trust transfers faster to people.", "Buyers follow people, reply to people, and forward people. A company page publishing the same words gets a fraction of the reach and almost none of the credibility."),
+        ("You have something no competitor can copy.", "Your product can be cloned and your ad budget can be beaten. The way you specifically understand the problem cannot, and it's the only durable asset in a crowded category."),
+        ("Founder-led ads outperform brand ads.", "Thought-leader ads run from a personal profile consistently beat company-page creative, because they look and feel like something a human said rather than something a brand approved."),
+        ("One voice is faster to systemize than five.", "Being the single voice is an operational advantage. There's nothing to reconcile, no house style to negotiate. We capture one point of view deeply and run it."),
+    ]),
+    "committee": ("The reach", "The buyers <span class=\"text-accent\">your ads never touch.</span>", [
+        ("Executives who don't click ads.", "VPs and C-level buyers scroll past advertising and stop for a person whose thinking they've come to expect. For many accounts this is the only channel that gets in at all."),
+        ("The ~95% who aren't in-market.", "At any moment almost nobody is actively buying. Paid search captures the ~5% searching today. Founder-led content is how you form the opinion of everyone deciding six months out, before they've built a shortlist."),
+        ("The internal champion who has to sell you.", "Your buyer needs something to forward to their boss. A sharp founder post travels through an organization in a way a landing page never does."),
+        ("The people who become your bench.", "Talent, partners and advisors find you the same way buyers do. Founder-led authority compounds across every relationship the business needs, not just sales."),
+    ]),
+    "voice": ("What goes in", "One voice, <span class=\"mk\">captured properly.</span>", [
+        ("A deep first pass on how you think.", "Interview sessions that pull out your actual positions, the objection you answer weekly, the thing you believe that most of your category doesn't, and the story you tell on every sales call."),
+        ("Your Founder Voice DNA document.", "Not a tone guideline. A working document that captures sentence rhythm, the words you'd never use, how you open, how you land a point. It's what makes the output sound like you and not like a competent stranger."),
+        ("Sales-call language.", "How your buyers describe the problem in their words, lifted from real recordings, so your copy reads like the market instead of like marketing."),
+        ("Light ongoing inputs.", "Once the voice is locked, a voice memo or a few notes is enough. You supply the raw thought, the engine handles everything after it, and nothing publishes without your review."),
+    ]),
+    "targeting": ("The play", "Small budget, warm first, <span class=\"text-accent\">amplify only what already worked.</span>", [
+        ("Start with everyone who already knows you.", "Your CRM, your newsletter, past customers, event and webinar attendees, and everyone engaging with your posts. Across the accounts we manage, warm first-party audiences convert in the $75-150 range while cold native runs $300-600+, so this ordering is the whole difference on a small budget."),
+        ("Amplify proven posts only.", "Organic tells you which message lands before you spend a dollar scaling it. That's what makes founder-led efficient rather than expensive, and it's what Paid Amplification is for."),
+        ("Add the named-account layer when you're ready.", "We build the target list from real signal, so the accounts you care about see your thinking whether or not they're searching yet."),
+        ("Turn attention into conversations.", "Organic engagers, named site visitors and ad engagers all flow into email and LinkedIn connect plays. Multi-touch accounts convert to pipeline at 3x+ single-touch across the accounts we manage."),
+    ]),
+    "targeting_links": '<a href="/marketing-ecosystem">See how the ecosystem fits together &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: your first paying customers sit at Validate, a repeatable motion at Ramp, reaching buyers who aren't searching yet at Reach, multi-channel scale at Supply, and a known name in your category at Sustain. Whether you're venture-backed or bootstrapped changes the budget, not the play.",
+    "rec": "Thought Leader", "addon": "Paid Amplification", "system": False,
+    "faq_extra": [
+        ("How much of my time does this actually take?",
+         "Roughly 30 to 60 minutes a month once the voice is calibrated. One recorded session, plus short inputs when a thought occurs to you. Phase 1 asks a bit more, mainly feedback on voice samples, and that's the part that determines whether everything after it sounds like you."),
+        ("What happens if I want to bring this in-house later?",
+         "Everything we build is yours. The voice documents, the pillars, the library. If you eventually want to run it internally across several people, that's The System Build, and the work already done carries straight over."),
+    ],
+    "final_h": "You already have the point of view. <span class=\"text-accent\">Let's give it a system.</span>",
+}
+
+EXPERT = {
+    "slug": "expert-bench",
+    "title": "Thought Leadership for Multiple Experts &amp; Execs | Impactable",
+    "desc": "Thought leadership for mid-market teams with several experts. One governed brand voice, individual voice profiles per person, and paid amplification behind what works.",
+    "breadcrumb": "Expert Bench",
+    "eyebrow": "LinkedIn Marketing Partner &middot; Multiple Experts",
+    "h1": "You have five experts. <span class=\"text-accent\">It reads like five different companies.</span>",
+    "subhead": "Depth across a bench is an advantage most competitors don't have, and without governance it produces noise instead of authority. We build one brand voice above individual voice profiles, so every expert sounds like themselves and the firm still sounds like one firm.",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "What goes wrong when several people publish.", [
+        ("No two experts sound like the same company.", "One posts dense technical detail, one posts industry links, two post nothing. There's no shared positioning underneath, so nothing accumulates into a brand."),
+        ("Marketing is the bottleneck for everyone.", "One or two marketers are trying to ghostwrite for several subject-matter experts while running everything else. Output is inconsistent because the capacity was never there."),
+        ("The expertise is locked in the people who are busiest.", "Your best thinkers are the most billable or the most operationally loaded. Their knowledge stays in calls, decks and Slack, and never reaches a buyer."),
+        ("Every new hire starts from zero.", "A new expert or a new practice joins and nobody can tell them how the brand sounds, because it's never been written down. So the voice drifts again."),
+    ]),
+    "whitespace": ("The structural advantage", "A bench beats a single voice, <span class=\"text-accent\">once it's governed.</span>", [
+        ("More surface area, more credibility.", "Several experts reach several buyer roles at once. A technical lead earns the technical validator, an executive earns the economic buyer. One founder can't cover that range alone."),
+        ("It removes key-person risk.", "When authority sits entirely with one person, the brand goes with them if they leave or get pulled away. A bench distributes it."),
+        ("Depth is your differentiator against bigger competitors.", "Larger firms publish committee-approved content that says nothing. Specific, named experts saying specific things is the one place you outmatch them."),
+        ("Governance is what turns the bench into an asset.", "Documented positioning plus per-person voice profiles means new hires, new campaigns and new channels all publish on-brand from the first week, rather than restarting the conversation."),
+    ]),
+    "committee": ("The bench", "Not everyone needs a voice. <span class=\"text-accent\">These four roles do.</span>", [
+        ("The founder or CEO.", "The positioning voice. Where the company stands, where the market is heading, what you believe that the category doesn't. Highest trust, and the anchor everything else hangs from."),
+        ("The senior technical expert.", "Your architect, principal, or head of practice. They earn the validators who dismantle marketing claims for a living, and they're the reason a technical buyer believes you."),
+        ("The client-facing lead.", "Whoever sits with customers all day: head of delivery, success, or a practice lead. They know the real objections and the patterns across accounts, which is the most useful content you own."),
+        ("The commercial leader.", "Your CRO or VP Sales. They speak to the business case, the cost of inaction, and the outcome, which is what the economic buyer actually reads."),
+    ]),
+    "voice": ("What goes in", "Two layers: <span class=\"mk\">the firm's voice, and each person's.</span>", [
+        ("Brand Voice DNA, at the firm level.", "One document holding positioning, claims, the pillars and the standards. This is the layer that keeps five voices coherent, and it's what a new hire reads on day one."),
+        ("Founder &amp; Expert Voice DNA, per person.", "A separate document for each individual: how they actually speak, their recurring positions, what they'd never say. Each expert sounds like themselves rather than like a house template."),
+        ("Interview sessions per expert.", "Monthly, and short. Your experts talk, we write. Nobody on the bench drafts anything or opens a blank document."),
+        ("Cross-account patterns.", "What your client-facing team keeps seeing, generalized so it teaches without exposing anything confidential. This is where mid-market teams have the deepest unused content reserve."),
+    ]),
+    "targeting": ("The play", "Several voices, <span class=\"text-accent\">one coordinated motion.</span>", [
+        ("Start with the warm pools you already own.", "CRM, existing clients, event and webinar audiences, your experts' personal networks, and site visitors. Warm first-party audiences convert in the $75-150 range across the accounts we manage, against $300-600+ for cold native."),
+        ("Match each voice to the buyer role it earns.", "Technical expert content goes to validators, commercial content to economic buyers, founder content to everyone. That's the advantage a bench has and a solo founder doesn't."),
+        ("Amplify per person, not per brand.", "Winning organic posts become thought-leader ads from that individual's profile, which consistently outperforms company-page creative."),
+        ("Harvest across all of it.", "Every engager, named site visitor and ad engager flows into one account-level view, so sales sees the account stacking signals regardless of which expert triggered it. Multi-touch accounts convert to pipeline at 3x+ single-touch."),
+    ]),
+    "targeting_links": '<a href="/thought-leadership/consulting">A multi-partner consulting firm? See the Consulting play &rarr;</a><a href="/marketing-ecosystem">See the ecosystem &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: one expert publishing sits at Validate, a repeatable content motion at Ramp, several voices live at Reach, a governed firm-wide voice at Supply, and category authority at Sustain. Most mid-market teams arrive here already at Reach and skip the first two.",
+    "rec": "Content Engine", "addon": "2nd Exec Profile", "system": True,
+    "faq_extra": [
+        ("How do you keep several experts from contradicting each other?",
+         "The firm-level Brand Voice DNA document holds positioning and claims, and every individual voice profile sits underneath it. Experts differ in style and emphasis, which is the point, but they don't differ on what the company stands for. Each additional voice is the 2nd Exec Profile add-on."),
+        ("What if one of our experts leaves?",
+         "Their voice profile is documented but the firm's positioning layer is independent of any individual, so the brand doesn't leave with them. A replacement gets calibrated against the existing standards rather than starting over, which is one of the strongest reasons to document this before you need it."),
+    ],
+    "final_h": "Your bench is the differentiator. <span class=\"text-accent\">Let's make it sound like one firm.</span>",
+}
+
+FINSERV = {
+    "slug": "financial-services",
+    "title": "Thought Leadership for Financial Services | Impactable",
+    "desc": "Compliance-aware thought leadership for financial services. Specific, defensible authority that clears review, reaches a cautious committee, and turns into named-account pipeline.",
+    "breadcrumb": "Financial Services",
+    "eyebrow": "LinkedIn Marketing Partner &middot; Financial Services",
+    "h1": "Trust is the entire sale. <span class=\"text-accent\">Everyone in your category already claims it.</span>",
+    "subhead": "Financial services buyers move carefully, through compliance, across a wide committee. Generic reassurance doesn't move them and won't clear review anyway. We build specific, defensible authority that does both.",
+    "proof_line": "Certified LinkedIn Marketing Partner &nbsp;&middot;&nbsp; Thought Leader of the Year, LinkedIn 2026",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "What actually stalls content in financial services.", [
+        ("Compliance review kills velocity.", "Every asset waits in a queue, comes back with the interesting parts removed, and publishes three weeks late as something nobody wants to read. So the team stops trying."),
+        ("You can't say anything specific, so you say nothing.", "Trusted. Secure. Compliant. Enterprise-grade. It's the whole category's messaging, it differentiates nothing, and it's what's left after review strips a claim you couldn't substantiate."),
+        ("The cycle is long and the committee is wide.", "Initiative owner, risk, compliance, the economic buyer. Any of them can stall it. Reaching all of them repeatedly over a long evaluation is beyond what outbound can do economically."),
+        ("Referrals carry the pipeline, and referrals don't scale.", "Growth depends on relationships and reputation you can't manufacture on demand, which caps how fast you can grow no matter what the market's doing."),
+    ]),
+    "whitespace": ("The white space", "\"Trusted and compliant\" is table stakes. <span class=\"text-accent\">Specificity is the opening.</span>", [
+        ("The saturated lane.", "Trusted, secure, compliant, enterprise-grade, client-first. Every competitor's homepage, and it reads as background noise to a buyer who's seen it fifty times."),
+        ("The open lane.", "A specific, provable outcome for a named buyer, plus a genuine position on where regulation and the market are heading. Specificity is both more persuasive and easier to defend in review than vague reassurance, which is the part most firms get backwards."),
+        ("How we find yours.", "We map what competing firms claim and where the category over-promises, then build your pillars around the positions you can actually substantiate. Defensible and differentiated at the same time."),
+    ]),
+    "committee": ("The committee", "Nothing moves <span class=\"text-accent\">until risk is comfortable.</span>", [
+        ("The initiative owner.", "Titles: VP or Director of the affected line, Operations, Digital Transformation. Your champion. They run the evaluation and they consume content while building a shortlist, long before they contact anyone."),
+        ("Risk and compliance.", "The gatekeeper who can stop the deal. Speak to controls, audit and defensibility. Published, careful expertise is what makes you feel like a low-risk choice before the first call."),
+        ("The economic buyer.", "Often the CFO or a managing executive. They need the business case and the cost of doing nothing, in numbers."),
+        ("The technical or security validator.", "Present on anything data-sensitive. They vet quietly. Substance earns them, marketing language loses them immediately."),
+    ]),
+    "voice": ("What goes in", "Built to <span class=\"mk\">clear review the first time.</span>", [
+        ("Expert interviews.", "Monthly sessions with the people who actually advise clients, capturing the positions they've earned and the questions they field constantly."),
+        ("A pre-cleared claim library.", "This is the piece that fixes velocity. We work with your compliance and legal reviewers once, up front, to establish what can be said and how, then every asset is written inside those boundaries. Review becomes a check rather than a rewrite."),
+        ("Buyer language from real conversations.", "How your clients describe the problem, pulled from calls, so the content reads like their situation rather than your brochure."),
+        ("Regulatory and market POV.", "Where rules and expectations are heading, and what it means for the buyer. This is the highest-trust content in the category and almost nobody publishes it with a real opinion."),
+    ]),
+    "targeting": ("The play", "Existing relationships first. <span class=\"text-accent\">They matter more here than anywhere.</span>", [
+        ("Start with your client base and CRM.", "In financial services, expansion and retention inside existing relationships typically outweighs new-logo pipeline, and your clients are the warmest audience you'll ever address. Warm first-party audiences convert in the $75-150 range across the accounts we manage, versus $300-600+ cold."),
+        ("Then event, webinar and referral audiences.", "People who've already met your thinking convert far cheaper than anyone who hasn't."),
+        ("Then the committee, by name.", "We build the target list from real signal and give risk, the initiative owner and the economic buyer each their own message and offer, so no single stakeholder can quietly stall the deal from lack of context."),
+        ("Then sustain it across the cycle.", "These evaluations run long. Amplifying proven organic posts is how you stay present affordably for months, and every engager, named site visitor and ad engager flows into one account view. Multi-touch accounts convert to pipeline at 3x+ single-touch."),
+    ]),
+    "targeting_links": '<a href="/linkedin-ads-for-financial-services">Running paid alongside this? LinkedIn Ads for Financial Services &rarr;</a><a href="/marketing-ecosystem">See the ecosystem &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: a single service line sits at Validate, a repeatable book of business at Ramp, active demand creation at Reach, multi-market or multi-product at Supply, and recognized category authority at Sustain.",
+    "rec": "Content Engine", "addon": "2nd Exec Profile", "system": False,
+    "faq_extra": [
+        ("How do you work within our compliance requirements?",
+         "We establish a pre-cleared claim library with your reviewers before anything is written, so assets are drafted inside your boundaries rather than corrected afterward. Every asset still goes through your review, but it arrives as a check instead of a rewrite, which is what restores publishing velocity."),
+        ("Our cycle is long and reference-driven. Does content pay off?",
+         "That's the case for it. You can't outbound a committee across a nine-month evaluation economically, but you can be the firm they've been reading throughout it. Content also gives your champion something credible to forward internally, which is often what actually moves the deal."),
+    ],
+    "final_h": "Specific beats reassuring. <span class=\"text-accent\">Let's build the authority that clears review.</span>",
+}
+
+AGENCY = {
+    "slug": "agency-founders",
+    "title": "Thought Leadership for Agency &amp; Marketing Founders | Impactable",
+    "desc": "Thought leadership for agency and marketing founders. You market everyone else for a living. We build the engine that finally markets you, and amplify what works.",
+    "breadcrumb": "Agency &amp; Marketing Founders",
+    "eyebrow": "LinkedIn Marketing Partner &middot; Agency &amp; Marketing Founders",
+    "h1": "You market everyone else for a living. <span class=\"text-accent\">Your own pipeline runs on referrals.</span>",
+    "subhead": "Yes, we're an agency talking to agency founders. That's exactly why this works: we run the same engine on ourselves, and it's how a founder's point of view became this company's best acquisition channel. Here's the version built for you.",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "The oldest problem in the business.", [
+        ("Client work always wins.", "Your own marketing is the first thing dropped when a client escalates, which is every week. The cobbler's children go barefoot, and everyone in this industry knows it and does it anyway."),
+        ("Referrals are the pipeline, and they're unpredictable.", "Great months follow a good referral, quiet months follow nothing, and you can't forecast either. Growth is capped by how many people happen to know you."),
+        ("You sound like every other agency.", "Results-driven. Full-service. Data-driven. We're different. Your site says what four thousand other sites say, so buyers fall back to price and referrals, which is precisely the trap."),
+        ("You're competing against founders who post daily.", "The agencies winning right now aren't better operators. Their founders are visible, so they get the inbound, they charge more, and they never have to explain their rates."),
+    ]),
+    "whitespace": ("The white space", "Every agency claims results. <span class=\"text-accent\">Almost none publish a real method.</span>", [
+        ("The saturated lane.", "Results-driven, full-service, ROI-focused, and case studies with the client names removed. It's interchangeable, which is why price becomes the only comparison left."),
+        ("The open lane.", "A narrow, opinionated position on one thing you're genuinely best at, taught in public. Specificity is what lets you charge more, because a specialist with a published method isn't compared to a generalist on price."),
+        ("How we find yours.", "We map what the loudest agencies in your niche already say, then build your pillars around the part of your approach that's actually yours. Usually it's something you assume is obvious and nobody else is saying out loud."),
+    ]),
+    "committee": ("The committee", "Who actually <span class=\"text-accent\">hires an agency.</span>", [
+        ("The VP or Director of Marketing.", "Your most common buyer. They're on LinkedIn constantly, they build a mental shortlist from content long before an RFP, and they've been burned before. Consistent expertise is the de-risker."),
+        ("The CMO.", "Economic buyer on larger accounts. Rarely clicks an ad, frequently reads a founder they've come to recognize. Content is often the only channel that reaches them."),
+        ("The founder or CEO.", "On smaller and mid-market accounts they're the buyer, and they buy people, not agencies. They hire the person whose thinking they've been following."),
+        ("The in-house team you'd work alongside.", "They quietly influence everything, and they'll resist an agency that seems to think they're replaceable. Content that respects and teaches them wins the room."),
+    ]),
+    "voice": ("What goes in", "You already have the opinions. <span class=\"mk\">They're just going into Slack.</span>", [
+        ("Founder interviews.", "Monthly sessions capturing the takes you already have: what the industry gets wrong, the thing you argue about with peers, the pattern you see across every client account."),
+        ("Teardowns and real work.", "Anonymized examples from your own accounts, the mistake you keep fixing, the before and after. This is the highest-performing content in this category and you generate it every single week without noticing."),
+        ("How your buyers actually talk.", "Pulled from your discovery and pitch calls, so the copy sounds like a marketing leader's problem rather than an agency's pitch."),
+        ("Your method, named.", "The repeatable approach you walk clients through, written down and taught. Naming it is what turns it from \"how we work\" into a reason to pay you more than the agency down the road."),
+    ]),
+    "targeting": ("The play", "Warm network first. <span class=\"text-accent\">Small budgets go a long way here.</span>", [
+        ("Start with the network you already have.", "Past clients, your CRM, referral partners, event and community audiences, and everyone engaging with your posts. Warm first-party audiences convert in the $75-150 range across the accounts we manage, against $300-600+ for cold native, which matters a lot when you're spending your own money rather than a client's."),
+        ("Amplify only what already earned attention.", "Organic tells you which take landed before you scale it. This is the discipline you'd give a client and rarely give yourself."),
+        ("Turn engagers into conversations.", "Everyone engaging with your content can be auto-connected on LinkedIn, so the motion produces real conversations rather than impressions. That's Outreach Automation, and this is the pocket where it pays off fastest."),
+        ("Then the named-account layer when you want it.", "We build the target list from real signal so the marketing leaders you'd most want to work with see your thinking whether or not they're currently looking."),
+    ]),
+    "targeting_links": '<a href="/marketing-ecosystem">See how the ecosystem fits together &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: referral-dependent sits at Validate, a repeatable inbound trickle at Ramp, real demand creation at Reach, a pipeline that runs without the founder at Supply, and a category-known agency at Sustain.",
+    "rec": "Thought Leader", "addon": "Outreach Automation", "system": False,
+    "faq_extra": [
+        ("You're an agency. Isn't this a conflict?",
+         "We work with a lot of agency and consulting founders, and it's the least conflicted engagement we run: your buyers are marketing leaders at companies, and ours are B2B companies buying paid media. We're also the clearest proof the engine works, because a founder's point of view is how this company grew. Jason Vana, a founder himself, recommends us to his own clients."),
+        ("I could do this myself. Why wouldn't I?",
+         "You could, and you probably know exactly how. You haven't, because client work wins every time, and that won't change. What you're buying is the thing that runs when you're busy. If you'd rather own the process outright, The System Build exists for that too."),
+    ],
+    "final_h": "You know this works. You've sold it to clients. <span class=\"text-accent\">Let's run it for you.</span>",
+}
+
+PAGES = [SAAS, COACHING, CONSULTING, IT, FINSERV, AGENCY, FOUNDER, EXPERT]
 
 if __name__ == "__main__":
     for cfg in PAGES:
