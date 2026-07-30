@@ -609,6 +609,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- WHO WE BUILD THIS FOR (top persona selector) -->
+<section class="band" id="who-for" style="padding:36px 0 0;">
+  <style>
+  .ps-wrap{border:1px solid var(--border-2);border-radius:var(--radius);background:linear-gradient(135deg,var(--panel),var(--bg-2));padding:26px 28px}
+  .ps-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+  .ps-top .eyebrow{margin:0}
+  .ps-top .ps-note{font-size:.96rem;color:var(--text-muted)}
+  .ps-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .ps-card{display:flex;flex-direction:column;gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:17px 18px;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
+  .ps-card:hover{border-color:var(--canopy);transform:translateY(-3px);background:var(--surface-2)}
+  .ps-card .psk{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint)}
+  .ps-card .psn{font-family:var(--font-display);font-weight:800;font-size:1.06rem;color:var(--text);line-height:1.15;letter-spacing:-.01em}
+  .ps-card .psgo{margin-top:6px;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+  .ps-card:hover .psgo{color:var(--canopy)}
+  @media(max-width:900px){.ps-cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.ps-cards{grid-template-columns:1fr}}
+  </style>
+  <div class="wrap">
+    <div class="ps-wrap reveal">
+      <div class="ps-top">
+        <span class="eyebrow"><span class="dot"></span>Who we build this for</span>
+        <span class="ps-note">The engine is the same. The play is built for how you sell. Pick yours.</span>
+      </div>
+      <div class="ps-cards">
+        <a class="ps-card" href="/thought-leadership/saas-founders"><span class="psk">B2B SaaS</span><span class="psn">SaaS Founders</span><span class="psgo">See the play &rarr;</span></a>
+        <a class="ps-card" href="/thought-leadership/coaching-training"><span class="psk">Coaching &amp; training</span><span class="psn">Coaches &amp; Training Firms</span><span class="psgo">See the play &rarr;</span></a>
+        <a class="ps-card" href="/thought-leadership/consulting"><span class="psk">Consulting</span><span class="psn">Consulting Firms</span><span class="psgo">See the play &rarr;</span></a>
+        <a class="ps-card" href="/thought-leadership/it-services"><span class="psk">IT services &amp; MSPs</span><span class="psn">IT Services &amp; MSPs</span><span class="psgo">See the play &rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHAT YOU WALK AWAY WITH -->
 <section class="band">
   <style>
