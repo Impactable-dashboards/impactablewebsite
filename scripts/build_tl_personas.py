@@ -645,7 +645,7 @@ def build_page(cfg):
 SAAS = {
     "slug": "saas-founders",
     "title": "Thought Leadership for SaaS Founders | Impactable",
-    "desc": "Founder-led thought leadership for B2B SaaS. We turn your point of view into an engine that warms the whole buying committee, then amplify the winners with paid. The team behind HeyReach's 20X.",
+    "desc": "Founder-led thought leadership for B2B SaaS. We turn your point of view into an engine that warms the whole buying committee, then amplify winners with paid.",
     "breadcrumb": "SaaS Founders",
     "eyebrow": "LinkedIn Marketing Partner &middot; B2B SaaS",
     "h1": "Your category sounds identical. <span class=\"text-accent\">Your point of view is the difference.</span>",
@@ -695,7 +695,7 @@ SAAS = {
 COACHING = {
     "slug": "coaching-training",
     "title": "Thought Leadership for Coaches &amp; Training Firms | Impactable",
-    "desc": "Your expertise is the product. We turn it into a content engine that fills your pipeline without you posting daily, then amplify what works with paid. Built by LinkedIn's 2026 Thought Leader of the Year.",
+    "desc": "Your expertise is the product. We turn it into a content engine that fills your pipeline without you posting daily, then amplify what works with paid.",
     "breadcrumb": "Coaches &amp; Training Firms",
     "eyebrow": "LinkedIn Marketing Partner &middot; Coaching &amp; Training",
     "h1": "Your expertise is the product. <span class=\"text-accent\">Right now it only exists when you're in the room.</span>",
@@ -745,7 +745,7 @@ COACHING = {
 CONSULTING = {
     "slug": "consulting",
     "title": "Thought Leadership for Consulting Firms | Impactable",
-    "desc": "Partner-led thought leadership for consulting firms. We capture each partner's point of view, keep the firm's voice consistent, and amplify what works with paid.",
+    "desc": "Partner-led thought leadership for consulting firms. We capture each partner's point of view, keep the firm's voice consistent, and amplify with paid.",
     "breadcrumb": "Consulting Firms",
     "eyebrow": "LinkedIn Marketing Partner &middot; Consulting",
     "h1": "Your growth runs on partner reputations. <span class=\"text-accent\">None of them have time to build one.</span>",
@@ -845,7 +845,7 @@ IT = {
 FOUNDER = {
     "slug": "founder-led",
     "title": "Founder-Led Thought Leadership | Impactable",
-    "desc": "Founder-led thought leadership, built as a system. We capture your voice once and run it, so authority compounds without you posting daily. Built by LinkedIn's 2026 Thought Leader of the Year.",
+    "desc": "Founder-led thought leadership, built as a system. We capture your voice once and run it, so authority compounds without you posting daily.",
     "breadcrumb": "Founder-Led",
     "eyebrow": "LinkedIn Marketing Partner &middot; Founder-Led",
     "h1": "You're the brand. <span class=\"text-accent\">That's your advantage and your bottleneck.</span>",
@@ -947,7 +947,7 @@ EXPERT = {
 FINSERV = {
     "slug": "financial-services",
     "title": "Thought Leadership for Financial Services | Impactable",
-    "desc": "Compliance-aware thought leadership for financial services. Specific, defensible authority that clears review, reaches a cautious committee, and turns into named-account pipeline.",
+    "desc": "Compliance-aware thought leadership for financial services: specific, defensible authority that clears review and turns into named-account pipeline.",
     "breadcrumb": "Financial Services",
     "eyebrow": "LinkedIn Marketing Partner &middot; Financial Services",
     "h1": "Trust is the entire sale. <span class=\"text-accent\">Everyone in your category already claims it.</span>",
