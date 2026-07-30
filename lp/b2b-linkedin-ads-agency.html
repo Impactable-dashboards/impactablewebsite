@@ -111,8 +111,8 @@ img{max-width:100%;display:block}
 .formcard input:focus,.formcard select:focus{outline:none;border-color:var(--blue-soft)}
 .formcard .btn{width:100%;margin-top:2px}
 .formcard .fmicro{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--chalk-dim);margin-top:13px}
-.cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:560px}
-.cu-embed iframe{display:block;width:100%;border:0}
+.cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;height:600px}@media(max-width:640px){.cu-embed{height:700px}}
+.cu-embed iframe{display:block;width:100%;height:100%;border:0}
 /* logo strip */
 .logos{padding:26px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
 .logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin-bottom:18px}
@@ -214,7 +214,7 @@ img{max-width:100%;display:block}
         <div class="fk">Free &middot; 48 hours</div>
         <h2>Get your free Demand Plan</h2>
         <div class="cu-embed">
-          <iframe id="cuDemandForm" class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="640" style="background:transparent;border:none;" title="Request your free Demand Plan"></iframe>
+          <iframe id="cuDemandForm" class="clickup-embed" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="600" scrolling="no" style="background:transparent;border:none;" title="Request your free Demand Plan"></iframe>
         </div>
         <p class="fmicro">48-hour turnaround. No working sessions, no commitment. We read every submission ourselves. Trouble loading? <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open it in a new tab.</a></p>
       </aside>
