@@ -1124,6 +1124,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- BUILT FOR HOW YOU SELL (persona cards) -->
+<section class="band" id="personas">
+  <style>
+  .persona-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+  .persona-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+  .persona-card:hover{border-color:var(--border-2);transform:translateY(-3px)}
+  .persona-card h3{font-size:1.12rem;color:var(--text);margin-bottom:10px;line-height:1.2}
+  .persona-card p{font-size:.96rem;color:var(--text-muted);line-height:1.5;margin:0 0 16px;font-style:italic}
+  .persona-card .pgo{margin-top:auto;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+  .persona-card:hover .pgo{color:var(--text)}
+  .persona-more{margin-top:22px;font-family:var(--font-mono);font-size:13px;color:var(--text-faint);letter-spacing:.02em}
+  @media(max-width:900px){.persona-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.persona-grid{grid-template-columns:1fr}}
+  </style>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Built for how you sell</span>
+      <h2>The engine is the same. <span class="text-accent">Your buyers aren't.</span></h2>
+      <p>What changes by business is your voice, who you're earning trust with, and where authority pays off fastest. Find yourself below and see the play built for it.</p>
+    </div>
+    <div class="persona-grid reveal">
+      <a class="persona-card" href="/thought-leadership/saas-founders"><h3>SaaS Founders</h3><p>"Our category all sounds the same, and I'm the only one who can explain why we're different."</p><span class="pgo">See the SaaS play &rarr;</span></a>
+      <a class="persona-card" href="/thought-leadership/coaching-training"><h3>Coaches &amp; Training Firms</h3><p>"My expertise is the product, and I'm too busy delivering it to market it."</p><span class="pgo">See the coaching play &rarr;</span></a>
+      <a class="persona-card" href="/thought-leadership/consulting"><h3>Consulting Firms</h3><p>"Growth runs on our partners' reputations, and no partner has time to post."</p><span class="pgo">See the consulting play &rarr;</span></a>
+      <a class="persona-card" href="/thought-leadership/it-services"><h3>IT Services &amp; MSPs</h3><p>"We're technically better than our competitors and it sounds identical on paper."</p><span class="pgo">See the IT services play &rarr;</span></a>
+    </div>
+    <p class="persona-more reveal">More on the way: financial services, agency founders, HR and people-tech.</p>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="band alt" id="pricing">
   <div class="wrap">
