@@ -149,14 +149,23 @@ FOOTER = """<footer class="rd-foot">
         </div>
         <div class="foot-col">
           <h5>Thought Leadership by role</h5>
-          <a href="/thought-leadership/saas-founders">SaaS Founders</a>
-          <a href="/thought-leadership/coaching-training">Coaches &amp; Training Firms</a>
-          <a href="/thought-leadership/consulting">Consulting Firms</a>
-          <a href="/thought-leadership/it-services">IT Services &amp; MSPs</a>
-          <a href="/thought-leadership/financial-services">Financial Services</a>
-          <a href="/thought-leadership/agency-founders">Agency &amp; Marketing Founders</a>
-          <a href="/thought-leadership/founder-led">Founder-Led</a>
-          <a href="/thought-leadership/expert-bench">Expert Bench</a>
+          <div class="foot-tl-split" style="display:flex;gap:38px;flex-wrap:wrap">
+            <div>
+              <a href="/thought-leadership/saas-founders">SaaS Founders</a>
+              <a href="/thought-leadership/coaching-training">Coaches &amp; Training Firms</a>
+              <a href="/thought-leadership/consulting">Consulting Firms</a>
+              <a href="/thought-leadership/it-services">IT Services &amp; MSPs</a>
+              <a href="/thought-leadership/financial-services">Financial Services</a>
+              <a href="/thought-leadership/agency-founders">Agency &amp; Marketing Founders</a>
+            </div>
+            <div>
+              <a href="/thought-leadership/hr-people-tech">HR &amp; People-Tech</a>
+              <a href="/thought-leadership/staffing-recruiting">Staffing &amp; Recruiting</a>
+              <a href="/thought-leadership/healthcare">Healthcare</a>
+              <a href="/thought-leadership/founder-led">Founder-Led</a>
+              <a href="/thought-leadership/expert-bench">Expert Bench</a>
+            </div>
+          </div>
         </div>
         <div class="foot-col">
           <h5>Company</h5>
@@ -271,13 +280,92 @@ ENGINE = f"""<!-- [A3] THE ENGINE -->
         <div class="io-chip">Founder &amp; Expert Voice DNA</div>
       </div>
     </div>
-    <div class="grid-3 reveal" style="margin-top:44px;">
-      <div class="pillar"><div class="io-k">Phase 1</div><h4>Voice Discovery &amp; Calibration</h4><p style="font-family:var(--font-mono);font-size:.85rem;color:var(--text-faint);margin-top:6px;">~19-24 business days</p></div>
-      <div class="pillar"><div class="io-k">Phase 2</div><h4>First Content Batch</h4><p style="font-family:var(--font-mono);font-size:.85rem;color:var(--text-faint);margin-top:6px;">~8-10 days</p></div>
-      <div class="pillar"><div class="io-k">Phase 3</div><h4>Approve &amp; Launch</h4><p style="font-family:var(--font-mono);font-size:.85rem;color:var(--text-faint);margin-top:6px;">~4-6 days</p></div>
-    </div>
-    <p class="reveal" style="margin-top:22px;font-size:1rem;color:var(--text-muted);max-width:80ch;">Nine milestones, about 4 to 6 weeks. Phase 1 moves at the speed of your turnaround. Block 30 minutes per feedback round and we hold the 4-6 week window.</p>
     <a class="eng-cta reveal" href="/thought-leadership">See the full engine &rarr;</a>
+  </div>
+</section>"""
+
+# Full build journey, identical on every page (lifted from the live TL page).
+PROCESS = """<!-- THE PROCESS -->
+<section class="band alt" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>The process</span>
+      <h2>From intake to a <span class="text-accent">fully-running brain.</span></h2>
+      <p>We get to know your brand, offering and competitor landscape, find the gaps and where your UVP wins, land your core messaging pillars, then map the messaging to your audiences and funnel stages. Nine milestones, three phases, about 4 to 6 weeks. Shared ownership: when a step slips, every downstream step shifts with it.</p>
+    </div>
+    <div class="legend reveal"><span><i style="background:var(--canopy)"></i>Client owns</span><span><i style="background:var(--accent)"></i>Impactable owns</span></div>
+    <div class="phase reveal">
+      <div class="phase-head"><span class="pn">Phase 1</span><h3>Voice Discovery &amp; Calibration</h3><span class="span">~19-24 business days</span></div>
+      <div class="track">
+        <div class="step cli"><div class="dot">01</div><h4>Intake form</h4><div class="meta">Client &middot; 3-5d</div></div>
+        <div class="step imp"><div class="dot">02</div><h4>Voice profile + samples</h4><div class="meta">Impactable &middot; 5d</div></div>
+        <div class="step cli"><div class="dot">03</div><h4>Tone feedback</h4><div class="meta">Client &middot; 3d</div></div>
+        <div class="step imp"><div class="dot">04</div><h4>Rounds 2 &amp; 3</h4><div class="meta">Impactable &middot; 7-10d</div></div>
+        <div class="step imp"><div class="dot">05</div><h4>Voice locked in</h4><div class="meta">Impactable &middot; 1d</div></div>
+      </div>
+    </div>
+    <div class="phase reveal">
+      <div class="phase-head"><span class="pn">Phase 2</span><h3>First Content Batch</h3><span class="span">~8-10 days</span></div>
+      <div class="track">
+        <div class="step cli"><div class="dot">06</div><h4>Month 1 inputs</h4><div class="meta">Client &middot; 3-5d</div><p>Notes, voice memos, a short prompt or guide, or pillar questions.</p></div>
+        <div class="step imp"><div class="dot">07</div><h4>Month 1 production</h4><div class="meta">Impactable &middot; 5d</div><p>A full month built in your voice, ready to publish.</p></div>
+      </div>
+    </div>
+    <div class="phase reveal" style="margin-bottom:26px;">
+      <div class="phase-head"><span class="pn">Phase 3</span><h3>Approve &amp; Launch</h3><span class="span">~4-6 days</span></div>
+      <div class="track">
+        <div class="step cli"><div class="dot">08</div><h4>Approve Month 1</h4><div class="meta">Client &middot; 3-5d</div><p>Edits, swaps, sequencing, then load to schedule.</p></div>
+        <div class="step imp"><div class="dot">09</div><h4>Go live</h4><div class="meta">Engine on</div><p>First post publishes. The monthly cycle begins.</p></div>
+      </div>
+    </div>
+    <div class="slip-note reveal"><span class="ico">!</span><p><strong>Where timelines slip:</strong> Phase 1 moves at the speed of your turnaround. Block 30 minutes per feedback round and we hold the 4-6 week window.</p></div>
+  </div>
+</section>"""
+
+# LinkedIn partnership + award, with real imagery. Identical on every page
+# (lifted from the live TL page). Absolute /img paths so it loads in subdir.
+PARTNERSHIP = """<!-- LINKEDIN PARTNERSHIP + AWARD -->
+<section class="band" id="linkedin">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Recognized by LinkedIn</span>
+      <h2>A certified LinkedIn agency. And LinkedIn's <span class="mk">Thought Leader of the Year.</span></h2>
+      <p>We sit on both sides of the LinkedIn relationship. On the paid side, we're a certified LinkedIn Marketing Partner. On the organic side, LinkedIn named our founder Thought Leader of the Year at the 2026 Indie Agency Awards. Paid and organic aren't two teams, they're one engine, and LinkedIn recognizes both halves.</p>
+    </div>
+    <div class="tlp-grid reveal">
+      <figure class="tlp-award">
+        <img src="/img/linkedin-thought-leader-award.jpg" width="1050" height="1400" alt="LinkedIn Indie Agency Awards 2026 Thought Leader of the Year trophy, engraved for Impactable's founder" loading="lazy">
+        <figcaption>LinkedIn Indie Agency Awards 2026 &middot; Thought Leader of the Year</figcaption>
+      </figure>
+      <div class="tlp-body">
+        <div class="tlp-proof">
+          <div class="tlp-card">
+            <span class="tlp-tag">The paid side</span>
+            <b>Certified LinkedIn Marketing Partner</b>
+            <p>An agency partner on the ads side, with the platform access, betas and rep coverage that come with it.</p>
+          </div>
+          <div class="tlp-card feat">
+            <span class="tlp-tag">The organic side</span>
+            <b>Thought Leader of the Year, 2026</b>
+            <p>Named by LinkedIn at the Indie Agency Awards. Not a self-declared title. The platform itself called it.</p>
+          </div>
+        </div>
+        <div class="tlp-followers">
+          <div class="tlp-fnum">86K<span>+</span></div>
+          <div class="tlp-flbl">followers on our founder's LinkedIn, plus 28.8K newsletter subscribers. All built on the exact engine we run for clients.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tlp-photos reveal">
+      <figure><img src="/img/summit-tl-panel.jpg" width="800" height="591" alt="Impactable on the B2B Thought Leadership panel at a LinkedIn Independent Agency Summit" loading="lazy"></figure>
+      <figure><img src="/img/summit-panel-live.jpg" width="1600" height="1162" alt="Impactable on the Agency and Platform Relationship panel at a LinkedIn Independent Agency Summit" loading="lazy"></figure>
+      <figure><img src="/img/summit-measurement-panel.jpg" width="1050" height="1400" alt="Impactable on the Road Ahead for B2B Measurement panel at a LinkedIn Independent Agency Summit" loading="lazy"></figure>
+    </div>
+    <p class="tlp-cap">On stage at LinkedIn's Independent Agency Summits, New York</p>
+    <figure class="tlp-endorse reveal" style="margin:44px auto 0;max-width:460px;">
+      <img src="/img/thoughtleader.png" width="992" height="1126" alt="Mark Ayesh, Agency Development at LinkedIn, endorsing the partnership with Impactable and Justin Rowe, sharing that Justin won Thought Leader of the Year at LinkedIn's Indie Agency Awards" loading="lazy" style="width:100%;height:auto;border-radius:14px;border:1px solid var(--border);background:var(--panel);display:block">
+      <figcaption class="tlp-cap" style="margin-top:12px">LinkedIn's own Agency Development team, on the partnership</figcaption>
+    </figure>
   </div>
 </section>"""
 
@@ -454,7 +542,6 @@ PROOF = """<!-- [A7] PROOF -->
       <div class="quote reveal"><div class="mark">"</div><p>Everyone else had to beat what I'd already seen from them in organic content. I let the agency lead and I've been thrilled.</p><div class="who">Amy Appleton</div><div class="role">Growth Marketer</div></div>
       <div class="quote reveal"><div class="mark">"</div><p>You changed the LinkedIn ads game for so many businesses, as clients, or with the content you share for free.</p><div class="who">Moritz Kaiser</div><div class="role">Demand &amp; Copywriting</div></div>
     </div>
-    <p class="reveal" style="margin-top:34px;text-align:center;font-size:1rem;color:var(--text-muted);max-width:80ch;margin-left:auto;margin-right:auto;"><strong style="color:var(--text)">Thought Leader of the Year</strong>, named by LinkedIn at the 2026 Indie Agency Awards &middot; <strong style="color:var(--text)">Certified LinkedIn Marketing Partner</strong>, first cohort &middot; On stage at LinkedIn's Independent Agency Summits, New York.</p>
   </div>
 </section>"""
 
@@ -635,7 +722,10 @@ def head(title, desc, slug, breadcrumb_name, faq_items):
 
 
 def build_page(cfg):
-    faq_html, faq_items = faq_section(cfg["faq_extra"])
+    extra_faq = list(cfg["faq_extra"])
+    if cfg.get("routing_faq"):
+        extra_faq.append(cfg["routing_faq"])
+    faq_html, faq_items = faq_section(extra_faq)
     # whitespace renders 3-up on vertical pages, 4-up on the profile pages
     ws_builder = cards4 if len(cfg["whitespace"][2]) >= 4 else cards3
     parts = [
@@ -648,8 +738,10 @@ def build_page(cfg):
         plist(*cfg["targeting"], alt=True, footer_html=cfg.get("targeting_links", "")),
         MIDCTA,
         ENGINE,
+        PROCESS,
         maturity(cfg["stage_label"]),
         pricing(cfg["rec"], cfg["addon"], cfg["system"]),
+        PARTNERSHIP,
         EDGE,
         PROOF,
         faq_html,
@@ -714,6 +806,7 @@ SAAS = {
         ("I'm a founder with no time. What do you actually need from me?",
          "Roughly 30 to 60 minutes a month. A recorded interview session, and short inputs like voice memos or notes when a topic occurs to you. The engine does the rest, and every asset comes back for your review before it publishes."),
     ],
+    "routing_faq": ("We're a cybersecurity company. Is this the right page?", "For the thought-leadership angle, yes. Cybersecurity buyers are a committee that screens out marketing language, so founder and expert-led authority is what actually reaches them, and the play here is identical. If your focus is paid, see LinkedIn Ads for Cybersecurity."),
     "final_h": "Your expertise is the moat. <span class=\"text-accent\">Let's make it compound.</span>",
 }
 
@@ -764,6 +857,7 @@ COACHING = {
         ("Won't giving away my methodology stop people from hiring me?",
          "It's the opposite, and it's the oldest pattern in expertise businesses. Teaching the framework proves you have one. Buyers hire you because they now believe the mechanism works and they want you to run it, not because they were kept in the dark."),
     ],
+    "routing_faq": ("Do you work with education and e-learning companies too?", "Yes. E-learning platforms, education-management companies, and higher-education teams run the same play: your methodology and outcomes are the product, and published expertise is what earns trust. The engine and pricing are identical."),
     "final_h": "You already have the expertise. <span class=\"text-accent\">Let's make it work while you do.</span>",
 }
 
@@ -1017,6 +1111,7 @@ FINSERV = {
         ("Our cycle is long and reference-driven. Does content pay off?",
          "That's the case for it. You can't outbound a committee across a nine-month evaluation economically, but you can be the firm they've been reading throughout it. Content also gives your champion something credible to forward internally, which is often what actually moves the deal."),
     ],
+    "routing_faq": ("Which financial categories does this cover?", "The same approach fits insurance, accounting, banking, capital markets, and investment management. All are trust-led, committee-driven, and compliance-gated, so the pre-cleared claim library and named-committee targeting work the same way across them."),
     "final_h": "Specific beats reassuring. <span class=\"text-accent\">Let's build the authority that clears review.</span>",
 }
 
@@ -1067,10 +1162,165 @@ AGENCY = {
         ("I could do this myself. Why wouldn't I?",
          "You could, and you probably know exactly how. You haven't, because client work wins every time, and that won't change. What you're buying is the thing that runs when you're busy. If you'd rather own the process outright, The System Build exists for that too."),
     ],
+    "routing_faq": ("Does this work for PR, design, or creative agencies?", "Yes. PR, design, and creative-services founders run the same play: a narrow, published point of view is what lifts you out of price-based comparison. The engine and pricing are identical."),
     "final_h": "You know this works. You've sold it to clients. <span class=\"text-accent\">Let's run it for you.</span>",
 }
 
-PAGES = [SAAS, COACHING, CONSULTING, IT, FINSERV, AGENCY, FOUNDER, EXPERT]
+HR = {
+    "slug": "hr-people-tech",
+    "title": "Thought Leadership for HR &amp; People-Tech | Impactable",
+    "desc": "Thought leadership for HR tech and people-services. HR leaders read more than almost any buyer and trust vendors least. We build the authority that earns them.",
+    "breadcrumb": "HR &amp; People-Tech",
+    "eyebrow": "LinkedIn Marketing Partner &middot; HR &amp; People-Tech",
+    "h1": "HR leaders read more than almost any buyer. <span class=\"text-accent\">They trust vendors least.</span>",
+    "subhead": "Your buyer is on LinkedIn every day consuming other people's thinking, and screening out anything that sounds like a pitch. Founder and expert-led content is the one channel that reaches them, and we build it from your real expertise.",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "What actually stalls HR tech and people-services marketing.", [
+        ("Your buyer is content-saturated and vendor-allergic.", "HR leaders build shortlists from what they read, not from what they're sold. The moment your content reads like a product pitch, you're filtered out by the exact person you needed."),
+        ("The category all says the same four things.", "Employee experience, engagement, culture, people-first, and now AI-powered everything. It's interchangeable, so buyers default to whoever their peer network already mentioned."),
+        ("HR often doesn't hold the budget.", "Your champion has to sell the purchase internally to finance, and sometimes to IT and security because you're touching employee data. Without content that arms them, the deal stalls in someone else's meeting."),
+        ("You're fighting the nice-to-have label.", "Anything adjacent to culture or engagement gets cut first when budgets tighten. The only defense is content that ties your outcome to retention cost, time-to-fill, or compliance risk in numbers."),
+    ]),
+    "whitespace": ("The white space", "The category talks about people. <span class=\"text-accent\">Almost nobody publishes real evidence.</span>", [
+        ("The saturated lane.", "Employee experience, engagement, culture-first, AI-powered HR. Every competitor's homepage, and it gives an HR leader no reason to prefer you over the vendor their peer mentioned last week."),
+        ("The open lane.", "A specific operational outcome with the math attached (what retention actually costs, what time-to-fill actually costs) plus a real position on where work is heading. HR leaders share content that makes them look informed to their executive team. That's the content to write."),
+        ("How we find yours.", "We map what competing platforms and firms claim and where the category over-promises, then build your pillars around the outcomes you can genuinely prove."),
+    ]),
+    "committee": ("The committee", "Your champion <span class=\"text-accent\">can't buy alone.</span>", [
+        ("The CHRO or VP People.", "Economic buyer on larger deals, and the one whose credibility is on the line internally. They read constantly and they buy from people who understand their board pressures, not their feature gaps."),
+        ("The HR director or head of talent.", "Usually the champion who runs the evaluation. They're the most active content consumer in the committee, and they need something forwardable to sell it upward."),
+        ("Finance.", "Present on anything material. They need cost-of-inaction in numbers: turnover cost, vacancy cost, compliance exposure. Content aimed here is what turns a nice-to-have into a line item."),
+        ("IT and security.", "In the path on any platform touching employee data. Published thinking on how you handle data quietly removes friction before the security review starts."),
+    ]),
+    "voice": ("What goes in", "You have data on how work actually happens. <span class=\"mk\">Publish it.</span>", [
+        ("Founder and people-science interviews.", "Monthly sessions capturing your position on where work is going, what the category gets wrong, and the pattern you see across customers that HR leaders don't yet have language for."),
+        ("Your aggregate data, made useful.", "Whatever your platform or practice sees across customers, anonymized and turned into benchmark content. This is the single strongest asset in this category, because HR leaders have almost no reliable benchmarks and will share anything that gives them one."),
+        ("The cost math.", "Turnover, vacancy, time-to-fill, compliance exposure. Content that hands your champion the numbers they need for their finance conversation."),
+        ("Buyer language from real calls.", "How HR leaders describe the problem in their own words, pulled from your discovery recordings, so your copy sounds like their Monday rather than your roadmap."),
+    ]),
+    "targeting": ("The play", "HR is a peer-driven market. <span class=\"text-accent\">Warm audiences compound faster here.</span>", [
+        ("Start with the people who already know you.", "Existing customers (expansion into further modules or services is usually the fastest revenue in this pocket), CRM, webinar and conference audiences, community members, and site visitors. Warm first-party audiences convert in the $75-150 range across the accounts we manage, against $300-600+ for cold native."),
+        ("Then the committee, by name.", "We build the target list from real signal and give the CHRO, the champion, and finance each their own message, so your champion isn't the only person who's ever heard of you when it reaches a budget meeting."),
+        ("Then amplify the benchmark content hardest.", "Data and benchmark posts travel further in HR than any other format, because sharing them makes the sharer look informed. Put paid behind whatever earns organic traction."),
+        ("Then harvest.", "Organic engagers, named site visitors and ad engagers flow into one account view, so sales sees which HR teams are quietly evaluating. Multi-touch accounts convert to pipeline at 3x+ single-touch across the accounts we manage."),
+    ]),
+    "targeting_links": '<a href="/thought-leadership/expert-bench">A founder plus a people-science lead? See the Expert Bench play &rarr;</a><a href="/marketing-ecosystem">See the ecosystem &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: your first reference customers sit at Validate, a repeatable motion at Ramp, reaching HR leaders who aren't evaluating yet at Reach, multi-product or multi-segment at Supply, and a category-known name at Sustain.",
+    "rec": "Content Engine", "addon": "2nd Exec Profile", "system": False,
+    "faq_extra": [
+        ("Our buyer is skeptical of vendor content. Why would this be different?",
+         "Because it isn't vendor content. It's your founder and your people-science lead publishing what they actually know, reviewed by you before anything ships. HR leaders don't reject content, they reject pitches, and the distinction is visible within the first two sentences."),
+        ("We don't have research or a data team. Can we still do benchmark content?",
+         "Usually yes. Most HR platforms and practices are already sitting on aggregate patterns across their customer base without treating it as an asset. Part of the intake is finding what you can responsibly publish, anonymized, and turning it into the benchmark nobody else in your category offers."),
+    ],
+    "final_h": "Your buyer is already reading. <span class=\"text-accent\">Let's make it your thinking.</span>",
+}
+
+STAFFING = {
+    "slug": "staffing-recruiting",
+    "title": "Thought Leadership for Staffing &amp; Recruiting Firms | Impactable",
+    "desc": "Thought leadership for staffing and recruiting firms. You sit on market intelligence nobody else has. We turn it into authority that wins clients and attracts candidates.",
+    "breadcrumb": "Staffing &amp; Recruiting",
+    "eyebrow": "LinkedIn Marketing Partner &middot; Staffing &amp; Recruiting",
+    "h1": "Every firm claims the same network <span class=\"text-accent\">and the same top talent.</span>",
+    "subhead": "Your category is the most interchangeable pitch in B2B, which is why you compete on fee. But you sit on market intelligence no competitor and no client has, and publishing it is how you stop being a vendor and start being the authority in your specialty.",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "What actually stalls a staffing firm's growth.", [
+        ("You're negotiated on fee, not chosen on expertise.", "When every firm's pitch is a network and a promise of top talent, the only remaining variable is your percentage. That's a race you can't win by being better at the work."),
+        ("Two audiences, one marketing budget.", "You need clients to trust you and candidates to want you, and most firms end up doing neither well because the messaging tries to serve both at once."),
+        ("Your pipeline moves with the hiring cycle, not with you.", "A good quarter of requisitions, then a freeze. Nothing you own generates demand independently of what the market happens to be doing."),
+        ("Everyone is running the same LinkedIn playbook.", "The same connection requests, the same InMails, the same templates. Your prospects get twenty a week and have stopped reading all of them, including yours."),
+    ]),
+    "whitespace": ("The white space", "You have the one asset <span class=\"text-accent\">nobody else in the market has.</span>", [
+        ("The saturated lane.", "We find top talent, cultural fit, our network, deep bench, trusted partner. It's the entire category, word for word, which is why it converts on price alone."),
+        ("The open lane.", "Real market intelligence in your specialty. You know who's hiring, which roles won't fill, what compensation actually clears an offer, how long searches genuinely take, and why candidates are turning things down right now. Clients and candidates both need that and can't get it anywhere else. Published consistently, it makes you the market authority rather than another supplier."),
+        ("How we find yours.", "We map what competing firms in your niche publish, which is usually job listings and generic hiring advice, then build your pillars around the intelligence only your desk can see."),
+    ]),
+    "committee": ("The committee", "Four audiences, and they <span class=\"text-accent\">need different things.</span>", [
+        ("The hiring manager.", "Feels the pain most acutely and often initiates the search. They want proof you understand the specific role and the real market conditions, not a promise about your process."),
+        ("The talent acquisition lead.", "Owns the vendor relationship and the shortlist. They're comparing firms constantly, and market intelligence is what makes you the one they call first rather than the third quote."),
+        ("The CHRO or founder.", "Economic buyer, depending on deal size and firm. On retained and executive search they buy the individual recruiter's judgment, which is exactly what published thinking demonstrates."),
+        ("Candidates.", "The audience most firms forget in their marketing. In a tight specialty, the firm candidates actively want to talk to has a supply advantage that directly wins client work. Content serves both sides at once when it's real market insight rather than a pitch."),
+    ]),
+    "voice": ("What goes in", "The intelligence is already on your desk. <span class=\"mk\">It just never gets written down.</span>", [
+        ("Recruiter and founder interviews.", "Monthly sessions pulling out what you're seeing right now: which searches are stalling and why, what candidates are actually asking for, where client expectations have drifted from reality."),
+        ("Your market data, anonymized.", "Time-to-fill by role, offer-acceptance patterns, real compensation ranges, which requirements are killing searches. This is genuinely exclusive to your desk and genuinely wanted, and almost nobody in your category publishes it."),
+        ("The uncomfortable truths.", "The requirement that makes a role unfillable, the interview process that loses candidates, the salary band that isn't competitive anymore. Saying this publicly is what separates an advisor from a supplier."),
+        ("Buyer and candidate language.", "How hiring managers describe the problem and how candidates describe what they want, pulled from your calls, so content sounds like the market rather than like recruiting collateral."),
+    ]),
+    "targeting": ("The play", "Your placed candidates and past clients are <span class=\"text-accent\">the warmest market you have.</span>", [
+        ("Start with everyone you've already worked with.", "Placed candidates (who become hiring managers), past and dormant clients, your candidate database, and event audiences. Warm first-party audiences convert in the $75-150 range across the accounts we manage, versus $300-600+ cold, and this pocket usually has a large warm list sitting completely unworked."),
+        ("Then your specialty market by name.", "We build the target list from real signal by role, industry and geography, so the hiring managers in your niche see your market intelligence whether or not they have an open requisition today. That's how you're already known when the requisition appears."),
+        ("Then amplify what earned attention.", "Market-intelligence posts that perform organically become thought-leader ads. Small budgets stretch here because you're only paying to scale proven content."),
+        ("Then turn engagement into conversations.", "Everyone engaging with your content can be auto-connected on LinkedIn, which replaces cold templated outreach with a conversation where they already know your thinking. That's Outreach Automation, and this is the pocket where the difference is starkest."),
+    ]),
+    "targeting_links": '<a href="/thought-leadership/founder-led">Most staffing firms are single-voice. See the Founder-Led play &rarr;</a><a href="/marketing-ecosystem">See the ecosystem &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: relationship-dependent billing sits at Validate, a repeatable inbound trickle at Ramp, real demand creation on both client and candidate sides at Reach, a desk that fills without the founder at Supply, and recognized market authority in your specialty at Sustain.",
+    "rec": "Thought Leader", "addon": "Outreach Automation", "system": False,
+    "faq_extra": [
+        ("We market to clients and candidates. Can one engine serve both?",
+         "Yes, and market intelligence is the reason. Real insight about a specialty is equally valuable to a hiring manager and a candidate, so one content stream builds authority on both sides. Where the audiences genuinely diverge, we split the offer and the targeting rather than the voice."),
+        ("Is publishing our market data giving away our advantage?",
+         "Publishing what the market looks like is not the same as publishing who's in your database. The intelligence proves your judgment and your reach, which is what earns the search. Firms that share the read consistently get called first, and the relationships stay yours."),
+    ],
+    "final_h": "You already know the market. <span class=\"text-accent\">Let's make sure it knows you.</span>",
+}
+
+HEALTHCARE = {
+    "slug": "healthcare",
+    "title": "Thought Leadership for Healthcare &amp; Health Tech | Impactable",
+    "desc": "Thought leadership for healthcare and health-tech selling into providers: evidence-led authority that clears compliance and earns clinical buyers.",
+    "breadcrumb": "Healthcare",
+    "eyebrow": "LinkedIn Marketing Partner &middot; Healthcare &amp; Health Tech",
+    "h1": "Clinical buyers want evidence. <span class=\"text-accent\">Compliance won't let you say anything specific.</span>",
+    "subhead": "Selling into health systems means a long committee, a high evidence bar, and a review process that strips content of everything interesting. We build authority that clears review and still earns a clinical audience.",
+    "proof_line": "Certified LinkedIn Marketing Partner &nbsp;&middot;&nbsp; Thought Leader of the Year, LinkedIn 2026",
+    "risk": "Free, back in 48 hours. No sales call to get it.",
+    "pain": ("Sound familiar", "What actually stalls healthcare marketing.", [
+        ("Clinical audiences dismantle marketing language instantly.", "A physician or clinical informaticist can tell within a sentence whether the person writing has ever been in a hospital. Generic content doesn't just fail here, it actively costs credibility."),
+        ("Compliance and legal review remove the substance.", "Every asset goes into a queue and returns with the specifics gone. What publishes is safe, vague, and unreadable, so the team stops investing in it."),
+        ("The committee is the widest in B2B.", "Clinical leadership, IT and informatics, compliance and privacy, finance, and procurement. Any one of them can stall it, and reaching all of them repeatedly across a cycle this long is beyond what outbound can economically do."),
+        ("Everyone claims outcomes, so nobody's claim registers.", "Patient-centered, improving outcomes, interoperable, AI-powered. It's the whole category, and to a clinical buyer it reads as noise rather than evidence."),
+    ]),
+    "whitespace": ("The white space", "The category claims outcomes. <span class=\"text-accent\">Clinical buyers want mechanism and evidence.</span>", [
+        ("The saturated lane.", "Patient-centered, improving outcomes, seamless interoperability, AI-powered. Interchangeable across every vendor at every conference, which pushes buyers back to whoever their peer institution already uses."),
+        ("The open lane.", "The mechanism explained properly, the evidence stated carefully, and a real position on where reimbursement, regulation and clinical workflow are heading. Specificity is more persuasive to a clinician and, done right, easier to defend in review than a broad outcome claim."),
+        ("How we find yours.", "We map what competing vendors claim and where the category over-promises, then build pillars around what you can actually substantiate, in language your reviewers can approve."),
+    ]),
+    "committee": ("The committee", "Five groups, and clinical credibility <span class=\"text-accent\">gates all of them.</span>", [
+        ("Clinical leadership.", "The CMO, CMIO, or service-line chief. They decide whether this belongs anywhere near care delivery. They are persuaded by mechanism, evidence, and peers, and by almost nothing else."),
+        ("IT and informatics.", "Integration, workflow, and data. They've been burned by systems that promised interoperability. Published technical substance is what earns them early."),
+        ("Compliance and privacy.", "Gatekeeper. Anything touching patient data goes through them. Careful, informed public thinking on how you handle data reduces friction before their review begins."),
+        ("Finance and procurement.", "They need the operational and financial case, and increasingly the reimbursement implications, in numbers rather than narrative."),
+        ("The clinical champion.", "Usually one physician or nurse leader who advocates internally. They need something rigorous and forwardable. Arming that person well is often the entire difference in a health-system deal."),
+    ]),
+    "voice": ("What goes in", "Clinical voice, captured carefully, <span class=\"mk\">cleared once.</span>", [
+        ("Clinical and expert interviews.", "Monthly sessions with your clinical lead, medical director, or clinically-credentialed founder. Their credibility is the asset, and it can't be substituted with marketing writing."),
+        ("A pre-cleared claim library.", "The piece that fixes velocity. We work with your compliance, legal and medical reviewers once, up front, to establish what can be said and how it must be framed, then every asset is written inside those boundaries. Review becomes a check rather than a rewrite."),
+        ("Mechanism, not outcome claims.", "How the thing works, what the evidence supports, and where the limits are. Careful framing is both more defensible and more persuasive to a clinical reader than a broad claim."),
+        ("Buyer language from real conversations.", "How clinical and operational leaders describe the problem, pulled from your calls, so content reads like their workflow rather than your product."),
+    ]),
+    "targeting": ("The play", "Conference and existing-system audiences first. <span class=\"text-accent\">The cycle is too long for cold alone.</span>", [
+        ("Start with the relationships you have.", "Existing health-system clients (expansion across service lines is usually the fastest revenue in this pocket), CRM, conference and symposium attendees, and site visitors. Warm first-party audiences convert in the $75-150 range across the accounts we manage, against $300-600+ cold."),
+        ("Then the committee inside named systems.", "We build the target list from real signal and give clinical leadership, informatics, compliance and finance each their own message, so your clinical champion isn't carrying the entire internal case alone."),
+        ("Then sustain across the full cycle.", "Health-system evaluations run long enough that affordability matters more than reach. Amplifying proven organic content is how you stay present for months rather than weeks."),
+        ("Then harvest.", "Organic engagers, named site visitors and ad engagers flow into one account view, so you can see which systems are quietly evaluating. Multi-touch accounts convert to pipeline at 3x+ single-touch across the accounts we manage."),
+    ]),
+    "targeting_links": '<a href="/thought-leadership/expert-bench">Need a clinical and a commercial voice? See the Expert Bench play &rarr;</a><a href="/marketing-ecosystem">See the ecosystem &rarr;</a><a href="/pricing">See pricing &rarr;</a>',
+    "stage_label": "Roughly: a first health-system reference sits at Validate, a repeatable clinical and commercial case at Ramp, active demand creation at Reach, multi-system or multi-service-line at Supply, and recognized clinical authority at Sustain. Enterprise health buyers typically won't engage before Ramp.",
+    "rec": "Content Engine", "addon": "2nd Exec Profile", "system": True,
+    "faq_extra": [
+        ("How do you work inside our compliance and medical review process?",
+         "We establish a pre-cleared claim library with your reviewers before writing begins, so assets are drafted inside your boundaries instead of corrected afterward. Everything still goes through your review, and nothing publishes without it. What changes is that review becomes a check rather than a rewrite, which is what restores publishing velocity."),
+        ("Our buyers are clinicians. Will content written by an agency hold up?",
+         "Your clinicians provide the substance in recorded interviews and sign off on every asset before it ships. We handle structure, writing and distribution. Nothing publishes that your clinical reviewer hasn't approved, which is what keeps it credible to the audience that matters most."),
+    ],
+    "routing_faq": ("Do you work with health-and-wellness or medical-device companies?",
+        "Yes. Health-and-wellness and medical-device companies selling into providers fit the same evidence-led, compliance-aware playbook, including the pre-cleared claim library and the wide clinical committee."),
+    "final_h": "Evidence earns clinical buyers. <span class=\"text-accent\">Let's publish it properly.</span>",
+}
+
+PAGES = [SAAS, COACHING, CONSULTING, IT, FINSERV, AGENCY, HR, STAFFING, HEALTHCARE, FOUNDER, EXPERT]
 
 if __name__ == "__main__":
     for cfg in PAGES:
