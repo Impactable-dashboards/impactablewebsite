@@ -97,6 +97,8 @@ img{max-width:100%;display:block}
 .formcard input:focus,.formcard select:focus{outline:none;border-color:var(--blue-soft)}
 .formcard .btn{width:100%;margin-top:2px}
 .formcard .fmicro{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--chalk-dim);margin-top:13px}
+.cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:560px}
+.cu-embed iframe{display:block;width:100%;border:0}
 /* logo strip */
 .logos{padding:26px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
 .logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin-bottom:18px}
@@ -205,31 +207,14 @@ HEADER = '''
 </header>'''
 
 def form_card():
-    # NOTE: form routes to /thank-you for review. TODO: wire to the CRM / Google Forms endpoint.
+    # Real capture: the same ClickUp lead form embedded on /competitor-intel-report.
     return '''<aside class="formcard" id="demandplan">
         <div class="fk">Free &middot; 48 hours</div>
         <h2>Get your free Demand Plan</h2>
-        <!-- TODO: wire action to the CRM / Google Forms backend. Routes to /thank-you for review. -->
-        <form onsubmit="event.preventDefault();window.location='/thank-you';">
-          <label for="f-email">Work email</label>
-          <input id="f-email" type="email" name="email" required placeholder="you@company.com">
-          <label for="f-site">Company website</label>
-          <input id="f-site" type="url" name="website" required placeholder="company.com">
-          <label for="f-comp">Top 1-3 competitors</label>
-          <input id="f-comp" type="text" name="competitors" required placeholder="competitor.com, competitor.com">
-          <label for="f-name">Name</label>
-          <input id="f-name" type="text" name="name" required placeholder="Your name">
-          <label for="f-mkt">Current marketing (optional)</label>
-          <select id="f-mkt" name="current_marketing">
-            <option value="">Select one</option>
-            <option>Running LinkedIn ads</option>
-            <option>Running other paid</option>
-            <option>Not running paid yet</option>
-            <option>Not sure</option>
-          </select>
-          <button class="btn btn-primary" type="submit">Get My Free Demand Plan</button>
-          <p class="fmicro">48-hour turnaround. No working sessions, no commitment. We read every submission ourselves.</p>
-        </form>
+        <div class="cu-embed">
+          <iframe id="cuDemandForm" class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="640" style="background:transparent;border:none;" title="Request your free Demand Plan"></iframe>
+        </div>
+        <p class="fmicro">48-hour turnaround. No working sessions, no commitment. We read every submission ourselves. Trouble loading? <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open it in a new tab.</a></p>
       </aside>'''
 
 def trust(saas=False):
@@ -343,6 +328,29 @@ FOOTER = '''
 </footer>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/track.js"></script>
+<!-- ClickUp form embed: dynamic iframe height + break out to /thank-you on submit -->
+<script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+<script>
+(function () {
+  var THANK_YOU = '/thank-you';
+  var iframe = document.getElementById('cuDemandForm');
+  if (!iframe) return;
+  var going = false;
+  function goThankYou(){ if(going) return; going=true; window.location.replace(THANK_YOU); }
+  function tryBreakout(){
+    try {
+      var win = iframe.contentWindow; if(!win) return;
+      var href = String(win.location.href||''), path = String(win.location.pathname||'');
+      if (href.indexOf('thank-you')!==-1 || path.indexOf('thank-you')!==-1) goThankYou();
+    } catch(err){ /* cross-origin until redirect */ }
+  }
+  iframe.addEventListener('load', tryBreakout);
+  var poll=null;
+  function startPoll(){ if(poll) return; var n=0; poll=window.setInterval(function(){ tryBreakout(); if(++n>180||going){ window.clearInterval(poll); poll=null; } },800); }
+  iframe.addEventListener('pointerdown', startPoll);
+  iframe.addEventListener('focus', startPoll);
+})();
+</script>
 </body>
 </html>'''
 
