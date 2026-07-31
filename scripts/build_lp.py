@@ -97,8 +97,9 @@ img{max-width:100%;display:block}
 .formcard input:focus,.formcard select:focus{outline:none;border-color:var(--blue-soft)}
 .formcard .btn{width:100%;margin-top:2px}
 .formcard .fmicro{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--chalk-dim);margin-top:13px}
-.cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;height:660px}@media(max-width:640px){.cu-embed{height:840px}}
-.cu-embed iframe{display:block;width:100%;height:100%;border:0}
+.cu-embed{background:transparent;border:1px solid var(--line);border-radius:10px;overflow:hidden;height:582px}
+.cu-embed iframe{display:block;width:113.64%;height:660px;transform:scale(.88);transform-origin:0 0;border:0}
+@media(max-width:640px){.cu-embed{height:840px}.cu-embed iframe{width:100%;height:100%;transform:none}}
 /* logo strip */
 .logos{padding:26px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
 .logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin-bottom:18px}
@@ -239,6 +240,7 @@ def hero(eyebrow, h1, sub, extra_line, risk, saas=False):
       <p class="hero-sub">{sub}</p>
       {extra}
       <div class="hero-cta">
+        <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
         <a class="btn btn-ghost" href="{LANDBOT}">Book a Call</a>
       </div>
       <p class="hero-risk">{risk}</p>
