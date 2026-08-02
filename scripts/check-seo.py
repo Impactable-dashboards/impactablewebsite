@@ -58,7 +58,7 @@ REQUIRED_NOINDEX = [r for r in REQUIRED if r[2] not in {
 
 fail = 0
 # Gate root pages AND indexed subdirectory sections (thought-leadership/, lp/).
-files = sorted(glob.glob("*.html") + glob.glob("thought-leadership/*.html") + glob.glob("lp/*.html"))
+files = sorted(glob.glob("*.html") + glob.glob("thought-leadership/*.html") + glob.glob("lp/*.html") + glob.glob("marketing-ecosystem/*.html"))
 for f in files:
     if f in EXCLUDE: continue
     s = open(f, encoding="utf-8").read()
