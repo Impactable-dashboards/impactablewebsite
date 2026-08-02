@@ -97,7 +97,8 @@ h1 em{font-style:normal;color:var(--teal)}
 .card.graded{border-color:var(--pc,var(--blue))}
 .card h3{font-size:14.5px;font-weight:600;letter-spacing:.01em;padding-right:34px}
 .card .what{color:var(--mute);font-size:12.5px;margin:5px 0 12px;min-height:34px}
-.card .mid{font-family:var(--mono);font-size:10px;color:var(--mute);position:absolute;top:16px;right:14px}
+.card .mid{font-family:var(--mono);font-size:10px;color:var(--mute);position:absolute;top:16px;right:14px;cursor:pointer;transition:color .15s}
+.card a.mid:hover{color:var(--teal);text-decoration:underline}
 .lvls{display:flex;gap:6px}
 .lvl{flex:1;background:var(--court);border:1px solid transparent;border-radius:6px;color:var(--mute);font-family:var(--mono);font-size:11px;padding:7px 0;text-align:center;cursor:pointer;transition:all .15s;user-select:none}
 .lvl:hover{color:var(--bone);border-color:var(--blue)}
@@ -288,7 +289,7 @@ function build(){
     M.filter(m=>m.p===pi).forEach(m=>{
       const el=document.createElement('div');el.className='card';el.id='card'+m.id;el.style.setProperty('--pc',p.c);
       let lv='<div class="lvls">'+[0,1,2,3].map(i=>`<div class="lvl${i===0?' on':''}" role="button" tabindex="0" aria-label="${m.id} level ${i}" data-m="${m.id}" data-l="${i}">${i===0?'L0':'L'+i}</div>`).join('')+'</div>';
-      el.innerHTML=`<span class="mid">${m.id}</span><h3>${m.n}</h3><div class="what">${m.w}</div>${lv}<div class="lvldesc" id="d${m.id}"><b>L0</b> Not running yet.</div>`;
+      el.innerHTML=`<a class="mid" href="/marketing-ecosystem/doctrine#${m.id.toLowerCase()}" title="Read the ${m.id} definition" aria-label="${m.id} definition on the doctrine page">${m.id}</a><h3>${m.n}</h3><div class="what">${m.w}</div>${lv}<div class="lvldesc" id="d${m.id}"><b>L0</b> Not running yet.</div>`;
       if(m.lock){el.classList.add('locked');const o=document.createElement('div');o.className='lockover';o.id='lock'+m.id;o.innerHTML=`<div class="lk">&#128274;</div><p>${m.lock.msg}</p>`;el.appendChild(o);}
       document.getElementById('g'+pi).appendChild(el);
     });
