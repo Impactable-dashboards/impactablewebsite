@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head><link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/chrome.css"><script src="assets/js/main.js"></script>
+<link rel="stylesheet" href="/assets/css/eco-board.css">
 
 <meta charset="UTF-8">
 <link rel="icon" href="https://impactable.com/wp-content/uploads/2022/02/fav.png" type="image/png">
@@ -1019,6 +1020,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="btn btn-primary" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
       <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
+    <a href="#score" style="display:inline-block;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.03em;color:var(--canopy);border-bottom:1px solid var(--canopy);padding-bottom:2px">Or grade your own ecosystem in 3 minutes &rarr;</a>
     <div class="chan-rail" aria-label="The channels Impactable runs, as one ecosystem">
       <a class="chan-tile" href="/linkedin-launch">
         <span class="chan-node" aria-hidden="true"></span>
@@ -1364,23 +1366,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="sec-desc">Each quarter we read the whole system at once: what each layer is for, whether it is doing that job, and where the budget should move. TOF is judged by reach, MOF by conversion, BOF by pipeline. No motion is graded on a metric outside its role.</p>
       <span class="gal-note">Illustrative example, figures anonymized for this page</span>
     </div>
-    <div class="sysglance">
-      <div class="sgcol reveal"><div class="sgtop"></div><div class="sgpad"><h4>TOF &middot; Build trust</h4><div class="sgsub">Warm the right accounts before they're in-market</div><div class="sgspend">42%<small>of media</small></div></div>
-        <div class="sgitem"><div><div class="sgi-n">Thought-Leader image</div><div class="sgi-m">7.3% CTR &middot; healthy frequency</div></div><span class="sgtag core">CORE</span></div>
-        <div class="sgitem"><div><div class="sgi-n">Founder TL (organic, amplified)</div><div class="sgi-m">feeds the TOF engine</div></div><span class="sgtag on">ON</span></div>
-        <div class="sgitem"><div><div class="sgi-n">Cold ABM layer</div><div class="sgi-m">named target accounts</div></div><span class="sgtag next">NEXT</span></div></div>
-      <div class="sgcol mof reveal"><div class="sgtop"></div><div class="sgpad"><h4>MOF &middot; Convert trust</h4><div class="sgsub">Retarget engaged accounts toward an offer</div><div class="sgspend">58%<small>of media</small></div></div>
-        <div class="sgitem"><div><div class="sgi-n">Website-visitor retargeting</div><div class="sgi-m">saturating &middot; rebuild on engagers</div></div><span class="sgtag audit">AUDIT</span></div>
-        <div class="sgitem"><div><div class="sgi-n">Ad-engager retargeting</div><div class="sgi-m">the right pool, not yet its own layer</div></div><span class="sgtag gap">GAP</span></div></div>
-      <div class="sgcol bof reveal"><div class="sgtop"></div><div class="sgpad"><h4>BOF &middot; Close</h4><div class="sgsub">Convert intent into a conversation</div><div class="sgspend">0%<small>of media</small></div></div>
-        <div class="sgitem"><div><div class="sgi-n">Conversion offer / lead magnet</div><div class="sgi-m">the missing conversion engine</div></div><span class="sgtag gap">GAP</span></div>
-        <div class="sgitem"><div><div class="sgi-n">Lead gen form / landing page</div><div class="sgi-m">nothing to convert into yet</div></div><span class="sgtag gap">GAP</span></div></div>
-    </div>
-    <div class="chanscore" style="margin-top:18px">
-      <div class="csc teal reveal"><h4>LinkedIn TOF</h4><div class="cjob">Job: reach + warm-pool feed</div><div class="crow"><span class="ck2">CTR</span><span class="cv">7.28%</span></div><div class="crow"><span class="ck2">CPC</span><span class="cv">$2.99</span></div><div class="crow"><span class="ck2">Freq</span><span class="cv">2.9x healthy</span></div><span class="cverdict cv-scale">SCALE</span></div>
-      <div class="csc red reveal"><h4>LinkedIn MOF</h4><div class="cjob">Job: convert engaged accounts</div><div class="crow"><span class="ck2">CTR</span><span class="cv">0.5%</span></div><div class="crow"><span class="ck2">Pool</span><span class="cv">mostly off-ICP</span></div><div class="crow"><span class="ck2">Freq</span><span class="cv">4.6x saturating</span></div><span class="cverdict cv-reduce">REDUCE + REBUILD</span></div>
-      <div class="csc amber reveal"><h4>LinkedIn Text Ad</h4><div class="cjob">Job: cheap reach</div><div class="crow"><span class="ck2">Clicks</span><span class="cv">0</span></div><div class="crow"><span class="ck2">Freq</span><span class="cv">7.4x over-served</span></div><div class="crow"><span class="ck2">Spend</span><span class="cv">low</span></div><span class="cverdict cv-audit">AUDIT / PAUSE</span></div>
-      <div class="csc purple reveal"><h4>Google &middot; Branded</h4><div class="cjob">Job: intent capture (narrow)</div><div class="crow"><span class="ck2">Role</span><span class="cv">brand defense</span></div><div class="crow"><span class="ck2">Scope</span><span class="cv">high-intent only</span></div><div class="crow"><span class="ck2">Primary?</span><span class="cv">no</span></div><span class="cverdict cv-next">NEXT</span></div>
+    <style>
+    .dgx-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+    .dgx-b{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid var(--line);color:var(--chalk-dim);white-space:nowrap}
+    .dgx-b.run{color:var(--canopy);border-color:var(--canopy)}
+    .dgx-b.audit{color:var(--blue-soft);border-color:var(--blue-soft)}
+    .dgx-b.gap{color:var(--rust);border-color:var(--rust)}
+    .dgx-b.next{color:var(--moss);border-color:var(--moss)}
+    .dgx-grp{margin-bottom:16px}
+    .dgx-gh{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:8px}
+    .dgx-gh .sp{width:10px;height:10px;border-radius:2px;background:var(--spine)}
+    .dgx-rows{display:grid;gap:8px}
+    .dgx-row{display:flex;align-items:center;gap:14px;background:var(--concrete);border:1px solid var(--line);border-left:3px solid var(--spine);border-radius:8px;padding:11px 14px;flex-wrap:wrap}
+    .dgx-row.lk{opacity:.55}
+    .dgx-nm{font-weight:600;font-size:14px;flex:1;min-width:200px;color:var(--bone)}
+    .dgx-nm small{display:block;color:var(--chalk-dim);font-weight:400;font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.01em;margin-top:2px}
+    .dgx-pips{display:flex;gap:4px}
+    .dgx-pip{width:9px;height:9px;border-radius:2px;background:var(--court);border:1px solid var(--line)}
+    .dgx-pip.on{background:var(--spine);border-color:var(--spine)}
+    </style>
+    <div class="dgx reveal">
+      <div class="dgx-legend"><span class="dgx-b run">Running &bull; pips</span><span class="dgx-b audit">Audit</span><span class="dgx-b gap">Gap</span><span class="dgx-b next">Next</span><span class="dgx-b">Locked</span></div>
+
+      <div class="dgx-grp" style="--spine:var(--moss)">
+        <div class="dgx-gh"><span class="sp"></span>Create &middot; build trust</div>
+        <div class="dgx-rows">
+          <div class="dgx-row"><div class="dgx-nm">Thought-leader image ads<small>healthy frequency, the trust engine</small></div><div class="dgx-pips"><i class="dgx-pip on"></i><i class="dgx-pip on"></i><i class="dgx-pip on"></i></div><span class="dgx-b run">Running</span></div>
+          <div class="dgx-row"><div class="dgx-nm">Founder TL, organic and amplified<small>7.3% CTR, feeds the TOF engine</small></div><div class="dgx-pips"><i class="dgx-pip on"></i><i class="dgx-pip on"></i><i class="dgx-pip"></i></div><span class="dgx-b run">Running</span></div>
+        </div>
+      </div>
+
+      <div class="dgx-grp" style="--spine:var(--rust)">
+        <div class="dgx-gh"><span class="sp"></span>Capture &middot; catch active search</div>
+        <div class="dgx-rows">
+          <div class="dgx-row"><div class="dgx-nm">Google branded search<small>brand defense, high-intent only</small></div><div class="dgx-pips"><i class="dgx-pip on"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b run">Running</span></div>
+          <div class="dgx-row"><div class="dgx-nm">Core and competitor search<small>in-market capture, not yet on</small></div><div class="dgx-pips"><i class="dgx-pip"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b next">Next</span></div>
+        </div>
+      </div>
+
+      <div class="dgx-grp" style="--spine:var(--blue)">
+        <div class="dgx-gh"><span class="sp"></span>Connect &middot; name the accounts</div>
+        <div class="dgx-rows">
+          <div class="dgx-row"><div class="dgx-nm">Account intelligence and reachability<small>exposure data flowing, map is the next move</small></div><div class="dgx-pips"><i class="dgx-pip on"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b next">Next</span></div>
+        </div>
+      </div>
+
+      <div class="dgx-grp" style="--spine:var(--canopy)">
+        <div class="dgx-gh"><span class="sp"></span>Convert and extend &middot; turn warm into pipeline</div>
+        <div class="dgx-rows">
+          <div class="dgx-row"><div class="dgx-nm">Website-visitor retargeting<small>saturating 4.6x, rebuild on engagers</small></div><div class="dgx-pips"><i class="dgx-pip on"></i><i class="dgx-pip on"></i><i class="dgx-pip"></i></div><span class="dgx-b audit">Audit</span></div>
+          <div class="dgx-row"><div class="dgx-nm">Ad-engager retargeting<small>the right pool, not yet its own layer</small></div><div class="dgx-pips"><i class="dgx-pip"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b gap">Gap</span></div>
+          <div class="dgx-row"><div class="dgx-nm">Cold ABM layer<small>named target accounts</small></div><div class="dgx-pips"><i class="dgx-pip"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b next">Next</span></div>
+          <div class="dgx-row"><div class="dgx-nm">Conversion offer and landing page<small>the missing conversion engine</small></div><div class="dgx-pips"><i class="dgx-pip"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b gap">Gap</span></div>
+          <div class="dgx-row lk"><div class="dgx-nm">Meta B2B<small>&#128274; locked until enrichment reaches L2</small></div><div class="dgx-pips"><i class="dgx-pip"></i><i class="dgx-pip"></i><i class="dgx-pip"></i></div><span class="dgx-b">Locked</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1404,6 +1444,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ecocard reveal"><div class="ecn">Data</div><h4>Enrichment &amp; List Building</h4><p>Clay, Apollo, and ZoomInfo turn under-penetrated accounts into owned lists.</p></div>
       <div class="ecocard reveal"><div class="ecn">Convert</div><h4>Creative &amp; Landing Pages</h4><p>Stage-matched ad creative and conversion pages that turn earned clicks into booked calls.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="score" style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow tealnum">Grade yourself</span>
+      <h2 class="sec-title display" style="text-transform:none">Grade your ecosystem in 3 minutes.</h2>
+      <p class="sec-desc">This is the same 22-motion board we grade every client against. Score yours below and see your maturity score, your stage, and the exact three moves that come next. Nothing to fill in, no email required.</p>
+    </div>
+  </div>
+  <div class="ecoboard" style="--eco-sticky-top:74px;max-width:1180px">
+    <div class="eb-resume" id="eco-resume">Resumed where you left off. <button type="button" id="eco-resetBtn">Start over</button></div>
+    <div class="eb-scorebar"><div class="eb-scorebar-in">
+      <div class="eb-ems-num"><span id="eco-ems">0</span><small>ECOSYSTEM SCORE</small></div>
+      <div class="eb-stagetrack">
+        <div class="eb-lbls" id="eco-stages"><span data-s="0">Validate</span><span data-s="1">Ramp</span><span data-s="2">Reach</span><span data-s="3">Supply</span><span data-s="4">Sustain</span></div>
+        <div class="eb-bar"><i id="eco-emsbar"></i></div>
+      </div>
+      <div class="eb-pillmini">
+        <div class="eb-pm eb-create"><i><b id="eco-pb0"></b></i>Create</div>
+        <div class="eb-pm eb-capture"><i><b id="eco-pb1"></b></i>Capture</div>
+        <div class="eb-pm eb-connect"><i><b id="eco-pb2"></b></i>Connect</div>
+        <div class="eb-pm eb-convert"><i><b id="eco-pb3"></b></i>Convert</div>
+        <div class="eb-pm eb-compound"><i><b id="eco-pb4"></b></i>Compound</div>
+      </div>
+      <div class="eb-chip" id="eco-prog">0 of 22 graded</div>
+    </div></div>
+
+    <div class="eb-board" id="eco-boardroot"></div>
+
+    <div class="eb-results">
+      <div class="eb-eyebrow">Your path forward</div>
+      <h3>The next three unlocks.</h3>
+      <p class="eb-sub" id="eco-unlockintro">Grade a few motions above and the doctrine computes your next moves, in priority order, with the trigger that earns each one.</p>
+      <div class="eb-unlocks" id="eco-unlocks"></div>
+      <div class="eb-after" id="eco-after"></div>
+    </div>
+
+    <div class="eb-nextstep">
+      <div class="eb-ns-left">
+        <h3>You scored the system. Now get the plan for yours.</h3>
+        <p>The Demand Plan is the customized version of what you just graded: your competitor white space and a customized audience targeting worksheet, free.</p>
+        <div class="eb-ns-method"><b>Why this is the natural next move:</b> the Demand Plan is steps 01 and 02 of the 5-step method, map the gap and engineer the audience. That is the first move at almost every stage this board can output.</div>
+      </div>
+      <div class="eb-ns-actions">
+        <a class="eb-btn" id="eco-demandBtn" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
+        <a class="eb-btn-sec" id="eco-auditBtn" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Or book the free Ecosystem Audit &rarr;</a>
+        <div class="eb-ns-note">The audit is the analyst-graded version of this self-score: a senior strategist grades the same board with your real data.</div>
+      </div>
+    </div>
+
+    <div class="eb-method"><details>
+      <summary>How the scoring works</summary>
+      <p>Every motion is graded L0 (absent) to L3 (compounding) against published definitions. Your Ecosystem Score is a weighted sum out of 100: Create 25, Connect 25, Convert 20, Capture 15, Compound 15, spread evenly across the motions in each pillar. Meta and programmatic carry no score until enrichment reaches L2; once that gate opens they fold into the Convert weight. Stages map as Validate 0 to 20, Ramp 21 to 40, Reach 41 to 60, Supply 61 to 80, Sustain 81 to 100.</p>
+      <p>The Next 3 Unlocks follow the six laws of progression: warm audiences before cold, foundations before amplification, and expansion earned by saturation or success. This self-score reads the maturity you enter; the analyst-graded version applies the full ladder. The full doctrine, including every level definition, is <a href="/marketing-ecosystem/doctrine">published openly</a>.</p>
+    </details></div>
   </div>
 </section>
 
@@ -1583,14 +1680,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="sec-head reveal">
       <span class="eyebrow tealnum">Start here</span>
       <h2 class="sec-title display" style="text-transform:none">See the blueprint for your business.</h2>
-      <p class="sec-desc">Start free with an Ecosystem Audit, or go straight to a strategy engagement. Either way, the first step is a short conversation about where you are today.</p>
+      <p class="sec-desc">You just graded your ecosystem. The free Ecosystem Audit is the analyst-graded version: a senior strategist grades the same board with your real data. Or go straight to a strategy engagement.</p>
     </div>
+    <p class="chart-foot reveal" style="text-align:center;margin:0 auto 26px;max-width:74ch">The same board, three fidelities: <b style="color:var(--canopy)">self-assessed</b> in the tool above &rarr; <b style="color:var(--canopy)">analyst-graded</b> in the Ecosystem Audit &rarr; <b style="color:var(--canopy)">data-verified</b> in your quarterly Impact Report.</p>
     <div class="offers">
       <div class="offer free reveal">
         <span class="opill">Free &middot; Start here</span>
         <h3>Ecosystem Audit</h3>
         <div class="oprice f"><b>No cost</b> &middot; ~30 minutes</div>
-        <p class="odesc">A senior read on your current ecosystem: what's connected, what's leaking, and the highest-impact moves you can make right now.</p>
+        <p class="odesc">You scored it, now let a senior strategist grade it with your real data: what's connected, what's leaking, and the highest-impact moves you can make right now.</p>
         <ul><li>Channel-by-channel current-state read</li><li>Where demand is leaking between channels</li><li>The first three moves we would make</li><li>No commitment, yours to keep</li></ul>
         <div class="obtns"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get the free audit &rarr;</a><a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to the team</a></div>
       </div>
@@ -1725,5 +1823,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="track.js"></script>
 <script src="assets/js/chrome.js"></script>
+<script defer src="/assets/js/eco-board.js"></script>
 </body>
 </html>
