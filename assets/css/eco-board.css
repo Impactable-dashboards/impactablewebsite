@@ -9,15 +9,16 @@
   --eco-teal:#00C4B3; --eco-lime:#C6FF3D; --eco-blue:#0099D1; --eco-blue-soft:#5BB8E0; --eco-rust:#FF5A1F;
   --eco-disp:'Anton',sans-serif; --eco-body:'Inter',sans-serif; --eco-mono:'JetBrains Mono',monospace;
   --eco-sticky-top:60px;
-  max-width:1240px;margin:0 auto;padding:0 24px;
+  max-width:1240px;margin:0 auto;padding:20px 26px 30px;
+  background:var(--eco-asphalt);border-radius:14px;
   font-family:var(--eco-body);color:var(--eco-bone);
 }
 .ecoboard *{box-sizing:border-box}
 .ecoboard .eb-eyebrow{font-family:var(--eco-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--eco-blue-soft)}
 
 /* sticky scoreboard */
-.ecoboard .eb-scorebar{position:sticky;top:var(--eco-sticky-top);z-index:40;background:rgba(0,17,34,.94);backdrop-filter:blur(10px);border-top:1px solid var(--eco-line);border-bottom:1px solid var(--eco-line);margin:0 -24px}
-.ecoboard .eb-scorebar-in{display:flex;align-items:center;gap:22px;padding:12px 24px;flex-wrap:wrap}
+.ecoboard .eb-scorebar{position:sticky;top:var(--eco-sticky-top);z-index:40;background:rgba(0,17,34,.94);backdrop-filter:blur(10px);border-top:1px solid var(--eco-line);border-bottom:1px solid var(--eco-line);margin:0 -26px 4px}
+.ecoboard .eb-scorebar-in{display:flex;align-items:center;gap:22px;padding:12px 26px;flex-wrap:wrap}
 .ecoboard .eb-ems-num{font-family:var(--eco-disp);font-weight:400;font-size:34px;color:var(--eco-teal);min-width:96px;letter-spacing:.01em;line-height:1}
 .ecoboard .eb-ems-num small{font-family:var(--eco-mono);font-size:11px;color:var(--eco-mute);display:block;letter-spacing:.12em;font-weight:400}
 .ecoboard .eb-stagetrack{flex:1;min-width:260px}
