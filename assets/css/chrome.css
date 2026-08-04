@@ -411,3 +411,22 @@ html[data-theme="light"] .rd-foot .foot-logo img{filter:none!important}
   .rd-foot .foot-cols{justify-content:flex-start;gap:40px}
   .rd-foot .foot-bottom{align-items:flex-start}
 }
+
+/* ── Light-mode accent-text contrast fixes (cross-page audit, 2026-08) ──────
+   In light mode the surface tokens flip to light, but lime (--moss) text and
+   the blue .hl highlight are not re-mapped, so accent text/badges dropped to
+   ~1.1:1. Verified failing/fixed by a rendered contrast audit across pages. */
+/* Final CTA: light-mode band is a blue gradient with near-black base text, but
+   the .hl span kept its blue -> blue-on-blue. Match the base near-black. */
+html[data-theme="light"] .final .hl,
+html[data-theme="light"] .final .em{color:#0A1216}
+/* Lime chips whose contrast depends on the (transparent) ancestor surface:
+   give an opaque pale-green chip + dark-green text so they read on any surface. */
+html[data-theme="light"] .fun-delta.up,
+html[data-theme="light"] .v-invest{color:#2f6b0f;background:#e6efd8;border-color:rgba(47,107,15,.35)}
+/* Bare lime text (headings/labels/stats) sitting on light surfaces -> dark green. */
+html[data-theme="light"] .expstage.s1 h4,
+html[data-theme="light"] .proof-card .pn.moss,
+html[data-theme="light"] .sphase.act .sph-k,
+html[data-theme="light"] .dgx-b.next{color:#2f6b0f}
+html[data-theme="light"] .dgx-b.next{border-color:#2f6b0f}
