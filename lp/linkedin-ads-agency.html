@@ -114,11 +114,28 @@ img{max-width:100%;display:block}
 .cu-embed{background:#16181d;border:0;border-radius:8px;overflow:hidden;height:500px}
 .cu-embed iframe{display:block;width:119.05%;height:595px;transform:scale(.84);transform-origin:0 0;border:0}
 @media(max-width:640px){.cu-embed{height:800px}.cu-embed iframe{width:108.7%;height:840px;transform:scale(.92);transform-origin:0 0}}
-/* logo strip */
-.logos{padding:26px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
-.logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin-bottom:18px}
-.logos-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
-.logo-ph{width:118px;height:38px;border-radius:7px;background:rgba(190,214,246,0.05);border:1px solid var(--line-soft)}
+/* logo strip — infinite marquee */
+.logos{padding:28px 0 32px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden}
+.logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin:0 auto 22px;max-width:1120px;padding:0 24px}
+.logos-marquee{position:relative;width:100%;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.logos-track{display:flex;width:max-content;gap:0;align-items:center;
+  animation:logoScroll 40s linear infinite}
+.logos-marquee:hover .logos-track{animation-play-state:paused}
+.logos-track .logo-item{flex:none;display:flex;align-items:center;justify-content:center;
+  width:160px;height:52px;padding:0 18px}
+.logos-track .logo-item img{max-height:36px;max-width:124px;width:auto;height:auto;
+  object-fit:contain;opacity:.78;filter:grayscale(1) brightness(1.15);transition:opacity .25s,filter .25s}
+.logos-track .logo-item:hover img{opacity:1;filter:grayscale(0) brightness(1)}
+@keyframes logoScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media(prefers-reduced-motion:reduce){
+  .logos-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;max-width:1120px;margin:0 auto;padding:0 12px;gap:8px 4px}
+  .logos-marquee{-webkit-mask-image:none;mask-image:none}
+}
 /* generic section */
 .sec{padding:64px 0}
 .sec.alt{background:var(--concrete)}
@@ -221,11 +238,31 @@ img{max-width:100%;display:block}
   </div>
 </section>
 <!-- Logo strip -->
-<section class="logos">
-  <div class="wrap">
-    <div class="logos-h">Trusted by B2B teams across industries.</div>
-    <!-- TODO: swap placeholder tiles for cleared client logos (grayscale). -->
-    <div class="logos-row"><div class="logo-ph"></div><div class="logo-ph"></div><div class="logo-ph"></div><div class="logo-ph"></div><div class="logo-ph"></div><div class="logo-ph"></div></div>
+<section class="logos" aria-label="Trusted by B2B SaaS teams">
+  <div class="logos-h">Trusted by B2B SaaS teams.</div>
+  <div class="logos-marquee">
+    <div class="logos-track">
+          <div class="logo-item"><img src="../img/1.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/2.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/3.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/4.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/5.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/6.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/7.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/8.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/9.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/10.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/1.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/2.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/3.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/4.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/5.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/6.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/7.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/8.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/9.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+          <div class="logo-item"><img src="../img/10.webp" alt="" width="124" height="36" loading="lazy" decoding="async"></div>
+    </div>
   </div>
 </section>
 <!-- [SHARED-DIFF] -->
