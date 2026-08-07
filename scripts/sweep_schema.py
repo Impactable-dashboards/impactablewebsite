@@ -24,7 +24,7 @@ ORG = {
     "@type": "Organization", "@id": "https://impactable.marketing/#org",
     "name": "Impactable", "alternateName": "Impactable B2B",
     "url": "https://impactable.marketing/",
-    "logo": "https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp",
+    "logo": "https://impactable.marketing/assets/img/logo-dark.svg",
     "description": "Impactable is the B2B Demand Intelligence System: a certified LinkedIn Marketing Partner that targets your best-fit buyers from real signal, discovers who your buyers actually are, and proves revenue with a continuous quarterly diagnostic.",
     "sameAs": [
         "https://www.linkedin.com/company/impactableb2b/",

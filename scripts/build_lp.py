@@ -199,7 +199,7 @@ HEADER = '''
 <!-- [SHARED-HEADER] -->
 <header class="lph">
   <div class="wrap lph-in">
-    <a class="lph-logo" href="#top"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <a class="lph-logo" href="#top"><img src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
     <div class="lph-right">
       <span class="lph-badge"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="">LinkedIn Marketing Partner</span>
       <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
@@ -321,7 +321,7 @@ FOOTER = '''
 <!-- footer -->
 <footer class="lpf">
   <div class="wrap lpf-in">
-    <a href="https://impactable.com"><img class="plogo" src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <a href="https://impactable.com"><img class="plogo" src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
     <span>&copy; 2026 Impactable LLC &middot; LinkedIn Marketing Partner</span>
     <img class="lpf-part" src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner">
   </div>

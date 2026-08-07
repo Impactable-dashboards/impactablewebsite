@@ -103,17 +103,19 @@ img{max-width:100%;display:block}
 .trust .tp img{height:26px;width:auto}
 .trust .dot{width:4px;height:4px;border-radius:50%;background:var(--line);display:inline-block}
 /* form card */
-.formcard{background:#16181d;border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;position:sticky;top:88px}
-.formcard .fk{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--canopy);margin-bottom:6px}
-.formcard h2{font-size:1.35rem;color:var(--bone);letter-spacing:-.01em;margin-bottom:10px;line-height:1.2}
-.formcard label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-dim);margin:0 0 5px}
-.formcard input,.formcard select{width:100%;background:var(--asphalt);border:1px solid var(--line);border-radius:7px;padding:11px 13px;color:var(--bone);font-family:'Inter',sans-serif;font-size:15px;margin-bottom:13px}
-.formcard input:focus,.formcard select:focus{outline:none;border-color:var(--blue-soft)}
-.formcard .btn{width:100%;margin-top:2px}
-.formcard .fmicro{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--chalk-dim);margin-top:13px}
-.cu-embed{background:#16181d;border:0;border-radius:8px;overflow:hidden;height:500px}
-.cu-embed iframe{display:block;width:119.05%;height:595px;transform:scale(.84);transform-origin:0 0;border:0}
-@media(max-width:640px){.cu-embed{height:800px}.cu-embed iframe{width:108.7%;height:840px;transform:scale(.92);transform-origin:0 0}}
+.formcard{background:#fff;border:1px solid rgba(7,26,56,.1);border-radius:14px;padding:22px 22px 18px;position:sticky;top:88px;box-shadow:0 18px 50px rgba(7,26,56,.22)}
+.formcard .fk{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C47A00;margin-bottom:6px}
+.formcard h2{font-size:1.35rem;color:#071A38;letter-spacing:-.01em;margin-bottom:16px;line-height:1.2}
+.formcard label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5A6578;margin:0 0 6px}
+.formcard .ffield{margin-bottom:13px}
+.formcard input{width:100%;background:#F7F8FA;border:1px solid #D8DEE8;border-radius:7px;padding:12px 13px;color:#071A38;font-family:'Inter',sans-serif;font-size:15px;transition:border-color .15s,background .15s}
+.formcard input::placeholder{color:#8A93A3}
+.formcard input:focus{outline:none;border-color:#0099D1;background:#fff}
+.formcard .btn{width:100%;margin-top:4px}
+.formcard .btn:disabled{opacity:.7;cursor:wait;transform:none}
+.formcard .fstatus{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.4;margin:10px 0 0;color:#5A6578}
+.formcard .fstatus.is-error{color:#C0392B}
+.formcard .fmicro{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:#5A6578;margin-top:14px}
 /* logo strip — infinite marquee */
 .logos{padding:28px 0 32px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden}
 .logos-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:center;margin:0 auto 22px;max-width:1120px;padding:0 24px}
@@ -200,7 +202,7 @@ img{max-width:100%;display:block}
 <!-- [SHARED-HEADER] -->
 <header class="lph">
   <div class="wrap lph-in">
-    <a class="lph-logo" href="#top"><img src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <a class="lph-logo" href="#top"><img src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
     <div class="lph-right">
       <span class="lph-badge"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="">LinkedIn Marketing Partner</span>
       <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
@@ -230,10 +232,23 @@ img{max-width:100%;display:block}
     <aside class="formcard" id="demandplan">
         <div class="fk">Free &middot; 48 hours</div>
         <h2>Get your free Demand Plan</h2>
-        <div class="cu-embed">
-          <iframe id="cuDemandForm" class="clickup-embed" src="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" onwheel="" width="100%" height="600" scrolling="no" style="background:transparent;border:none;" title="Request your free Demand Plan"></iframe>
-        </div>
-        <p class="fmicro">48-hour turnaround. No working sessions, no commitment. We read every submission ourselves. Trouble loading? <a href="https://forms.clickup.com/9010022008/f/8cgm1kr-522071/7B7WZY38TOKDXBRDOF" target="_blank" rel="noopener" style="color:var(--blue-soft)">Open it in a new tab.</a></p>
+        <form data-hs-demand-form novalidate>
+          <div class="ffield">
+            <label for="dp-email">Work Email</label>
+            <input id="dp-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+          </div>
+          <div class="ffield">
+            <label for="dp-website">Company website</label>
+            <input id="dp-website" name="website" type="text" autocomplete="url" required placeholder="https://yourcompany.com">
+          </div>
+          <div class="ffield">
+            <label for="dp-competitors">Top competitors</label>
+            <input id="dp-competitors" name="competitors" type="text" placeholder="e.g. Competitor A, Competitor B">
+          </div>
+          <button class="btn btn-primary" type="submit">Get My Free Demand Plan</button>
+          <p class="fstatus" data-form-status hidden></p>
+        </form>
+        <p class="fmicro">48-hour turnaround. No working sessions, no commitment. We read every submission ourselves.</p>
       </aside>
   </div>
 </section>
@@ -324,35 +339,13 @@ img{max-width:100%;display:block}
 <!-- footer -->
 <footer class="lpf">
   <div class="wrap lpf-in">
-    <a href="https://impactable.com"><img class="plogo" src="https://impactable.com/wp-content/uploads/2025/02/group_2_4x.webp" alt="Impactable"></a>
+    <a href="https://impactable.com"><img class="plogo" src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
     <span>&copy; 2026 Impactable LLC &middot; LinkedIn Marketing Partner</span>
     <img class="lpf-part" src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner">
   </div>
 </footer>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/track.js"></script>
-<!-- ClickUp form embed: dynamic iframe height + break out to /thank-you on submit -->
-<script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
-<script>
-(function () {
-  var THANK_YOU = '/thank-you';
-  var iframe = document.getElementById('cuDemandForm');
-  if (!iframe) return;
-  var going = false;
-  function goThankYou(){ if(going) return; going=true; window.location.replace(THANK_YOU); }
-  function tryBreakout(){
-    try {
-      var win = iframe.contentWindow; if(!win) return;
-      var href = String(win.location.href||''), path = String(win.location.pathname||'');
-      if (href.indexOf('thank-you')!==-1 || path.indexOf('thank-you')!==-1) goThankYou();
-    } catch(err){ /* cross-origin until redirect */ }
-  }
-  iframe.addEventListener('load', tryBreakout);
-  var poll=null;
-  function startPoll(){ if(poll) return; var n=0; poll=window.setInterval(function(){ tryBreakout(); if(++n>180||going){ window.clearInterval(poll); poll=null; } },800); }
-  iframe.addEventListener('pointerdown', startPoll);
-  iframe.addEventListener('focus', startPoll);
-})();
-</script>
+<script defer src="/lp/demand-form.js"></script>
 </body>
 </html>
