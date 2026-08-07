@@ -6,7 +6,7 @@
     PORTAL_ID +
     '/' +
     FORM_ID;
-  var FALLBACK_THANK_YOU = '/thank-you';
+  var THANK_YOU = '/lp/thank-you';
 
   function cookie(name) {
     var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
@@ -20,6 +20,10 @@
     el.classList.toggle('is-error', !!isError);
   }
 
+  function field(name, value) {
+    return { objectTypeId: '0-1', name: name, value: value };
+  }
+
   function bind(form) {
     if (!form || form.dataset.bound === '1') return;
     form.dataset.bound = '1';
@@ -31,31 +35,29 @@
       e.preventDefault();
       setStatus(status, '', false);
 
-      var email = (form.email && form.email.value || '').trim();
-      var website = (form.website && form.website.value || '').trim();
-      var competitors = (form.competitors && form.competitors.value || '').trim();
+      var email = ((form.elements.email && form.elements.email.value) || '').trim();
+      var website = ((form.elements.website && form.elements.website.value) || '').trim();
+      var competitors = ((form.elements.competitors && form.elements.competitors.value) || '').trim();
 
       if (!email) {
         setStatus(status, 'Please enter your work email.', true);
-        form.email && form.email.focus();
+        form.elements.email && form.elements.email.focus();
         return;
       }
       if (!website) {
         setStatus(status, 'Please enter your company website.', true);
-        form.website && form.website.focus();
+        form.elements.website && form.elements.website.focus();
         return;
       }
 
-      var fields = [
-        { name: 'email', value: email },
-        { name: 'website', value: website }
-      ];
+      // Normalize bare domains so HubSpot website field accepts them
+      if (website && !/^https?:\/\//i.test(website)) {
+        website = 'https://' + website;
+      }
+
+      var fields = [field('email', email), field('website', website)];
       if (competitors) {
-        fields.push({
-          objectTypeId: '0-1',
-          name: 'your_top_competitors',
-          value: competitors
-        });
+        fields.push(field('your_top_competitors', competitors));
       }
 
       var hutk = cookie('hubspotutk');
@@ -80,22 +82,29 @@
         body: JSON.stringify(payload)
       })
         .then(function (res) {
-          return res.json().then(function (data) {
-            return { ok: res.ok, data: data };
+          return res.text().then(function (text) {
+            var data = null;
+            if (text) {
+              try {
+                data = JSON.parse(text);
+              } catch (err) {
+                data = { message: text };
+              }
+            }
+            return { ok: res.ok, status: res.status, data: data };
           });
         })
         .then(function (result) {
           if (!result.ok) {
             var msg =
-              (result.data && result.data.message) ||
+              (result.data && (result.data.message || (result.data.errors && result.data.errors[0] && result.data.errors[0].message))) ||
               'Something went wrong. Please try again.';
             throw new Error(msg);
           }
-          var dest =
-            (result.data && result.data.redirectUri) || FALLBACK_THANK_YOU;
-          window.location.assign(dest);
+          window.location.assign(THANK_YOU);
         })
         .catch(function (err) {
+          console.error('[demand-form] HubSpot submit failed', err);
           setStatus(
             status,
             (err && err.message) || 'Something went wrong. Please try again.',
