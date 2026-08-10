@@ -24,20 +24,50 @@
     return { objectTypeId: '0-1', name: name, value: value };
   }
 
+  // HubSpot success bodies are usually {redirectUri} or {inlineMessage} or {}.
+  // Reject HTML/challenge pages that still come back as HTTP 200.
+  function isHubSpotSuccess(result) {
+    if (!result || !result.ok) return false;
+    var data = result.data;
+    if (data == null) return true;
+    if (typeof data !== 'object') return false;
+    if (data.status === 'error' || data.errors) return false;
+    if (data.redirectUri || data.inlineMessage) return true;
+    return !data.message;
+  }
+
   function bind(form) {
     if (!form || form.dataset.bound === '1') return;
     form.dataset.bound = '1';
 
     var status = form.querySelector('[data-form-status]');
-    var submitBtn = form.querySelector('[type="submit"]');
+    var submitBtn =
+      form.querySelector('[data-hs-submit]') ||
+      form.querySelector('[type="submit"]');
+    var sending = false;
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    function fail(err) {
+      console.error('[demand-form] HubSpot submit failed', err);
+      setStatus(
+        status,
+        (err && err.message) || 'Something went wrong. Please try again.',
+        true
+      );
+      sending = false;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn.dataset.label || 'Get My Free Demand Plan';
+      }
+    }
+
+    function submit() {
+      if (sending) return;
       setStatus(status, '', false);
 
       var email = ((form.elements.email && form.elements.email.value) || '').trim();
       var website = ((form.elements.website && form.elements.website.value) || '').trim();
-      var competitors = ((form.elements.competitors && form.elements.competitors.value) || '').trim();
+      var competitors =
+        ((form.elements.competitors && form.elements.competitors.value) || '').trim();
 
       if (!email) {
         setStatus(status, 'Please enter your work email.', true);
@@ -57,7 +87,7 @@
 
       var fields = [field('email', email), field('website', website)];
       if (competitors) {
-        fields.push(field('your_top_competitors', competitors));
+        fields.push(field('top_competitors', competitors));
       }
 
       var hutk = cookie('hubspotutk');
@@ -70,6 +100,7 @@
       };
       if (hutk) payload.context.hutk = hutk;
 
+      sending = true;
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.dataset.label = submitBtn.textContent;
@@ -79,7 +110,9 @@
       fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        // Survives if another tag tries to navigate away mid-request
+        keepalive: true
       })
         .then(function (res) {
           return res.text().then(function (text) {
@@ -95,27 +128,53 @@
           });
         })
         .then(function (result) {
-          if (!result.ok) {
+          if (!isHubSpotSuccess(result)) {
             var msg =
-              (result.data && (result.data.message || (result.data.errors && result.data.errors[0] && result.data.errors[0].message))) ||
+              (result.data &&
+                (result.data.message ||
+                  (result.data.errors &&
+                    result.data.errors[0] &&
+                    result.data.errors[0].message))) ||
               'Something went wrong. Please try again.';
             throw new Error(msg);
           }
-          window.location.assign(THANK_YOU);
+          var dest =
+            (result.data && result.data.redirectUri) || THANK_YOU;
+          window.location.assign(dest);
         })
-        .catch(function (err) {
-          console.error('[demand-form] HubSpot submit failed', err);
-          setStatus(
-            status,
-            (err && err.message) || 'Something went wrong. Please try again.',
-            true
-          );
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.label || 'Get My Free Demand Plan';
-          }
-        });
+        .catch(fail);
+    }
+
+    // Do NOT rely on the form "submit" event. GTM / other tags often listen for
+    // it and navigate to the thank-you URL immediately, aborting the HubSpot
+    // fetch. Drive the flow from the button (+ Enter) instead.
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        submit();
+      });
+    }
+
+    form.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.keyCode !== 13) return;
+      if (e.target && e.target.tagName === 'TEXTAREA') return;
+      e.preventDefault();
+      e.stopPropagation();
+      submit();
     });
+
+    // Belt-and-suspenders: if anything still fires submit, kill it before GTM.
+    form.addEventListener(
+      'submit',
+      function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        submit();
+      },
+      true
+    );
   }
 
   function init() {
