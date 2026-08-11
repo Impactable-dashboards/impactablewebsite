@@ -15,6 +15,7 @@ const FIELD_ALIASES = {
   email: ['contact email', 'contactemail', 'email'],
   website: ['company website', 'companywebsite', 'website'],
   competitors: [
+    "list top competitor website url's.",
     "list top competitor website url's",
     'list top competitor website urls',
     'list top competitor website url',
@@ -53,6 +54,7 @@ function normName(name) {
   return String(name || '')
     .toLowerCase()
     .replace(/[’']/g, "'")
+    .replace(/[.\u2026]+$/g, '') // trailing period(s), e.g. "url's."
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -65,6 +67,18 @@ function findFieldId(fields, aliases) {
   for (var i = 0; i < aliases.length; i++) {
     var id = byName[normName(aliases[i])];
     if (id) return id;
+  }
+  // Fuzzy fallback: any field whose normalized name contains every alias token
+  // (helps when ClickUp adds punctuation / slight wording drift).
+  var keys = Object.keys(byName);
+  for (var a = 0; a < aliases.length; a++) {
+    var alias = normName(aliases[a]);
+    if (!alias || alias.indexOf(' ') === -1) continue;
+    for (var k = 0; k < keys.length; k++) {
+      if (keys[k] === alias || keys[k].indexOf(alias) !== -1) {
+        return byName[keys[k]];
+      }
+    }
   }
   return null;
 }
