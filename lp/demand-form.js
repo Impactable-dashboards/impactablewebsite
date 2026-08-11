@@ -1,11 +1,12 @@
 (function () {
   var PORTAL_ID = '21999720';
   var FORM_ID = '9dd0378a-d1a8-40d2-8c6a-1755f3593186';
-  var ENDPOINT =
+  var HS_ENDPOINT =
     'https://api.hsforms.com/submissions/v3/integration/submit/' +
     PORTAL_ID +
     '/' +
     FORM_ID;
+  var CLICKUP_ENDPOINT = '/api/lp-demand-lead';
   var THANK_YOU = '/lp/thank-you';
 
   function cookie(name) {
@@ -24,6 +25,20 @@
     return { objectTypeId: '0-1', name: name, value: value };
   }
 
+  function parseJsonResponse(res) {
+    return res.text().then(function (text) {
+      var data = null;
+      if (text) {
+        try {
+          data = JSON.parse(text);
+        } catch (err) {
+          data = { message: text };
+        }
+      }
+      return { ok: res.ok, status: res.status, data: data };
+    });
+  }
+
   // HubSpot success bodies are usually {redirectUri} or {inlineMessage} or {}.
   // Reject HTML/challenge pages that still come back as HTTP 200.
   function isHubSpotSuccess(result) {
@@ -34,6 +49,16 @@
     if (data.status === 'error' || data.errors) return false;
     if (data.redirectUri || data.inlineMessage) return true;
     return !data.message;
+  }
+
+  function postJson(url, payload) {
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      // Survives if another tag tries to navigate away mid-request
+      keepalive: true
+    }).then(parseJsonResponse);
   }
 
   function bind(form) {
@@ -47,7 +72,7 @@
     var sending = false;
 
     function fail(err) {
-      console.error('[demand-form] HubSpot submit failed', err);
+      console.error('[demand-form] submit failed', err);
       setStatus(
         status,
         (err && err.message) || 'Something went wrong. Please try again.',
@@ -85,20 +110,28 @@
         website = 'https://' + website;
       }
 
-      var fields = [field('email', email), field('website', website)];
+      var hsFields = [field('email', email), field('website', website)];
       if (competitors) {
-        fields.push(field('top_competitors', competitors));
+        hsFields.push(field('top_competitors', competitors));
       }
 
       var hutk = cookie('hubspotutk');
-      var payload = {
-        fields: fields,
+      var hsPayload = {
+        fields: hsFields,
         context: {
           pageUri: window.location.href,
           pageName: document.title
         }
       };
-      if (hutk) payload.context.hutk = hutk;
+      if (hutk) hsPayload.context.hutk = hutk;
+
+      var clickupPayload = {
+        email: email,
+        website: website,
+        competitors: competitors,
+        pageUri: window.location.href,
+        pageName: document.title
+      };
 
       sending = true;
       if (submitBtn) {
@@ -107,39 +140,34 @@
         submitBtn.textContent = 'Sending…';
       }
 
-      fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        // Survives if another tag tries to navigate away mid-request
-        keepalive: true
-      })
-        .then(function (res) {
-          return res.text().then(function (text) {
-            var data = null;
-            if (text) {
-              try {
-                data = JSON.parse(text);
-              } catch (err) {
-                data = { message: text };
-              }
-            }
-            return { ok: res.ok, status: res.status, data: data };
-          });
+      // HubSpot is required. ClickUp is best-effort so a missing token / API
+      // hiccup never blocks the lead from landing in the CRM.
+      Promise.all([
+        postJson(HS_ENDPOINT, hsPayload),
+        postJson(CLICKUP_ENDPOINT, clickupPayload).catch(function (err) {
+          return { ok: false, error: err };
         })
-        .then(function (result) {
-          if (!isHubSpotSuccess(result)) {
+      ])
+        .then(function (results) {
+          var hs = results[0];
+          var cu = results[1];
+
+          if (!isHubSpotSuccess(hs)) {
             var msg =
-              (result.data &&
-                (result.data.message ||
-                  (result.data.errors &&
-                    result.data.errors[0] &&
-                    result.data.errors[0].message))) ||
+              (hs.data &&
+                (hs.data.message ||
+                  (hs.data.errors &&
+                    hs.data.errors[0] &&
+                    hs.data.errors[0].message))) ||
               'Something went wrong. Please try again.';
             throw new Error(msg);
           }
-          var dest =
-            (result.data && result.data.redirectUri) || THANK_YOU;
+
+          if (!cu || !cu.ok) {
+            console.warn('[demand-form] ClickUp task not created', cu);
+          }
+
+          var dest = (hs.data && hs.data.redirectUri) || THANK_YOU;
           window.location.assign(dest);
         })
         .catch(fail);
