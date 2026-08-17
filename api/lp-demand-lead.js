@@ -169,7 +169,6 @@ module.exports = async function handler(req, res) {
   var website = normalizeWebsite(body.website);
   var competitors = String(body.competitors || '').trim();
   var pageUri = String(body.pageUri || '').trim();
-  var pageName = String(body.pageName || '').trim();
 
   if (!email || !website) {
     return json(res, 400, { ok: false, error: 'email and website are required' });
@@ -205,8 +204,7 @@ module.exports = async function handler(req, res) {
       'Email: ' + email,
       'Website: ' + website,
       competitors ? 'Competitors: ' + competitors : null,
-      pageUri ? 'Page: ' + pageUri : null,
-      pageName ? 'Page title: ' + pageName : null
+      pageUri ? 'Page: ' + pageUri : null
     ]
       .filter(Boolean)
       .join('\n');

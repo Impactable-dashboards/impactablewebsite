@@ -77,6 +77,17 @@ img{max-width:100%;display:block}
 .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
 .btn-ghost:hover{border-color:var(--blue-soft);color:var(--blue-soft)}
+.btn-call{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  box-sizing:border-box;height:49px;padding:0 26px;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:16px;
+  letter-spacing:.64px;line-height:normal;text-transform:uppercase;
+  border-radius:6px;border:1px solid #0099D1;cursor:pointer;
+  background:#0099D1;color:#FFF;
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+}
+.btn-call:hover{background:#33adda;border-color:#33adda;color:#FFF;transform:translateY(-1px)}
+.lph .btn-call{height:40px;padding:0 18px;font-size:13px}
 /* header */
 .lph{position:sticky;top:0;z-index:60;background:rgba(7,26,56,0.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
 .lph-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
@@ -118,7 +129,7 @@ img{max-width:100%;display:block}
     <a class="lph-logo" href="/lp/b2b-saas"><img src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
     <div class="lph-right">
       <span class="lph-badge"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="">LinkedIn Marketing Partner</span>
-      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a Call</a>
+      <a class="btn-call" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">BOOK A CALL &rarr;</a>
     </div>
   </div>
 </header>
@@ -138,7 +149,7 @@ img{max-width:100%;display:block}
     </div>
 
     <div class="ty-cta">
-      <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
+      <a class="btn-call" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">BOOK A CALL &rarr;</a>
       <a class="btn btn-ghost" href="/lp/b2b-saas">Back to landing page</a>
     </div>
   </div>

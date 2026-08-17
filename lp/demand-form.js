@@ -129,8 +129,7 @@
         email: email,
         website: website,
         competitors: competitors,
-        pageUri: window.location.href,
-        pageName: document.title
+        pageUri: window.location.href
       };
 
       sending = true;
