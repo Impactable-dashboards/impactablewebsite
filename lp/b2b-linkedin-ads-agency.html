@@ -74,7 +74,7 @@ img{max-width:100%;display:block}
 .hl{color:var(--blue-soft)}
 .em{color:var(--canopy)}
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-soft)}
-.btn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;padding:14px 24px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;cursor:pointer;border:none;text-align:center}
+.btn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;padding:14px 24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;cursor:pointer;border:none;text-align:center}
 .btn-primary{background:var(--canopy);color:#071A38}
 .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
@@ -89,7 +89,17 @@ img{max-width:100%;display:block}
   transition:background .2s,border-color .2s,color .2s,transform .2s;
 }
 .btn-call:hover{background:#33adda;border-color:#33adda;color:#FFF;transform:translateY(-1px)}
-.lph .btn-call{height:40px;padding:0 18px;font-size:13px}
+.btn-plan{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  box-sizing:border-box;height:49px;padding:0 26px;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:16px;
+  letter-spacing:.64px;line-height:normal;text-transform:uppercase;
+  border-radius:6px;border:1px solid var(--canopy);cursor:pointer;
+  background:var(--canopy);color:#071A38;
+  transition:background .2s,border-color .2s,color .2s,transform .2s,filter .2s;
+}
+.btn-plan:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.lph .btn-call,.lph .btn-plan{height:40px;padding:0 18px;font-size:13px}
 /* header */
 .lph{position:sticky;top:0;z-index:60;background:rgba(7,26,56,0.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
 .lph-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
@@ -105,7 +115,7 @@ img{max-width:100%;display:block}
 .hero h1{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:1.05;font-size:clamp(32px,4vw,50px);margin:14px 0 0}
 .hero-sub{font-size:19px;color:var(--chalk);margin:20px 0 0;max-width:52ch}
 .hero-note{font-size:16px;color:var(--chalk-dim);margin:14px 0 0;max-width:52ch}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:26px 0 0}
 .hero-risk{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;color:var(--canopy);margin:16px 0 0}
 /* trust cluster */
 .trust{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin:28px 0 0;padding-top:22px;border-top:1px solid var(--line-soft)}
@@ -341,7 +351,7 @@ img{max-width:100%;display:block}
     <div class="fproof">The team behind Lacework's 6X, published by LinkedIn, and HeyReach's 20X.</div>
     <h2 class="display">See who your buyers really are, before you spend a dollar.</h2>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
+      <a class="btn-plan" href="#demandplan">Get Your Free Demand Plan</a>
       <a class="btn-call" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">BOOK A CALL &rarr;</a>
     </div>
     <p class="fscarce">We onboard a set number of new accounts each quarter, so the ones we take get real attention.</p>
