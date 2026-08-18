@@ -19,7 +19,7 @@
     var offerReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function playOffer() {
       offerCard.classList.add('is-on');
-      if (!offerAmt || offerReduce) return;
+      if (!offerAmt || offerReduce || !offerAmt.hasAttribute('data-count')) return;
       var to = parseFloat(offerAmt.getAttribute('data-count') || '1500');
       window.setTimeout(function () {
         var start = performance.now();
@@ -327,7 +327,7 @@
     var planReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function playPlan() {
       planGrid.classList.add('is-on');
-      if (!planAmt || planReduce) return;
+      if (!planAmt || planReduce || !planAmt.hasAttribute('data-count')) return;
       var to = parseFloat(planAmt.getAttribute('data-count') || '1500');
       window.setTimeout(function () {
         var start = performance.now();
