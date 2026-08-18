@@ -1338,7 +1338,7 @@
   font-family:var(--font-display);font-size:48px;line-height:1.12;
   font-weight:400;text-transform:none;color:var(--navy-900);margin:0 0 8px;text-align:center;
 }
-.la-faq-list{margin-top:26px}
+.la-faq-list{margin-top:50px}
 .la-faq-list details{
   display:grid;
   grid-template-rows:auto 0fr;
@@ -1496,6 +1496,7 @@ html[data-theme="light"] .la-offer-card{
 html[data-theme="light"] .la-offer-card h2,
 html[data-theme="light"] .la-offer-price .amt,
 html[data-theme="light"] .la-offer-list li{color:var(--navy-900)}
+html[data-theme="light"] .la-offer-pill span{color:#00c4b3}
 html[data-theme="light"] .la-hero h1{color:var(--navy-900)}
 
 @media(max-width:1100px){
