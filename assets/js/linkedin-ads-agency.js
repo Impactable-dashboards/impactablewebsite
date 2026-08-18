@@ -91,6 +91,25 @@
     }
   }
 
+  /* Playbook: pillars in, then warm-first ladder */
+  var playSec = document.getElementById('playbook');
+  if (playSec) {
+    var playReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function playPlaybook() { playSec.classList.add('is-on'); }
+    if (playReduce || !('IntersectionObserver' in window)) {
+      playPlaybook();
+    } else {
+      var playIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          playPlaybook();
+          playIo.unobserve(e.target);
+        });
+      }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+      playIo.observe(playSec);
+    }
+  }
+
   /* Accordion */
   var accRoot = document.getElementById('laAcc');
   if (accRoot) {
@@ -400,10 +419,15 @@
     }
 
     function loopStart() {
-      if (loopReduce || loopTimer) return;
+      if (loopReduce || loopInView) return;
       loopInView = true;
-      loopFlow.classList.remove('is-resetting');
-      later(loopTick, 240);
+      loopI = 0;
+      loopNodes.forEach(function (el) { el.classList.remove('is-on'); });
+      loopProgress(0);
+      loopFlow.classList.remove('is-return', 'is-resetting', 'is-on');
+      void loopFlow.offsetWidth;
+      loopFlow.classList.add('is-on');
+      later(loopTick, 1180);
     }
 
     function loopStop() {
@@ -412,14 +436,21 @@
         window.clearTimeout(loopTimer);
         loopTimer = null;
       }
+      loopI = 0;
+      loopNodes.forEach(function (el) { el.classList.remove('is-on'); });
+      loopProgress(0);
+      loopFlow.classList.add('is-resetting');
+      loopFlow.classList.remove('is-on', 'is-return');
+      void loopFlow.offsetWidth;
+      loopFlow.classList.remove('is-resetting');
     }
 
     if (loopReduce) {
+      loopFlow.classList.add('is-on');
       loopNodes.forEach(function (el) { el.classList.add('is-on'); });
       loopProgress(loopN);
       loopFlow.classList.add('is-return');
     } else if (!('IntersectionObserver' in window)) {
-      loopInView = true;
       loopStart();
     } else {
       var loopIo = new IntersectionObserver(function (entries) {
@@ -427,7 +458,7 @@
           if (e.isIntersecting) loopStart();
           else loopStop();
         });
-      }, { threshold: 0.22 });
+      }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
       loopIo.observe(loopFlow);
     }
   }
@@ -440,34 +471,102 @@
       climb.style.setProperty('--la-days-len', String(stroke.getTotalLength()));
     }
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var daysInView = false;
+    var daysRaf = 0;
+    var daysTimer = null;
+    var daysClip = climb.querySelector('.la-days-clip');
+    function resetDays() {
+      if (daysRaf) {
+        window.cancelAnimationFrame(daysRaf);
+        daysRaf = 0;
+      }
+      climb.classList.remove('is-on');
+      if (daysClip) daysClip.setAttribute('width', '0');
+      void climb.offsetWidth;
+    }
     function drawDays() {
+      if (daysInView) return;
+      daysInView = true;
+      resetDays();
       climb.classList.add('is-on');
-      var clip = climb.querySelector('.la-days-clip');
-      if (!clip) return;
+      if (!daysClip) return;
       if (reduce) {
-        clip.setAttribute('width', '1040');
+        daysClip.setAttribute('width', '1040');
         return;
       }
       var start = performance.now();
-      var dur = 1700;
+      var dur = 3800;
       (function frame(now) {
+        if (!daysInView) return;
         var t = Math.min(1, (now - start) / dur);
-        var eased = 1 - Math.pow(1 - t, 3);
-        clip.setAttribute('width', String(1040 * eased));
-        if (t < 1) requestAnimationFrame(frame);
+        var eased = 1 - Math.pow(1 - t, 2.15);
+        daysClip.setAttribute('width', String(1040 * eased));
+        if (t < 1) daysRaf = requestAnimationFrame(frame);
+        else daysRaf = 0;
       })(start);
+    }
+    function stopDays() {
+      daysInView = false;
+      if (daysTimer) {
+        window.clearTimeout(daysTimer);
+        daysTimer = null;
+      }
+      resetDays();
     }
     if (reduce || !('IntersectionObserver' in window)) {
       drawDays();
     } else {
+      var daysSec = climb.closest('.la-days') || climb;
       var daysIo = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          drawDays();
-          daysIo.unobserve(e.target);
+          if (e.isIntersecting) {
+            if (daysTimer) window.clearTimeout(daysTimer);
+            daysTimer = window.setTimeout(drawDays, 280);
+          } else {
+            stopDays();
+          }
         });
-      }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
-      daysIo.observe(climb);
+      }, { threshold: 0.22, rootMargin: '0px 0px -12% 0px' });
+      daysIo.observe(daysSec);
     }
+  }
+
+  /* FAQ smooth open/close */
+  var faqList = document.querySelector('.la-faq-list');
+  if (faqList) {
+    var faqReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    faqList.querySelectorAll('details').forEach(function (item) {
+      if (item.hasAttribute('open')) item.classList.add('is-open');
+      var sum = item.querySelector('summary');
+      if (!sum) return;
+      sum.addEventListener('click', function (e) {
+        e.preventDefault();
+        var willOpen = !item.classList.contains('is-open');
+        if (faqReduce) {
+          item.open = willOpen;
+          item.classList.toggle('is-open', willOpen);
+          return;
+        }
+        if (willOpen) {
+          item.open = true;
+          item.offsetHeight;
+          item.classList.add('is-open');
+          return;
+        }
+        item.classList.remove('is-open');
+        var closed = false;
+        function finish() {
+          if (closed) return;
+          closed = true;
+          if (!item.classList.contains('is-open')) item.open = false;
+        }
+        item.addEventListener('transitionend', function onEnd(ev) {
+          if (ev.target !== item) return;
+          item.removeEventListener('transitionend', onEnd);
+          finish();
+        });
+        window.setTimeout(finish, 520);
+      });
+    });
   }
 })();
