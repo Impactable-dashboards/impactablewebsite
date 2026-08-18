@@ -143,7 +143,7 @@ h2 .hl{color:#0099D1}
 }
 .rd-hero h1{
   font-family:var(--font-display);
-  font-size:clamp(32px,3.5vw,54px);
+  font-size:clamp(38px,4vw,60px);
   line-height:1.02;letter-spacing:.01em;text-transform:uppercase;
   color:var(--white);margin:0;font-weight:400;
   display:flex;flex-direction:column;align-items:flex-start;
