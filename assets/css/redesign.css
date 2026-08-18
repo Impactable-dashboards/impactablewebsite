@@ -143,13 +143,13 @@ h2 .hl{color:#0099D1}
 }
 .rd-hero h1{
   font-family:var(--font-display);
-  font-size:clamp(40px,4.2vw,66px);
-  line-height:1;letter-spacing:.01em;text-transform:uppercase;
+  font-size:clamp(32px,3.5vw,54px);
+  line-height:1.02;letter-spacing:.01em;text-transform:uppercase;
   color:var(--white);margin:0;font-weight:400;
   display:flex;flex-direction:column;align-items:flex-start;
   width:100%;
 }
-.rd-hero h1 .h1-line{display:block;white-space:nowrap;max-width:100%}
+.rd-hero h1 .h1-line{display:block;white-space:normal;max-width:100%}
 .rd-hero h1 .em{color:#00C4B3}
 .rd-hero-sub{
   font-size:19px;line-height:1.55;color:#dde1e5;
