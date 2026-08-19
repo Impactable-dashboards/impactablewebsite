@@ -18,7 +18,7 @@ DEMAND = "/competitor-intel-report"
 
 # AEO: freshness signal. Bump MODIFIED when a page's copy changes materially.
 PUBLISHED = "2026-07-30"
-MODIFIED = "2026-07-30"
+MODIFIED = "2026-08-19"
 # AEO: self-contained Organization identity mirrored from the homepage canonical
 # node, so an AI parsing any single persona page can verify who published it.
 ORG = {
@@ -411,48 +411,43 @@ def pricing(recommended, addon, show_system):
         return '<div class="ribbon">&starf; Recommended start</div>' if name == recommended else ""
     tl = f"""      <div class="tier reveal">
         {ribbon('Thought Leader')}
-        <h3>Thought Leader</h3>
-        <div class="price">$749<span> /mo</span></div>
-        <div class="setup">No setup fee</div>
-        <p class="blurb">A consistent founder voice on LinkedIn, from your real POV.</p>
+        <h3>Demand Engine</h3>
+        <div class="price">$1,750<span> /mo</span></div>
+        <div class="setup">+ $1,500 one-time setup</div>
+        <p class="blurb">Create demand every month, then prove it's working.</p>
         <ul>
-          <li><span class="tick">&#10003;</span> Text posts in your voice</li>
-          <li><span class="tick">&#10003;</span> Built from short inputs</li>
-          <li><span class="tick">&#10003;</span> Unique POV, not AI filler</li>
-          <li><span class="tick">&#10003;</span> Consistent weekly cadence</li>
-          <li><span class="tick">&#10003;</span> Human-reviewed before posting</li>
+          <li><span class="tick">&#10003;</span> One monthly founder or SME interview, turned into a long-form video, roughly six clips, a dozen posts, and a newsletter</li>
+          <li><span class="tick">&#10003;</span> Published organically and amplified with Thought Leader Ads</li>
+          <li><span class="tick">&#10003;</span> Runs from your company page, even without a personal-brand founder</li>
+          <li><span class="tick">&#10003;</span> DemandSense signals on the companies and people engaging</li>
         </ul>
-        <a href="{LANDBOT}" class="btn btn-ghost">Start the motion</a>
+        <a href="{LANDBOT}" class="btn btn-ghost">Start the engine</a>
       </div>"""
     ce = f"""      <div class="tier reveal">
         {ribbon('Content Engine')}
-        <h3>Content Engine</h3>
-        <div class="price">$2,949<span> /mo</span></div>
+        <h3>Demand Engine + LinkedIn</h3>
+        <div class="price">$2,500<span> /mo</span></div>
         <div class="setup">+ $1,500 one-time setup</div>
-        <p class="blurb">Strategy, inputs and multi-format content, ready to amplify.</p>
+        <p class="blurb">The engine, plus a capture channel so demand converts.</p>
         <ul>
-          <li><span class="tick">&#10003;</span> Everything in Thought Leader</li>
-          <li><span class="tick">&#10003;</span> Topic map by funnel stage</li>
-          <li><span class="tick">&#10003;</span> Monthly interview sessions</li>
-          <li><span class="tick">&#10003;</span> Text, image &amp; video assets</li>
-          <li><span class="tick">&#10003;</span> Thought-leader ads + engagement intel</li>
-          <li><span class="tick">&#10003;</span> Monthly analytics &amp; strategy sync</li>
+          <li><span class="tick">&#10003;</span> Everything in the Demand Engine</li>
+          <li><span class="tick">&#10003;</span> Light LinkedIn retargeting so the demand you create actually converts</li>
+          <li><span class="tick">&#10003;</span> Warm audiences built from who engages with the engine</li>
+          <li><span class="tick">&#10003;</span> The fastest path from content to pipeline for most B2B teams</li>
         </ul>
-        <a href="{LANDBOT}" class="btn btn-ghost">Run the engine</a>
+        <a href="{LANDBOT}" class="btn btn-ghost">Book a strategy call</a>
       </div>"""
     be = f"""      <div class="tier featured reveal">
         <div class="ribbon">&starf; The full system</div>
-        <h3>Brand Engine</h3>
-        <div class="price">Beta Testing</div>
-        <div class="setup">Talk to sales for a custom quote</div>
-        <p class="blurb">The full brand brain, powering sharp assets across every channel, organic and paid.</p>
+        <h3>The Connected System</h3>
+        <div class="price">from $5,000<span> /mo</span></div>
+        <div class="setup">Custom scope &middot; talk to sales</div>
+        <p class="blurb">Every channel wired as one, organic and paid.</p>
         <ul>
-          <li><span class="tick">&#10003;</span> Everything in Content Engine</li>
-          <li><span class="tick">&#10003;</span> We build &amp; maintain your Brand Engine</li>
-          <li><span class="tick">&#10003;</span> Governed by your foundational documents</li>
-          <li><span class="tick">&#10003;</span> 2-3 newsletters / month</li>
-          <li><span class="tick">&#10003;</span> YouTube + 1-2 landing pages / month</li>
-          <li><span class="tick">&#10003;</span> 1-2 blogs + ad copy on demand</li>
+          <li><span class="tick">&#10003;</span> The Demand Engine feeding a full LinkedIn program, cold and retargeting</li>
+          <li><span class="tick">&#10003;</span> Google captures the in-market demand LinkedIn creates</li>
+          <li><span class="tick">&#10003;</span> Web ID de-anonymizes the companies and people on your site</li>
+          <li><span class="tick">&#10003;</span> Quarterly diagnostic Impact Report across the whole system</li>
         </ul>
         <a href="{LANDBOT}" class="btn btn-canopy">Talk to sales</a>
       </div>"""
@@ -501,20 +496,12 @@ def pricing(recommended, addon, show_system):
       <p>Start where your voice is, then climb when it's earning. The combo is where most teams end up, because organic tells you which message works before you pay to scale it.</p>
     </div>
 
-    <div class="anchor-buy reveal" style="margin-bottom:20px;border:1px solid var(--accent);border-style:solid;background:linear-gradient(180deg,rgba(30,120,200,.12),var(--bg-2));">
-      <div style="font-family:var(--font-mono);font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">&starf; Organic + ads, together</div>
-      <h3 style="font-size:1.2rem;margin-bottom:6px;">Thought Leadership + LinkedIn Ads</h3>
-      <div class="price">$3,000 <span>/mo + ad spend</span></div>
-      <p style="font-size:.94rem;margin-top:10px;max-width:74ch;">The combo. Test the messaging organically, amplify the winners as thought-leader ads, then harvest the signals the motion throws off, organic engagement, website visitors, and ad engagement, and flow them into email and LinkedIn connect and message plays. Full-funnel value out of every post.</p>
-      <a href="{LANDBOT}" class="btn btn-primary" style="margin-top:16px;">Run the combo &rarr;</a>
-    </div>
-
     <div class="price-grid">
 {tl}
 {ce}
 {be}
     </div>
-    <p class="pricing-note">Brand Engine output volumes are a representative monthly scope and flex to your priorities.</p>
+    <p class="pricing-note">Flat monthly fee, separate from ad spend. The Connected System scope is representative and flexes to your priorities.</p>
 {bottom}
   </div>
 </section>"""
@@ -852,8 +839,8 @@ COACHING = {
     "stage_label": "Roughly: your first six figures sits at Validate, a repeatable cohort or retainer at Ramp, a second offer or market at Reach, a team delivering without you at Supply, and a category-known practice at Sustain.",
     "rec": "Thought Leader", "addon": "Outreach Automation", "system": False,
     "faq_extra": [
-        ("I'm a solo practitioner. Is $749 a month realistic for me?",
-         "That's exactly who the Thought Leader tier is built for. One voice, consistent weekly posting, no setup fee, from short inputs you can record between sessions. Most practices start here and climb only once it's producing."),
+        ("I'm a solo practitioner. Is the Demand Engine realistic for me?",
+         "That's exactly who the $1,750 Demand Engine is built for. One monthly interview you can record between sessions becomes a month of content, published and amplified for you. Most practices start here and climb to LinkedIn only once it's producing."),
         ("Won't giving away my methodology stop people from hiring me?",
          "It's the opposite, and it's the oldest pattern in expertise businesses. Teaching the framework proves you have one. Buyers hire you because they now believe the mechanism works and they want you to run it, not because they were kept in the dark."),
     ],
