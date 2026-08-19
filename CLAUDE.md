@@ -134,9 +134,19 @@ and the gate enforces their formatting.
 | Single-channel audit | Channel Check | $499 |
 | One-time plan (launch page only) | LinkedIn Ads Launch Plan | $1,500 |
 | Strategy offering (intelligence-room, ecosystem) | Strategy Foundations | scoped on a call |
+| Engine, create-only (pricing page) | Demand Engine | $1,750/mo |
+| Engine + capture channel (pricing page, recommended start) | Demand Engine + LinkedIn | $2,500/mo |
+| Productized full stack (pricing page) | The Connected System | from $5,000/mo |
 | Managed, one channel | Core | $3,000/mo |
 | Managed, two channels | Growth | $4,500/mo |
 | Managed, full system | Scale | $6-12k/mo (detail pages: $6,000 to $12,000) |
+
+The `/pricing` page **coexists** two ladders: an engine-led productized ladder
+(Demand Engine $1,750 → + LinkedIn $2,500 → Connected System from $5,000) leads
+the page; the full-management tiers (Core / Growth / Scale + Custom) sit below.
+Both are live and correct; do not "reconcile" one away. Standard terms on the
+engine ladder: flat monthly fee separate from ad spend, one-time $1,500 setup,
+90-day discovery horizon.
 
 ## When you change pricing / packaging / language (SWEEP — do not edit one spot)
 A change in one place must be swept everywhere. Process:
