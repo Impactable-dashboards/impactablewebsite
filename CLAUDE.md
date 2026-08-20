@@ -141,12 +141,18 @@ and the gate enforces their formatting.
 | Managed, two channels | Growth | $4,500/mo |
 | Managed, full system | Scale | $6-12k/mo (detail pages: $6,000 to $12,000) |
 
-The `/pricing` page **coexists** two ladders: an engine-led productized ladder
-(Demand Engine $1,750 → + LinkedIn $2,500 → Connected System from $5,000) leads
-the page; the full-management tiers (Core / Growth / Scale + Custom) sit below.
-Both are live and correct; do not "reconcile" one away. Standard terms on the
-engine ladder: flat monthly fee separate from ad spend, one-time $1,500 setup,
-90-day discovery horizon.
+The `/pricing` page **coexists** two ladders. **Ads management leads** (per
+Vil, 2026-08-20): the full-management tiers (Core $3,000 / Growth / Scale +
+Custom) come FIRST under an "LinkedIn Ads Management" heading, so a mid-market
+ads buyer sees ads management as the primary service, not content. The
+engine-led productized ladder (Demand Engine $1,750 → + LinkedIn $2,500 →
+Connected System from $5,000) is SECOND under "The demand foundation" (id
+`#engine`), framed as the upstream/starter path. The two sections cross-link
+both ways (`.eng-bridge`). Do NOT put the Demand Engine back on top, and do not
+"reconcile" one ladder away. Standard terms on the engine ladder: flat monthly
+fee separate from ad spend, one-time $1,500 setup, 90-day discovery horizon.
+(Deferred phase 2: replace the two sequential tables with an intent
+self-qualifier — "run my ads" vs "build demand".)
 
 ## When you change pricing / packaging / language (SWEEP — do not edit one spot)
 A change in one place must be swept everywhere. Process:
