@@ -30,7 +30,7 @@
       } else {
         var qs = '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
         if (location.protocol !== 'file:') {
-          qs += '&enablejsapi=1&origin=' + encodeURIComponent(location.origin || 'https://impactable.marketing');
+          qs += '&enablejsapi=1&origin=' + encodeURIComponent(location.origin || 'https://impactable.com');
         }
         f.src = 'https://www.youtube.com/embed/' + encodeURIComponent(yt) + qs;
       }

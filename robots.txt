@@ -1,4 +1,4 @@
-# Impactable - https://impactable.marketing
+# Impactable - https://impactable.com
 User-agent: *
 Allow: /
 Disallow: /pricing-table-embed
@@ -21,4 +21,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://impactable.marketing/sitemap.xml
+Sitemap: https://impactable.com/sitemap.xml

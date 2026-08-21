@@ -22,10 +22,10 @@ MODIFIED = "2026-08-19"
 # AEO: self-contained Organization identity mirrored from the homepage canonical
 # node, so an AI parsing any single persona page can verify who published it.
 ORG = {
-    "@type": "Organization", "@id": "https://impactable.marketing/#org",
+    "@type": "Organization", "@id": "https://impactable.com/#org",
     "name": "Impactable", "alternateName": "Impactable B2B",
-    "url": "https://impactable.marketing/",
-    "logo": "https://impactable.marketing/assets/img/logo-dark.svg",
+    "url": "https://impactable.com/",
+    "logo": "https://impactable.com/assets/img/logo-dark.svg",
     "description": "Impactable is the B2B Demand Intelligence System: a certified LinkedIn Marketing Partner that targets your best-fit buyers from real signal, discovers who your buyers actually are, and proves revenue with a continuous quarterly diagnostic.",
     "sameAs": [
         "https://www.linkedin.com/company/impactableb2b/",
@@ -648,22 +648,22 @@ def hero(eyebrow, h1_html, subhead, risk, proof_line=""):
 
 
 def head(title, desc, slug, breadcrumb_name, faq_items):
-    canon = f"https://impactable.marketing/thought-leadership/{slug}"
+    canon = f"https://impactable.com/thought-leadership/{slug}"
     faq_ld = [{"@type": "Question", "name": q,
                "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_items]
     graph = [
         ORG,
         {"@type": "WebPage", "@id": f"{canon}#webpage", "url": canon, "name": title,
-         "description": desc, "isPartOf": {"@id": "https://impactable.marketing/#website"},
-         "about": {"@id": "https://impactable.marketing/#org"},
-         "publisher": {"@id": "https://impactable.marketing/#org"},
+         "description": desc, "isPartOf": {"@id": "https://impactable.com/#website"},
+         "about": {"@id": "https://impactable.com/#org"},
+         "publisher": {"@id": "https://impactable.com/#org"},
          "datePublished": PUBLISHED, "dateModified": MODIFIED, "inLanguage": "en"},
         {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://impactable.marketing/"},
-            {"@type": "ListItem", "position": 2, "name": "Thought Leadership", "item": "https://impactable.marketing/thought-leadership"},
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://impactable.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Thought Leadership", "item": "https://impactable.com/thought-leadership"},
             {"@type": "ListItem", "position": 3, "name": breadcrumb_name, "item": canon}]},
         {"@type": "Service", "name": title, "serviceType": "B2B thought leadership content (brand brain)",
-         "provider": {"@id": "https://impactable.marketing/#org"},
+         "provider": {"@id": "https://impactable.com/#org"},
          "areaServed": ["United States", "United Kingdom", "Canada", "Australia"], "url": canon},
         {"@type": "FAQPage", "mainEntity": faq_ld},
     ]
@@ -695,11 +695,11 @@ def head(title, desc, slug, breadcrumb_name, faq_items):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{html.escape(desc, quote=True)}">
 <meta property="og:url" content="{canon}">
-<meta property="og:image" content="https://impactable.marketing/img/linkedin-certified-social-square.png">
+<meta property="og:image" content="https://impactable.com/img/linkedin-certified-social-square.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{html.escape(desc, quote=True)}">
-<meta name="twitter:image" content="https://impactable.marketing/img/linkedin-certified-social-square.png">
+<meta name="twitter:image" content="https://impactable.com/img/linkedin-certified-social-square.png">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>

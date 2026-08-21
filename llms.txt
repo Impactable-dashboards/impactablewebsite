@@ -18,14 +18,14 @@ Impactable is a B2B marketing agency founded and led by Justin Rowe. LinkedIn na
 - Certified LinkedIn Marketing Partner; LinkedIn 2026 Thought Leader of the Year
 
 ## Core pages
-- [Home](https://impactable.marketing/): The B2B Demand Intelligence System, and how every channel runs as one connected system.
-- [LinkedIn Ads for new advertisers](https://impactable.marketing/linkedin-launch): Launch LinkedIn on a validated system, starting with a $1,500 Foundational Strategy.
-- [LinkedIn Ads for existing advertisers](https://impactable.marketing/linkedin-scale): Diagnose waste and scale a full-funnel account, starting with a $1,500 Impact Report.
-- [B2B paid search](https://impactable.marketing/google): Google and LinkedIn run as one closed attribution loop.
-- [Thought leadership / Brand Engine](https://impactable.marketing/thought-leadership): Founder-led content produced from a living AI context environment.
-- [The marketing ecosystem](https://impactable.marketing/marketing-ecosystem): How founder content, paid search, LinkedIn, and nurture compound together.
-- [Pricing](https://impactable.marketing/pricing): The climbing offer ladder, from a free scorecard to full ecosystem management.
-- [Free Competitor Intel Report](https://impactable.marketing/competitor-intel-report): What your competitors run on LinkedIn and the audience lanes they leave open.
+- [Home](https://impactable.com/): The B2B Demand Intelligence System, and how every channel runs as one connected system.
+- [LinkedIn Ads for new advertisers](https://impactable.com/linkedin-launch): Launch LinkedIn on a validated system, starting with a $1,500 Foundational Strategy.
+- [LinkedIn Ads for existing advertisers](https://impactable.com/linkedin-scale): Diagnose waste and scale a full-funnel account, starting with a $1,500 Impact Report.
+- [B2B paid search](https://impactable.com/google): Google and LinkedIn run as one closed attribution loop.
+- [Thought leadership / Brand Engine](https://impactable.com/thought-leadership): Founder-led content produced from a living AI context environment.
+- [The marketing ecosystem](https://impactable.com/marketing-ecosystem): How founder content, paid search, LinkedIn, and nurture compound together.
+- [Pricing](https://impactable.com/pricing): The climbing offer ladder, from a free scorecard to full ecosystem management.
+- [Free Competitor Intel Report](https://impactable.com/competitor-intel-report): What your competitors run on LinkedIn and the audience lanes they leave open.
 
 ## Contact
 - Company LinkedIn: https://www.linkedin.com/company/impactableb2b/

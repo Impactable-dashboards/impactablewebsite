@@ -34,6 +34,8 @@ function json(res, status, body) {
 function allowOrigin(req) {
   var origin = req.headers.origin || '';
   if (
+    origin === 'https://impactable.com' ||
+    origin === 'https://www.impactable.com' ||
     origin === 'https://impactable.marketing' ||
     origin === 'https://www.impactable.marketing' ||
     /^https:\/\/impactablewebsite[a-z0-9-]*\.vercel\.app$/.test(origin) ||
@@ -41,7 +43,7 @@ function allowOrigin(req) {
   ) {
     return origin;
   }
-  return 'https://impactable.marketing';
+  return 'https://impactable.com';
 }
 
 function normalizeWebsite(website) {

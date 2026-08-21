@@ -8,7 +8,7 @@ quotable, verifiable source about ourselves).
 **Enforced by `scripts/check-seo.py`** — run it before publishing; CI runs it on
 every push (`.github/workflows/seo-check.yml`). A page that fails the gate does not ship.
 
-**Canonical host:** `https://impactable.marketing`. It lives in the injector, the
+**Canonical host:** `https://impactable.com`. It lives in the injector, the
 sitemap, robots.txt, and llms.txt. If the production domain changes, update it in
 those four places (one find-replace) and re-run the gate.
 
@@ -20,14 +20,14 @@ those four places (one find-replace) and re-run the gate.
 ```html
 <title>…</title>                              <!-- unique, 10–70 chars, primary keyword + | Impactable -->
 <meta name="description" content="…">         <!-- unique, 50–160 chars, outcome + keyword, no truncation -->
-<link rel="canonical" href="https://impactable.marketing/{path}">
+<link rel="canonical" href="https://impactable.com/{path}">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Impactable">
 <meta property="og:title" content="…">
 <meta property="og:description" content="…">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="https://impactable.marketing/img/…(1200×630 ideal)">
+<meta property="og:image" content="https://impactable.com/img/…(1200×630 ideal)">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="…">
 <meta name="twitter:description" content="…">

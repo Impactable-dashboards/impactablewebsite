@@ -175,17 +175,17 @@ def head(title, desc, slug):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://impactable.marketing/lp/{slug}">
+<link rel="canonical" href="https://impactable.com/lp/{slug}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Impactable">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:url" content="https://impactable.marketing/lp/{slug}">
-<meta property="og:image" content="https://impactable.marketing/img/linkedin-certified-social-square.png">
+<meta property="og:url" content="https://impactable.com/lp/{slug}">
+<meta property="og:image" content="https://impactable.com/img/linkedin-certified-social-square.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="https://impactable.marketing/img/linkedin-certified-social-square.png">
+<meta name="twitter:image" content="https://impactable.com/img/linkedin-certified-social-square.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -199,9 +199,9 @@ HEADER = '''
 <!-- [SHARED-HEADER] -->
 <header class="lph">
   <div class="wrap lph-in">
-    <a class="lph-logo" href="#top"><img src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
+    <a class="lph-logo" href="#top"><img src="https://impactable.com/assets/img/logo-dark.svg" alt="Impactable"></a>
     <div class="lph-right">
-      <span class="lph-badge"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="">LinkedIn Marketing Partner</span>
+      <span class="lph-badge"><img src="/assets/img/Marketing-Partner.svg" alt="">LinkedIn Marketing Partner</span>
       <a class="btn btn-primary" href="#demandplan">Get Your Free Demand Plan</a>
     </div>
   </div>
@@ -221,7 +221,7 @@ def form_card():
 def trust(saas=False):
     third = '<span class="tp"><b>SaaS is our largest vertical</b></span>' if saas else '<span class="tp"><b>6X ROI</b> published by LinkedIn</span>'
     return f'''<div class="trust">
-        <span class="tp"><img src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner"></span>
+        <span class="tp"><img src="/assets/img/Marketing-Partner.svg" alt="LinkedIn Marketing Partner"></span>
         <span class="tp"><b>60+</b> active B2B clients</span><span class="dot"></span>
         {third}<span class="dot"></span>
         <span class="tp"><b>$50M+</b> in B2B ad spend managed</span>
@@ -321,9 +321,9 @@ FOOTER = '''
 <!-- footer -->
 <footer class="lpf">
   <div class="wrap lpf-in">
-    <a href="https://impactable.com"><img class="plogo" src="https://impactable.marketing/assets/img/logo-dark.svg" alt="Impactable"></a>
+    <a href="https://impactable.com"><img class="plogo" src="https://impactable.com/assets/img/logo-dark.svg" alt="Impactable"></a>
     <span>&copy; 2026 Impactable LLC &middot; LinkedIn Marketing Partner</span>
-    <img class="lpf-part" src="https://impactable.com/wp-content/uploads/2022/02/Marketing-Partner.svg" alt="LinkedIn Marketing Partner">
+    <img class="lpf-part" src="/assets/img/Marketing-Partner.svg" alt="LinkedIn Marketing Partner">
   </div>
 </footer>
 <script defer src="/_vercel/insights/script.js"></script>

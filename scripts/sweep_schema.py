@@ -21,10 +21,10 @@ DEFAULT_PUBLISHED = "2026-07-09"
 EXCLUDE = {"pricing-table-embed.html", "googledc79b137a1cd7351.html"}
 
 ORG = {
-    "@type": "Organization", "@id": "https://impactable.marketing/#org",
+    "@type": "Organization", "@id": "https://impactable.com/#org",
     "name": "Impactable", "alternateName": "Impactable B2B",
-    "url": "https://impactable.marketing/",
-    "logo": "https://impactable.marketing/assets/img/logo-dark.svg",
+    "url": "https://impactable.com/",
+    "logo": "https://impactable.com/assets/img/logo-dark.svg",
     "description": "Impactable is the B2B Demand Intelligence System: a certified LinkedIn Marketing Partner that targets your best-fit buyers from real signal, discovers who your buyers actually are, and proves revenue with a continuous quarterly diagnostic.",
     "sameAs": [
         "https://www.linkedin.com/company/impactableb2b/",
@@ -90,7 +90,7 @@ def sweep(path):
         if "dateModified" not in page:
             page["dateModified"] = MODIFIED; changed.append("dateModified")
         if "publisher" not in page:
-            page["publisher"] = {"@id": "https://impactable.marketing/#org"}; changed.append("publisher")
+            page["publisher"] = {"@id": "https://impactable.com/#org"}; changed.append("publisher")
 
     if not changed:
         return "unchanged"
