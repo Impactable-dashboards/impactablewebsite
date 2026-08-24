@@ -1,794 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head><link rel="stylesheet" href="assets/css/tokens.css">
-<link rel="stylesheet" href="assets/css/chrome.css"><script src="assets/js/main.js"></script>
-
+<head>
 <meta charset="UTF-8">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="icon" href="assets/img/favicon-dark.png" type="image/png" media="(prefers-color-scheme: light)">
 <link rel="icon" href="assets/img/favicon.png" type="image/png" media="(prefers-color-scheme: dark)">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){try{var t=localStorage.getItem('imp-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <title>LinkedIn Ads for Existing Advertisers | Scale & Improve, Impactable</title>
 <meta name="description" content="Already running LinkedIn Ads? Find the waste, surface the accounts that are moving, and scale a full-funnel system. Start free with a Demand Plan.">
+<script>(function(){try{var t=localStorage.getItem('imp-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="assets/js/main.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --asphalt:#001122;
-  --concrete:#0D2744;
-  --court:#002245;
-  --line:rgba(190,214,246,0.14);
-  --line-soft:rgba(190,214,246,0.08);
-  --bone:#f5f5f5;
-  --chalk:#E8E4DA;
-  --chalk-dim:#C9C4B9;
-  --blue:#0099D1;
-  --blue-soft:#5BB8E0;
-  --canopy:#00C4B3;
-  --clay:#00C4B3;
-  --rust:#FF5A1F;
-  --moss:#C6FF3D;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--asphalt);
-  color:var(--bone);
-  font-family:'Inter',sans-serif;
-  font-size:19px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-
-/* ── type system ── */
-.display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
-.serif{font-family:'Fraunces',serif}
-.mono{font-family:'JetBrains Mono',monospace}
-.eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:14px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--blue-soft);
-  display:inline-flex;align-items:center;gap:9px;
-}
-.eyebrow::before{content:"";width:22px;height:1px;background:var(--blue);display:inline-block}
-
-/* ── layout shell ── */
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
-section{position:relative}
-
-/* ── nav ── */
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(10,10,12,0.78);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line-soft);
-}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav-logo img{height:26px;width:auto}
-.nav-links{display:flex;gap:30px;align-items:center}
-.nav-links a{font-size:16px;color:var(--chalk);transition:color .2s}
-.nav-links a:hover{color:var(--bone)}
-.btn{
-  font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;letter-spacing:0.04em;
-  text-transform:uppercase;padding:12px 22px;border-radius:2px;
-  display:inline-flex;align-items:center;gap:8px;transition:all .22s;cursor:pointer;border:none;
-}
-.btn-primary{background:var(--blue);color:#03121b}
-.btn-primary:hover{background:var(--blue-soft);transform:translateY(-1px)}
-.btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue-soft)}
-.nav-cta{font-size:16px;padding:10px 18px}
-.nav-toggle{display:none;background:none;border:none;color:var(--bone);font-size:22px;cursor:pointer}
-
-/* ── hero ── */
-.hero{padding:68px 0 72px;border-bottom:1px solid var(--line-soft)}
-.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center}
-.partner-badge{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.partner-badge img{height:42px;width:auto}
-.partner-badge span{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--chalk-dim)}
-.hero h1{font-size:clamp(42px,4.3vw,57px);margin:18px 0 0;line-height:1.04;padding-bottom:.04em}
-.hero h1 .em{color:#00C4B3}
-.hero-lede{font-family:'Inter',sans-serif;font-style:normal;font-size:clamp(21px,2vw,24px);line-height:1.45;color:var(--bone);max-width:40ch;margin:22px 0 0;font-weight:500}
-.hero-sub{font-size:20px;color:var(--chalk);max-width:50ch;margin:18px 0 28px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:34px;margin-top:46px;padding-top:30px;border-top:1px solid var(--line-soft)}
-.hstat .n{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:-0.03em;line-height:1}
-.hstat .l{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-dim);margin-top:8px}
-
-/* hero system card */
-.sys-card{
-  background:linear-gradient(160deg,#14141a 0%,#0c0c10 100%);
-  border:1px solid var(--line);border-radius:6px;padding:26px 24px;
-  position:relative;
-}
-.sys-card::before{content:"";position:absolute;inset:0;border-radius:6px;padding:1px;
-  background:linear-gradient(180deg,rgba(27,155,209,0.4),transparent 60%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.sys-head{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.live-dot{width:8px;height:8px;border-radius:50%;background:var(--canopy);box-shadow:0 0 0 0 rgba(255,182,39,0.6);animation:pulse 2.4s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,182,39,0.5)}70%{box-shadow:0 0 0 8px rgba(255,182,39,0)}100%{box-shadow:0 0 0 0 rgba(255,182,39,0)}}
-.sys-head .t{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--chalk)}
-.sys-rail{position:relative;padding-left:26px}
-.sys-rail::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--blue),var(--blue-soft))}
-.sys-node{position:relative;padding:9px 0}
-.sys-node::before{content:"";position:absolute;left:-23px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--asphalt);border:2px solid var(--blue)}
-.sys-node .sn-t{font-size:16px;font-weight:600;color:var(--bone)}
-.sys-node .sn-d{font-size:14px;color:var(--chalk-dim);font-family:'JetBrains Mono',monospace;letter-spacing:0.02em}
-.sys-node.loop::before{border-color:var(--canopy)}
-
-/* ── generic section header ── */
-.sec{padding:92px 0;border-bottom:1px solid var(--line-soft)}
-.sec-head{max-width:760px;margin-bottom:52px}
-.sec-title{font-size:clamp(38px,3.6vw,49px);margin:18px 0 16px}
-.hl{color:var(--blue);background:none;padding:0}
-.sec-desc{font-size:20px;color:var(--chalk);max-width:60ch}
-
-/* ── wedge / UVP ── */
-.wedge{background:var(--concrete)}
-.wedge-flip{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:8px}
-.wedge-col{padding:38px 34px}
-.wedge-col.old{background:transparent}
-.wedge-col.new{background:linear-gradient(160deg,rgba(27,155,209,0.10),transparent);border-left:1px solid var(--line)}
-.wedge-tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px}
-.wedge-col.old .wedge-tag{color:var(--chalk-dim)}
-.wedge-col.new .wedge-tag{color:var(--blue-soft)}
-.wedge-list{list-style:none}
-.wedge-list li{font-size:17px;padding:11px 0;border-bottom:1px solid var(--line-soft);color:var(--chalk);display:flex;gap:11px;align-items:flex-start}
-.wedge-list li:last-child{border-bottom:none}
-.wedge-col.old li{text-decoration:line-through;text-decoration-color:var(--rust);opacity:0.65}
-.wedge-col.new li{color:var(--bone)}
-.wedge-list li .mk{font-family:'JetBrains Mono',monospace;flex-shrink:0;font-size:13px;line-height:1.5}
-.wedge-col.old .mk{color:var(--rust)}
-.wedge-col.new .mk{color:var(--blue)}
-.proof-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.proof-card{border:1px solid var(--line);border-radius:6px;padding:28px 26px;background:var(--asphalt)}
-.proof-card .pn{font-family:'Anton',sans-serif;font-size:42px;letter-spacing:-0.03em;line-height:1;color:var(--canopy)}
-.proof-card .pn.blue{color:var(--blue-soft)}
-.proof-card .pn.clay{color:var(--clay)}
-.proof-card .pt{font-size:17px;color:var(--bone);font-weight:600;margin:14px 0 6px}
-.proof-card .pd{font-size:16px;color:var(--chalk-dim);line-height:1.5}
-
-/* ── operating system overview ── */
-.os{background:var(--asphalt)}
-.os-spine{position:relative;margin-top:14px}
-.os-pillar{display:grid;grid-template-columns:64px 1fr;gap:0;position:relative}
-.os-rail{position:relative}
-.os-rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,var(--blue),rgba(27,155,209,0.2))}
-.os-pillar:last-child .os-rail::before{background:linear-gradient(180deg,var(--blue),transparent)}
-.os-marker{position:absolute;left:50%;top:30px;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--asphalt);border:3px solid var(--blue);z-index:2}
-.os-body{padding:22px 0 40px 28px}
-.os-phase{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:8px}
-.os-body h3{font-family:'Anton',sans-serif;font-size:clamp(22px,2.6vw,30px);letter-spacing:-0.02em;text-transform:none;margin-bottom:12px}
-.os-body p{font-size:17px;color:var(--chalk);max-width:62ch}
-.os-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.chip{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.04em;color:var(--chalk);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
-.chip.hot{border-color:rgba(255,182,39,0.4);color:var(--canopy)}
-
-/* ── onboarding steps ── */
-.steps{background:var(--concrete)}
-.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
-.step{border:1px solid var(--line);border-radius:6px;padding:26px 24px;background:var(--asphalt);position:relative;transition:border-color .25s,transform .25s}
-.step:hover{border-color:var(--blue);transform:translateY(-3px)}
-.step-n{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:0.02em;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.step-n::after{content:"";flex:1;height:1px;background:var(--line-soft)}
-.step h4{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--bone)}
-.step p{font-size:16px;color:var(--chalk);line-height:1.55}
-.step .step-tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-dim);margin-top:14px;display:block}
-.validated{margin-top:30px;font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:var(--bone);text-align:center;max-width:48ch;margin-left:auto;margin-right:auto}
-.validated em{color:var(--canopy);font-style:italic}
-
-/* ── impact report ── */
-.ir{background:var(--asphalt)}
-.ir-statement{font-family:'Fraunces',serif;font-size:clamp(22px,2.8vw,32px);line-height:1.35;max-width:24ch;margin-bottom:14px}
-.ir-statement .strike{color:var(--chalk-dim);text-decoration:line-through;text-decoration-color:var(--rust)}
-.ir-statement .lift{color:var(--blue-soft);font-style:italic}
-.ir-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-.act{border:1px solid var(--line);border-radius:6px;padding:24px 22px;background:linear-gradient(165deg,var(--court),var(--asphalt))}
-.act-n{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;color:var(--blue-soft);margin-bottom:12px}
-.act h4{font-size:17px;font-weight:700;margin-bottom:9px;color:var(--bone)}
-.act p{font-size:16px;color:var(--chalk);line-height:1.55}
-
-/* ── flywheel / EBR ── */
-.fly{background:var(--concrete)}
-.fly-loop{display:flex;align-items:stretch;gap:0;margin-top:14px;flex-wrap:wrap;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.fly-node{flex:1;min-width:160px;padding:28px 22px;border-right:1px solid var(--line);position:relative}
-.fly-node:last-child{border-right:none}
-.fly-node .fn{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.06em;color:var(--chalk-dim);margin-bottom:10px}
-.fly-node h4{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:8px}
-.fly-node p{font-size:16px;color:var(--chalk)}
-.fly-node .fbar{position:absolute;left:0;top:0;height:3px;width:100%}
-.fly-loopback{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--chalk);text-align:center;margin-top:26px}
-.fly-loopback em{color:var(--canopy)}
-
-/* ── maturity mountain ── */
-.mtn{background:var(--asphalt)}
-.ridge-wrap{margin-top:24px;border:1px solid var(--line);border-radius:6px;background:linear-gradient(180deg,var(--concrete),var(--asphalt));padding:34px 30px 26px}
-.ridge-svg{width:100%;height:auto;display:block}
-.ridge-stages{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:6px}
-.rstage{padding-top:18px;border-top:1px solid var(--line-soft)}
-.rstage .rn{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-dim)}
-.rstage .rname{font-family:'Anton',sans-serif;font-size:17px;letter-spacing:-0.01em;text-transform:none;margin:7px 0 6px}
-.rstage .rd{font-size:14px;color:var(--chalk);line-height:1.5}
-.rstage.active .rname{color:var(--canopy)}
-
-/* ── differentiators ── */
-.diff{background:var(--concrete)}
-.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-.diff-card{border:1px solid var(--line);border-radius:6px;padding:30px 28px;background:var(--asphalt);transition:border-color .25s}
-.diff-card:hover{border-color:var(--moss)}
-.diff-card h3{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:-0.01em;text-transform:none;margin-bottom:12px;color:var(--bone)}
-.diff-card h3 span{color:var(--moss)}
-.diff-card p{font-size:17px;color:var(--chalk);line-height:1.6}
-
-/* ── proof / testimonials ── */
-.testi{background:var(--asphalt)}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
-.quote{border:1px solid var(--line);border-radius:6px;padding:28px 26px;background:var(--concrete)}
-.quote p{font-size:17px;color:var(--bone);line-height:1.6;margin-bottom:18px}
-.quote .qmark{font-family:'Fraunces',serif;font-size:40px;line-height:0.5;color:var(--blue);display:block;margin-bottom:8px;height:22px}
-.quote .who{font-size:16px;color:var(--chalk-dim)}
-.quote .who b{color:var(--bone);font-weight:600;display:block;font-size:16px}
-
-/* ── final cta ── */
-.final{background:linear-gradient(160deg,#0d2030 0%,var(--asphalt) 70%);text-align:center;padding:104px 0}
-.final h2{font-size:clamp(42px,4.4vw,57px);margin-bottom:20px}
-.final p{font-size:21px;color:var(--chalk);max-width:46ch;margin:0 auto 36px}
-.final .btn{font-size:16px;padding:15px 30px}
-
-/* ── offer ladder (shared) ── */
-.ladder-sec{background:var(--concrete)}
-.cro-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px;align-items:end}
-.rung{border:1px solid var(--line);border-radius:10px;padding:22px 20px;background:var(--asphalt);position:relative;transition:transform .25s,border-color .25s}
-.cro-ladder .rung:nth-child(1){margin-top:72px}
-.cro-ladder .rung:nth-child(2){margin-top:54px}
-.cro-ladder .rung:nth-child(3){margin-top:30px}
-.cro-ladder .rung:nth-child(4){margin-top:14px}
-.rung:hover{transform:translateY(-4px);border-color:var(--blue)}
-.rung.feat{border-color:var(--canopy);box-shadow:inset 0 0 0 1px var(--canopy)}
-.rung-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;gap:8px}
-.rung-n{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);letter-spacing:.12em}
-.rung-price{font-family:'Anton',sans-serif;font-size:17px;letter-spacing:-.02em;color:var(--blue)}
-.rung-price.free{background:var(--canopy);color:#001122;padding:3px 9px;border-radius:5px;font-size:16px}
-.rung h4{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:8px;line-height:1.2}
-.rung p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:14px}
-.rung-cta{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--blue-soft);font-weight:500;display:inline-block}
-.rung-cta:hover{color:var(--bone)}
-.rung-here{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--canopy);color:#001122;border-radius:20px;padding:3px 9px}
-.ladder-reassure{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.03em;color:var(--chalk-dim)}
-.ladder-reassure b{color:var(--canopy);font-weight:500}
-@media(max-width:920px){.cro-ladder{grid-template-columns:1fr 1fr;gap:12px}.cro-ladder .rung{margin-top:0!important}}
-@media(max-width:560px){.cro-ladder{grid-template-columns:1fr}}
-
-/* ── where this fits trio ── */
-.xfit{background:var(--asphalt)}
-.xfit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
-.xfit-card{border:1px solid var(--line);border-radius:8px;padding:24px 22px;background:var(--concrete);transition:transform .25s,border-color .25s;display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer}
-.xfit-card:hover{transform:translateY(-3px);border-color:var(--blue)}
-.xfit-card .xk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:10px}
-.xfit-card p{font-size:16px;color:var(--chalk);line-height:1.5;margin-bottom:16px}
-.xfit-card .xlink{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--canopy);margin-top:auto}
-.xfit-card:hover .xlink{color:var(--bone)}
-@media(max-width:760px){.xfit-grid{grid-template-columns:1fr}}
-
-/* ── inline bridge strip ── */
-.inlinebridge{border:1px solid var(--line);border-left:3px solid var(--canopy);border-radius:6px;background:linear-gradient(90deg,rgba(255,182,39,0.06),transparent);padding:16px 22px;margin-top:34px;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.01em;color:var(--chalk)}
-.inlinebridge a{color:var(--canopy);font-weight:500}
-.inlinebridge a:hover{color:var(--bone)}
-
-
-
-/* ════ DIAGNOSTICS GALLERY ════ */
-.gal{background:var(--concrete)}
-.gal-note{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--chalk-dim);border:1px dashed var(--line);border-radius:3px;padding:8px 14px;display:inline-block;margin-top:18px}
-.spec{margin-top:30px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,#0B2348,var(--asphalt));overflow:hidden}
-.spec-head{padding:24px 28px 18px;border-bottom:1px solid var(--line-soft)}
-.spec-q{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-soft);display:flex;align-items:center;gap:8px}
-.spec-q::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
-.spec-title{font-size:23px;font-weight:700;margin:10px 0 6px;color:var(--bone)}
-.spec-ask{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--clay)}
-.spec-body{padding:26px 28px 30px}
-
-/* funnel */
-.fun{display:flex;flex-direction:column;gap:13px}
-.fun-row{display:grid;grid-template-columns:172px 1fr 124px;gap:20px;align-items:center;width:100%}
-.fun-label .fl-n{font-size:17px;font-weight:700;color:var(--bone);line-height:1.15}
-.fun-label .fl-s{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);margin-top:3px}
-.fun-track{height:52px;border-radius:8px;display:flex;align-items:center;padding:0 18px;color:#fff;min-width:58px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14)}
-.fun-track .fb-n{font-family:'JetBrains Mono',monospace;font-size:23px;font-weight:700;letter-spacing:-0.01em;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
-.fun-stat{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
-.fun-stat .fs-p{font-family:'Anton',sans-serif;font-size:18px;color:var(--bone);line-height:1.05}
-.fun-stat .fs-p small{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:var(--chalk-dim);letter-spacing:0.02em;display:block;margin-top:3px}
-.fun-delta{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.01em}
-.fun-delta.down{color:var(--rust);background:rgba(196,82,31,0.13)}
-.fun-delta.up{color:var(--moss);background:rgba(123,170,62,0.15)}
-.fun-accts{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
-.fun-accts .fa-h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
-.fa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.facard{border:1px solid var(--line);border-radius:9px;padding:14px 15px;background:var(--asphalt)}
-.facard .fa-nm{font-size:15px;font-weight:700;color:var(--bone)}
-.facard .fa-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--chalk-dim);margin-top:5px;line-height:1.45}
-.facard .fa-stage{display:inline-block;margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:20px}
-.fa-stage.aware{background:rgba(47,143,214,.18);color:#7cc4ec}
-.fa-stage.engaged{background:rgba(217,138,43,.2);color:#e8a64a}
-.fa-stage.pipeline{background:rgba(125,79,176,.26);color:#c39de0}
-.fa-stage.won{background:rgba(90,161,95,.2);color:#86c98b}
-@media(max-width:680px){.fa-grid{grid-template-columns:1fr 1fr}}
-
-/* generic spec table */
-.stab{width:100%;border-collapse:collapse;font-size:16px}
-.stab th{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-dim);text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
-.stab th.r,.stab td.r{text-align:right}
-.stab td{padding:13px 14px;border-bottom:1px solid var(--line-soft);color:var(--chalk)}
-.stab tr:last-child td{border-bottom:none}
-.stab .acct{color:var(--bone);font-weight:600}
-.stab .mono{font-family:'JetBrains Mono',monospace}
-.stab .num{font-family:'JetBrains Mono',monospace;color:var(--bone)}
-.cpc-g{color:var(--moss);font-family:'JetBrains Mono',monospace}
-.cpc-t{color:var(--blue-soft);font-family:'JetBrains Mono',monospace}
-.cpc-r{color:var(--rust);font-family:'JetBrains Mono',monospace}
-.verdict{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.06em;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid;text-transform:uppercase}
-.v-invest{color:var(--moss);border-color:rgba(123,170,62,0.5);background:rgba(123,170,62,0.08)}
-.v-hold{color:var(--blue-soft);border-color:rgba(91,184,224,0.4);background:rgba(91,184,224,0.07)}
-.v-reduce{color:var(--clay);border-color:rgba(255,182,39,0.4);background:rgba(255,182,39,0.07)}
-.v-exclude{color:var(--rust);border-color:rgba(255,90,31,0.5);background:rgba(255,90,31,0.08)}
-.v-hot{color:var(--clay);border-color:rgba(255,182,39,0.45)}
-.v-won{color:var(--moss);border-color:rgba(123,170,62,0.5)}
-.v-suppress{color:#FF5A6E;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.04em}
-.dimbar{display:inline-block;height:7px;background:linear-gradient(90deg,var(--blue),var(--blue-soft));border-radius:4px;vertical-align:middle;margin-right:8px}
-
-/* pool chips + sparkline (multi-signal board) */
-.pools{display:flex;gap:5px}
-.pool{width:30px;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500}
-.pool.on{background:rgba(27,155,209,0.18);border:1px solid rgba(27,155,209,0.55);color:var(--blue-soft)}
-.pool.off{background:rgba(255,255,255,0.02);border:1px solid var(--line-soft);color:var(--chalk-dim)}
-.spark{display:flex;align-items:flex-end;gap:3px;height:30px}
-.spark i{width:6px;background:var(--blue);border-radius:1px;opacity:0.55;display:block}
-.spark i.peak{background:var(--canopy);opacity:1}
-.depth{display:flex;align-items:center;gap:8px}
-.depth .dot5{display:flex;gap:3px}
-.depth .dd{width:7px;height:7px;border-radius:50%;background:var(--line)}
-.depth .dd.on{background:var(--blue)}
-.act-pill{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.04em;padding:5px 11px;border-radius:3px}
-.act-now{background:rgba(255,90,31,0.15);color:var(--rust);border:1px solid rgba(255,90,31,0.5)}
-.act-week{background:rgba(255,182,39,0.13);color:var(--clay);border:1px solid rgba(255,182,39,0.45)}
-.act-mon{background:transparent;color:var(--chalk-dim);border:1px solid var(--line)}
-.act-keep{background:rgba(123,170,62,0.1);color:var(--moss);border:1px solid rgba(123,170,62,0.4)}
-.score-n{font-family:'Anton',sans-serif;font-size:17px;letter-spacing:-0.02em;color:var(--bone)}
-
-/* waste two-col */
-.waste-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.waste-col h5{font-size:16px;font-weight:700;color:var(--bone);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
-.waste-col h5 .zc{font-family:'JetBrains Mono',monospace;font-size:13px;color:#FF5A6E}
-
-/* persona cards */
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.pcard{border:1px solid var(--line);border-radius:8px;padding:24px 24px;background:var(--asphalt);position:relative;overflow:hidden}
-.pcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px}
-.pcard.inv::before{background:linear-gradient(90deg,var(--moss),var(--canopy))}
-.pcard.hold::before{background:linear-gradient(90deg,var(--blue),var(--blue-soft))}
-.pcard h4{font-size:18px;font-weight:700;color:var(--bone);margin-bottom:5px}
-.pcard .prole{font-size:16px;color:var(--blue-soft);margin-bottom:16px}
-.pcard .pline{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk);margin-bottom:11px;line-height:1.5}
-.pcard .pline b{color:var(--bone);font-weight:500}
-.pcard .pstats{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk-dim);display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px}
-.pcard .pstats b{color:var(--bone)}
-.pcard .pstats .gv{color:var(--moss)}
-.pcard .pstats .bv{color:var(--blue-soft)}
-.pcard .paction{font-size:16px;color:var(--chalk);line-height:1.55}
-.pcard .paction b{color:var(--bone);font-weight:600}
-.spec-foot{padding:14px 28px;border-top:1px solid var(--line-soft);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);display:flex;align-items:center;gap:8px}
-.spec-foot .tk{color:var(--blue-soft)}
-
-/* ── reveal ── */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* ── responsive ── */
-@media(max-width:920px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .wedge-flip{grid-template-columns:1fr}
-  .wedge-col.new{border-left:none;border-top:1px solid var(--line)}
-  .ir-acts,.step-grid,.testi-grid{grid-template-columns:1fr 1fr}
-  .diff-grid{grid-template-columns:1fr}
-  .ridge-stages{grid-template-columns:1fr 1fr;gap:18px}
-  .pgrid,.waste-grid{grid-template-columns:1fr}
-  .fun-row{grid-template-columns:104px 1fr;gap:6px 12px}
-  .fun-stat{grid-column:2;flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap}
-  .fun-stat .fs-p{font-size:16px}
-  .fun-stat .fs-p small{display:inline;margin:0 0 0 5px}
-  .spec-scroll{overflow-x:auto}
-}
-@media(max-width:680px){
-  .nav-links{display:none}
-  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--concrete);padding:20px 28px;border-bottom:1px solid var(--line);gap:16px}
-  .nav-toggle{display:block}
-  .proof-strip,.ir-acts,.step-grid,.testi-grid,.ridge-stages,.pgrid,.waste-grid{grid-template-columns:1fr}
-  .hero-stats{flex-wrap:wrap;gap:24px}
-  .fly-node{border-right:none;border-bottom:1px solid var(--line)}
-  .sec{padding:64px 0}
-  .spec-scroll{overflow-x:auto}
-  .stab{min-width:540px}
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
-  html{scroll-behavior:smooth}
-}
-
-/* ════ LINKEDIN LAUNCH PAGE ════ */
-/* brighten comparison left columns */
-.split-col.cap{background:rgba(255,255,255,0.022)}
-.split-col.cap .split-pct{color:#CFCBC2}
-.split-col.cap .split-lbl{color:#9C988F}
-.split-col.cap p{color:#C4C0B7}
-.split-col.cap h4{color:var(--bone)}
-.wedge-col.old{opacity:1}
-.wedge-col.old li{opacity:1;color:#C4C0B7}
-.wedge-col.old li .mk{color:var(--rust);opacity:1}
-.wedge-col.old .wedge-tag{color:#9C988F}
-
-/* funnel spacing fix */
-
-/* hero offer preview */
-.offer-mini{background:linear-gradient(160deg,#14141a,#0c0c10);border:1px solid var(--line);border-radius:8px;padding:26px 24px;position:relative}
-.offer-mini::before{content:"";position:absolute;inset:0;border-radius:8px;padding:1px;background:linear-gradient(180deg,rgba(255,182,39,0.45),transparent 55%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.offer-mini .om-tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--canopy)}
-.offer-mini .om-name{font-size:21px;font-weight:700;margin:10px 0 2px}
-.offer-mini .om-price{font-family:'Anton',sans-serif;font-size:38px;letter-spacing:-0.03em;line-height:1;margin:14px 0 2px}
-.offer-mini .om-price small{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:400;color:var(--chalk-dim);letter-spacing:0;margin-left:6px}
-.offer-mini ul{list-style:none;margin:18px 0 0;padding:0}
-.offer-mini li{font-size:16px;color:var(--chalk);padding:7px 0;border-bottom:1px solid var(--line-soft);display:flex;gap:9px}
-.offer-mini li:last-child{border-bottom:none}
-.offer-mini li .ck{color:var(--canopy);flex-shrink:0;font-family:'JetBrains Mono',monospace}
-.offer-mini .om-foot{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-soft);letter-spacing:0.02em}
-
-/* reality list */
-.reality{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-.rcard{border:1px solid var(--line);border-radius:6px;padding:24px 22px;background:var(--asphalt)}
-.rcard .rx{font-family:'JetBrains Mono',monospace;color:var(--rust);font-size:16px;margin-bottom:12px}
-.rcard h4{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--bone)}
-.rcard p{font-size:16px;color:var(--chalk);line-height:1.55}
-
-/* in-market split */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:8px}
-.split-col{padding:34px 30px}
-.split-col.dem{background:linear-gradient(160deg,rgba(27,155,209,0.12),transparent);border-left:1px solid var(--line)}
-.split-pct{font-family:'Anton',sans-serif;font-size:54px;letter-spacing:-0.03em;line-height:1}
-.split-col.dem .split-pct{color:var(--blue-soft)}
-.split-lbl{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-dim);margin:10px 0 14px}
-.split-col p{font-size:17px;color:var(--chalk);line-height:1.6}
-.split-col h4{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:6px}
-
-/* THE OFFER */
-.offerwrap{background:var(--concrete)}
-.offer{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:14px;background:linear-gradient(165deg,#10131b,var(--asphalt));position:relative}
-.offer::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-soft))}
-.offer-grid{display:grid;grid-template-columns:1.1fr 0.9fr}
-.offer-left{padding:40px 38px}
-.offer-right{padding:40px 38px;background:rgba(255,255,255,0.015);border-left:1px solid var(--line)}
-.offer-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--canopy);margin-bottom:14px}
-.offer h3{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:-0.02em;text-transform:none;margin-bottom:10px}
-.offer .o-price{display:flex;align-items:baseline;gap:12px;margin:18px 0 6px}
-.offer .o-amt{font-family:'Anton',sans-serif;font-size:52px;letter-spacing:-0.03em;line-height:1;color:var(--bone)}
-.offer .o-unit{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--chalk-dim)}
-.offer .o-sub{font-size:17px;color:var(--chalk);max-width:42ch;margin-bottom:24px}
-.offer .o-list{list-style:none;padding:0;margin:0}
-.offer .o-list li{font-size:16px;color:var(--bone);padding:11px 0;border-bottom:1px solid var(--line-soft);display:flex;gap:11px}
-.offer .o-list li:last-child{border-bottom:none}
-.offer .o-list .ck{color:var(--canopy);flex-shrink:0;font-family:'JetBrains Mono',monospace;font-weight:700}
-.offer-right h4{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:14px}
-.offer-right .who{font-size:16px;color:var(--chalk);line-height:1.6;margin-bottom:8px;display:flex;gap:10px}
-.offer-right .who b{color:var(--bone)}
-.bridge{margin-top:26px;padding:22px;border:1px dashed rgba(255,182,39,0.4);border-radius:8px;background:rgba(255,182,39,0.04)}
-.bridge .bt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--canopy);margin-bottom:8px}
-.bridge p{font-size:16px;color:var(--bone);line-height:1.55}
-.bridge p b{color:var(--canopy)}
-.offer-cta{margin-top:28px}
-
-/* WEBID band */
-.webid{background:var(--asphalt)}
-.webid-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:linear-gradient(160deg,#0d1b22,var(--asphalt));position:relative;margin-top:8px}
-.webid-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--blue-soft),var(--blue))}
-.webid-top{padding:40px 38px 6px}
-.webid-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#03121b;background:var(--canopy);border-radius:3px;padding:6px 12px;margin-bottom:18px;font-weight:700}
-.webid-top h3{font-family:'Anton',sans-serif;font-size:clamp(24px,3vw,34px);letter-spacing:-0.02em;text-transform:none;margin-bottom:12px}
-.webid-top h3 .hl{color:var(--blue)}
-.webid-top p{font-size:17px;color:var(--chalk);max-width:66ch;line-height:1.6}
-.webid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-soft);margin-top:28px}
-.wfeat{padding:28px 30px;border-right:1px solid var(--line-soft)}
-.wfeat:last-child{border-right:none}
-.wfeat .wn{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--blue-soft);margin-bottom:10px}
-.wfeat h5{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:7px}
-.wfeat p{font-size:16px;color:var(--chalk);line-height:1.55}
-
-/* audience ladder */
-.ladder{margin-top:10px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,var(--concrete),var(--asphalt));padding:30px 30px 24px}
-.lrow{display:grid;grid-template-columns:215px 1fr 150px;gap:20px;align-items:center;padding:11px 0}
-.lrow .ll .ln{font-size:17px;font-weight:600;color:var(--bone)}
-.lrow .ll .ls{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim);margin-top:2px}
-.lbar-track{height:34px;border-radius:4px;background:rgba(255,255,255,0.03);position:relative;overflow:hidden}
-.lbar{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:14px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#03121b;font-weight:700}
-.lrow .lt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.04em;text-align:right}
-.lt.first{color:var(--canopy)}
-.lt.layer{color:var(--blue-soft)}
-.lt.last{color:var(--chalk-dim)}
-.ladder-axis{display:flex;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim)}
-
-/* pillar cards */
-.pill-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
-.pill{border:1px solid var(--line);border-radius:8px;padding:30px 28px;background:var(--asphalt);transition:border-color .25s}
-.pill:hover{border-color:var(--blue)}
-.pill .pn{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;color:var(--blue-soft);margin-bottom:12px}
-.pill h3{font-family:'Anton',sans-serif;font-size:21px;letter-spacing:-0.01em;text-transform:none;margin-bottom:12px;color:var(--bone)}
-.pill p{font-size:17px;color:var(--chalk);line-height:1.6;margin-bottom:14px}
-.pill .pmeta{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk-dim);border-top:1px solid var(--line-soft);padding-top:13px}
-.pill .pmeta b{color:var(--canopy)}
-
-/* timeline */
-.tl{margin-top:10px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.tl-step{padding:26px 20px;border-right:1px solid var(--line);position:relative}
-.tl-step:last-child{border-right:none}
-.tl-step .tw{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.06em;color:var(--blue-soft);margin-bottom:10px}
-.tl-step h4{font-size:17px;font-weight:700;color:var(--bone);margin-bottom:7px}
-.tl-step p{font-size:16px;color:var(--chalk);line-height:1.5}
-.tl-step .stage{position:absolute;left:0;top:0;height:3px;width:100%}
-
-/* pricing path */
-.price-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:10px;align-items:stretch}
-.pc{border:1px solid var(--line);border-radius:8px;padding:32px 28px;background:var(--asphalt);display:flex;flex-direction:column}
-.pc.feat{border-color:rgba(255,182,39,0.45);background:linear-gradient(165deg,rgba(255,182,39,0.05),var(--asphalt))}
-.pc .pc-step{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:12px}
-.pc.feat .pc-step{color:var(--canopy)}
-.pc h4{font-size:20px;font-weight:700;color:var(--bone);margin-bottom:8px}
-.pc .pc-amt{font-family:'Anton',sans-serif;font-size:36px;letter-spacing:-0.03em;line-height:1;margin:8px 0 4px;color:var(--bone)}
-.pc .pc-amt small{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:400;color:var(--chalk-dim);letter-spacing:0}
-.pc .pc-desc{font-size:16px;color:var(--chalk);line-height:1.55;margin-bottom:18px}
-.pc ul{list-style:none;padding:0;margin:0 0 22px;flex:1}
-.pc li{font-size:16px;color:var(--chalk);padding:8px 0;border-bottom:1px solid var(--line-soft);display:flex;gap:9px}
-.pc li:last-child{border-bottom:none}
-.pc li .ck{color:var(--blue-soft);flex-shrink:0;font-family:'JetBrains Mono',monospace}
-.pc.feat li .ck{color:var(--canopy)}
-.pc .btn{width:100%;justify-content:center}
-.price-bridge{margin-top:18px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:var(--chalk)}
-.price-bridge em{color:var(--canopy);font-style:italic}
-
-@media(max-width:920px){
-  .offer-grid{grid-template-columns:1fr}
-  .offer-right{border-left:none;border-top:1px solid var(--line)}
-  .reality,.price-grid{grid-template-columns:1fr}
-  .split{grid-template-columns:1fr}
-  .split-col.dem{border-left:none;border-top:1px solid var(--line)}
-  .pill-grid{grid-template-columns:1fr}
-  .tl{grid-template-columns:1fr 1fr}
-  .tl-step{border-right:none;border-bottom:1px solid var(--line)}
-  .webid-grid{grid-template-columns:1fr}
-  .wfeat{border-right:none;border-bottom:1px solid var(--line-soft)}
-  .lrow{grid-template-columns:130px 1fr;gap:12px}
-  .lrow .lt{display:none}
-}
-@media(max-width:680px){
-  .lrow{grid-template-columns:1fr;gap:6px}
-  .lbar-track{height:28px}
-  .tl{grid-template-columns:1fr}
-}
-
-
-/* ════ SCALE & IMPROVE PAGE ════ */
-/* scale credibility band */
-.scaleband{background:linear-gradient(180deg,var(--concrete),var(--asphalt));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.scale-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:6px}
-.sstat{padding:34px 28px;border-right:1px solid var(--line);background:var(--asphalt)}
-.sstat:last-child{border-right:none}
-.sstat .sn{font-family:'Anton',sans-serif;font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.03em;line-height:1;color:var(--bone)}
-.sstat .sn .u{color:var(--blue-soft)}
-.sstat .sl{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk);margin-top:12px;line-height:1.45}
-.scale-caption{margin-top:20px;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.2vw,23px);color:var(--chalk);text-align:center}
-.scale-caption b{color:var(--bone);font-style:normal;font-weight:600}
-
-/* case study band */
-.cs{background:var(--asphalt)}
-.cs-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:linear-gradient(155deg,#0c1622,var(--asphalt));position:relative;display:grid;grid-template-columns:1fr 1fr}
-.cs-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-soft))}
-.cs-left{padding:44px 40px}
-.cs-badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-soft);border:1px solid var(--line);border-radius:3px;padding:6px 11px;margin-bottom:20px}
-.cs-left h3{font-family:'Anton',sans-serif;font-size:clamp(24px,3vw,33px);letter-spacing:-0.02em;text-transform:none;line-height:1.05;margin-bottom:16px}
-.cs-left h3 .hl{color:var(--blue)}
-.cs-left p{font-size:17px;color:var(--chalk);line-height:1.65;margin-bottom:14px;max-width:48ch}
-.cs-list{list-style:none;margin:0 0 14px;padding:0;max-width:48ch}
-.cs-list li{font-size:17px;color:var(--chalk);line-height:1.55;padding:6px 0 6px 20px;position:relative}
-.cs-list li::before{content:"\2192";position:absolute;left:0;color:var(--canopy);font-family:'JetBrains Mono',monospace}
-.cs-meta{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk-dim);margin-bottom:22px}
-.cs-link{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--blue-soft);text-decoration:none;border-bottom:1px solid rgba(91,184,224,0.4);padding-bottom:2px}
-.cs-link:hover{color:var(--canopy);border-color:var(--canopy)}
-.cs-right{padding:44px 40px;background:rgba(255,255,255,0.015);border-left:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:0}
-.cs-stat{padding:18px 16px;border-bottom:1px solid var(--line-soft)}
-.cs-stat:nth-child(odd){border-right:1px solid var(--line-soft)}
-.cs-stat:nth-child(3),.cs-stat:nth-child(4){border-bottom:none}
-.cs-stat .csn{font-family:'Anton',sans-serif;font-size:clamp(30px,3.6vw,44px);letter-spacing:-0.03em;line-height:1;color:var(--canopy)}
-.cs-stat .csl{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk);margin-top:8px;line-height:1.4}
-.cs-foot{grid-column:1/-1;padding:14px 40px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--chalk-dim)}
-
-/* engagement models */
-.models{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
-.model{border:1px solid var(--line);border-radius:8px;padding:34px 32px;background:var(--asphalt)}
-.model.strat{background:linear-gradient(160deg,rgba(27,155,209,0.06),var(--asphalt));border-color:rgba(27,155,209,0.35)}
-.model .mtag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chalk-dim);margin-bottom:12px}
-.model.strat .mtag{color:var(--blue-soft)}
-.model h3{font-family:'Anton',sans-serif;font-size:23px;letter-spacing:-0.01em;text-transform:none;margin-bottom:6px;color:var(--bone)}
-.model .msub{font-size:16px;color:var(--chalk);margin-bottom:20px}
-.model .mflow{display:flex;flex-direction:column;gap:10px}
-.model .mstep{display:flex;align-items:center;gap:12px;font-size:16px;color:var(--bone)}
-.model .mstep .mi{width:30px;height:30px;border-radius:6px;background:var(--court);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--blue-soft);font-size:13px}
-.model .mplus{color:var(--chalk-dim);font-family:'JetBrains Mono',monospace;font-size:16px;padding-left:9px}
-.model .mbest{margin-top:20px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--chalk-dim)}
-.model .mbest b{color:var(--canopy)}
-
-/* enterprise pricing tweaks */
-.pc.ent{border-color:rgba(91,184,224,0.4);background:linear-gradient(165deg,rgba(27,155,209,0.07),var(--asphalt))}
-.pc.ent .pc-step{color:var(--blue-soft)}
-.pc .chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.06em;color:var(--canopy);border:1px solid rgba(255,182,39,0.4);border-radius:3px;padding:3px 8px;margin-bottom:14px}
-
-@media(max-width:920px){
-  .scale-grid{grid-template-columns:1fr 1fr}
-  .sstat:nth-child(2){border-right:none}
-  .sstat:nth-child(1),.sstat:nth-child(2){border-bottom:1px solid var(--line)}
-  .cs-card{grid-template-columns:1fr}
-  .cs-right{border-left:none;border-top:1px solid var(--line)}
-  .cs-foot{padding:14px 24px}
-  .models{grid-template-columns:1fr}
-}
-@media(max-width:560px){
-  .scale-grid{grid-template-columns:1fr}
-  .sstat{border-right:none;border-bottom:1px solid var(--line)}
-}
-
-/* ════ GLOBAL NAV (gnav) — shared component, literal colors ════ */
-.gnav{position:sticky;top:0;z-index:100;background:rgba(10,10,12,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(190,214,246,0.08)}
-.gnav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
-.gnav-logo img{height:26px;width:auto;display:block}
-.gnav-menu{display:flex;align-items:center;gap:2px}
-.gnav-item{position:relative}
-.gnav-trigger{background:none;border:none;color:#A7A39A;font-family:'Inter',sans-serif;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:9px 11px;white-space:nowrap;transition:color .2s}
-.gnav-link{color:#A7A39A;font-size:15px;padding:9px 11px;white-space:nowrap;transition:color .2s}
-.gnav a{text-decoration:none}
-.gnav-trigger:hover,.gnav-link:hover,.gnav-item:hover .gnav-trigger,.gnav-item:focus-within .gnav-trigger{color:#F4F1EA}
-.gnav-caret{width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;display:inline-block}
-.gnav-item:hover .gnav-caret,.gnav-item.open .gnav-caret{transform:rotate(-135deg) translateY(1px)}
-.gnav-cta{margin-left:8px;font-size:15px;padding:10px 18px;white-space:nowrap}
-@media(max-width:1024px){.gnav-bookcall{display:none}}
-.gnav-mega{position:absolute;top:calc(100% + 12px);right:0;background:#0D2744;border:1px solid rgba(190,214,246,0.14);border-radius:10px;padding:24px 26px;box-shadow:0 30px 70px rgba(0,0,0,0.55);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;z-index:120}
-.gnav-mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
-.gnav-item:hover .gnav-mega,.gnav-item:focus-within .gnav-mega,.gnav-item.open .gnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
-.gnav-grid{display:grid;gap:22px 36px}
-.gnav-grid.svc{grid-template-columns:repeat(3,minmax(184px,1fr))}
-.gnav-menu .gnav-item:first-child .gnav-mega{left:0;right:auto}
-.gnav-grid.tools{grid-template-columns:repeat(2,minmax(210px,1fr))}
-.gnav-h{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#93A7BD;display:block;margin-bottom:12px}
-.gnav-col a{display:block;color:#f5f5f5;font-size:16px;font-weight:500;padding:6px 0;transition:color .2s}
-.gnav-col a:hover{color:#5BB8E0}
-.gnav-col a small{display:block;font-size:14px;color:#B3C2D2;font-weight:400;margin-top:3px;font-family:'Inter',sans-serif;letter-spacing:0}
-.gnav-feature{color:#00C4B3!important}
-.gnav-feature:hover{color:#E7FF86!important}
-.gnav-stack{display:block;font-family:'JetBrains Mono',monospace;font-size:16px;color:#A7A39A;line-height:1.95}
-.gnav-toggle{display:none;background:none;border:none;color:#f5f5f5;font-size:22px;cursor:pointer;line-height:1}
-@media(max-width:1280px){
-  .gnav-inner{padding:0 20px}
-  .gnav-trigger,.gnav-link{font-size:14px;padding:8px 7px}
-  .gnav-cta{font-size:14px;padding:9px 14px;margin-left:4px}
-  .gnav-theme{margin-left:4px;width:32px;height:32px;font-size:15px}
-}
-@media(max-width:1024px){
-  .gnav-menu{display:none}
-  .gnav-toggle{display:block}
-  .gnav-menu.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0D2744;border-bottom:1px solid rgba(190,214,246,0.14);padding:12px 22px 22px;max-height:calc(100vh - 72px);overflow-y:auto}
-  .gnav-item{width:100%}
-  .gnav-trigger{width:100%;justify-content:space-between;font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(190,214,246,0.08)}
-  .gnav-link{font-size:16px;padding:15px 2px;border-bottom:1px solid rgba(190,214,246,0.08)}
-  .gnav-mega{position:static;opacity:1;visibility:hidden;pointer-events:none;transform:none;box-shadow:none;border:none;background:transparent;padding:0;max-height:0;overflow:hidden;transition:max-height .25s ease}
-  .gnav-item.open .gnav-mega{visibility:visible;pointer-events:auto;max-height:3000px;padding:8px 0 16px 10px}
-  .gnav-mega::before{display:none}
-  .gnav-grid.svc,.gnav-grid.tools{grid-template-columns:1fr!important;gap:18px}
-  .gnav-cta{margin:16px 0 0;width:100%;justify-content:center;font-size:16px;padding:14px}
-}
-
-/* ════ THEME TOGGLE + LIGHT MODE ════ */
-.gnav-theme{background:none;border:1px solid rgba(244,241,234,0.18);color:#f5f5f5;width:34px;height:34px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:15px;margin-left:8px;transition:border-color .2s,color .2s}
-.gnav-theme:hover{border-color:#5BB8E0;color:#5BB8E0}
-.gnav-theme-lb{display:none}
-@media(max-width:1024px){.gnav-theme{width:100%;justify-content:flex-start;gap:10px;border:none;border-top:1px solid rgba(190,214,246,0.08);border-radius:0;padding:15px 2px;margin:0;font-size:16px}.gnav-theme-lb{display:inline}}
-
-/* ---- LIGHT THEME ---- */
-html[data-theme="light"]{
-  --asphalt:#f5f5f5;
-  --concrete:#FFFFFF;
-  --court:#F1ECE1;
-  --line:rgba(12,12,16,0.14);
-  --line-soft:rgba(12,12,16,0.07);
-  --bone:#16161B;
-  --chalk:#4D4A44;
-  --chalk-dim:#4D4A44;
-  --blue-soft:#1580AE;
-}
-html[data-theme="light"] body{background:var(--asphalt);color:var(--bone)}
-/* light nav */
-html[data-theme="light"] .gnav{background:rgba(244,241,234,0.88);border-bottom:1px solid rgba(12,12,16,0.10)}
-html[data-theme="light"] .gnav-logo{background:#001122;border-radius:8px;padding:6px 11px;display:inline-flex;align-items:center}
-html[data-theme="light"] .foot-logo img{filter:brightness(0)}
-html[data-theme="light"] .gnav-trigger,html[data-theme="light"] .gnav-link,html[data-theme="light"] .gnav-toggle{color:#4D4A44}
-html[data-theme="light"] .gnav-trigger:hover,html[data-theme="light"] .gnav-link:hover,html[data-theme="light"] .gnav-item:hover .gnav-trigger{color:#16161B}
-html[data-theme="light"] .gnav-mega{background:#FFFFFF;border-color:rgba(12,12,16,0.12);box-shadow:0 30px 70px rgba(20,20,30,0.18)}
-html[data-theme="light"] .gnav-h{color:#5F5C54}
-html[data-theme="light"] .gnav-col a{color:#16161B}
-html[data-theme="light"] .gnav-col a:hover{color:#1580AE}
-html[data-theme="light"] .gnav-col a small{color:#5F5C54}
-html[data-theme="light"] .gnav-feature{color:#3E8E1F!important}
-html[data-theme="light"] .gnav-theme{border-color:rgba(12,12,16,0.18);color:#16161B}
-html[data-theme="light"] .gnav-theme:hover{border-color:#1580AE;color:#1580AE}
-html[data-theme="light"] .gnav-menu.open{background:#FFFFFF;border-bottom-color:rgba(12,12,16,0.12)}
-/* dark panels → light */
-html[data-theme="light"] .sys-card,
-html[data-theme="light"] .offer-mini{background:linear-gradient(160deg,#FFFFFF,#F4F1EA)}
-html[data-theme="light"] .offer{background:linear-gradient(165deg,#FFFFFF,#F4F1EA)}
-html[data-theme="light"] .webid-card{background:linear-gradient(160deg,#EAF4FA,#F4F1EA)}
-html[data-theme="light"] .cs-card{background:linear-gradient(155deg,#FFFFFF,#F4F1EA)}
-html[data-theme="light"] .spec{background:linear-gradient(180deg,#FFFFFF,#F7F3EB)}
-html[data-theme="light"] .final{background:linear-gradient(160deg,#DCEBF2,#F4F1EA 70%)}
-html[data-theme="light"] .sys-node::before{background:#FFFFFF}
-/* keep lime where it's a badge background with dark text */
-html[data-theme="light"] .webid-badge{background:#00C4B3}
-html[data-theme="light"] .btn-ghost{color:#16161B}
-/* keep neon lime as vibrant fills; only lime-as-text needs a readable green */
-html[data-theme="light"] .proof-card .pn,html[data-theme="light"] .chip.hot,html[data-theme="light"] .validated em,html[data-theme="light"] .fly-loopback em,html[data-theme="light"] .rstage.active .rname,html[data-theme="light"] .offer-mini .om-tag,html[data-theme="light"] .offer-mini li .ck,html[data-theme="light"] .offer-eyebrow,html[data-theme="light"] .offer .o-list .ck,html[data-theme="light"] .bridge .bt,html[data-theme="light"] .bridge p b,html[data-theme="light"] .lt.first,html[data-theme="light"] .pill .pmeta b,html[data-theme="light"] .pc.feat .pc-step,html[data-theme="light"] .pc.feat li .ck,html[data-theme="light"] .price-bridge em,html[data-theme="light"] .cs-link:hover,html[data-theme="light"] .cs-stat .csn,html[data-theme="light"] .model .mbest b,html[data-theme="light"] .pc .chip{color:#0B7A6C}
-/* turn lime-highlight headline words into vibrant lime highlight blocks */
-html[data-theme="light"] .webid-top h3 .hl,html[data-theme="light"] .cs-left h3 .hl{color:var(--blue);background:none;padding:0}
-
-/* ════ LIGHT↔DARK SECTION RHYTHM (match homepage flow) ════ */
-/* dark band 1: reporting gallery (funnels, dashboards, data tables) */
-html[data-theme="light"] .gal{--asphalt:#001122;--concrete:#0D2744;--court:#002245;--line:rgba(190,214,246,0.14);--line-soft:rgba(190,214,246,0.08);--bone:#f5f5f5;--chalk:#E8E4DA;--chalk-dim:#C9C4B9;--blue-soft:#5BB8E0;--moss:#C6FF3D;color:#F4F1EA}
-html[data-theme="light"] .gal{background:var(--asphalt)}
-html[data-theme="light"] .gal .eyebrow{color:#5BB8E0}
-html[data-theme="light"] .gal .spec-foot .tk{color:#5BB8E0}
-html[data-theme="light"] .gal .spec{background:linear-gradient(180deg,#0B2348,#001122)}
-/* dark band 2: maturity curve (ridge chart) */
-html[data-theme="light"] .mtn{--asphalt:#001122;--concrete:#0D2744;--court:#002245;--line:rgba(190,214,246,0.14);--line-soft:rgba(190,214,246,0.08);--bone:#f5f5f5;--chalk:#E8E4DA;--chalk-dim:#C9C4B9;--blue-soft:#5BB8E0;color:#F4F1EA}
-html[data-theme="light"] .mtn{background:var(--asphalt)}
-html[data-theme="light"] .mtn .eyebrow{color:#5BB8E0}
-html[data-theme="light"] .mtn .rstage.active .rname{color:#00C4B3}
-/* cs-list arrows: readable green on the light case-study card */
-html[data-theme="light"] .cs-list li::before{color:#0B7A6C}
-
-.li-cert-grid{display:grid;grid-template-columns:0.82fr 1fr;gap:48px;align-items:center}.li-cert-media{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;max-height:560px}.li-cert-media img{width:100%;height:100%;object-fit:cover;display:block}.hl-blue{color:var(--blue-soft)}.li-cert-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}.li-cert-thumbs img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block}@media(max-width:820px){.li-cert-grid{grid-template-columns:1fr;gap:28px}.li-cert-media{aspect-ratio:4/3;max-height:none}}.cs-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:4px;max-width:940px}.cs-stat{border-top:1px solid var(--line);padding-top:18px}.cs-n{font-family:'Anton',sans-serif;font-size:clamp(34px,4vw,52px);line-height:1;color:var(--blue-soft);letter-spacing:-.02em}.cs-l{font-size:14px;color:var(--chalk);margin-top:10px;line-height:1.35}.cs-link{display:flex;width:max-content;max-width:100%;margin:32px auto 0;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--blue-soft);text-decoration:none;transition:color .2s}.cs-link:hover{color:var(--bone)}@media(max-width:700px){.cs-stats{grid-template-columns:1fr 1fr}}.cs-media{margin-top:34px;display:flex;flex-direction:column;gap:16px;align-items:center}.cs-shot{display:block;width:100%;max-width:900px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}.cs-shot.post{max-width:520px}.cs-shot img{width:100%;height:auto;display:block}.gal-tablist{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}.gal-tab{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.03em;color:var(--chalk-dim);background:var(--concrete);border:1px solid var(--line);border-radius:100px;padding:9px 16px;cursor:pointer;transition:color .18s,background .18s,border-color .18s;white-space:nowrap}.gal-tab:hover{color:var(--bone);border-color:var(--blue)}.gal-tab[aria-selected="true"]{background:var(--blue);color:#03121b;border-color:var(--blue)}.gal-panel[hidden]{display:none}.price-rail{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:95;writing-mode:vertical-rl;display:flex;align-items:center;gap:9px;background:var(--blue);color:#03121b;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:15px 9px;border-radius:0 9px 9px 0;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:padding-left .18s ease,background .18s ease}.price-rail:hover{background:var(--blue-soft);padding-left:13px}.price-rail .pr-arw{font-size:14px;font-weight:700}.price-rail.scrolls .pr-arw{animation:prNudge 1.8s ease-in-out infinite}@keyframes prNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}@media(prefers-reduced-motion:reduce){.price-rail .pr-arw{animation:none}}@media(max-width:820px){.price-rail{display:none}}.lc-lead{background:var(--concrete)}.lc-photos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:8px}.lc-photo{margin:0;height:208px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--asphalt);flex:0 0 auto}.lc-photo img{height:100%;width:auto;display:block}.lc-cap{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.05em;color:var(--chalk-dim);margin-top:14px;text-align:center}.lc-benefits{margin-top:54px}.lc-bh{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--canopy);margin:0 0 24px}.lc-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.lc-grid li{display:flex;gap:15px;align-items:flex-start;background:var(--asphalt);border:1px solid var(--line);border-radius:12px;padding:20px}.lc-ic{flex:none;width:36px;height:36px;border-radius:9px;background:rgba(255,182,39,0.12);color:var(--canopy);display:inline-flex;align-items:center;justify-content:center}.lc-ic svg{width:19px;height:19px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}.lc-grid b{display:block;font-size:15.5px;color:var(--bone);margin-bottom:5px;font-weight:700}.lc-grid p{font-size:13.5px;color:var(--chalk-dim);line-height:1.45;margin:0}@media(max-width:860px){.lc-photo{height:200px}.lc-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.lc-photo{height:150px}.lc-grid{grid-template-columns:1fr}}.cs-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:50px;align-items:center}.cs-col-text{min-width:0}.cs-grid .cs-stats{grid-template-columns:1fr 1fr;max-width:none;margin-top:28px;gap:24px 30px}.cs-grid .cs-media{margin-top:0;min-width:0}.cs-grid .cs-shot.post{width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.cs-grid .cs-shot.post img{max-height:460px;width:auto}.cs-grid .cs-link{margin:30px 0 0}.cs-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}@media(max-width:900px){.cs-grid{grid-template-columns:1fr;gap:34px;align-items:stretch}.cs-grid .cs-media{max-width:600px;margin:0 auto}.cs-grid .cs-stats{max-width:520px}}.pflow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:8px}.pnode{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--concrete);padding:26px 20px 22px;overflow:hidden}.pnode .pbar{position:absolute;left:0;top:0;height:3px;width:100%}.pnode .pn{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--chalk-dim);margin-bottom:12px}.pnode h4{font-size:16px;font-weight:700;color:var(--bone);margin:0 0 8px;line-height:1.2}.pnode p{font-size:14px;color:var(--chalk);line-height:1.45;margin:0}.ploop{margin-top:24px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2vw,21px);color:var(--chalk)}.ploop em{color:var(--canopy);font-style:italic}.vid-testi{background:var(--concrete)}.vt-grid{display:grid;grid-template-columns:0.95fr 1.15fr;gap:50px;align-items:center}.vt-text{min-width:0}.vt-text .sec-head{margin-bottom:26px}.vt-media{min-width:0}.vt-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 20px 50px rgba(0,0,0,.35)}.vt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}.vt-stats{display:flex;gap:36px;margin-top:4px;flex-wrap:wrap;align-items:flex-start}.vt-n{font-family:'Anton',sans-serif;font-size:clamp(34px,3.8vw,48px);line-height:1;color:var(--blue-soft);letter-spacing:-.02em}.vt-l{font-size:13.5px;color:var(--chalk);margin-top:10px;line-height:1.35;max-width:26ch}.vt-cite{margin-top:24px;display:flex;flex-direction:column;gap:3px}.vt-cite b{font-size:15.5px;color:var(--bone);font-weight:700;letter-spacing:-.01em}.vt-cite span{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.06em;color:var(--chalk-dim)}@media(max-width:900px){.vt-grid{grid-template-columns:1fr;gap:28px}.vt-media{order:-1}}.vt-clutch{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;border:1px solid var(--line);border-radius:14px;background:var(--asphalt);padding:28px 32px}.vtc-l{text-align:center;padding-right:32px;border-right:1px solid var(--line-soft)}.vtc-stars{color:#00C4B3;font-size:18px;letter-spacing:3px;line-height:1}.vtc-num{font-family:'Anton',sans-serif;font-size:40px;line-height:1;color:var(--bone);margin-top:10px}.vtc-src{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-dim);margin-top:10px}.vtc-quote{font-size:19px;line-height:1.42;color:var(--bone);margin:0;font-weight:600}.vtc-cite{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;color:var(--chalk-dim);margin-top:14px}.vtc-link{display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-soft);text-decoration:none}.vtc-link:hover{color:var(--bone)}@media(max-width:700px){.vt-clutch{grid-template-columns:1fr;gap:18px;padding:24px}.vtc-l{padding-right:0;border-right:0;border-bottom:1px solid var(--line-soft);padding-bottom:18px}}</style>
-
-
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+<link rel="stylesheet" href="assets/css/redesign.css">
+<link rel="stylesheet" href="assets/css/linkedin-ads-agency.css">
+<link rel="stylesheet" href="assets/css/linkedin-scale-new.css">
 <link rel="canonical" href="https://impactable.com/linkedin-scale">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Impactable">
-<meta property="og:title" content="LinkedIn Ads for Existing Advertisers | Scale &amp; Improve, Impactable">
-<meta property="og:description" content="Already running LinkedIn Ads? Find the waste, surface the accounts that are moving, and scale a full-funnel system. Start free with a Demand Plan.">
-<meta property="og:url" content="https://impactable.com/linkedin-scale">
-<meta property="og:image" content="https://impactable.com/img/linkedin-certified-social-square.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LinkedIn Ads for Existing Advertisers | Scale &amp; Improve, Impactable">
-<meta name="twitter:description" content="Already running LinkedIn Ads? Find the waste, surface the accounts that are moving, and scale a full-funnel system. Start free with a Demand Plan.">
-<meta name="twitter:image" content="https://impactable.com/img/linkedin-certified-social-square.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://impactable.com/#org", "name": "Impactable", "alternateName": "Impactable B2B", "url": "https://impactable.com/", "logo": "https://impactable.com/assets/img/logo-dark.svg", "description": "Impactable is the B2B Demand Intelligence System: a certified LinkedIn Marketing Partner that targets your best-fit buyers from real signal, discovers who your buyers actually are, and proves revenue with a continuous quarterly diagnostic.", "sameAs": ["https://www.linkedin.com/company/impactableb2b/", "https://www.youtube.com/@Impactable-B2B-Agency", "https://www.linkedin.com/in/justin-rowe-4043339b/"], "founder": {"@type": "Person", "name": "Justin Rowe", "jobTitle": "CEO & Founder", "sameAs": "https://www.linkedin.com/in/justin-rowe-4043339b/"}, "award": "LinkedIn Indie Agency Awards 2026: Thought Leader of the Year", "knowsAbout": ["B2B LinkedIn Ads", "B2B thought leadership", "B2B demand generation", "account-based marketing"]}, {"@type": "WebPage", "@id": "https://impactable.com/linkedin-scale#webpage", "url": "https://impactable.com/linkedin-scale", "name": "LinkedIn Ads for Existing Advertisers | Scale & Improve, Impactable", "description": "Already running LinkedIn ads? Find the waste, surface the accounts that are moving, and scale on a full-funnel system. Start with a free Demand Plan. We manage from $5k to $500k+ per month, with results featured in LinkedIn's own customer stories.", "isPartOf": {"@id": "https://impactable.com/#website"}, "about": {"@id": "https://impactable.com/#org"}, "inLanguage": "en", "datePublished": "2026-07-09", "dateModified": "2026-07-30", "publisher": {"@id": "https://impactable.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://impactable.com/"}, {"@type": "ListItem", "position": 2, "name": "LinkedIn Ads for Existing Advertisers", "item": "https://impactable.com/linkedin-scale"}]}, {"@type": "Service", "name": "B2B LinkedIn Ads management & scaling", "serviceType": "B2B LinkedIn Ads management & scaling", "provider": {"@id": "https://impactable.com/#org"}, "areaServed": ["United States", "United Kingdom", "Canada", "Australia"], "url": "https://impactable.com/linkedin-scale"}]}</script>
 </head>
 <body>
-<a class="price-rail scrolls" href="#pricing" aria-label="See pricing">Pricing&nbsp;<span class="pr-arw">↓</span></a>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK45VGG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- LinkedIn Insight Tag (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK45VGG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3483338&fmt=gif" />
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3986860&fmt=gif" />
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3483338&fmt=gif">
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3986860&fmt=gif">
 </noscript>
+
+<a class="la-price-rail" href="#pricing" aria-label="See pricing">Pricing&nbsp;<span aria-hidden="true">↓</span></a>
 
 <div class="evt-banner" id="evtBanner" role="region" aria-label="Announcement">
   <a class="evt-link" href="https://demandshift.co/demandsense-webinar-spot-bad-fit-accounts-draining-your-linkedin-ad-budget" target="_blank" rel="noopener">
@@ -805,7 +44,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img class="rd-logo-dark" src="assets/img/logo-dark.svg" alt="Impactable" width="146" height="26">
       <img class="rd-logo-light" src="assets/img/logo-light.svg" alt="Impactable" width="146" height="26">
     </a>
-    <button class="rd-toggle" id="rdToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
     <div class="rd-menu" id="rdMenu">
       <div class="rd-item">
         <button class="rd-trigger" aria-haspopup="true" aria-expanded="false">
@@ -860,748 +98,890 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="rd-link" href="/pricing">Pricing</a>
       <a class="rd-cta rd-cta-mobile" href="/competitor-intel-report#get-report">Free Demand Plan</a>
     </div>
-        <a class="rd-cta rd-cta-desk" href="/competitor-intel-report#get-report">Free Demand Plan</a>
+    <div class="rd-actions">
+      <button type="button" class="rd-theme" id="rdTheme" aria-label="Switch to light mode">
+        <svg class="rd-theme-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.75"/>
+          <path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+        <svg class="rd-theme-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5 7 7 0 1 0 20.5 14.3Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <a class="rd-cta rd-cta-desk" href="/competitor-intel-report#get-report">Free Demand Plan</a>
+      <button class="rd-toggle" id="rdToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    </div>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="partner-badge">
-        <img src="/assets/img/Marketing-Partner-1.svg" alt="LinkedIn Marketing Partner">
-        <span>LinkedIn Marketing Partner</span>
+<header class="la-hero rd-hero">
+  <div class="rd-hero-bg" aria-hidden="true">
+    <div class="rd-hero-bg-inner">
+      <img class="rd-hero-dots rd-hero-dots--dark" src="assets/img/dots.svg" alt="" width="856" height="679">
+      <img class="rd-hero-dots rd-hero-dots--light" src="assets/img/light-hero-pattern.svg" alt="" width="856" height="679">
+      <img class="rd-hero-ellipse rd-hero-ellipse--a rd-hero-ellipse--dark" src="assets/img/Ellipse.svg" alt="" width="760" height="520">
+      <img class="rd-hero-ellipse rd-hero-ellipse--b rd-hero-ellipse--dark" src="assets/img/Ellipse0.svg" alt="" width="760" height="520">
+      <img class="rd-hero-ellipse-light" src="assets/img/light-ellipse.svg" alt="" width="1110" height="799">
+    </div>
+  </div>
+  <div class="wrap la-hero-grid">
+    <div class="la-hero-copy">
+      <div class="rd-pill">LinkedIn Marketing Partner · For B2B teams already running LinkedIn ads</div>
+      <h1>
+        <span class="h1-line">Scale on signal.</span>
+        <span class="h1-line">Compound into <span class="em2">pipeline.</span></span>
+      </h1>
+      <p class="rd-hero-sub">Your LinkedIn ads, plugged into the whole operating system. We find where you beat your competitors, put budget on the highest-leverage accounts, and turn every signal the motion throws off into pipeline.</p>
+      <div class="rd-hero-cta">
+        <a class="btn btn-primary" href="/competitor-intel-report">GET YOUR FREE DEMAND PLAN &rarr;</a>
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">BOOK A CALL</a>
       </div>
-      <span class="eyebrow">For B2B teams already running LinkedIn ads</span>
-      <h1 class="display"><span style="color:var(--canopy)">Scale on signal.</span> <span class="em">Compound into pipeline.</span></h1>
-      <p class="hero-lede">Your LinkedIn ads, plugged into the whole operating system. We find where you beat your competitors, put budget on the highest-leverage accounts, and turn every signal the motion throws off into pipeline.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
-        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat"><div class="n">$500K+</div><div class="l">Monthly spend managed</div></div>
+      <div class="rd-hero-stats" id="laHeroStats">
+        <div class="hstat"><div class="n">500k+</div><div class="l">Monthly spend managed</div></div>
         <div class="hstat"><div class="n">20+</div><div class="l">LinkedIn-certified insiders</div></div>
-        <div class="hstat"><div class="n">6X</div><div class="l">ROI, published by LinkedIn</div></div>
+        <div class="hstat"><div class="n teal">6x</div><div class="l">ROI, published by LinkedIn</div></div>
       </div>
     </div>
-    <aside class="offer-mini" aria-label="Free Demand Plan">
-      <div class="om-tag">&#9679; The free front door</div>
-      <div class="om-name">Free Demand Plan</div>
-      <div class="om-price">$0<small>48 hours</small></div>
-      <ul>
+    <aside class="la-offer-card" id="laOfferCard" aria-label="Free Demand Plan">
+      <div class="la-offer-pill">
+        <img src="assets/img/la-offer-dot.svg" alt="" width="8" height="8">
+        <span>The free front door</span>
+      </div>
+      <h2>Free Demand Plan</h2>
+      <div class="la-offer-price"><span class="amt">0$</span><span class="unit">48 hours</span></div>
+      <ul class="la-offer-list">
         <li><span class="ck">&rarr;</span> Where you beat your competitors, and the open lanes</li>
         <li><span class="ck">&rarr;</span> Your best-fit audience, composed from signal</li>
         <li><span class="ck">&rarr;</span> Where to start and what to scale first</li>
         <li><span class="ck">&rarr;</span> Yours to keep, no working sessions</li>
       </ul>
-      <div class="om-foot">A fast, done-for-you read. No commitment, no sales call.</div>
+      <p class="la-offer-foot">A fast, done-for-you read. No commitment, no sales call.</p>
     </aside>
   </div>
 </header>
 
-<!-- WHAT YOU WALK AWAY WITH -->
-<section class="sec walkaway" style="border-top:1px solid var(--line-soft,var(--line))">
-  <style>
-  .walkaway .wa-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:34px;align-items:center}
-  .walkaway .wa-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px}
-  .walkaway .wa-list li{position:relative;padding-left:30px;color:var(--chalk);font-size:16.5px;line-height:1.55}
-  .walkaway .wa-list li::before{content:"\2192";position:absolute;left:0;top:0;color:var(--canopy);font-weight:700}
-  .walkaway .wa-next{background:var(--concrete);border:1px solid var(--line);border-radius:16px;padding:28px 26px}
-  .walkaway .wa-nlabel{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--canopy);margin-bottom:10px}
-  .walkaway .wa-next p{color:var(--chalk-dim);font-size:15px;line-height:1.6;margin:0 0 18px}
-  .walkaway .wa-next .btn{width:100%;text-align:center}
-  .walkaway .wa-alt{display:block;text-align:center;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--blue-soft);text-decoration:none}
-  @media(max-width:820px){.walkaway .wa-grid{grid-template-columns:1fr;gap:24px}}
-  </style>
-  <div class="wrap">
-    <div class="wa-grid reveal">
-      <div class="wa-main">
-        <span class="eyebrow">What you walk away with</span>
-        <h2 class="sec-title display" style="text-transform:none">Where you out-position the field, and <span class="hl">who to target first.</span></h2>
-        <ul class="wa-list">
-          <li>Where you're beating your competitors, and the open positioning lane to press.</li>
-          <li>Your best-fit audience segments to target, composed from the signal we can see.</li>
-          <li>Your channel priority: which channel for which intent, and where to start.</li>
-        </ul>
-      </div>
-      <aside class="wa-next">
-        <div class="wa-nlabel">Your next step</div>
+<section class="la-walk">
+  <div class="wrap la-walk-grid">
+    <div class="la-walk-copy reveal">
+      <h2>Where you win on LinkedIn, and <span class="em2">who to target first</span>.</h2>
+      <ul class="la-walk-list">
+        <li>Where you're beating your competitors, and the open positioning lane to press.</li>
+        <li>Your best-fit audience segments to target, composed from the signal we can see.</li>
+        <li>Your channel priority: which channel for which intent, and where to start.</li>
+      </ul>
+    </div>
+    <aside class="la-next reveal">
+      <div class="la-next-copy">
+        <div class="k">Your next step</div>
         <p>Start with the free Demand Plan, or book a call. No retainer to begin.</p>
+      </div>
+      <div class="la-next-btns">
         <a class="btn btn-primary" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
-        <a class="wa-alt" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call</a>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec li-cert">
-  <div class="wrap li-cert-grid">
-    <figure class="li-cert-media reveal">
-      <img src="/img/linkedin-award.jpg" width="1600" height="1578" alt="Impactable's LinkedIn Ads Certified Agency award, engraved with the Impactable name" loading="lazy">
-    </figure>
-    <div class="li-cert-body reveal">
-      <h2 class="sec-title display" style="text-transform:none">We're a <span class="hl-blue">LinkedIn Ads Certified</span> agency.</h2>
-      <p class="sec-desc">LinkedIn named Impactable to the first cohort of its certified agencies. They hosted us at their New York office for the 2026 Independent Agency Summit, and put us on the panel.</p>
-      <div class="li-cert-thumbs">
-        <img src="/img/linkedin-summit-2.jpg" width="1600" height="1200" alt="The Impactable team at the LinkedIn Independent Agency Summit 2026" loading="lazy">
-        <img src="/img/linkedin-summit-1.jpg" width="1200" height="1600" alt="Impactable at LinkedIn's New York office" loading="lazy">
-        <img src="/img/linkedin-summit-3.jpg" width="1600" height="1200" alt="Impactable team members inside LinkedIn's New York office" loading="lazy">
+        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
       </div>
-    </div>
+    </aside>
   </div>
 </section>
 
-<style>
-.capi-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:44px;align-items:center}
-.capi-media{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.3);transition:transform .25s,border-color .25s}
-.capi-media:hover{transform:translateY(-3px)}
-.capi-media img{width:100%;height:auto;display:block}
-.capi-body .eyebrow{margin-bottom:14px}
-.capi-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:24px}
-.capi-vlink{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--blue-soft);text-decoration:none}
-.capi-vlink:hover{color:var(--bone)}
-@media(max-width:860px){.capi-grid{grid-template-columns:1fr;gap:26px}}
-</style>
-<section class="sec" style="border-top:1px solid var(--line-soft)">
-  <div class="wrap capi-grid">
-    <a class="capi-media reveal" href="https://business.linkedin.com/advertise/partners/find-a-partner/impactable" target="_blank" rel="noopener">
-      <img src="/img/capi-certification.png" width="2608" height="1470" alt="Impactable's official LinkedIn Marketing Partner listing: LinkedIn Certified, with a Signals specialty for Conversions API (CAPI) implementation" loading="lazy">
-    </a>
-    <div class="capi-body reveal">
-      <span class="eyebrow">Certified for the signals layer</span>
-      <h2 class="sec-title display" style="text-transform:none">Officially certified by LinkedIn for <span class="hl-blue">Conversions API.</span></h2>
-      <p class="sec-desc">LinkedIn recognizes Impactable as a certified partner for CAPI (Conversions API) implementation, listed with a specialty in signals. CAPI is the server-side layer that ties ad exposure to real pipeline instead of just clicks. It is the plumbing behind everything we report on.</p>
-      <div class="capi-cta">
-        <a class="btn btn-ghost" href="https://business.linkedin.com/advertise/partners/find-a-partner/impactable" target="_blank" rel="noopener">See the official listing &rarr;</a>
-        <a class="capi-vlink" href="https://www.youtube.com/watch?v=yrRjwl_ZnHA" target="_blank" rel="noopener">Watch how CAPI works &rarr;</a>
+<section class="la-proof">
+  <div class="la-proof-bg" aria-hidden="true">
+    <img class="la-proof-ell la-proof-ell--lime" src="assets/img/la-proof-ellipse-a.svg" alt="" width="972" height="665">
+    <img class="la-proof-ell la-proof-ell--blue" src="assets/img/la-proof-ellipse-b.svg" alt="" width="972" height="665">
+  </div>
+  <div class="wrap la-proof-grid">
+    <article class="la-proof-card reveal">
+      <h2>Officially certified by LinkedIn for Conversions API.</h2>
+      <p>LinkedIn recognizes Impactable as a certified partner for CAPI (Conversions API) implementation, listed with a specialty in signals. CAPI is the server-side layer that ties ad exposure to real pipeline instead of just clicks. It is the plumbing behind everything we report on.</p>
+      <div class="la-proof-cta">
+        <a class="la-proof-btn" href="https://business.linkedin.com/advertise/partners/find-a-partner/impactable" target="_blank" rel="noopener">See the official listing &rarr;</a>
+        <a class="la-proof-link" href="https://www.youtube.com/watch?v=yrRjwl_ZnHA" target="_blank" rel="noopener">Watch how CAPI works &rarr;</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════ DEMANDSENSE ATTRIBUTION VIDEO ════ -->
-<style>
-.dsv-frame{position:relative;aspect-ratio:16/9;max-width:840px;margin:30px auto 0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0a1f3d;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.dsvfac{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:transparent;display:block}
-.dsvfac img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .25s,transform .35s}
-.dsvfac:hover img{opacity:1;transform:scale(1.02)}
-.dsvplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:rgba(255,182,39,.96);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.45);transition:transform .2s}
-.dsvplay::before{content:"";border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent #001122;margin-left:4px}
-.dsvfac:hover .dsvplay{transform:translate(-50%,-50%) scale(1.08)}
-.dsv-i{position:absolute;inset:0;width:100%;height:100%;border:0}
-</style>
-<script>
-(function(){
-  var b=document.querySelector('.dsvfac');if(!b)return;
-  b.addEventListener('click',function(){
-    var f=document.createElement('iframe');f.className='dsv-i';
-    f.setAttribute('src','https://www.youtube.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0');
-    f.setAttribute('title','DemandSense attribution overview');f.setAttribute('frameborder','0');
-    f.setAttribute('allow','accelerated-sensors; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-    f.setAttribute('allowfullscreen','');
-    b.replaceWith(f);
-  });
-})();
-</script>
-
-<!-- ════ LINKEDIN RELATIONSHIP · LEAD THE CONVERSATION ════ -->
-
-<section class="sec scaleband">
-  <div class="wrap">
-    <div class="sec-head reveal" style="max-width:720px">
-      <span class="eyebrow">We operate at your level</span>
-      <h2 class="sec-title display" style="text-transform:none">Built for budgets that <span class="hl">scale.</span></h2>
-      <p class="sec-desc">If you're spending six figures a month, you don't need a generalist. You need a LinkedIn-specialist team that runs accounts at your size every day.</p>
-    </div>
-    <div class="scale-grid reveal">
-      <div class="sstat"><div class="sn">$5K-$500K<span class="u">+</span></div><div class="sl">Monthly managed spend range</div></div>
-      <div class="sstat"><div class="sn">$50M<span class="u">+</span></div><div class="sl">Total ad spend managed</div></div>
-      <div class="sstat"><div class="sn">20<span class="u">+</span></div><div class="sl">LinkedIn-certified insiders on the team</div></div>
-      <div class="sstat"><div class="sn">84</div><div class="sl">Person team across strategy, creative, and data</div></div>
-    </div>
-    <p class="scale-caption reveal">From scaleups to <b>IPO-stage category leaders</b>, with results featured in <b>LinkedIn's own customer stories.</b></p>
-  </div>
-</section>
-
-<section class="sec cs">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Proof at scale</span>
-      <h2 class="sec-title display" style="text-transform:none">LinkedIn published the results.</h2>
-      <p class="sec-desc">Our client Lacework, a cloud-security platform, was stuck on the bottom-funnel lead-gen treadmill. We moved them to a full-funnel strategy. LinkedIn featured the outcome in its own customer stories.</p>
-    </div>
-    <div class="cs-card reveal">
-      <div class="cs-left">
-        <div class="cs-badge">&#9679; Featured in LinkedIn customer stories</div>
-        <h3>From lead gen to <span class="hl">pipeline,</span> and a 6X return.</h3>
-        <p>Lacework knew their ICP and could reach it on LinkedIn, but lower-funnel campaigns weren't converting. Content downloads produced leads that stalled before sales.</p>
-        <p>We rebuilt the account around a full-funnel motion:</p>
-        <ul class="cs-list">
-          <li>Top-funnel video to prime the audience</li>
-          <li>Nurture by funnel stage</li>
-          <li>Conversation ads down low</li>
-          <li>Brand campaigns even after the demo to lift close rates</li>
-        </ul>
-        <p>Success was measured one way: marketing investment to pipeline revenue.</p>
-        <div class="cs-meta">Lacework &middot; Computer &amp; Network Security &middot; 1,100+ employees</div>
-        <a class="cs-link" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener">Read the case study on LinkedIn &rarr;</a>
+      <figure class="la-proof-shot">
+        <img src="assets/img/img1.webp" width="2008" height="992" alt="Impactable's official LinkedIn Marketing Partner listing with CAPI specialty" loading="lazy">
+      </figure>
+    </article>
+    <article class="la-proof-card reveal">
+      <h2>We're a LinkedIn Ads Certified agency.</h2>
+      <p>LinkedIn named Impactable to the first cohort of its certified agencies. They hosted us at their New York office for the 2026 Independent Agency Summit, and put us on the panel.</p>
+      <div class="la-proof-thumbs">
+        <img src="assets/img/rectangle_161123959.webp" width="970" height="737" alt="Impactable's LinkedIn Ads Certified Agency award" loading="lazy">
+        <img src="assets/img/rectangle_1611239599.webp" width="970" height="737" alt="The Impactable team at the LinkedIn Independent Agency Summit 2026" loading="lazy">
+        <img src="assets/img/rectangle_1611239533.webp" width="970" height="737" alt="Impactable at LinkedIn's New York office" loading="lazy">
+        <img src="assets/img/rectangle_16112395322.webp" width="970" height="737" alt="Impactable team members inside LinkedIn's New York office" loading="lazy">
       </div>
-      <div class="cs-right">
-        <div class="cs-stat"><div class="csn">6X</div><div class="csl">ROI on LinkedIn ad spend</div></div>
-        <div class="cs-stat"><div class="csn">+40%</div><div class="csl">Increase in qualified leads</div></div>
-        <div class="cs-stat"><div class="csn">&minus;30%</div><div class="csl">Lower cost per lead</div></div>
-        <div class="cs-stat"><div class="csn">+50%</div><div class="csl">Increase in sales velocity</div></div>
-        <div class="cs-foot">Source: LinkedIn customer story, "How Lacework drove 6X ROI by shifting to a full-funnel strategy on LinkedIn."</div>
-      </div>
-    </div>
-    <p class="inlinebridge reveal">Want this on your account? <a href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call &rarr;</a></p>
+    </article>
   </div>
 </section>
 
-<style>
-.midcta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--concrete);border:1px solid var(--line);border-radius:16px;padding:24px 30px;max-width:1000px;margin:0 auto}
-.midcta-txt{font-size:19px;color:var(--bone);line-height:1.4}
-.midcta-txt span{color:var(--chalk-dim);font-size:16px}
-.midcta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
-@media(max-width:680px){.midcta-inner{flex-direction:column;align-items:flex-start}}
-</style>
-<!-- ════ MID-PAGE CTA ════ -->
-<section class="sec midcta" style="border-top:1px solid var(--line-soft)">
+<section class="la-wrong" id="laWrong">
   <div class="wrap">
-    <div class="midcta-inner reveal">
-      <div class="midcta-txt"><b>Seen enough?</b> <span>Start free, or grab 15 minutes with us.</span></div>
-      <div class="midcta-btns">
-        <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Get a free channel health check &rarr;</a>
-        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call</a>
-      </div>
+    <div class="rd-sec-head reveal">
+      <h2>Six things quietly <span class="em2">cap <br> the account</span>.</h2>
+      <p>At six-figure budgets, each one is expensive. The Account Diagnostic finds all six.</p>
+    </div>
+    <div class="la-wrong-grid">
+      <article class="la-wrong-card"><img class="la-x" src="assets/img/iconx.svg" alt="" width="30" height="32"><h3>Stuck on the lead-gen treadmill</h3><p>Bottom-funnel content downloads that produce volume but stall before sales. The fix that drove Lacework's 6X was full-funnel, not more gated PDFs.</p></article>
+      <article class="la-wrong-card"><img class="la-x" src="assets/img/iconx.svg" alt="" width="30" height="32"><h3>Budget leaking to the wrong segments</h3><p>At $100k a month, 20% waste is $20k a month. Most accounts can't see which industries, sizes, and seniorities are absorbing spend with zero return.</p></article>
+      <article class="la-wrong-card"><img class="la-x" src="assets/img/iconx.svg" alt="" width="30" height="32"><h3>Flying blind on account signals</h3><p>The companies clicking three, five, ten times never reach sales while intent is hot. No signal layer, no account intelligence, no plays.</p></article>
+      <article class="la-wrong-card"><img class="la-x" src="assets/img/iconx.svg" alt="" width="30" height="32"><h3>Reporting clicks, not revenue</h3><p>Dashboards full of CTR and CPM that can't answer the board's question: what pipeline and revenue did this spend actually influence?</p></article>
+      <article class="la-wrong-card"><img class="la-x" src="assets/img/iconx.svg" alt="" width="30" height="32"><h3>A generalist agency on a specialist channel</h3><p>LinkedIn treated as one more line item by a junior team, with no serious tooling for day-parting, suppression, or frequency control.</p></article>
+      <article class="la-wrong-card"><img class="la-x" src="assets/img/iconx.svg" alt="" width="30" height="32"><h3>Plateaued, with no path to the next stage</h3><p>Performance flattened and nobody can say why, or what actually gets them to the next level of scale.</p></article>
     </div>
   </div>
 </section>
 
-<section class="sec wedge" id="plateau">
+<section class="la-midcta">
+  <img class="la-midcta-ell la-midcta-ell--c" src="assets/img/la-midcta-ell-lime.svg" alt="" width="1194" height="943" aria-hidden="true">
+  <img class="la-midcta-ell la-midcta-ell--l" src="assets/img/la-midcta-ell-teal.svg" alt="" width="1037" height="786" aria-hidden="true">
+  <img class="la-midcta-ell la-midcta-ell--r" src="assets/img/la-midcta-ell-teal.svg" alt="" width="1037" height="786" aria-hidden="true">
+  <div class="la-midcta-waves" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Why running accounts stall</span>
-      <h2 class="sec-title display" style="text-transform:none">Six things quietly <span class="hl">cap the account.</span></h2>
-      <p class="sec-desc">At six-figure budgets, each one is expensive. The Account Diagnostic finds all six.</p>
-    </div>
-    <div class="reality">
-      <div class="rcard reveal"><div class="rx">&#10005;</div><h4>Stuck on the lead-gen treadmill</h4><p>Bottom-funnel content downloads that produce volume but stall before sales. The fix that drove Lacework's 6X was full-funnel, not more gated PDFs.</p></div>
-      <div class="rcard reveal"><div class="rx">&#10005;</div><h4>Budget leaking to the wrong segments</h4><p>At $100k a month, 20% waste is $20k a month. Most accounts can't see which industries, sizes, and seniorities are absorbing spend with zero return.</p></div>
-      <div class="rcard reveal"><div class="rx">&#10005;</div><h4>Flying blind on account signals</h4><p>The companies clicking three, five, ten times never reach sales while intent is hot. No signal layer, no account intelligence, no plays.</p></div>
-      <div class="rcard reveal"><div class="rx">&#10005;</div><h4>Reporting clicks, not revenue</h4><p>Dashboards full of CTR and CPM that can't answer the board's question: what pipeline and revenue did this spend actually influence?</p></div>
-      <div class="rcard reveal"><div class="rx">&#10005;</div><h4>A generalist agency on a specialist channel</h4><p>LinkedIn treated as one more line item by a junior team, with no serious tooling for day-parting, suppression, or frequency control.</p></div>
-      <div class="rcard reveal"><div class="rx">&#10005;</div><h4>Plateaued, with no path to the next stage</h4><p>Performance flattened and nobody can say why, or what actually gets them to the next level of scale.</p></div>
+    <h2>Seen enough?</h2>
+    <p>Start free, or grab 15 minutes with us.</p>
+    <div class="btns">
+      <a class="btn btn-dark" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
+      <a class="btn btn-outline-dark" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
   </div>
 </section>
 
-<section class="sec offerwrap" id="impact">
+<section class="la-plan" id="offer">
   <div class="wrap">
-    <div class="sec-head reveal" style="max-width:780px">
-      <span class="eyebrow">Prefer a paid deep-dive first</span>
-      <h2 class="sec-title display" style="text-transform:none">Diagnose the account <span class="hl">before you spend another dollar.</span></h2>
-      <p class="sec-desc">A paid diagnostic on your live LinkedIn account. We find the waste, surface the accounts that are moving, and hand you a prioritized plan to scale. The same intelligence layer our managed clients run on.</p>
+    <div class="rd-sec-head reveal">
+      <h2>Diagnose the account <span class="em2">before you <br> spend another dollar</span>.</h2>
+      <p>A paid diagnostic on your live LinkedIn account. We find the waste, surface the accounts that are moving, and hand you a prioritized plan to scale. The same intelligence layer our managed clients run on.</p>
     </div>
-    <div class="offer reveal">
-      <div class="offer-grid">
-        <div class="offer-left">
-          <div class="offer-eyebrow">&#9679; One-time diagnostic</div>
-          <h3>Account Diagnostic</h3>
-          <div class="o-price"><span class="o-amt">$1,500</span><span class="o-unit">one-time &middot; your live account</span></div>
-          <p class="o-sub">A clear read on where your budget is working, where it's leaking, and exactly what to change to scale, with the data to back every call.</p>
-          <ul class="o-list">
-            <li><span class="ck">01</span> Account coverage: how much of your target list LinkedIn is actually reaching, by funnel stage</li>
-            <li><span class="ck">02</span> Signal and account intelligence: which accounts are stacking signals and who sales should call now</li>
-            <li><span class="ck">03</span> Audience efficiency verdicts: scale, hold, reduce, or exclude on every segment</li>
-            <li><span class="ck">04</span> Waste audit: every segment absorbing spend with no return, flagged for suppression</li>
-            <li><span class="ck">05</span> Buyer personas synthesized from your real engagement data</li>
-            <li><span class="ck">06</span> Full-funnel architecture review and a prioritized 90-day scale plan</li>
-          </ul>
-          <div class="offer-cta"><a class="btn btn-primary" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Get your Account Diagnostic &rarr;</a></div>
-        </div>
-        <div class="offer-right">
-          <h4>Who it's for</h4>
-          <div class="who"><span style="color:var(--canopy)">&rarr;</span><span>Advertisers spending <b>$5k to $500k+ a month</b> who suspect the account can do more</span></div>
-          <div class="who"><span style="color:var(--canopy)">&rarr;</span><span>Teams <b>evaluating a new agency</b> and want proof before they switch</span></div>
-          <div class="who"><span style="color:var(--canopy)">&rarr;</span><span>Marketing leaders who need to <b>defend spend to the board</b> in pipeline terms</span></div>
-          <div class="bridge">
-            <div class="bt">&#9679; The upgrade path</div>
-            <p>Move to managed after your Account Diagnostic and <b>your setup fee is waived</b>. The $1,500 effectively pays for itself, and you keep the diagnosis either way.</p>
+    <div class="la-plan-grid" id="laPlanGrid">
+      <div class="la-plan-col">
+        <aside class="la-ticket">
+          <div class="la-ticket-top">
+            <div class="la-plan-k"><img src="assets/img/la-offer-dot.svg" alt="" width="7" height="7"> One-time diagnostic</div>
+            <h3>The Impact Report</h3>
+            <div class="la-plan-amt">$1,500</div>
+            <div class="la-plan-unit">one-time · your live account</div>
           </div>
-        </div>
+          <div class="la-ticket-bot">
+            <p>A clear read on where your budget is working, where it's leaking, and exactly what to change to scale, with the data to back every call.</p>
+            <a class="btn la-ticket-btn" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">GET YOUR IMPACT REPORT &rarr;</a>
+          </div>
+        </aside>
+        <aside class="la-upgrade">
+          <div class="k"><img src="assets/img/la-plan-dot-teal.svg" alt="" width="7" height="7"> The upgrade path</div>
+          <p>Move to managed after your Impact Report and <b>your setup fee is waived</b>. The $1,500 effectively pays for itself, and you keep the diagnosis either way.</p>
+        </aside>
+      </div>
+      <div class="la-plan-flow">
+        <div class="la-flow-k">What's inside the plan</div>
+        <ol class="la-flow">
+          <li><span class="rail"><span class="num">1</span></span><span class="txt"><b>Account coverage:</b> <span>how much of your target list LinkedIn is actually reaching, by funnel stage</span></span></li>
+          <li><span class="rail"><span class="num">2</span></span><span class="txt"><b>Signal and account intelligence:</b> <span>which accounts are stacking signals and who sales should call now</span></span></li>
+          <li><span class="rail"><span class="num">3</span></span><span class="txt"><b>Audience efficiency verdicts:</b> <span>scale, hold, reduce, or exclude on every segment</span></span></li>
+          <li><span class="rail"><span class="num">4</span></span><span class="txt"><b>Waste audit:</b> <span>every segment absorbing spend with no return, flagged for suppression</span></span></li>
+          <li><span class="rail"><span class="num">5</span></span><span class="txt"><b>Buyer personas</b> <span>synthesized from your real engagement data</span></span></li>
+          <li><span class="rail"><span class="num">6</span></span><span class="txt"><b>Full-funnel architecture</b> <span>review and a prioritized 90-day scale plan</span></span></li>
+        </ol>
+        <div class="la-flow-k">Who it's for</div>
+        <ul class="la-who">
+          <li><img src="assets/img/la-plan-arrow.svg" alt="" width="16" height="11"><span>Advertisers spending <b>$5k to $500k+ a month</b> who suspect the account can do more</span></li>
+          <li><img src="assets/img/la-plan-arrow.svg" alt="" width="16" height="11"><span>Teams <b>evaluating a new agency</b> and want proof before they switch</span></li>
+          <li><img src="assets/img/la-plan-arrow.svg" alt="" width="16" height="11"><span>Marketing leaders who need to <b>defend spend to the board</b> in pipeline terms</span></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- FOUNDATIONAL STRATEGY · BUILT + REFRESHED QUARTERLY -->
-<section class="sec foundation" id="foundation">
+<section class="rd-diff">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Not just diagnostics &middot; the strategic foundation</span>
-      <h2 class="sec-title display" style="text-transform:none">We build your strategy foundation, and <span class="hl">refresh it every quarter.</span></h2>
-      <p class="sec-desc">The Account Diagnostic tells you what to change. The strategy foundation is what we build around it: the positioning, messaging, and audience architecture your account runs on. For a busy marketing leader, having it built and re-cut every quarter is the part that's hard to put a price on.</p>
+    <div class="diff-grid">
+      <div class="rd-sec-head reveal diff-head">
+        <h2>We build your strategy foundation, and <span class="hl">refresh it every quarter</span>.</h2>
+        <p>The Impact Report tells you what to change. Strategy Foundations is what we build around it: the positioning, messaging, and audience architecture your account runs on. For a busy marketing leader, having it built and re-cut every quarter is the part that's hard to put a price on.</p>
+      </div>
+      <div class="diff-item reveal">
+        <span class="diff-ico" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <path d="M8.77364 3.32031H4.50582C3.85108 3.32031 3.32031 3.85108 3.32031 4.50582V8.77364C3.32031 9.42838 3.85108 9.95915 4.50582 9.95915H8.77364C9.42838 9.95915 9.95915 9.42838 9.95915 8.77364V4.50582C9.95915 3.85108 9.42838 3.32031 8.77364 3.32031Z" stroke="#00172E" stroke-width="1.13809"/>
+            <path d="M18.258 3.32031H13.9902C13.3355 3.32031 12.8047 3.85108 12.8047 4.50582V8.77364C12.8047 9.42838 13.3355 9.95915 13.9902 9.95915H18.258C18.9128 9.95915 19.4435 9.42838 19.4435 8.77364V4.50582C19.4435 3.85108 18.9128 3.32031 18.258 3.32031Z" stroke="#00172E" stroke-width="1.13809"/>
+            <path d="M8.77364 12.8047H4.50582C3.85108 12.8047 3.32031 13.3355 3.32031 13.9902V18.258C3.32031 18.9128 3.85108 19.4435 4.50582 19.4435H8.77364C9.42838 19.4435 9.95915 18.9128 9.95915 18.258V13.9902C9.95915 13.3355 9.42838 12.8047 8.77364 12.8047Z" stroke="#00172E" stroke-width="1.13809"/>
+            <path d="M18.258 12.8047H13.9902C13.3355 12.8047 12.8047 13.3355 12.8047 13.9902V18.258C12.8047 18.9128 13.3355 19.4435 13.9902 19.4435H18.258C18.9128 19.4435 19.4435 18.9128 19.4435 18.258V13.9902C19.4435 13.3355 18.9128 12.8047 18.258 12.8047Z" fill="#00172E" stroke="#00172E" stroke-width="1.13809"/>
+            <path d="M14.6992 16.123L15.8373 17.2611L17.7815 14.9375" stroke="#C6FF3D" stroke-width="1.13809" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div><h3>Competitive white space</h3><p>What rivals run, what nobody says, and the positioning lane you own.</p></div>
+      </div>
+      <div class="diff-item reveal">
+        <span class="diff-ico" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <path d="M17.0696 4.26562H5.68964C4.64214 4.26562 3.79297 5.11479 3.79297 6.16229C3.79297 7.20979 4.64214 8.05896 5.68964 8.05896H17.0696C18.1171 8.05896 18.9663 7.20979 18.9663 6.16229C18.9663 5.11479 18.1171 4.26562 17.0696 4.26562Z" stroke="#00172E" stroke-width="1.09941"/>
+            <path d="M15.1747 9.95703H7.58807C6.54057 9.95703 5.69141 10.8062 5.69141 11.8537C5.69141 12.9012 6.54057 13.7504 7.58807 13.7504H15.1747C16.2222 13.7504 17.0714 12.9012 17.0714 11.8537C17.0714 10.8062 16.2222 9.95703 15.1747 9.95703Z" stroke="#00172E" stroke-width="1.09941"/>
+            <path d="M12.8042 15.6484H9.95917C8.91167 15.6484 8.0625 16.4976 8.0625 17.5451C8.0625 18.5926 8.91167 19.4418 9.95917 19.4418H12.8042C13.8517 19.4418 14.7008 18.5926 14.7008 17.5451C14.7008 16.4976 13.8517 15.6484 12.8042 15.6484Z" fill="#00172E"/>
+            <path d="M11.3798 18.3025C11.7988 18.3025 12.1384 17.9628 12.1384 17.5438C12.1384 17.1248 11.7988 16.7852 11.3798 16.7852C10.9608 16.7852 10.6211 17.1248 10.6211 17.5438C10.6211 17.9628 10.9608 18.3025 11.3798 18.3025Z" fill="#C6FF3D"/>
+          </svg>
+        </span>
+        <div><h3>Messaging &amp; offer architecture</h3><p>Persona pillars and the conversion offers that move each funnel stage.</p></div>
+      </div>
+      <div class="diff-item reveal">
+        <span class="diff-ico" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <path d="M6.16446 7.15313C7.31671 7.15313 8.25079 6.21905 8.25079 5.0668C8.25079 3.91455 7.31671 2.98047 6.16446 2.98047C5.01221 2.98047 4.07812 3.91455 4.07812 5.0668C4.07812 6.21905 5.01221 7.15313 6.16446 7.15313Z" stroke="#00172E" stroke-width="1.14707"/>
+            <path d="M3.32031 10.7552C3.32031 9.04816 4.60056 7.91016 6.16531 7.91016C7.73006 7.91016 9.01031 9.04816 9.01031 10.7552" stroke="#00172E" stroke-width="1.14707" stroke-linecap="round"/>
+            <path d="M16.5981 7.15313C17.7503 7.15313 18.6844 6.21905 18.6844 5.0668C18.6844 3.91455 17.7503 2.98047 16.5981 2.98047C15.4458 2.98047 14.5117 3.91455 14.5117 5.0668C14.5117 6.21905 15.4458 7.15313 16.5981 7.15313Z" stroke="#00172E" stroke-width="1.14707"/>
+            <path d="M13.75 10.7552C13.75 9.04816 15.0303 7.91016 16.595 7.91016C18.1597 7.91016 19.44 9.04816 19.44 10.7552" stroke="#00172E" stroke-width="1.14707" stroke-linecap="round"/>
+            <path d="M11.3832 16.1805C12.5355 16.1805 13.4695 15.2464 13.4695 14.0941C13.4695 12.9419 12.5355 12.0078 11.3832 12.0078C10.231 12.0078 9.29688 12.9419 9.29688 14.0941C9.29688 15.2464 10.231 16.1805 11.3832 16.1805Z" stroke="#00172E" stroke-width="1.14707"/>
+            <path d="M8.53516 19.7825C8.53516 18.0755 9.81541 16.9375 11.3802 16.9375C12.9449 16.9375 14.2252 18.0755 14.2252 19.7825" stroke="#00172E" stroke-width="1.14707" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div><h3>Audience &amp; persona insights</h3><p>Real personas from your engagement data, not a kickoff-survey guess.</p></div>
+      </div>
+      <div class="diff-item reveal">
+        <span class="diff-ico" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <path d="M3.79297 4.26562H18.9663L13.7505 10.4298V16.594L9.0088 18.4906V10.4298L3.79297 4.26562Z" stroke="#00172E" stroke-width="1.1375" stroke-linejoin="round"/>
+            <path d="M6.22656 7.10938L16.5703 7.10937" stroke="#00172E" stroke-width="1.04271" stroke-linecap="round"/>
+            <path d="M8.53516 11.1406H14.2252" stroke="#00172E" stroke-width="1.23229" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div><h3>Full-funnel plan</h3><p>Warm, ABM, and cold tiers with budget by tier. Build-ready, every quarter.</p></div>
+      </div>
     </div>
-    <div class="pflow reveal">
-      <div class="pnode"><span class="pbar" style="background:var(--rust)"></span><div class="pn">01</div><h4>Competitive white space</h4><p>What rivals run, what nobody says, and the positioning lane you own.</p></div>
-      <div class="pnode"><span class="pbar" style="background:var(--blue)"></span><div class="pn">02</div><h4>Messaging &amp; offer architecture</h4><p>Persona pillars and the conversion offers that move each funnel stage.</p></div>
-      <div class="pnode"><span class="pbar" style="background:var(--blue-soft)"></span><div class="pn">03</div><h4>Audience &amp; persona insights</h4><p>Real personas from your engagement data, not a kickoff-survey guess.</p></div>
-      <div class="pnode"><span class="pbar" style="background:var(--clay)"></span><div class="pn">04</div><h4>Full-funnel plan</h4><p>Warm, ABM, and cold tiers with budget by tier. Build-ready, every quarter.</p></div>
-    </div>
-    <p class="ploop">Built up front, and <em>refreshed every quarter,</em> so your strategy never goes stale.</p>
   </div>
 </section>
 
-<section class="sec gal" id="reporting">
+<section class="rd-gal" id="reporting">
   <div class="wrap">
-    <div class="sec-head reveal" style="max-width:820px">
-      <span class="eyebrow">Inside your Impact Report</span>
-      <h2 class="sec-title display" style="text-transform:none">The reporting big accounts actually need.</h2>
-      <p class="sec-desc">Account-level, signal-driven, and connected to pipeline. This is what the Impact Report surfaces, and what your reporting looks like once we run the account.</p>
-      <span class="gal-note">Example data, account names and figures anonymized for this page</span>
+    <div class="rd-sec-head reveal gal-head">
+      <h2>The reporting big accounts actually need.</h2>
+      <p>Account-level, signal-driven, and connected to pipeline. This is what the Impact Report surfaces, and what your reporting looks like once we run the account.</p>
     </div>
-
-    <div class="gal-tablist" role="tablist" aria-label="Reporting views">
-      <button class="gal-tab" id="rptt-1" role="tab" aria-controls="rpt-1" aria-selected="true">Account coverage</button>
-      <button class="gal-tab" id="rptt-2" role="tab" aria-controls="rpt-2" aria-selected="false">Account intelligence</button>
-      <button class="gal-tab" id="rptt-3" role="tab" aria-controls="rpt-3" aria-selected="false">Audience efficiency</button>
-      <button class="gal-tab" id="rptt-4" role="tab" aria-controls="rpt-4" aria-selected="false">Waste</button>
+    <div class="gal-tablist" id="impactTabs" role="tablist" aria-label="Reporting views">
+      <button class="gal-tab" id="galt-1" role="tab" aria-controls="galp-1" aria-selected="true">Coverage</button>
+      <button class="gal-tab" id="galt-2" role="tab" aria-controls="galp-2" aria-selected="false">Account signals</button>
+      <button class="gal-tab" id="galt-3" role="tab" aria-controls="galp-3" aria-selected="false">Buyer personas</button>
+      <button class="gal-tab" id="galt-4" role="tab" aria-controls="galp-4" aria-selected="false">Scale vs cut</button>
+      <button class="gal-tab" id="galt-5" role="tab" aria-controls="galp-5" aria-selected="false">Budget waste</button>
     </div>
-
-    <div class="spec gal-panel" id="rpt-1" role="tabpanel" aria-labelledby="rptt-1">
+<!-- SPEC 1: Coverage funnel -->
+    <div class="spec gal-panel is-anim" id="galp-1" role="tabpanel" aria-labelledby="galt-1" data-gal-group="impactable">
       <div class="spec-head">
-        <div class="spec-q">Question 01 &middot; Account coverage</div>
+        <div class="spec-q">Question 01 · Coverage</div>
         <div class="spec-title">Are we in front of the right accounts?</div>
-        <div class="spec-ask">"How much of your target list has LinkedIn reached, and how far does each account get?"</div>
+        <div class="spec-ask">"How much of the addressable universe have we actually reached, and how far does each account get?"</div>
       </div>
       <div class="spec-body">
         <div class="fun">
           <div class="fun-row">
             <div class="fun-label"><div class="fl-n">Unaware</div><div class="fl-s">&lt; 30 impressions</div></div>
-            <div class="fun-track" style="background:linear-gradient(90deg,#3a3f4d,#2a2e39);width:100%"><span class="fb-n">5,840</span></div>
-            <div class="fun-stat"><div class="fs-p">82.9%<small>of universe</small></div></div>
+            <div class="fun-bar" data-fill="100" data-color="#003973">
+              <div class="fun-track"></div>
+              <div class="fun-fill is-solid"><span class="fb-n" data-count="5840" data-format="int">5,840</span></div>
+            </div>
+            <div class="fun-stat"><div class="fs-p"><span data-count="82.9" data-format="pct1">82.9</span>%<small>of universe</small></div></div>
           </div>
           <div class="fun-row">
             <div class="fun-label"><div class="fl-n">Aware</div><div class="fl-s">30+ impressions</div></div>
-            <div class="fun-track" style="background:linear-gradient(90deg,#2f8fd6,#1b6fb5);width:78%"><span class="fb-n">1,210</span></div>
-            <div class="fun-stat"><div class="fs-p">17.2%<small>of universe</small></div><span class="fun-delta down">&minus;79.3%</span></div>
+            <div class="fun-bar" data-fill="75" data-color="#0099d1">
+              <div class="fun-track"></div>
+              <div class="fun-fill"><span class="fb-n" data-count="1210" data-format="int">1,210</span></div>
+            </div>
+            <div class="fun-stat"><div class="fs-p"><span data-count="17.2" data-format="pct1">17.2</span>%<small>of universe</small></div><span class="fun-delta down">−79.3%</span></div>
           </div>
           <div class="fun-row">
             <div class="fun-label"><div class="fl-n">Engaged</div><div class="fl-s">3+ clicks</div></div>
-            <div class="fun-track" style="background:linear-gradient(90deg,#d98a2b,#b56f1f);width:54%"><span class="fb-n">22</span></div>
-            <div class="fun-stat"><div class="fs-p">0.3%<small>of universe</small></div><span class="fun-delta down">&minus;98.2%</span></div>
+            <div class="fun-bar" data-fill="60" data-color="#00c4b3">
+              <div class="fun-track"></div>
+              <div class="fun-fill"><span class="fb-n" data-count="22" data-format="int">22</span></div>
+            </div>
+            <div class="fun-stat"><div class="fs-p"><span data-count="0.3" data-format="pct1">0.3</span>%<small>of universe</small></div><span class="fun-delta down">−98.2%</span></div>
           </div>
           <div class="fun-row">
             <div class="fun-label"><div class="fl-n">Active Pipeline</div><div class="fl-s">CRM opportunity</div></div>
-            <div class="fun-track" style="background:linear-gradient(90deg,#7d4fb0,#5c2d6e);width:40%"><span class="fb-n">71</span></div>
-            <div class="fun-stat"><div class="fs-p">1.0%<small>multi-touch lift</small></div><span class="fun-delta up">+223%</span></div>
+            <div class="fun-bar" data-fill="47" data-color="#f4a261">
+              <div class="fun-track"></div>
+              <div class="fun-fill"><span class="fb-n" data-count="71" data-format="int">71</span></div>
+            </div>
+            <div class="fun-stat"><div class="fs-p"><span data-count="1.0" data-format="pct1">1.0</span>%<small>multi-touch lift</small></div><span class="fun-delta up">+223%</span></div>
           </div>
           <div class="fun-row">
             <div class="fun-label"><div class="fl-n">Closed-Won</div><div class="fl-s">Revenue realized</div></div>
-            <div class="fun-track" style="background:linear-gradient(90deg,#5aa15f,#3c7a40);width:26%"><span class="fb-n">8</span></div>
-            <div class="fun-stat"><div class="fs-p">0.1%<small>of universe</small></div><span class="fun-delta down">&minus;88.7%</span></div>
+            <div class="fun-bar" data-fill="36" data-color="#ffd166">
+              <div class="fun-track"></div>
+              <div class="fun-fill is-light"><span class="fb-n" data-count="8" data-format="int">8</span></div>
+            </div>
+            <div class="fun-stat"><div class="fs-p"><span data-count="0.1" data-format="pct1">0.1</span>%<small>of universe</small></div><span class="fun-delta down">−88.7%</span></div>
           </div>
         </div>
         <div class="fun-accts">
           <div class="fa-h">Top accounts in motion · firmographic + stage</div>
           <div class="fa-grid">
-            <div class="facard"><div class="fa-nm">Tidewater Software</div><div class="fa-meta">SaaS · 500-1k empl · ICP fit 94</div><span class="fa-stage aware">Aware</span></div>
-            <div class="facard"><div class="fa-nm">Basalt Cloud</div><div class="fa-meta">Cloud security · 1k-5k · ICP fit 91</div><span class="fa-stage engaged">Engaged</span></div>
-            <div class="facard"><div class="fa-nm">Sterling Capital</div><div class="fa-meta">FinServ · 1k-5k · ICP fit 96</div><span class="fa-stage pipeline">Active Pipeline</span></div>
-            <div class="facard"><div class="fa-nm">Cedar Security</div><div class="fa-meta">Security · 200-500 · ICP fit 98</div><span class="fa-stage won">Closed-Won</span></div>
+            <div class="facard">
+              <img class="fa-logo" src="assets/img/logo-northwind.png" alt="NorthWind" width="90" height="25">
+              <div class="fa-meta">SaaS · 500-1k empl · ICP fit 94</div>
+              <span class="fa-stage aware">Aware</span>
+            </div>
+            <div class="facard">
+              <img class="fa-logo" src="assets/img/logo-halcyon.svg" alt="Halcyon" width="106" height="25">
+              <div class="fa-meta">Cloud security · 1k-5k · ICP fit 91</div>
+              <span class="fa-stage engaged">Engaged</span>
+            </div>
+            <div class="facard">
+              <img class="fa-logo fa-logo--sterling" src="img/Sterling-w-Guardian-logo-Hor 1.svg" alt="Sterling Capital" width="85" height="25">
+              <div class="fa-meta">FinServ · 1k-5k · ICP fit 96</div>
+              <span class="fa-stage pipeline">Active Pipeline</span>
+            </div>
+            <div class="facard">
+              <img class="fa-logo fa-logo--cedar" src="img/logo 3.svg" alt="Cedar" width="27" height="28">
+              <div class="fa-meta">Security · 200-500 · ICP fit 98</div>
+              <span class="fa-stage won">Closed-Won</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="spec-foot"><span>The waterfall the others skip: <span class="tk">multi-touch accounts convert to pipeline at 3x+ the rate of single-touch.</span></span></div>
+      <div class="spec-foot"><span class="sf-lead">The waterfall the others skip:</span> <span class="tk">multi-touch accounts convert to pipeline at 3x+ the rate of single-touch.</span></div>
     </div>
 
-    <div class="spec gal-panel" id="rpt-2" role="tabpanel" aria-labelledby="rptt-2" hidden>
+    <!-- SPEC 2: Multi-signal account board -->
+    <div class="spec gal-panel" id="galp-2" role="tabpanel" aria-labelledby="galt-2" data-gal-group="impactable" hidden>
       <div class="spec-head">
-        <div class="spec-q">Question 02 &middot; Account intelligence</div>
-        <div class="spec-title">Which accounts are moving right now?</div>
+        <div class="spec-q">Question 02 · Account intelligence</div>
+        <div class="spec-title">Which accounts are actually moving right now?</div>
+        <div class="spec-ask">"Where are the signals stacking, and who should sales call this week?"</div>
+      </div>
+      <div class="spec-body">
+        <div class="sig-board" role="table" aria-label="Account signals">
+          <div class="sig-row sig-head" role="row">
+            <div role="columnheader">Account</div>
+            <div role="columnheader">Signal pools</div>
+            <div role="columnheader">Depth</div>
+            <div role="columnheader">Surge (7wk)</div>
+            <div class="sig-score" role="columnheader">Score</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="columnheader">Next action</div>
+          </div>
+
+          <div class="sig-row" role="row">
+            <div class="sig-acct" role="cell">Sightline Software</div>
+            <div role="cell"><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool on">P3</span><span class="pool on">P4</span><span class="pool on">P5</span></div></div>
+            <div role="cell"><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i></span></div></div>
+            <div role="cell"><div class="spark spark--navy" aria-hidden="true"><i style="--h:9px"></i><i style="--h:15px"></i><i style="--h:12px"></i><i style="--h:20px"></i><i style="--h:16px"></i><i style="--h:24px"></i><i style="--h:30px"></i></div></div>
+            <div class="sig-score" role="cell" data-count="1825" data-format="int">1,825</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="act-pill act-now">Contact Now</span></div>
+          </div>
+
+          <div class="sig-row" role="row">
+            <div class="sig-acct" role="cell">Fathom Financial</div>
+            <div role="cell"><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool on">P3</span><span class="pool on">P4</span><span class="pool on">P5</span></div></div>
+            <div role="cell"><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i></span></div></div>
+            <div role="cell"><div class="spark" aria-hidden="true"><i style="--h:6px"></i><i style="--h:9px"></i><i style="--h:13px"></i><i style="--h:11px"></i><i style="--h:16px"></i><i style="--h:14px"></i><i class="peak" style="--h:20px"></i></div></div>
+            <div class="sig-score" role="cell" data-count="1383" data-format="int">1,383</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="act-pill act-week">This week</span></div>
+          </div>
+
+          <div class="sig-row" role="row">
+            <div class="sig-acct" role="cell">Cobalt Cloud</div>
+            <div role="cell"><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool on">P3</span><span class="pool off">P4</span><span class="pool on">P5</span></div></div>
+            <div role="cell"><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd"></i></span></div></div>
+            <div role="cell"><div class="spark" aria-hidden="true"><i style="--h:5px"></i><i style="--h:7px"></i><i style="--h:12px"></i><i style="--h:10px"></i><i style="--h:15px"></i><i class="peak" style="--h:24px"></i><i style="--h:19px"></i></div></div>
+            <div class="sig-score" role="cell" data-count="1148" data-format="int">1,148</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="act-pill act-now">Contact Now</span></div>
+          </div>
+
+          <div class="sig-row" role="row">
+            <div class="sig-acct" role="cell">Brightwave Analytics</div>
+            <div role="cell"><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool off">P3</span><span class="pool on">P4</span><span class="pool off">P5</span></div></div>
+            <div role="cell"><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd"></i><i class="dd"></i></span></div></div>
+            <div role="cell"><div class="spark" aria-hidden="true"><i style="--h:4px"></i><i style="--h:6px"></i><i style="--h:9px"></i><i style="--h:13px"></i><i style="--h:11px"></i><i style="--h:14px"></i><i style="--h:12px"></i></div></div>
+            <div class="sig-score" role="cell" data-count="758" data-format="int">758</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="act-pill act-keep">Maintain</span></div>
+          </div>
+
+          <div class="sig-row" role="row">
+            <div class="sig-acct" role="cell">Quartz Semiconductors</div>
+            <div role="cell"><div class="pools"><span class="pool on">P1</span><span class="pool off">P2</span><span class="pool on">P3</span><span class="pool off">P4</span><span class="pool on">P5</span></div></div>
+            <div role="cell"><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd"></i><i class="dd"></i></span></div></div>
+            <div role="cell"><div class="spark" aria-hidden="true"><i style="--h:3px"></i><i style="--h:5px"></i><i style="--h:7px"></i><i style="--h:9px"></i><i style="--h:8px"></i><i style="--h:11px"></i><i style="--h:10px"></i></div></div>
+            <div class="sig-score" role="cell" data-count="616" data-format="int">616</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="act-pill act-mon">Monitor</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="spec-foot spec-foot--legend"><span class="tk">P1-P5</span> = presence across five signal pools · <span class="tk">Surge</span> = 7-week engagement trend · the lime bar marks the spike that triggers the call.</div>
+    </div>
+
+    <!-- SPEC 3: Buyer personas (FEATURED) -->
+    <div class="spec gal-panel" id="galp-3" role="tabpanel" aria-labelledby="galt-3" data-gal-group="impactable" hidden>
+      <div class="spec-head">
+        <div class="spec-q">Question 03 · Buyer personas</div>
+        <div class="spec-title">Who are your real buyers?</div>
+        <div class="spec-ask">"Not the ICP on the deck. The people the engagement data says are actually leaning in."</div>
+      </div>
+      <div class="spec-body">
+        <div class="pgrid">
+          <div class="pcard inv">
+            <h4>The Demand-Gen Operator</h4>
+            <div class="prole">Champion / runs execution</div>
+            <div class="pline">Titles: Dir / Sr Dir Demand Gen, Growth, Marketing Ops</div>
+            <div class="pstats"><span class="ps-lab">CTR</span> <b>2.1-4.0%</b> <span class="ps-sep">·</span> <span class="ps-lab">CPC</span> <b class="gv">~$3.40</b> <span class="ps-sep">·</span> <span class="ps-lab">Verdict</span> <b class="gv">INVEST</b></div>
+            <div class="paction"><b>Action:</b> the hero persona and the one actually engaging. Build the warm pool and ABM list around them; point the working-session offer here.</div>
+          </div>
+          <div class="pcard inv">
+            <h4>The VP / Exec Economic Buyer</h4>
+            <div class="prole">Economic buyer, owns the budget</div>
+            <div class="pline">Titles: CMO, VP Marketing, VP Growth, CRO</div>
+            <div class="pstats"><span class="ps-lab">CTR</span> <b>1.0-1.4%</b> <span class="ps-sep">·</span> <span class="ps-lab">CPC</span> <b class="gv">~$3.30-4.50</b> <span class="ps-sep">·</span> <span class="ps-lab">Verdict</span> <b class="gv">INVEST</b></div>
+            <div class="paction"><b>Action:</b> efficient and high-intent. Serve the board-ready ROI narrative framed on pipeline and cost-of-inaction.</div>
+          </div>
+          <div class="pcard inv">
+            <h4>The RevOps / Analytics Lead</h4>
+            <div class="prole">Technical validator, vets before engaging</div>
+            <div class="pline">Titles: Dir RevOps, Marketing Analytics, Marketing Ops</div>
+            <div class="pstats"><span class="ps-lab">CTR</span> <b>1.6-4.2%</b> <span class="ps-sep">·</span> <span class="ps-lab">CPC</span> <b class="gv">~$2.20-3.90</b> <span class="ps-sep">·</span> <span class="ps-lab">Verdict</span> <b class="gv">INVEST</b></div>
+            <div class="paction"><b>Action:</b> credibility-first. Attribution and proof content suits them; they research before they raise a hand.</div>
+          </div>
+          <div class="pcard hold">
+            <h4>The Sales / Pipeline Leader</h4>
+            <div class="prole">Adjacent stakeholder, influences the buy</div>
+            <div class="pline">Titles: VP Sales, Head of Sales, Sales Enablement</div>
+            <div class="pstats"><span class="ps-lab">CTR</span> <b>1.2-1.7%</b> <span class="ps-sep">·</span> <span class="ps-lab">CPC</span> <b class="bv">~$3.00-3.65</b> <span class="ps-sep">·</span> <span class="ps-lab">Verdict</span> <b class="bv">HOLD</b></div>
+            <div class="paction"><b>Action:</b> steady engagement. Pipeline-impact content; folds into the integrated demand message rather than leading it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="spec-foot sp-ft"><span>Synthesized by cross-referencing title, seniority, function, and industry against engagement, then mapped straight onto your messaging architecture.</span></div>
+    </div>
+
+    <!-- SPEC 4: Scale vs cut - Figma 5000:177987 -->
+    <div class="spec gal-panel" id="galp-4" role="tabpanel" aria-labelledby="galt-4" data-gal-group="impactable" hidden>
+      <div class="spec-head">
+        <div class="spec-q">Question 04 · Audience efficiency</div>
+        <div class="spec-title">Which accounts are actually moving right now?</div>
         <div class="spec-ask">"Where are the signals stacking, and who should sales call this week?"</div>
       </div>
       <div class="spec-body spec-scroll">
-        <table class="stab">
-          <thead><tr><th>Account</th><th>Signal pools</th><th>Depth</th><th>Surge (7wk)</th><th class="r">Score</th><th class="r">Next action</th></tr></thead>
-          <tbody>
-            <tr><td class="acct">Tidewater Software</td><td><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool on">P3</span><span class="pool on">P4</span><span class="pool on">P5</span></div></td><td><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i></span></div></td><td><div class="spark"><i style="height:8px"></i><i style="height:14px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:15px"></i><i style="height:22px"></i><i class="peak" style="height:28px"></i></div></td><td class="r"><span class="score-n">1,825</span></td><td class="r"><span class="act-pill act-now">Contact now</span></td></tr>
-            <tr><td class="acct">Junction Financial</td><td><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool on">P3</span><span class="pool on">P4</span><span class="pool on">P5</span></div></td><td><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i></span></div></td><td><div class="spark"><i style="height:6px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:14px"></i><i class="peak" style="height:20px"></i></div></td><td class="r"><span class="score-n">1,383</span></td><td class="r"><span class="act-pill act-week">This week</span></td></tr>
-            <tr><td class="acct">Basalt Cloud</td><td><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool on">P3</span><span class="pool off">P4</span><span class="pool on">P5</span></div></td><td><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd"></i></span></div></td><td><div class="spark"><i style="height:5px"></i><i style="height:7px"></i><i style="height:12px"></i><i style="height:10px"></i><i style="height:15px"></i><i class="peak" style="height:24px"></i><i style="height:19px"></i></div></td><td class="r"><span class="score-n">1,146</span></td><td class="r"><span class="act-pill act-now">Contact now</span></td></tr>
-            <tr><td class="acct">Brightwave Analytics</td><td><div class="pools"><span class="pool on">P1</span><span class="pool on">P2</span><span class="pool off">P3</span><span class="pool on">P4</span><span class="pool off">P5</span></div></td><td><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd"></i><i class="dd"></i></span></div></td><td><div class="spark"><i style="height:4px"></i><i style="height:6px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:11px"></i><i style="height:14px"></i><i style="height:12px"></i></div></td><td class="r"><span class="score-n">758</span></td><td class="r"><span class="act-pill act-keep">Maintain</span></td></tr>
-            <tr><td class="acct">Corvus Semiconductors</td><td><div class="pools"><span class="pool on">P1</span><span class="pool off">P2</span><span class="pool on">P3</span><span class="pool off">P4</span><span class="pool on">P5</span></div></td><td><div class="depth"><span class="dot5"><i class="dd on"></i><i class="dd on"></i><i class="dd on"></i><i class="dd"></i><i class="dd"></i></span></div></td><td><div class="spark"><i style="height:3px"></i><i style="height:5px"></i><i style="height:7px"></i><i style="height:9px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:10px"></i></div></td><td class="r"><span class="score-n">616</span></td><td class="r"><span class="act-pill act-mon">Monitor</span></td></tr>
-          </tbody>
-        </table>
+        <div class="scale-board" role="table" aria-label="Seniority scale vs cut">
+          <div class="scale-row scale-head" role="row">
+            <div role="columnheader">Seniority</div>
+            <div class="scale-num" role="columnheader">Clicks</div>
+            <div class="scale-num" role="columnheader">Impr.</div>
+            <div class="scale-num" role="columnheader">Cost</div>
+            <div class="scale-num" role="columnheader">CPC</div>
+            <div class="scale-num" role="columnheader">CTR</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="columnheader">Next action</div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">Director</div>
+            <div class="scale-num" role="cell"><span data-count="574" data-format="int">574</span> <span class="pct">(50%)</span></div>
+            <div class="scale-num" role="cell" data-count="30245" data-format="int">30,245</div>
+            <div class="scale-num" role="cell" data-count="2037" data-format="money">$2,037</div>
+            <div class="scale-num" role="cell" data-count="3.55" data-format="money2">$3.55</div>
+            <div class="scale-num" role="cell" data-count="1.90" data-format="pct2">1.90%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-invest">INVEST</span></div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">VP</div>
+            <div class="scale-num" role="cell"><span data-count="176" data-format="int">176</span> <span class="pct">(15%)</span></div>
+            <div class="scale-num" role="cell" data-count="11655" data-format="int">11,655</div>
+            <div class="scale-num" role="cell" data-count="635" data-format="money">$635</div>
+            <div class="scale-num" role="cell" data-count="3.61" data-format="money2">$3.61</div>
+            <div class="scale-num" role="cell" data-count="1.50" data-format="pct2">1.50%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-invest">INVEST</span></div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">CXO</div>
+            <div class="scale-num" role="cell"><span data-count="134" data-format="int">134</span> <span class="pct">(12%)</span></div>
+            <div class="scale-num" role="cell" data-count="11302" data-format="int">11,302</div>
+            <div class="scale-num" role="cell" data-count="485" data-format="money">$485</div>
+            <div class="scale-num" role="cell" data-count="3.62" data-format="money2">$3.62</div>
+            <div class="scale-num" role="cell" data-count="1.20" data-format="pct2">1.20%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-invest">INVEST</span></div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">Owner</div>
+            <div class="scale-num" role="cell"><span data-count="72" data-format="int">72</span> <span class="pct">(6%)</span></div>
+            <div class="scale-num" role="cell" data-count="6859" data-format="int">6,859</div>
+            <div class="scale-num" role="cell" data-count="304" data-format="money">$304</div>
+            <div class="scale-num" role="cell" data-count="4.23" data-format="money2">$4.23</div>
+            <div class="scale-num" role="cell" data-count="1.00" data-format="pct2">1.00%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-hold">HOLD</span></div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">Manager</div>
+            <div class="scale-num" role="cell"><span data-count="41" data-format="int">41</span> <span class="pct">(4%)</span></div>
+            <div class="scale-num" role="cell" data-count="3412" data-format="int">3,412</div>
+            <div class="scale-num" role="cell" data-count="310" data-format="money">$310</div>
+            <div class="scale-num" role="cell" data-count="7.57" data-format="money2">$7.57</div>
+            <div class="scale-num" role="cell" data-count="1.20" data-format="pct2">1.20%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-hold">HOLD</span></div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">Senior (IC)</div>
+            <div class="scale-num" role="cell"><span data-count="46" data-format="int">46</span> <span class="pct">(4%)</span></div>
+            <div class="scale-num" role="cell" data-count="8808" data-format="int">8,808</div>
+            <div class="scale-num" role="cell" data-count="999" data-format="money">$999</div>
+            <div class="scale-num" role="cell" data-count="21.71" data-format="money2">$21.71</div>
+            <div class="scale-num" role="cell" data-count="0.50" data-format="pct2">0.50%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-reduce">REDUCE</span></div>
+          </div>
+          <div class="scale-row" role="row">
+            <div class="scale-name" role="cell">Entry</div>
+            <div class="scale-num" role="cell"><span data-count="37" data-format="int">37</span> <span class="pct">(3%)</span></div>
+            <div class="scale-num" role="cell" data-count="5136" data-format="int">5,136</div>
+            <div class="scale-num" role="cell" data-count="720" data-format="money">$720</div>
+            <div class="scale-num" role="cell" data-count="19.45" data-format="money2">$19.45</div>
+            <div class="scale-num" role="cell" data-count="0.70" data-format="pct2">0.70%</div>
+            <div class="sig-gap" role="presentation" aria-hidden="true"></div>
+            <div role="cell"><span class="verdict-pill vp-exclude">EXCLUDE</span></div>
+          </div>
+        </div>
       </div>
-      <div class="spec-foot"><span><span class="tk">P1 to P5</span> = presence across five signal pools &middot; <span class="tk">Surge</span> = 7-week engagement trend &middot; the lime bar marks the spike that triggers the call.</span></div>
+      <div class="spec-foot spec-foot--legend"><span class="tk">INVEST</span> scale · <span class="tk">HOLD</span> ICP-adjacent · <span class="tk">REDUCE</span> poor efficiency · <span class="tk">EXCLUDE</span> off-ICP. Also run by job function, industry, company size, and title.</div>
     </div>
 
-    <div class="spec gal-panel" id="rpt-3" role="tabpanel" aria-labelledby="rptt-3" hidden>
+        <!-- SPEC 5: Budget waste - Figma 5000:178672 -->
+    <div class="spec gal-panel" id="galp-5" role="tabpanel" aria-labelledby="galt-5" data-gal-group="impactable" hidden>
       <div class="spec-head">
-        <div class="spec-q">Question 03 &middot; Audience efficiency</div>
-        <div class="spec-title">Where do we scale, and where do we cut?</div>
-        <div class="spec-ask">"A verdict on every segment, not a dashboard you have to interpret."</div>
-      </div>
-      <div class="spec-body spec-scroll">
-        <table class="stab">
-          <thead><tr><th>Seniority</th><th class="r">Clicks</th><th class="r">Impr.</th><th class="r">Cost</th><th class="r">CPC</th><th class="r">CTR</th><th class="r">Verdict</th></tr></thead>
-          <tbody>
-            <tr><td class="acct">Director</td><td class="r num">574 <span style="color:var(--chalk-dim)">(50%)</span></td><td class="r num">30,245</td><td class="r num">$2,037</td><td class="r cpc-g">$3.55</td><td class="r num">1.90%</td><td class="r"><span class="verdict v-invest">Invest</span></td></tr>
-            <tr><td class="acct">VP</td><td class="r num">176 <span style="color:var(--chalk-dim)">(15%)</span></td><td class="r num">11,655</td><td class="r num">$635</td><td class="r cpc-g">$3.61</td><td class="r num">1.50%</td><td class="r"><span class="verdict v-invest">Invest</span></td></tr>
-            <tr><td class="acct">CXO</td><td class="r num">134 <span style="color:var(--chalk-dim)">(12%)</span></td><td class="r num">11,302</td><td class="r num">$485</td><td class="r cpc-g">$3.62</td><td class="r num">1.20%</td><td class="r"><span class="verdict v-invest">Invest</span></td></tr>
-            <tr><td class="acct">Owner</td><td class="r num">72 <span style="color:var(--chalk-dim)">(6%)</span></td><td class="r num">6,859</td><td class="r num">$304</td><td class="r cpc-g">$4.23</td><td class="r num">1.00%</td><td class="r"><span class="verdict v-hold">Hold</span></td></tr>
-            <tr><td class="acct">Manager</td><td class="r num">41 <span style="color:var(--chalk-dim)">(4%)</span></td><td class="r num">3,412</td><td class="r num">$310</td><td class="r cpc-t">$7.57</td><td class="r num">1.20%</td><td class="r"><span class="verdict v-hold">Hold</span></td></tr>
-            <tr><td class="acct">Senior (IC)</td><td class="r num">46 <span style="color:var(--chalk-dim)">(4%)</span></td><td class="r num">8,808</td><td class="r num">$999</td><td class="r cpc-r">$21.71</td><td class="r num">0.50%</td><td class="r"><span class="verdict v-reduce">Reduce</span></td></tr>
-            <tr><td class="acct">Entry</td><td class="r num">37 <span style="color:var(--chalk-dim)">(3%)</span></td><td class="r num">5,136</td><td class="r num">$720</td><td class="r cpc-r">$19.45</td><td class="r num">0.70%</td><td class="r"><span class="verdict v-exclude">Exclude</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="spec-foot"><span><span class="tk">INVEST</span> scale &middot; <span class="tk">HOLD</span> ICP-adjacent &middot; <span class="tk">REDUCE</span> poor efficiency &middot; <span class="tk">EXCLUDE</span> off-ICP. Also run by job function, industry, company size, and title.</span></div>
-    </div>
-
-    <div class="spec gal-panel" id="rpt-4" role="tabpanel" aria-labelledby="rptt-4" hidden>
-      <div class="spec-head">
-        <div class="spec-q">Question 04 &middot; Waste</div>
+        <div class="spec-q">Question 05 · Waste</div>
         <div class="spec-title">Where is budget going with no return?</div>
-        <div class="spec-ask">"At six figures a month, every zero-click segment is real money. Here is where it leaks."</div>
+        <div class="spec-ask">"Every segment absorbing impressions with zero clicks, flagged for suppression."</div>
       </div>
       <div class="spec-body">
         <div class="waste-grid">
           <div class="waste-col">
-            <h5>By industry <span class="zc">0 clicks</span></h5>
-            <table class="stab"><thead><tr><th>Segment</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">Signal</th></tr></thead><tbody>
-              <tr><td class="acct">Higher Education</td><td class="r num">3,191</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">Government Admin</td><td class="r num">2,059</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">Defense &amp; Space</td><td class="r num">1,784</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">Non-Profit</td><td class="r num">1,044</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">E-Learning</td><td class="r num">331</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-            </tbody></table>
+            <div class="waste-col-head">
+              <h5>By Industry</h5>
+              <span class="zc">0 clicks</span>
+            </div>
+            <div class="waste-board" role="table" aria-label="Waste by industry">
+              <div class="waste-row waste-head" role="row">
+                <div role="columnheader">Segment</div>
+                <div class="w-num" role="columnheader">Impr.</div>
+                <div class="w-num" role="columnheader">Clicks</div>
+                <div class="w-sig" role="columnheader">Signal</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">Higher Education</div>
+                <div class="w-num" role="cell">3,191</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">Government Admin</div>
+                <div class="w-num" role="cell">2,059</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">Defense &amp; Space</div>
+                <div class="w-num" role="cell">1,784</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">Non-Profit</div>
+                <div class="w-num" role="cell">1,044</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">E-Learning</div>
+                <div class="w-num" role="cell">331</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+            </div>
           </div>
           <div class="waste-col">
-            <h5>By company size <span class="zc">0 clicks</span></h5>
-            <table class="stab"><thead><tr><th>Segment</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">Signal</th></tr></thead><tbody>
-              <tr><td class="acct">201-500</td><td class="r num">11,687</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">501-1000</td><td class="r num">8,619</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">1-10</td><td class="r num">3,231</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">51-200</td><td class="r num">2,801</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-              <tr><td class="acct">11-50</td><td class="r num">2,103</td><td class="r num">0</td><td class="r"><span class="v-suppress">Suppress</span></td></tr>
-            </tbody></table>
+            <div class="waste-col-head">
+              <h5>By company size</h5>
+              <span class="zc">0 clicks</span>
+            </div>
+            <div class="waste-board" role="table" aria-label="Waste by company size">
+              <div class="waste-row waste-head" role="row">
+                <div role="columnheader">Segment</div>
+                <div class="w-num" role="columnheader">Impr.</div>
+                <div class="w-num" role="columnheader">Clicks</div>
+                <div class="w-sig" role="columnheader">Signal</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">201-500</div>
+                <div class="w-num" role="cell">11,687</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">501-1000</div>
+                <div class="w-num" role="cell">8,619</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">1-10</div>
+                <div class="w-num" role="cell">3,231</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">51-200</div>
+                <div class="w-num" role="cell">2,801</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+              <div class="waste-row" role="row">
+                <div class="w-name" role="cell">11-50</div>
+                <div class="w-num" role="cell">2,103</div>
+                <div class="w-num" role="cell">0</div>
+                <div class="w-sig" role="cell">Suppress</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="spec-foot"><span>Every row is a suppression or exclusion opportunity, with budget redirected to the segments the verdicts say to scale.</span></div>
+      <div class="spec-foot sp-ft"><span>Every row is a suppression or exclusion opportunity: budget redirected to the segments the verdicts say to scale.</span></div>
     </div>
   </div>
 </section>
 
-<section class="sec mtn">
+<section class="la-climb" id="laClimb">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Where you sit on the climb</span>
-      <h2 class="sec-title display" style="text-transform:none">Most existing accounts stall between Ramp and Reach.</h2>
-      <p class="sec-desc">The Account Diagnostic locates you on the curve and names the specific blocker to the next stage, so scaling is a decision, not a guess.</p>
+    <div class="rd-sec-head reveal">
+      <h2>Most existing accounts <br> stall <span class="hl">between Ramp and Reach</span>.</h2>
+      <p>The Impact Report locates you on the curve and names the specific blocker to the next <br> stage, so scaling is a decision, not a guess.</p>
     </div>
-    <div class="ridge-wrap reveal">
-      <svg class="ridge-svg" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
-        <defs><linearGradient id="ridgeFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(27,155,209,0.30)"/><stop offset="100%" stop-color="rgba(27,155,209,0)"/></linearGradient></defs>
-        <polyline points="0,185 200,150 400,112 600,74 800,40 1000,12" fill="none" stroke="#1B9BD1" stroke-width="2.5"/>
-        <polygon points="0,185 200,150 400,112 600,74 800,40 1000,12 1000,200 0,200" fill="url(#ridgeFill)"/>
-        <circle cx="100" cy="167" r="5" fill="#001122" stroke="#1B9BD1" stroke-width="2.5"/>
-        <circle cx="300" cy="131" r="6.5" fill="#001122" stroke="#00C4B3" stroke-width="3"/>
-        <circle cx="500" cy="93" r="6.5" fill="#001122" stroke="#00C4B3" stroke-width="3"/>
-        <circle cx="700" cy="57" r="5" fill="#001122" stroke="#1B9BD1" stroke-width="2.5"/>
-        <circle cx="900" cy="26" r="5" fill="#001122" stroke="#1B9BD1" stroke-width="2.5"/>
-      </svg>
-      <div class="ridge-stages">
-        <div class="rstage"><div class="rn">Stage 1</div><div class="rname">Validate</div><div class="rd">Message-market fit. First conversions.</div></div>
-        <div class="rstage active"><div class="rn">Stage 2 &middot; Likely here</div><div class="rname">Ramp</div><div class="rd">CPA validated, scaling, but efficiency slipping as spend grows.</div></div>
-        <div class="rstage active"><div class="rn">Stage 3 &middot; Likely here</div><div class="rname">Reach</div><div class="rd">Demand gen for out-of-market buyers. The common plateau.</div></div>
-        <div class="rstage"><div class="rn">Stage 4 &middot; The goal</div><div class="rname">Supply</div><div class="rd">Multi-channel at scale. Predictable pipeline.</div></div>
-        <div class="rstage"><div class="rn">Stage 5</div><div class="rname">Sustain</div><div class="rd">Optimized economics. Brand compounds.</div></div>
-      </div>
+    <div class="la-climb-bar" aria-hidden="true"></div>
+    <div class="la-stages">
+      <article class="la-stage"><div class="sn">Stage 1</div><h3>Validate</h3><p>Message-market fit. First conversions.</p></article>
+      <article class="la-stage is-here"><div class="sn">Stage 2<span class="here"> · Likely here</span></div><h3>Ramp</h3><p>CPA validated, scaling, but efficiency slipping as spend grows.</p></article>
+      <article class="la-stage is-here"><div class="sn">Stage 3<span class="here"> · Likely here</span></div><h3>Reach</h3><p>Demand gen for out-of-market buyers. The common plateau.</p></article>
+      <article class="la-stage is-goal"><div class="sn">Stage 4 · The goal</div><h3>Supply</h3><p>Multi-channel at scale. Predictable pipeline.</p></article>
+      <article class="la-stage"><div class="sn">Stage 5</div><h3>Sustain</h3><p>Optimized economics. Brand compounds.</p></article>
     </div>
   </div>
 </section>
 
-<section class="sec os" id="models">
+<section class="ls-pricing" id="pricing">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">How we work together</span>
-      <h2 class="sec-title display" style="text-transform:none">Two ways to engage.</h2>
-      <p class="sec-desc">Have an in-house strategy you need executed cleanly? Or want us to own the direction? Either way, the same specialist team and signal tooling run your account.</p>
+    <div class="ls-price-head reveal">
+      <h2>From free to <span class="em2">half a million a month</span>.</h2>
+      <p>Start free with a Demand Plan, or book a call. Move to managed when you're ready, on a flat monthly fee <br> priced to the operation, not a percentage of your ad budget.</p>
     </div>
-    <div class="models">
-      <div class="model reveal">
-        <div class="mtag">Model 01</div>
-        <h3>Execution Partner</h3>
-        <div class="msub">You bring the strategy. We run it flawlessly.</div>
-        <div class="mflow">
-          <div class="mstep"><span class="mi">01</span> Your strategy and audiences</div>
-          <div class="mplus">+</div>
-          <div class="mstep"><span class="mi">02</span> Dedicated marketing coordinator</div>
-          <div class="mplus">+</div>
-          <div class="mstep"><span class="mi">03</span> LinkedIn-certified specialist building your campaigns</div>
-        </div>
-        <div class="mbest">Best when you have <b>in-house strategy</b> and need specialist hands on the platform.</div>
-      </div>
-      <div class="model strat reveal">
-        <div class="mtag">Model 02 &middot; Most common</div>
-        <h3>Strategic Partner</h3>
-        <div class="msub">We develop the strategy and execute it end to end.</div>
-        <div class="mflow">
-          <div class="mstep"><span class="mi">01</span> Full-funnel LinkedIn strategist</div>
-          <div class="mplus">+</div>
-          <div class="mstep"><span class="mi">02</span> Dedicated marketing coordinator</div>
-          <div class="mplus">+</div>
-          <div class="mstep"><span class="mi">03</span> LinkedIn-certified specialist building your campaigns</div>
-        </div>
-        <div class="mbest">Best when you want a partner to <b>own direction, testing, and scale</b> against your growth goals.</div>
-      </div>
+    <div class="ls-price-grid">
+      <article class="ls-card featured reveal">
+        <p class="ls-card-kicker is-lime">Start here · free</p>
+        <h3>Demand Plan</h3>
+        <p class="ls-card-price"><b>$0</b> <i>48 hours</i></p>
+        <p class="ls-card-copy">A fast, done-for-you read on your account. Positioning, targeting, and where to scale first. Yours to keep.</p>
+        <ul class="ls-card-list">
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Competitor and white-space read</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Signal-composed targeting worksheet</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Channel priority and next moves</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">No working sessions, no obligation</li>
+        </ul>
+        <a class="la-pc-cta la-pc-cta--fill" href="/competitor-intel-report">Book Your Demand Plan</a>
+      </article>
+      <article class="ls-card reveal">
+        <p class="ls-card-kicker">Managed</p>
+        <h3>Core</h3>
+        <p class="ls-card-price"><em>From</em> <b>$3,000</b> <i>/mo</i></p>
+        <p class="ls-card-copy">Strategy plus a full execution pod for your LinkedIn ads, built to scale. A flat fee, priced to the operation.</p>
+        <ul class="ls-card-list">
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Full-funnel strategist + pod</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">DemandSense, signals, ABM support</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Quarterly diagnostic review</li>
+          <li class="is-teal"><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Setup fee waived after your diagnostic</li>
+        </ul>
+        <a class="la-pc-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk It Through</a>
+      </article>
+      <article class="ls-card reveal">
+        <p class="ls-card-kicker">Managed</p>
+        <h3>Growth</h3>
+        <p class="ls-card-price"><em>From</em> <b>$4,500</b> <i>/mo</i></p>
+        <p class="ls-card-copy">Two channels wired as one motion: LinkedIn plus a second channel, up to $25k/mo combined spend.</p>
+        <ul class="ls-card-list">
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Everything in Core, across two channels</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Shared signals and cross-channel retargeting</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Search captures demand, LinkedIn creates it</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Consolidated cross-channel reporting</li>
+        </ul>
+        <a class="la-pc-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk It Through</a>
+      </article>
+      <article class="ls-card flagship reveal">
+        <p class="ls-card-kicker is-blue">Flagship</p>
+        <h3>Scale</h3>
+        <p class="ls-card-price"><b>$6,000-$12,000</b> <i>/mo</i></p>
+        <p class="ls-card-copy">For large and IPO-stage accounts running multi-channel, multi-account, multi-geo. A flat fee, priced to the operation.</p>
+        <ul class="ls-card-list">
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Dedicated senior strategist and pod</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Advanced attribution + revenue influence</li>
+          <li><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Multi-channel coordination + exec EBRs</li>
+          <li class="is-teal"><img src="assets/img/la-pc-check.svg" alt="" width="15" height="11">Website Visitor ID included</li>
+        </ul>
+        <a class="la-pc-cta" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Talk to a strategist</a>
+      </article>
     </div>
+    <div class="ls-price-how reveal">
+      <p><b>How pricing works:</b> Every engagement starts with an audit and a scoping call, so the tier and the plan fit your account. Management is a flat monthly fee priced to the operation, not a percentage of your ad budget, so the number is the number whether you spend $5k or $200k. You move up a tier when the scope of work earns it. We run accounts from $5k to $500k+ a month. Prefer a paid deep-dive before committing? The one-time Account Diagnostic ($1,500) runs on your live account and credits to setup.</p>
+    </div>
+    <p class="ls-price-alt reveal">New to LinkedIn ads? <a href="/linkedin-launch">See the LinkedIn Ads Launch Plan &rarr;</a></p>
   </div>
 </section>
 
-<section class="sec diff" id="pricing">
+<section class="ls-fit">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Pricing that scales with you</span>
-      <h2 class="sec-title display" style="text-transform:none">From free to <span class="hl">half a million a month.</span></h2>
-      <p class="sec-desc">Start free with a Demand Plan, or book a call. Move to managed when you're ready, on a flat monthly fee priced to the operation, not a percentage of your ad budget.</p>
-    </div>
-    <style>
-    .price-grid.pg4{grid-template-columns:repeat(4,1fr)}
-    @media(max-width:1080px){.price-grid.pg4{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.price-grid.pg4{grid-template-columns:1fr}}
-    </style>
-    <div class="price-grid pg4">
-      <div class="pc feat reveal">
-        <div class="pc-step">Start here &middot; free</div>
-        <h4>Demand Plan</h4>
-        <div class="pc-amt">$0<small> 48 hours</small></div>
-        <p class="pc-desc">A fast, done-for-you read on your account. Positioning, targeting, and where to scale first. Yours to keep.</p>
-        <ul>
-          <li><span class="ck">&rarr;</span> Competitor and white-space read</li>
-          <li><span class="ck">&rarr;</span> Signal-composed targeting worksheet</li>
-          <li><span class="ck">&rarr;</span> Channel priority and next moves</li>
-          <li><span class="ck">&rarr;</span> No working sessions, no obligation</li>
-        </ul>
-        <a class="btn btn-primary" href="/competitor-intel-report">Get your Demand Plan</a>
-      </div>
-      <div class="pc reveal">
-        <div class="pc-step">Managed</div>
-        <h4>Core</h4>
-        <div class="pc-amt">from $3,000<small> /mo</small></div>
-        <p class="pc-desc">Strategy plus a full execution pod for your LinkedIn ads, built to scale. A flat fee, priced to the operation.</p>
-        <ul>
-          <li><span class="ck">&rarr;</span> Full-funnel strategist + pod</li>
-          <li><span class="ck">&rarr;</span> DemandSense, signals, ABM support</li>
-          <li><span class="ck">&rarr;</span> Quarterly diagnostic review</li>
-          <li><span class="ck">&rarr;</span> <span style="color:var(--canopy)">Setup fee waived after your diagnostic</span></li>
-        </ul>
-        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Talk it through</a>
-      </div>
-      <div class="pc reveal">
-        <div class="pc-step">Managed</div>
-        <h4>Growth</h4>
-        <div class="pc-amt">from $4,500<small> /mo</small></div>
-        <p class="pc-desc">Two channels wired as one motion: LinkedIn plus a second channel, up to $25k/mo combined spend.</p>
-        <ul>
-          <li><span class="ck">&rarr;</span> Everything in Core, across two channels</li>
-          <li><span class="ck">&rarr;</span> Shared signals and cross-channel retargeting</li>
-          <li><span class="ck">&rarr;</span> Search captures demand, LinkedIn creates it</li>
-          <li><span class="ck">&rarr;</span> Consolidated cross-channel reporting</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Talk it through</a>
-      </div>
-      <div class="pc ent reveal">
-        <div class="pc-step">Flagship</div>
-        <h4>Scale</h4>
-        <div class="pc-amt">$6,000 to $12,000<small> /mo</small></div>
-        <p class="pc-desc">For large and IPO-stage accounts running multi-channel, multi-account, multi-geo. A flat fee, priced to the operation.</p>
-        <ul>
-          <li><span class="ck">&rarr;</span> Dedicated senior strategist and pod</li>
-          <li><span class="ck">&rarr;</span> Advanced attribution + revenue influence</li>
-          <li><span class="ck">&rarr;</span> Multi-channel coordination + exec EBRs</li>
-          <li><span class="ck">&rarr;</span> <span style="color:var(--blue-soft)">Website Visitor ID included</span></li>
-        </ul>
-        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Talk to a strategist</a>
-      </div>
-    </div>
-    <div class="reveal" style="margin-top:22px;border:1px solid var(--line);border-radius:10px;padding:24px 26px;background:var(--concrete)">
-      <div class="eyebrow" style="margin-bottom:10px">How pricing works</div>
-      <p style="margin:0;color:var(--chalk);max-width:76ch">Every engagement starts with an audit and a scoping call, so the tier and the plan fit your account. Management is a flat monthly fee priced to the operation, not a percentage of your ad budget, so the number is the number whether you spend $5k or $200k. You move up a tier when the scope of work earns it. We run accounts from $5k to $500k+ a month. Prefer a paid deep-dive before committing? The one-time Account Diagnostic ($1,500) runs on your live account and credits to setup.</p>
-    </div>
-    <p class="price-bridge reveal">New to LinkedIn ads? <a href="/linkedin-launch" style="color:inherit"><em>See the LinkedIn Ads Launch Plan &rarr;</em></a></p>
-  </div>
-</section>
-
-<!-- WHERE TO START LADDER -->
-<style>
-.rr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px}
-.rr-card{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--concrete);text-decoration:none;transition:border-color .2s,transform .2s}
-.rr-card:hover{border-color:rgba(190,214,246,0.30);transform:translateY(-3px)}
-.rr-card img{width:100%;height:auto;display:block}
-.rr-go{display:block;padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--blue-soft)}
-</style>
-<!-- ════ RELEVANT READS ════ -->
-<!-- WHERE THIS FITS -->
-<section class="sec xfit">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Where this fits</span>
-    </div>
-    <div class="xfit-grid reveal">
-      <a class="xfit-card" href="/intelligence-room">
-        <div class="xk">Diagnostic review</div>
+    <h2 class="reveal">Who owns strategy?</h2>
+    <div class="ls-fit-grid">
+      <a class="ls-fit-card reveal" href="/intelligence-room">
+        <h3><img src="assets/img/ls-fit-impact-report.svg" alt="" width="26" height="26">Impact Report</h3>
         <p>Know exactly what to scale, test, and cut.</p>
-        <span class="xlink">&rarr;</span>
       </a>
-      <a class="xfit-card" href="/google">
-        <div class="xk">B2B Paid Search</div>
+      <a class="ls-fit-card reveal" href="/google">
+        <h3><img src="assets/img/ls-fit-paid-search.svg" alt="" width="26" height="26">B2B Paid Search</h3>
         <p>Capture the demand your LinkedIn ads create.</p>
-        <span class="xlink">&rarr;</span>
       </a>
-      <a class="xfit-card" href="/thought-leadership">
-        <div class="xk">Thought Leadership</div>
+      <a class="ls-fit-card reveal" href="/thought-leadership">
+        <h3><img src="assets/img/ls-fit-thought-leadership.svg" alt="" width="26" height="26">Thought Leadership</h3>
         <p>The organic engine that fuels and warms every LinkedIn campaign.</p>
-        <span class="xlink">&rarr;</span>
       </a>
-      <a class="xfit-card" href="/marketing-ecosystem">
-        <div class="xk">Full Ecosystem</div>
+      <a class="ls-fit-card reveal" href="/marketing-ecosystem">
+        <h3><img src="assets/img/ls-fit-ecosystem.svg" alt="" width="26" height="26">Full Ecosystem</h3>
         <p>Compound every channel, not just LinkedIn.</p>
-        <span class="xlink">&rarr;</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ════ LINKEDIN CERTIFIED ════ -->
+<section class="rd-case" id="proof">
+  <div class="wrap case-wrap" id="caseCarousel">
+    <div class="case-nav" role="group" aria-label="Case study carousel">
+      <button type="button" class="case-arrow case-prev" aria-label="Previous case">
+        <img src="assets/img/case-nav-prev.svg" alt="" width="40" height="40">
+      </button>
+      <button type="button" class="case-arrow case-next" aria-label="Next case">
+        <img src="assets/img/case-nav-next.svg" alt="" width="40" height="40">
+      </button>
+    </div>
 
-<!-- ════ DEMANDSENSE EDGE ════ -->
-<section class="sec" style="border-top:1px solid var(--line-soft,var(--line))">
-  <div class="wrap" style="max-width:900px">
-    <span class="eyebrow">The visible edge</span>
-    <h2 class="sec-title display" style="text-transform:none">Most agencies rent a dashboard. <span class="hl">We run a deeper signal layer.</span></h2>
-    <p class="sec-desc"><a href="https://demandsense.com/?utm_source=impactable&amp;utm_medium=referral&amp;utm_campaign=site" target="_blank" rel="noopener">DemandSense</a> composes five signal sources, from your CRM to LinkedIn paid and organic engagement to the companies and people identified on your site, into one account-level view: who is engaging, from what company, in what role, and how close they are to a decision. It is what lets us run high-spend accounts without losing the thread. The free Demand Plan is our team's own analysis. No competitor connects these dots.</p>
+    <article class="case-slide is-active" data-slide="0" aria-hidden="false">
+      <div class="case-media">
+        <div class="case-poster">
+          <button class="case-play" type="button" data-yt="ahUK2NUXs-k" aria-label="Play Lacework client interview">
+            <img class="case-poster-img" loading="lazy" src="assets/img/video-poster.png" alt="Simon Chuang, Director of Digital Marketing at Lacework" width="1421" height="1974">
+          </button>
+        </div>
+        <a class="case-watch" href="https://www.youtube.com/watch?v=ahUK2NUXs-k" target="_blank" rel="noopener">Watch Video <img src="assets/img/watch-arrow.svg" alt="" width="13" height="13"></a>
+      </div>
+      <div class="case-copy">
+        <h2>LinkedIn published our client's results.</h2>
+        <p class="case-desc">When Lacework moved to a full-funnel LinkedIn strategy with Impactable, the results were strong enough that LinkedIn wrote the case study, and the Lacework team credited us publicly.</p>
+        <div class="case-stats">
+          <div><div class="case-n">6X</div><div class="case-l">ROI on LN ad spend</div></div>
+          <div><div class="case-n">50%</div><div class="case-l">faster sales velocity</div></div>
+          <div><div class="case-n">40%</div><div class="case-l">more qualified leads</div></div>
+          <div><div class="case-n">30%</div><div class="case-l">lower cost <br> per lead</div></div>
+        </div>
+        <a class="case-out" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener">Read the Lacework case study on LinkedIn &rarr;</a>
+        <div class="case-cta">
+          <a class="btn btn-primary" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">BOOK A CALL &rarr;</a>
+          <a class="btn btn-ghost" href="/competitor-intel-report">Or start with the free Demand Plan</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case-slide" data-slide="1" aria-hidden="true" hidden>
+      <div class="case-media">
+        <div class="case-poster">
+          <button class="case-play" type="button" data-embed="https://share.descript.com/embed/m5dCvNTZxsq" aria-label="Play HeyReach CMO interview">
+            <img class="case-poster-img" loading="lazy" src="assets/img/video-poster-2.png" alt="Vukasin Vukosavljevic, CMO at HeyReach" width="1421" height="1974">
+          </button>
+        </div>
+        <a class="case-watch" href="https://share.descript.com/view/m5dCvNTZxsq" target="_blank" rel="noopener">Watch Video <img src="assets/img/watch-arrow.svg" alt="" width="13" height="13"></a>
+      </div>
+      <div class="case-copy">
+        <h2>The company that builds LinkedIn outreach software hired us to run their paid media.</h2>
+        <p class="case-desc">HeyReach is a well-known LinkedIn outreach platform that scaled from zero to $10M ARR in 18 months. When they needed their paid media motion run, they came to us. Their CMO, on camera, on the return.</p>
+        <div class="case-row">
+          <div class="case-stat-solo">
+            <div class="case-n">20X</div>
+            <div class="case-l">ROI on the paid media <br> we run for HeyReach</div>
+          </div>
+          <div class="case-clutch">
+            <div class="case-clutch-top"><span class="case-score">5.0</span><img src="assets/img/case-stars.svg" alt="" width="138" height="27"></div>
+            <div class="case-clutch-bot"><span>Verified on</span><img src="assets/img/clutch.svg" alt="Clutch" width="72" height="26"></div>
+          </div>
+        </div>
+        <div class="case-quote">
+          <img class="case-quote-mark" src="assets/img/case-quote.svg" alt="" width="111" height="76" aria-hidden="true">
+          <p>&ldquo;Their knowledge, proactivity, and professionalism have been impressive.&rdquo;</p>
+        </div>
+        <a class="case-out" href="https://clutch.co/go-to-review/5146fe0e-33b7-4f43-8fbf-41652e862bf2/434156" target="_blank" rel="noopener">Read the verified review on Clutch &rarr;</a>
+      </div>
+    </article>
+
+    <article class="case-slide" data-slide="2" aria-hidden="true" hidden>
+      <div class="case-media">
+        <div class="case-poster">
+          <button class="case-play" type="button" data-yt="HfBJjt1Q2Vo" aria-label="Play Sam Dunning testimonial">
+            <img class="case-poster-img" loading="lazy" src="assets/img/video-poster-3.png" alt="Sam Dunning, SEO and AEO agency founder" width="1421" height="1974">
+          </button>
+        </div>
+        <a class="case-watch" href="https://www.youtube.com/watch?v=HfBJjt1Q2Vo" target="_blank" rel="noopener">Watch Video <img src="assets/img/watch-arrow.svg" alt="" width="13" height="13"></a>
+      </div>
+      <div class="case-copy">
+        <h2>Even other agency founders point B2B paid our way.</h2>
+        <p class="case-desc">Sam Dunning, a B2B SEO and AEO agency founder, on why he calls Impactable the B2B paid ads agency he trusts. When a fellow founder vouches on camera, unprompted, that is the proof that counts.</p>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- ════ CASE STUDY (LinkedIn-published) ════ -->
-<section class="sec cs-proof">
-  <div class="wrap cs-grid">
-    <div class="cs-col-text">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Published by LinkedIn</span>
-        <h2 class="sec-title display" style="text-transform:none">LinkedIn published <span class="hl-blue">our client's results.</span></h2>
-        <p class="sec-desc">The numbers behind the story above, straight from LinkedIn's own published case study, with Lacework's Simon Chuang crediting the team on camera.</p>
-      </div>
-      <div class="cs-stats reveal">
-        <div class="cs-stat"><div class="cs-n">6X</div><div class="cs-l">ROI on LinkedIn ad spend</div></div>
-        <div class="cs-stat"><div class="cs-n">50%</div><div class="cs-l">faster sales velocity</div></div>
-        <div class="cs-stat"><div class="cs-n">40%</div><div class="cs-l">more qualified leads</div></div>
-        <div class="cs-stat"><div class="cs-n">30%</div><div class="cs-l">lower cost per lead</div></div>
-      </div>
-      <a class="cs-link" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener">Read the Lacework case study on LinkedIn &rarr;</a>
-      <div class="cs-cta reveal">
-        <a class="btn btn-primary" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
-        <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call</a>
-      </div>
-    </div>
-    <div class="cs-media reveal">
-      <style>
-      .cs-video{position:relative;aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0a1f3d;box-shadow:0 16px 40px rgba(0,0,0,.3)}
-      .csvfac{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:transparent;display:block}
-      .csvfac img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .25s,transform .35s}
-      .csvfac:hover img{opacity:1;transform:scale(1.03)}
-      .csvcap{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;color:#f5f5f5;background:linear-gradient(0deg,rgba(4,12,24,.82),rgba(4,12,24,0));text-align:left;pointer-events:none}
-      .csvplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(255,182,39,.96);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.45);transition:transform .2s}
-      .csvplay::before{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #001122;margin-left:4px}
-      .csvfac:hover .csvplay{transform:translate(-50%,-50%) scale(1.08)}
-      .csv-i{position:absolute;inset:0;width:100%;height:100%;border:0}
-      </style>
-      <div class="cs-video">
-        <button class="csvfac" type="button" data-yt="ahUK2NUXs-k" aria-label="Play the Lacework client interview, loads YouTube embed">
-          <img loading="lazy" src="https://i.ytimg.com/vi/ahUK2NUXs-k/hqdefault.jpg" alt="">
-          <span class="csvplay" aria-hidden="true"></span>
-          <span class="csvcap">Simon Chuang, Lacework, on the partnership</span>
-        </button>
-      </div>
-      <script>(function(){var b=document.querySelector('.csvfac');if(!b)return;b.addEventListener('click',function(){var f=document.createElement('iframe');f.className='csv-i';f.setAttribute('src','https://www.youtube.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0');f.setAttribute('title','Lacework client interview');f.setAttribute('frameborder','0');f.setAttribute('allow','accelerated-sensors; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');b.replaceWith(f);});})();</script>
-      <a class="cs-shot" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener"><img src="/img/lacework-casestudy.jpg" width="1400" height="588" alt="LinkedIn's published case study: How Lacework drove 6X ROI by shifting to a full-funnel strategy on LinkedIn" loading="lazy"></a>
-      <a class="cs-shot post" href="https://business.linkedin.com/advertise/customer-stories/lacework" target="_blank" rel="noopener"><img src="/img/lacework-shoutout.jpg" width="898" height="1346" alt="Lacework's Simon Chuang crediting Impactable by name in a LinkedIn post about the case study" loading="lazy"></a>
-    </div>
-  </div>
-</section>
-
-<!-- ════ VIDEO TESTIMONIAL (HeyReach) ════ -->
-<section class="sec vid-testi" id="video-proof">
+<section class="la-faq" id="faq">
   <div class="wrap">
-    <div class="vt-grid">
-    <div class="vt-text">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Client on camera</span>
-        <h2 class="sec-title display" style="text-transform:none">The company that builds LinkedIn outreach software <span class="hl">hired us to run their LinkedIn ads.</span></h2>
-        <p class="sec-desc">HeyReach is a well-known LinkedIn outreach platform that scaled from zero to $10M ARR in 18 months. When they needed their own LinkedIn ads run, they came to us. Their CMO, on camera, on the return.</p>
-      </div>
-      <div class="vt-stats reveal">
-        <div class="vt-stat"><div class="vt-n">20X</div><div class="vt-l">ROI on the LinkedIn ads we run for HeyReach</div></div>
-      </div>
-      <div class="vt-cite reveal"><b>Vuka&#353;in Vukosavljevi&#263;</b><span>CMO, HeyReach</span></div>
-    </div>
-    <div class="vt-media reveal">
-      <div class="vt-frame">
-        <iframe src="https://share.descript.com/embed/m5dCvNTZxsq" title="HeyReach's CMO on the 20X ROI from Impactable's LinkedIn ads" loading="lazy" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-    </div>
-    <div class="vt-clutch reveal">
-      <div class="vtc-l">
-        <div class="vtc-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="vtc-num">4.5</div>
-        <div class="vtc-src">Verified on Clutch</div>
-      </div>
-      <div class="vtc-r">
-        <blockquote class="vtc-quote">&ldquo;Their knowledge, proactivity, and professionalism have been impressive.&rdquo;</blockquote>
-        <div class="vtc-cite">Vuka&#353;in Vukosavljevi&#263; &middot; CMO, HeyReach &middot; LinkedIn advertising for a sales automation platform</div>
-        <a class="vtc-link" href="https://clutch.co/go-to-review/5146fe0e-33b7-4f43-8fbf-41652e862bf2/434156" target="_blank" rel="noopener">Read the verified review on Clutch &rarr;</a>
-      </div>
+    <h2>FAQs</h2>
+    <div class="la-faq-list reveal">
+      <details>
+        <summary>We already run LinkedIn ads. What do you actually do differently?<span class="pm">+</span></summary>
+        <div class="la-faq-body"><p>We start with a diagnostic read on your live account, restructure around buyer intent and clean signals, and wire up reporting that ties spend to pipeline. The difference is a system that proves impact and compounds, not just more ads.</p></div>
+      </details>
+      <details>
+        <summary>Will you work with our existing campaigns or start from scratch?<span class="pm">+</span></summary>
+        <div class="la-faq-body"><p>We assess what is live first and keep what is working. Where the structure is holding you back we rebuild it, but we do not throw away performance you have already earned.</p></div>
+      </details>
+      <details>
+        <summary>How do you prove pipeline impact, not just lead volume?<span class="pm">+</span></summary>
+        <div class="la-faq-body"><p>We connect LinkedIn to your CRM and attribution so we can report on pipeline influenced and cost per opportunity, not just form fills. Offline conversions feed the platform your real revenue signals so it optimizes to buyers.</p></div>
+      </details>
+      <details open class="is-open">
+        <summary>What spend level is this built for?<span class="pm">+</span></summary>
+        <div class="la-faq-body"><p>This page is for teams already investing in LinkedIn and ready to scale. If you are just starting out, our launch program is the better first step, and we will point you there on the call.</p></div>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<style>
-.faqx{margin-top:26px}
-.faqx details{border-bottom:1px solid var(--line,var(--border,rgba(255,255,255,.12)))}
-.faqx summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:700;font-size:1.12rem;color:var(--bone,var(--text,#F4F1EA));display:flex;justify-content:space-between;align-items:center;gap:16px}
-.faqx summary::-webkit-details-marker{display:none}
-.faqx summary .fqx-pm{color:var(--blue,var(--accent,#0099D1));font-size:1.5rem;line-height:1;flex:none;transition:transform .25s}
-.faqx details[open] summary .fqx-pm{transform:rotate(45deg)}
-.faqx details p{padding:0 0 22px;margin:0;font-size:1.02rem;line-height:1.6;color:var(--chalk,var(--text-muted,#c9cdd3));max-width:74ch}
-</style>
-<section class="sec" id="faq" style="border-top:1px solid var(--line-soft)">
-  <div class="wrap" style="max-width:880px">
-    <span class="eyebrow">Common questions</span>
-    <h2 class="display" style="text-transform:none;margin-top:16px">Before you book.</h2>
-    <div class="faqx reveal">
-      <details><summary>We already run LinkedIn ads. What do you actually do differently?<span class="fqx-pm">+</span></summary><p>We start with a diagnostic read on your live account, restructure around buyer intent and clean signals, and wire up reporting that ties spend to pipeline. The difference is a system that proves impact and compounds, not just more ads.</p></details>
-      <details><summary>Will you work with our existing campaigns or start from scratch?<span class="fqx-pm">+</span></summary><p>We assess what is live first and keep what is working. Where the structure is holding you back we rebuild it, but we do not throw away performance you have already earned.</p></details>
-      <details><summary>How do you prove pipeline impact, not just lead volume?<span class="fqx-pm">+</span></summary><p>We connect LinkedIn to your CRM and attribution so we can report on pipeline influenced and cost per opportunity, not just form fills. Offline conversions feed the platform your real revenue signals so it optimizes to buyers.</p></details>
-      <details><summary>What spend level is this built for?<span class="fqx-pm">+</span></summary><p>This page is for teams already investing in LinkedIn and ready to scale. If you are just starting out, our launch program is the better first step, and we will point you there on the call.</p></details>
-    </div>
+<section class="la-final" id="book">
+  <div class="la-final-bg" aria-hidden="true">
+    <img class="la-final-dots" src="assets/img/la-final-dots.svg" alt="" width="905" height="679">
+    <img class="la-final-ell la-final-ell--lime" src="assets/img/la-final-ell-lime.svg" alt="" width="1139" height="899">
+    <img class="la-final-ell la-final-ell--teal-r" src="assets/img/la-final-ell-teal.svg" alt="" width="989" height="749">
+    <img class="la-final-ell la-final-ell--teal-l" src="assets/img/la-final-ell-teal-l.svg" alt="" width="989" height="749">
   </div>
-</section>
-
-<section class="final" id="book">
   <div class="wrap">
-    <span class="eyebrow" style="justify-content:center">See what your account is really doing</span>
-    <h2 class="display" style="text-transform:none;margin-top:16px">Stop guessing. See your account clearly.</h2>
-    <p>Start free with a Demand Plan, or book a call. Find the waste, surface the accounts that are moving, and get a clear plan to scale.</p>
-    <div class="hero-cta" style="justify-content:center">
-      <a class="btn btn-primary" href="/competitor-intel-report">Get your free Demand Plan &rarr;</a>
-      <a class="btn btn-ghost" href="https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html">Book a call</a>
+    <h2><span class="em2">Seen enough?</span></h2>
+    <p>Start free, or grab 15 minutes with us.</p>
+    <div class="btns">
+      <a class="btn la-final-primary" href="/competitor-intel-report">Get your free competitor intel &rarr;</a>
+      <a class="btn la-final-ghost" href="https://landbot.online/v3/H-2201411-ZNNL8EM9RF7C2XAC/index.html">Book a call</a>
     </div>
   </div>
 </section>
@@ -1626,7 +1006,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h5>System</h5>
           <a href="https://demandsense.com/?utm_source=impactable&amp;utm_medium=referral&amp;utm_campaign=site" target="_blank" rel="noopener">DemandSense</a>
           <a href="/intelligence-room">The Impact Report</a>
-          <a href="#">Case Studies</a>
+          <a href="#proof">Case Studies</a>
         </div>
         <div class="foot-col">
           <h5>Company</h5>
@@ -1636,52 +1016,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="foot-bottom">
-       <div class="foot-legal">
+      <div class="foot-legal">
         <span>&copy; 2026 Impactable LLC · LinkedIn Marketing Partner</span>
         <img class="partner-logo" src="img/marketing-partner-logo.svg" alt="LinkedIn Marketing Partner" width="120" height="43">
       </div>
       <div class="foot-social">
-        
         <a href="https://www.linkedin.com/company/impactableb2b/" target="_blank" rel="noopener" aria-label="Impactable on LinkedIn"><img src="assets/img/foot-linkedin.svg" alt="" width="16" height="16"></a>
         <a href="https://www.youtube.com/@Impactable-B2B-Agency" target="_blank" rel="noopener" aria-label="Impactable on YouTube"><img src="assets/img/foot-youtube.svg" alt="" width="16" height="16"></a>
       </div>
     </div>
   </div>
 </footer>
-<script>
-// global nav
-(function(){
-  var t=document.getElementById('gnavToggle'),m=document.getElementById('gnavMenu');
-  if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
-  document.querySelectorAll('.gnav-item .gnav-trigger').forEach(function(btn){
-    btn.addEventListener('click',function(e){if(btn.tagName==='A')return;
-      e.preventDefault();
-      var item=btn.parentElement,willOpen=!item.classList.contains('open');
-      document.querySelectorAll('.gnav-item.open').forEach(function(i){if(i!==item)i.classList.remove('open');});
-      item.classList.toggle('open',willOpen);
-      btn.setAttribute('aria-expanded',willOpen);
-    });
-  });
-  document.addEventListener('click',function(e){
-    if(!e.target.closest('.gnav-item')){document.querySelectorAll('.gnav-item.open').forEach(function(i){i.classList.remove('open');});}
-  });
-  var themeBtn=document.getElementById('gnavTheme');
-  function syncTheme(){var dark=document.documentElement.getAttribute('data-theme')==='dark';if(themeBtn){var ic=themeBtn.querySelector('.gnav-theme-ic'),lb=themeBtn.querySelector('.gnav-theme-lb');if(ic)ic.textContent=dark?'☀':'🌙';if(lb)lb.textContent=dark?'Light mode':'Dark mode';}}
-  syncTheme();
-  if(themeBtn){themeBtn.addEventListener('click',function(){var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',next);try{localStorage.setItem('imp-theme',next);}catch(e){}syncTheme();});}
-})();
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
-<!-- Vercel Web Analytics -->
-<script>
-  window.va = window.va || function () {
-    (window.vaq = window.vaq || []).push(arguments);
-  };
-</script>
+
+<script src="assets/js/chrome.js"></script>
+<script src="assets/js/linkedin-ads-agency.js"></script>
+<script src="assets/js/rd-case.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="track.js"></script>
-<script>(function(){var tabs=[].slice.call(document.querySelectorAll(".gal-tab"));function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on?"true":"false");var p=document.getElementById(x.getAttribute("aria-controls"));if(p){on?p.removeAttribute("hidden"):p.setAttribute("hidden","");}});}tabs.forEach(function(t){t.addEventListener("click",function(){sel(t);});t.addEventListener("keydown",function(e){var i=tabs.indexOf(t),n=tabs.length;if(e.key==="ArrowRight"){e.preventDefault();tabs[(i+1)%n].focus();sel(tabs[(i+1)%n]);}if(e.key==="ArrowLeft"){e.preventDefault();tabs[(i-1+n)%n].focus();sel(tabs[(i-1+n)%n]);}});});})();</script>
-<script src="assets/js/chrome.js"></script>
 </body>
 </html>

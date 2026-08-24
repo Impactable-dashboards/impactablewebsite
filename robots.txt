@@ -22,3 +22,4 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://impactable.com/sitemap.xml
+Sitemap: https://impactable.com/sitemap_index.xml
