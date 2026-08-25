@@ -142,35 +142,45 @@ h2 .hl{color:#0099D1}
   font-size:12px;line-height:1;border-radius:50px;padding:8px 14px;
 }
 .rd-pill-group{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
   gap:8px;
   max-width:100%;
 }
-.rd-pill-group .rd-pill{
-  justify-content:center;
-  text-align:center;
+.rd-pill-group .rd-pill-solo{display:none}
+.rd-pill-group .rd-pill-line{
+  display:inline-flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px 8px;
+  max-width:100%;
+  width:auto;
+  white-space:normal;
+  font-size:10px;
   line-height:1.35;
-  padding:8px 10px;
-  width:100%;
-  box-sizing:border-box;
 }
-.rd-pill-group .rd-pill:last-child{grid-column:1 / -1;justify-self:start;width:auto;max-width:100%}
+.rd-pill-group .rd-pill-line a{
+  color:inherit;
+  text-decoration:none;
+}
+.rd-pill-group .rd-pill-line a:hover{text-decoration:underline}
+.rd-pill-group .rd-pill-sep{
+  color:inherit;
+  opacity:.55;
+  user-select:none;
+}
 @media(min-width:640px){
   .rd-pill-group{
     display:inline-flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:8px;
     max-width:none;
   }
-  .rd-pill-group .rd-pill{
+  .rd-pill-group .rd-pill-line{display:none}
+  .rd-pill-group .rd-pill-solo{
+    display:inline-flex;
     width:auto;
-    text-align:left;
-    justify-content:flex-start;
     padding:8px 14px;
   }
-  .rd-pill-group .rd-pill:last-child{grid-column:auto;justify-self:auto}
 }
 .rd-hero h1{
   font-family:var(--font-display);
