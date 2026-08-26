@@ -44,7 +44,7 @@ html[data-theme="light"] .rd-case .btn-ghost:hover{
 .ls-fit h2{margin:0 0 50px;text-align:center;font:600 18px/28px Inter,sans-serif;letter-spacing:.02em;text-transform:uppercase;color:#00172e}
 .ls-fit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .ls-fit-card{
-  display:flex;flex-direction:column;gap:12px;min-height:163px;padding:28px;
+  display:flex;flex-direction:column;gap:12px;min-height:163px;padding:20px;
   border:1px solid #ccd7e3;border-radius:4px;
   background:linear-gradient(0deg,rgba(204,215,227,.2),rgba(204,215,227,.2)),#fff;
   backdrop-filter:blur(14.2px);
