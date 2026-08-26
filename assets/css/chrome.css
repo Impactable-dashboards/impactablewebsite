@@ -391,8 +391,20 @@ html[data-theme="light"] .rd-feat a:hover{color:#0099D1}
 .rd-foot .foot-legal{
   display:flex;flex-direction:column;align-items:flex-start;gap:14px;
 }
+.rd-foot .foot-legal .partner-badges{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
 .rd-foot .foot-legal .partner-logo{
   display:block;height:40px;width:auto;margin:0;
+}
+.rd-foot .foot-legal a.partner-logo{
+  height:auto;line-height:0;
+}
+.rd-foot .foot-legal a.partner-logo:not(.partner-logo--google) img{
+  display:block;height:40px;width:auto;margin:0;
+}
+.rd-foot .foot-legal a.partner-logo--google img{
+  display:block;height:43px;width:auto;margin:0;
 }
 .rd-foot .foot-social{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .rd-foot .foot-social a{
