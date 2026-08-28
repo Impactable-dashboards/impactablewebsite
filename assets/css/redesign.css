@@ -103,7 +103,7 @@ h2 .hl{color:#0099D1}
 .rd-hero-grid{
   position:relative;z-index:1;
   display:grid;
-  grid-template-columns:minmax(0,666px) 344px;
+  grid-template-columns:minmax(0,720px) 344px;
   justify-content:space-between;
   column-gap:48px;
   align-items:start;
@@ -184,7 +184,7 @@ h2 .hl{color:#0099D1}
 }
 .rd-hero h1{
   font-family:var(--font-display);
-  font-size:clamp(38px,4vw,60px);
+  font-size:clamp(40px,4.4vw,72px);
   line-height:1.02;letter-spacing:.01em;text-transform:uppercase;
   color:var(--white);margin:0;font-weight:400;
   display:flex;flex-direction:column;align-items:flex-start;
@@ -193,8 +193,8 @@ h2 .hl{color:#0099D1}
 .rd-hero h1 .h1-line{display:block;white-space:normal;max-width:100%}
 .rd-hero h1 .em{color:#00C4B3}
 .rd-hero-sub{
-  font-size:19px;line-height:1.55;color:#dde1e5;
-  max-width:640px;margin:0;
+  font-size:20px;line-height:1.55;color:#dde1e5;
+  max-width:660px;margin:0;
 }
 .rd-hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:0}
 .rd-hero-stats{
