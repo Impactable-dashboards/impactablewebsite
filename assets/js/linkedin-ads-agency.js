@@ -569,4 +569,35 @@
       });
     });
   }
+
+  var clutchRoot = document.getElementById('laClutch');
+  if (clutchRoot) {
+    var clutchTrack = clutchRoot.querySelector('.la-clutch-track');
+    var clutchPrev = clutchRoot.querySelector('.la-clutch-prev');
+    var clutchNext = clutchRoot.querySelector('.la-clutch-next');
+    function clutchStep() {
+      var card = clutchTrack && clutchTrack.querySelector('.la-clutch-card');
+      if (!card) return 320;
+      var styles = window.getComputedStyle(clutchTrack);
+      var gap = parseFloat(styles.columnGap || styles.gap) || 17;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function clutchSync() {
+      if (!clutchTrack) return;
+      var max = clutchTrack.scrollWidth - clutchTrack.clientWidth - 2;
+      if (clutchPrev) clutchPrev.disabled = clutchTrack.scrollLeft <= 2;
+      if (clutchNext) clutchNext.disabled = clutchTrack.scrollLeft >= max;
+    }
+    function clutchGo(dir) {
+      if (!clutchTrack) return;
+      clutchTrack.scrollBy({ left: dir * clutchStep(), behavior: 'smooth' });
+    }
+    if (clutchPrev) clutchPrev.addEventListener('click', function () { clutchGo(-1); });
+    if (clutchNext) clutchNext.addEventListener('click', function () { clutchGo(1); });
+    if (clutchTrack) {
+      clutchTrack.addEventListener('scroll', clutchSync, { passive: true });
+      window.addEventListener('resize', clutchSync);
+      clutchSync();
+    }
+  }
 })();

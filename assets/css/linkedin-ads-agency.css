@@ -249,6 +249,73 @@
   box-shadow:0 0 14px rgba(0,0,0,.16);
 }
 
+.la-clutch{margin-top:96px}
+.la-clutch-nav{display:flex;gap:8px;justify-content:flex-end;margin:0 0 16px}
+.la-clutch-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;cursor:pointer;
+  border-radius:50%;
+  border:1px solid var(--navy-100);
+  background:#fff;
+  box-shadow:0 1px 6px rgba(0,17,34,.08);
+}
+.la-clutch-btn img{width:40px;height:40px;display:block;transition:transform .2s}
+.la-clutch-btn:hover:not(:disabled){border-color:rgba(0,153,209,.35)}
+.la-clutch-btn:hover:not(:disabled) img{transform:scale(1.04)}
+.la-clutch-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.la-clutch-next img{transform:rotate(180deg)}
+.la-clutch-next:hover:not(:disabled) img{transform:rotate(180deg) scale(1.04)}
+.la-clutch-btn:disabled{cursor:default;opacity:.38;box-shadow:none}
+.la-clutch-btn:disabled img{transform:none}
+.la-clutch-next:disabled img{transform:rotate(180deg)}
+.la-clutch-track{
+  display:flex;gap:17px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:2px 2px 6px;
+}
+.la-clutch-track::-webkit-scrollbar{display:none}
+.la-clutch-card{
+  flex:0 0 calc((100% - 34px) / 3);
+  scroll-snap-align:start;
+  display:flex;flex-direction:column;
+  min-height:280px;
+  background:rgba(233,238,243,.47);
+  border:1px solid var(--navy-100);
+  border-radius:16px;
+  padding:28px 24px 20px;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.la-clutch-card .qm{width:34px;height:34px;display:block;margin:0 0 12px}
+.la-clutch-card p{
+  font-size:18px;line-height:28px;color:#002e5c;margin:0 0 auto;flex:1;
+}
+.la-clutch-card footer{
+  display:flex;flex-direction:column;gap:10px;
+  margin-top:18px;padding-top:14px;border-top:1px solid rgba(0,23,46,.1);
+}
+.la-clutch-card b{display:block;font-size:16px;line-height:22px;font-weight:700;color:#003973}
+.la-clutch-card span.la-clutch-role{display:block;font-size:14px;line-height:20px;color:#0099d1}
+.la-clutch-card img.la-clutch-stars{height:18px;width:auto;display:block}
+.la-clutch-card img.la-clutch-logo{
+  height:16px;width:auto;display:block;max-width:72px;
+}
+.la-clutch-verify{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:var(--navy-700);width:fit-content;
+}
+.la-clutch-verify:hover{color:var(--blue)}
+.la-clutch-verify .n{font-size:14px;font-weight:700}
+
+@media(max-width:1100px){
+  .la-clutch-card{flex-basis:calc((100% - 17px) / 2)}
+}
+@media(max-width:800px){
+  .la-clutch{margin-top:48px}
+  .la-clutch-card{flex-basis:100%;min-height:0;padding:24px 20px 18px}
+}
+
 /* Wrong launches — Figma 5257:496196 */
 .la-wrong{background:var(--navy-900);padding:90px 0}
 .la-wrong .rd-sec-head{margin-bottom:74px}

@@ -208,7 +208,7 @@
     if (n === 3) track('session_pageviews', { count: 3 });
   } catch (e) {}
 
-  /* ===== Conversion surfaces: mobile CTA bar, desktop scroll pill, exit-intent ===== */
+  /* ===== Conversion surfaces: mobile CTA bar, exit-intent ===== */
   function bookingUrl() {
     if (PAGE === 'google') return 'https://landbot.online/v3/H-2201441-VY21PONAGDINLTVW/index.html';
     if (PAGE === 'linkedin-scale') return 'https://landbot.online/v3/H-2201417-SPMOARYH76NAHLP2/index.html';
@@ -216,7 +216,6 @@
   }
   var BOOK = bookingUrl();
   var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-  var pillLabel = AB === 'b' ? 'Book a free strategy call &rarr;' : 'Book a call &rarr;';
 
   try {
     var cs = document.createElement('style');
@@ -230,9 +229,6 @@
       '.imp-mbar .imp-mbar-primary:hover,.imp-mbar .imp-mbar-primary:focus,.imp-mbar .imp-mbar-primary:active{background:#0099D1;color:#03121b;border-color:#0099D1}',
       '.imp-mbar .imp-mbar-alt:hover,.imp-mbar .imp-mbar-alt:focus,.imp-mbar .imp-mbar-alt:active{background:transparent;color:#D8D4CB;border-color:rgba(190,214,246,0.22)}',
       '@media(max-width:820px){.imp-mbar{display:flex}body{padding-bottom:76px}}',
-      '.imp-spill{font-family:"Inter";font-style: normal;text-transform: uppercase;position:fixed;right:22px;bottom:22px;z-index:110;background:#00c4b3;color:#fff;padding:14px 22px;font-size:14px;box-shadow:0 12px 34px rgba(0,0,0,.42);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}',
-      '.imp-spill.show{opacity:1;transform:translateY(0);pointer-events:auto}',
-      '@media(max-width:820px){.imp-spill{display:none!important}}',
       '.imp-exit{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(4,12,26,0.74);padding:24px}',
       '.imp-exit.show{display:flex}',
       '.imp-exit-card{position:relative;max-width:460px;background:#0E2A50;border:1px solid rgba(190,214,246,0.18);border-radius:16px;padding:36px 30px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}',
@@ -248,26 +244,15 @@
   function mkEl(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
 
   var mbar = mkEl('<div class="imp-mbar"><a class="imp-cta-btn imp-mbar-primary" data-imp-src="mobile" href="' + BOOK + '">Book a call</a><a class="imp-cta-btn imp-mbar-alt" data-imp-src="mobile" href="/competitor-intel-report">Free competitor intel</a></div>');
-  var spill = mkEl('<a class="imp-cta-btn imp-spill" data-imp-src="sticky" href="' + BOOK + '">' + pillLabel + '</a>');
   var exit = !isTouch ? mkEl('<div class="imp-exit" role="dialog" aria-modal="true" aria-label="Free competitor intel report"><div class="imp-exit-card"><button class="imp-exit-x" type="button" aria-label="Close">&times;</button><h3>Before you go &mdash; see your competitors&rsquo; playbook.</h3><p>Get the free Competitor Intel Report: exactly what your competitors run on LinkedIn, and the audience lanes they leave open. No call required.</p><a class="imp-cta-btn imp-exit-cta" data-imp-src="exit" href="/competitor-intel-report">Get your free competitor intel &rarr;</a></div></div>') : null;
 
   function mount() {
     try {
       document.body.appendChild(mbar);
-      document.body.appendChild(spill);
       if (exit) document.body.appendChild(exit);
     } catch (e) {}
   }
   if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
-
-  // desktop pill: appear past 45% scroll, hide near the footer so it never covers the final CTA
-  function pillScroll() {
-    var doc = document.documentElement, range = doc.scrollHeight - window.innerHeight;
-    if (range <= 0) return;
-    var y = window.scrollY || doc.scrollTop || 0, pct = (y / range) * 100;
-    if (pct >= 45 && (range - y) > 640) spill.classList.add('show'); else spill.classList.remove('show');
-  }
-  window.addEventListener('scroll', pillScroll, { passive: true });
 
   // exit-intent: free-report offer, desktop only, once per session, not on the report page itself
   if (exit) {
