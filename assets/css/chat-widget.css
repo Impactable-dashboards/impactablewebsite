@@ -1,0 +1,511 @@
+/* Impactable chat widget — aligned to homepage / redesign tokens */
+html.imp-chat-open,
+html.imp-chat-open body{
+  overflow:hidden!important;
+}
+
+#impactable-chat-launcher{
+  position:fixed;
+  bottom:16px;
+  right:24px;
+  width:60px;
+  height:60px;
+  min-width:60px;
+  min-height:60px;
+  padding:0;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  z-index:2147483646;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  overflow:visible;
+  pointer-events:auto;
+  touch-action:manipulation;
+  filter:drop-shadow(0 10px 24px rgba(0,153,209,.35));
+  transition:transform .2s ease,filter .2s ease;
+}
+#impactable-chat-launcher img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+}
+#impactable-chat-launcher:hover{
+  transform:scale(1.06);
+  filter:drop-shadow(0 12px 28px rgba(0,153,209,.5)) brightness(1.06);
+}
+#impactable-chat-launcher:focus-visible{
+  outline:2px solid #33adda;
+  outline-offset:3px;
+  border-radius:50%;
+}
+
+.impactable-inline-root{
+  --bg:#001122;
+  --chat-bg:#001122;
+  --navy-800:#00172e;
+  --navy-700:#002245;
+  --border:rgba(221,225,229,.14);
+  --text:#dde1e5;
+  --muted:#99b0c7;
+  --blue:#0099d1;
+  --blue-400:#33adda;
+  --blue-soft:#5bb8e0;
+  --teal:#00c4b3;
+  --user-bubble:#0099d1;
+  --accent:#33adda;
+  --radius:16px;
+  --radius-sm:10px;
+  --font:Inter,system-ui,sans-serif;
+  position:fixed;
+  inset:0;
+  width:100%;
+  overflow:hidden;
+  z-index:2147483645;
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  color:var(--text);
+  font-family:var(--font);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.impactable-inline-root,
+.impactable-inline-root *{box-sizing:border-box}
+.impactable-inline-root::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 46% at 50% -8%, rgba(0,153,209,.28), transparent 58%),
+    radial-gradient(ellipse 42% 36% at 100% 100%, rgba(0,196,179,.14), transparent 50%),
+    radial-gradient(ellipse 30% 28% at 0% 80%, rgba(0,153,209,.1), transparent 48%);
+}
+
+.impactable-inline-root .imp-chrome{
+  position:relative;
+  z-index:2;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:16px 24px;
+  border-bottom:1px solid var(--border);
+  background:rgba(0,17,34,.55);
+  backdrop-filter:blur(12px);
+}
+.impactable-inline-root .imp-chrome-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.impactable-inline-root .imp-chrome-brand img{
+  height:22px;
+  width:auto;
+  display:block;
+}
+.impactable-inline-root .imp-chrome-label{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--blue-soft);
+  padding:6px 10px;
+  border-radius:50px;
+  background:rgba(0,153,209,.12);
+  white-space:nowrap;
+}
+.impactable-inline-root .imp-close-btn{
+  width:44px;
+  height:44px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  cursor:pointer;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  border-radius:8px;
+  transition:background .2s,border-color .2s;
+}
+.impactable-inline-root .imp-close-btn:hover{
+  background:rgba(255,255,255,.1);
+  border-color:rgba(221,225,229,.28);
+}
+.impactable-inline-root .imp-close-btn svg{width:20px;height:20px}
+
+.impactable-inline-main{
+  position:relative;
+  z-index:1;
+  flex:1;
+  min-height:0;
+  width:100%;
+  max-width:840px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  padding:28px 24px 24px;
+}
+.impactable-inline-main.has-chat{padding:12px 24px 20px}
+
+.impactable-inline-main .imp-quick-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 0 20px;
+  justify-content:center;
+  flex-shrink:0;
+}
+.impactable-inline-main.has-chat .imp-quick-actions{display:none}
+.impactable-inline-main .imp-quick-btn{
+  padding:8px 14px;
+  border-radius:50px;
+  border:1px solid rgba(0,153,209,.28);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#5bb8e0;
+  font-family:var(--font);
+  font-size:13px;
+  font-weight:600;
+  line-height:1.2;
+  background:rgba(0,153,209,.11);
+  transition:background .2s,border-color .2s,color .2s;
+}
+.impactable-inline-main .imp-quick-btn:hover{
+  background:rgba(0,153,209,.2);
+  border-color:rgba(51,173,218,.55);
+  color:#fff;
+}
+.impactable-inline-main .imp-quick-btn:disabled{opacity:.5;cursor:not-allowed}
+
+.impactable-inline-main .imp-welcome-card{
+  flex:1;
+  margin:auto;
+  padding:36px 32px 28px;
+  border-radius:16px;
+  border:1px solid rgba(51,173,218,.28);
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 0%, rgba(0,153,209,.18), transparent 62%),
+    rgba(255,255,255,.06);
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+  backdrop-filter:blur(16px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  width:100%;
+  max-width:720px;
+  min-height:320px;
+  justify-content:center;
+}
+.impactable-inline-main .imp-welcome-card h2{
+  color:#fff;
+  text-align:center;
+  font-family:var(--font);
+  font-size:clamp(26px,3.4vw,36px);
+  font-weight:500;
+  line-height:1.15;
+  letter-spacing:-.02em;
+  margin:0;
+  text-transform:none!important;
+}
+.impactable-inline-main .imp-welcome-card p{
+  color:var(--muted);
+  text-align:center;
+  font-family:var(--font);
+  font-size:16px;
+  font-weight:500;
+  line-height:1.45;
+  letter-spacing:-.01em;
+  margin:16px 0 0;
+  max-width:420px;
+}
+.impactable-inline-main .imp-welcome-card .imp-welcome-input-area{
+  margin-top:32px;
+  width:100%;
+  max-width:560px;
+}
+.impactable-inline-main .imp-welcome-card #impactable-input{width:100%}
+
+.impactable-inline-root .imp-loading{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:var(--muted);
+  text-align:center;
+}
+.impactable-inline-root .imp-loading .imp-spinner{
+  width:34px;
+  height:34px;
+  border:3px solid rgba(255,255,255,.16);
+  border-top-color:#33adda;
+  border-radius:50%;
+  animation:impactable-spin .8s linear infinite;
+}
+
+.impactable-inline-root #impactable-chat{
+  position:relative;
+  flex:1;
+  min-height:0;
+  padding:8px 4px 16px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  justify-content:flex-start;
+  background:transparent;
+}
+.impactable-inline-root #impactable-chat::-webkit-scrollbar{width:6px}
+.impactable-inline-root #impactable-chat::-webkit-scrollbar-thumb{
+  background:rgba(221,225,229,.18);
+  border-radius:3px;
+}
+
+.impactable-inline-root .imp-msg-row{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  width:100%;
+  max-width:85%;
+}
+.impactable-inline-root .imp-msg-row.user{align-self:flex-end;flex-direction:row-reverse}
+.impactable-inline-root .imp-msg-row.assistant{align-self:flex-start}
+.impactable-inline-root .imp-msg-avatar{
+  width:36px;
+  height:36px;
+  min-width:36px;
+  min-height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.impactable-inline-root .imp-msg-row.assistant .imp-msg-avatar{
+  background:#0099d1;
+  border:1px solid rgba(51,173,218,.6);
+}
+.impactable-inline-root .imp-msg-row.user .imp-msg-avatar{
+  background:#ccebf6;
+  box-shadow:0 8px 16px rgba(0,0,0,.16);
+}
+.impactable-inline-root .imp-msg{
+  max-width:100%;
+  padding:14px 18px;
+  position:relative;
+}
+.impactable-inline-root .imp-msg.assistant{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(51,173,218,.55);
+  color:#dde1e5;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:400;
+  line-height:24px;
+  box-shadow:0 10px 18px rgba(0,0,0,.16);
+  backdrop-filter:blur(6px);
+}
+.impactable-inline-root .imp-msg.user{
+  white-space:pre-wrap;
+  background:#0099d1;
+  color:#002245;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:500;
+  line-height:24px;
+  box-shadow:0 10px 18px rgba(0,153,209,.18);
+}
+.impactable-inline-root .imp-role{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  color:var(--muted);
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.impactable-inline-root .imp-msg.user .imp-role{color:#002245}
+.impactable-inline-root .imp-msg.assistant strong,
+.impactable-inline-root .imp-msg.assistant b{font-weight:700}
+.impactable-inline-root .imp-msg.assistant em,
+.impactable-inline-root .imp-msg.assistant i{font-style:italic}
+.impactable-inline-root .imp-msg.assistant p{margin:.4em 0}
+.impactable-inline-root .imp-msg.assistant p:first-child{margin-top:0}
+.impactable-inline-root .imp-msg.assistant p:last-child{margin-bottom:0}
+.impactable-inline-root .imp-msg.assistant ul,
+.impactable-inline-root .imp-msg.assistant ol{margin:.4em 0 .4em 1.2em;padding:0}
+.impactable-inline-root .imp-msg.assistant li{margin:.2em 0}
+.impactable-inline-root .imp-msg.assistant h1,
+.impactable-inline-root .imp-msg.assistant h2,
+.impactable-inline-root .imp-msg.assistant h3,
+.impactable-inline-root .imp-msg.assistant h4{margin:.5em 0 .25em;line-height:1.25}
+.impactable-inline-root .imp-msg.assistant blockquote{
+  margin:.4em 0;
+  padding-left:.8em;
+  border-left:3px solid var(--border);
+  color:var(--muted);
+}
+.impactable-inline-root .imp-msg.assistant a{color:var(--blue-400);text-decoration:none}
+.impactable-inline-root .imp-msg.assistant a:hover{text-decoration:underline;color:#5bb8e0}
+.impactable-inline-root .imp-msg.assistant code{font-family:ui-monospace,monospace;font-size:.9em}
+.impactable-inline-root .imp-msg.assistant pre{
+  margin:.4em 0;
+  padding:8px 10px;
+  background:rgba(0,23,46,.55);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow-x:auto;
+}
+.impactable-inline-root .imp-msg.assistant pre code{background:transparent;padding:0;border:0}
+.impactable-inline-root .imp-msg.assistant table{border-collapse:collapse;margin:.5em 0;width:100%}
+.impactable-inline-root .imp-msg.assistant th,
+.impactable-inline-root .imp-msg.assistant td{
+  border:1px solid var(--border);
+  padding:6px 10px;
+  text-align:left;
+}
+.impactable-inline-root .imp-msg.assistant th{background:rgba(0,23,46,.4);font-weight:500}
+
+.impactable-inline-root #impactable-input-wrap{
+  flex-shrink:0;
+  background:transparent;
+  padding:8px 0 4px;
+}
+.impactable-inline-root #impactable-input{
+  position:relative;
+  display:flex;
+  max-width:100%;
+  height:58px;
+  min-height:58px;
+  padding:16px 56px 16px 24px;
+  border-radius:16px;
+  background:rgba(221,225,229,.11);
+  border:1px solid #33adda;
+  color:#fff;
+  transition:border-color .2s,box-shadow .2s;
+  box-shadow:0 10px 18px rgba(0,0,0,.16);
+  backdrop-filter:blur(6px);
+}
+.impactable-inline-root #impactable-input.imp-disabled{opacity:.65;cursor:not-allowed}
+.impactable-inline-root #impactable-input:focus-within{
+  border-color:#00c4b3;
+  box-shadow:0 10px 18px rgba(0,0,0,.16),0 0 0 2px rgba(0,196,179,.28);
+}
+.impactable-inline-root #impactable-query{
+  flex:1;
+  min-height:0;
+  max-height:120px;
+  resize:none;
+  padding:0;
+  margin:0;
+  font-family:var(--font);
+  font-size:16px;
+  font-weight:500;
+  line-height:1.15;
+  letter-spacing:.02em;
+  border:none;
+  background:transparent;
+  color:#fff;
+  outline:none;
+}
+.impactable-inline-root #impactable-query::placeholder{color:rgba(255,255,255,.55)}
+.impactable-inline-root #impactable-send{
+  position:absolute;
+  right:6px;
+  top:50%;
+  transform:translateY(-50%);
+  width:40px;
+  height:40px;
+  min-width:40px;
+  min-height:40px;
+  padding:0;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:#00c4b3;
+  color:#fff;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .2s,transform .2s,background .2s;
+}
+.impactable-inline-root #impactable-send:hover:not(:disabled){opacity:.92;background:#12d4c2}
+.impactable-inline-root #impactable-send:active:not(:disabled){transform:translateY(-50%) scale(.96)}
+.impactable-inline-root #impactable-send:disabled{opacity:.5;cursor:not-allowed}
+
+.impactable-inline-root .impactable-typing{display:flex;gap:6px;align-items:center;padding:4px 0}
+.impactable-inline-root .impactable-typing .dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--muted);
+  animation:impactable-typing-bounce .6s ease-in-out infinite;
+}
+.impactable-inline-root .impactable-typing .dot:nth-child(2){animation-delay:.12s}
+.impactable-inline-root .impactable-typing .dot:nth-child(3){animation-delay:.24s}
+
+@keyframes impactable-typing-bounce{
+  0%,60%,100%{transform:translateY(0);opacity:.4}
+  30%{transform:translateY(-4px);opacity:1}
+}
+@keyframes impactable-spin{to{transform:rotate(360deg)}}
+
+@media (max-width:820px){
+  #impactable-chat-launcher{
+    bottom:calc(76px + env(safe-area-inset-bottom, 0px));
+    right:14px;
+  }
+}
+@media (max-width:768px){
+  #impactable-chat-launcher{
+    width:56px;
+    height:56px;
+    min-width:56px;
+    min-height:56px;
+  }
+  .impactable-inline-root{font-size:14px}
+  .impactable-inline-root .imp-chrome{padding:12px 14px}
+  .impactable-inline-root .imp-chrome-brand img{height:18px}
+  .impactable-inline-root .imp-chrome-label{display:none}
+  .impactable-inline-main{
+    padding:16px 14px calc(12px + env(safe-area-inset-bottom));
+    max-width:none;
+  }
+  .impactable-inline-main.has-chat{padding:8px 14px calc(12px + env(safe-area-inset-bottom))}
+  .impactable-inline-main .imp-welcome-card{
+    min-height:240px;
+    padding:22px 16px 18px;
+    border-radius:14px;
+  }
+  .impactable-inline-root #impactable-chat{padding:8px 0 12px}
+  .impactable-inline-root #impactable-input-wrap{padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+  .impactable-inline-root #impactable-input{height:52px;min-height:52px;padding:12px 52px 12px 16px}
+  .impactable-inline-root .imp-msg-row{max-width:100%;min-width:0}
+  .impactable-inline-root .imp-msg{min-width:0;word-break:break-word}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #impactable-chat-launcher,
+  .impactable-inline-root .imp-quick-btn,
+  .impactable-inline-root .imp-close-btn,
+  .impactable-inline-root #impactable-send{
+    transition:none;
+  }
+  .impactable-inline-root .imp-loading .imp-spinner,
+  .impactable-inline-root .impactable-typing .dot{animation:none}
+}

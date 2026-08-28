@@ -1221,5 +1221,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script defer src="track.js"></script>
 <script>(function(){var tabs=[].slice.call(document.querySelectorAll(".gal-tab"));function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on?"true":"false");var p=document.getElementById(x.getAttribute("aria-controls"));if(p){on?p.removeAttribute("hidden"):p.setAttribute("hidden","");}});}tabs.forEach(function(t){t.addEventListener("click",function(){sel(t);});t.addEventListener("keydown",function(e){var i=tabs.indexOf(t),n=tabs.length;if(e.key==="ArrowRight"){e.preventDefault();tabs[(i+1)%n].focus();sel(tabs[(i+1)%n]);}if(e.key==="ArrowLeft"){e.preventDefault();tabs[(i-1+n)%n].focus();sel(tabs[(i-1+n)%n]);}});});})();</script>
 <script src="assets/js/chrome.js"></script>
+<script src="assets/js/chat-widget.js"></script>
 </body>
 </html>
