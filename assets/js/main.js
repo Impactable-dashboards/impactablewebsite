@@ -79,9 +79,6 @@
     window.Lassoo = window.Trialfire;
   })();
 
-  /* DemandSense Website Visitor ID */
-  injectScript('https://insightcdn.net/js/a400e6c5f5ecf708b9215326b8e2347f.js', { type: 'text/javascript' });
-
   /* DemandSense Gate */
   injectScript('/ds-gate/core.js', { type: 'text/javascript' });
 
