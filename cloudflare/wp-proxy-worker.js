@@ -1,4 +1,5 @@
-const WP_ORIGIN = 'https://bisque-cat-190519.hostingersite.com';
+const WP_HOST = 'impactable.site';
+const WP_ORIGIN = 'https://impactable.site';
 const PUBLIC_HOST = 'impactable.com';
 
 /** Paths that should be served from WordPress (exact pages + assets) */
@@ -22,6 +23,19 @@ const WP_PREFIXES = [
   '/marketing-services-providers',
   '/b2b-saas-marketing',
   '/privacy',
+  '/privacy-policy',
+  '/case-studies',
+  '/linkedin-outreach-services',
+  '/dgp-linkedin-ads-tools',
+  '/linkedin-premium-audiences',
+  '/b2b-content-strategy-for-linkedin',
+  '/enhance-google-ads-with-linkedin',
+  '/linkedin-single-image-ad-retargeting',
+  '/data-website-visitor-activation',
+  '/booked-call',
+  '/top-linkedin-ads-experts-in-north-america',
+  '/private-lending-capital-provider-slashes-linkedin-ad-costs-by-48-percent',
+  '/b2b-social-selling-strategies-2025',
   '/wp-content',
   '/wp-includes',
   '/wp-json',
@@ -54,6 +68,16 @@ const INDEXABLE_PREFIXES = [
   '/marketing-services-providers',
   '/b2b-saas-marketing',
   '/privacy',
+  '/privacy-policy',
+  '/case-studies',
+  '/linkedin-outreach-services',
+  '/dgp-linkedin-ads-tools',
+  '/linkedin-premium-audiences',
+  '/b2b-content-strategy-for-linkedin',
+  '/enhance-google-ads-with-linkedin',
+  '/linkedin-single-image-ad-retargeting',
+  '/data-website-visitor-activation',
+  '/booked-call',
 ];
 
 /** Marketing site paths on Vercel — never send these to WP /blog */
@@ -151,6 +175,10 @@ function legacyBlogPostRedirect(url) {
   return `https://${hostname}/blog/${slug}/${search}`;
 }
 
+function isJunkQuery(url) {
+  return url.searchParams.has('jet_blog_ajax') || url.searchParams.has('nocache');
+}
+
 function isIndexablePath(pathname) {
   if (
     pathname.startsWith('/wp-admin') ||
@@ -183,7 +211,8 @@ function rewriteLocation(location, requestUrl) {
   try {
     const abs = new URL(location, WP_ORIGIN);
     if (
-      abs.hostname === 'bisque-cat-190519.hostingersite.com' ||
+      abs.hostname === WP_HOST ||
+      abs.hostname === 'www.' + WP_HOST ||
       abs.hostname === PUBLIC_HOST ||
       abs.hostname === 'www.' + PUBLIC_HOST ||
       abs.hostname === 'impactable.marketing' ||
@@ -196,33 +225,84 @@ function rewriteLocation(location, requestUrl) {
   } catch (_) {
     /* ignore */
   }
-  return location.replaceAll(
-    'https://bisque-cat-190519.hostingersite.com',
-    requestUrl.origin
-  );
+  return location
+    .replaceAll('https://' + WP_HOST, requestUrl.origin)
+    .replaceAll('https://www.' + WP_HOST, requestUrl.origin);
+}
+
+/**
+ * Hostinger hcdn 429s the worker IP when a page plus its assets miss cache
+ * at the same time. Cache successful GETs at the edge, and retry a 429 once.
+ * Do not cache 429s, or the blank page sticks.
+ */
+function originCacheTtl(pathname, request) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') return 0;
+  const cookie = request.headers.get('cookie') || '';
+  if (cookie.includes('wordpress_logged_in') || cookie.includes('wordpress_sec')) return 0;
+  if (
+    pathname.startsWith('/wp-admin') ||
+    pathname.startsWith('/wp-login') ||
+    pathname.startsWith('/wp-json') ||
+    pathname.startsWith('/xmlrpc')
+  ) {
+    return 0;
+  }
+  if (pathname.startsWith('/wp-content/') || pathname.startsWith('/wp-includes/')) {
+    return 86400;
+  }
+  return 120;
 }
 
 async function proxyToWordPress(request) {
   const incoming = new URL(request.url);
   const target = new URL(incoming.pathname + incoming.search, WP_ORIGIN);
-  const indexable = isIndexablePath(incoming.pathname);
+  const indexable = isIndexablePath(incoming.pathname) && !isJunkQuery(incoming);
+  const cacheTtl = originCacheTtl(incoming.pathname, request);
 
   const headers = new Headers(request.headers);
-  headers.set('Host', 'bisque-cat-190519.hostingersite.com');
+  headers.set('Host', WP_HOST);
   headers.set('X-Forwarded-Host', incoming.hostname);
   headers.set('X-Forwarded-Proto', 'https');
-  headers.delete('cf-connecting-ip');
+  for (const name of [
+    'cf-connecting-ip',
+    'cf-ray',
+    'cf-visitor',
+    'cf-ipcountry',
+    'cf-ew-via',
+    'cdn-loop',
+  ]) {
+    headers.delete(name);
+  }
 
   const init = {
     method: request.method,
     headers,
     redirect: 'manual',
+    cf: {
+      cacheEverything: true,
+      cacheTtl: 0,
+      cacheTtlByStatus: cacheTtl
+        ? { '200-299': cacheTtl, '301-308': 120 }
+        : { '200-299': 0 },
+    },
   };
   if (request.method !== 'GET' && request.method !== 'HEAD') {
     init.body = request.body;
   }
 
-  const upstream = await fetch(target.toString(), init);
+  let upstream = await fetch(target.toString(), init);
+  if (
+    upstream.status === 429 &&
+    (request.method === 'GET' || request.method === 'HEAD')
+  ) {
+    await new Promise((resolve) => setTimeout(resolve, 700));
+    upstream = await fetch(target.toString(), {
+      method: request.method,
+      headers,
+      redirect: 'manual',
+      cf: { cacheTtl: 0 },
+    });
+  }
   const outHeaders = new Headers(upstream.headers);
 
   const loc = outHeaders.get('Location');
@@ -250,9 +330,12 @@ async function proxyToWordPress(request) {
   ) {
     let body = await upstream.text();
     body = body
-      .replaceAll('https://bisque-cat-190519.hostingersite.com', incoming.origin)
-      .replaceAll('http://bisque-cat-190519.hostingersite.com', incoming.origin)
-      .replaceAll('//bisque-cat-190519.hostingersite.com', '//' + incoming.host)
+      .replaceAll('https://' + WP_HOST, incoming.origin)
+      .replaceAll('http://' + WP_HOST, incoming.origin)
+      .replaceAll('https://www.' + WP_HOST, incoming.origin)
+      .replaceAll('http://www.' + WP_HOST, incoming.origin)
+      .replaceAll('//' + WP_HOST, '//' + incoming.host)
+      .replaceAll('//www.' + WP_HOST, '//' + incoming.host)
       .replaceAll('https://impactable.marketing', incoming.origin)
       .replaceAll('http://impactable.marketing', incoming.origin);
 

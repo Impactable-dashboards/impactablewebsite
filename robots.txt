@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 Disallow: /pricing-table-embed
+# JetBlog cache-bust AJAX, not pages
+Disallow: /*jet_blog_ajax
+Disallow: /*nocache=
 
 # AI answer engines are explicitly welcome to crawl and cite us
 User-agent: GPTBot
